@@ -1,0 +1,25 @@
+﻿@using VistaDM.Web.Models;
+@model UserModel
+<div id="navheadersmall" style="padding-top:10px; padding-bottom:26px; line-height:20px">@Resources.Resource.PHYSISICAN_REQUIREMENTS</div><!--end of navheadersmall-->
+<div id="navmainsmall">
+    <div id="navboxes">
+        <a href='@Url.Action("MOU", "Physician")' class="transparentLink">
+            <table width="100%" border="0">
+                <tr>
+                    <td align="left">@Resources.Resource.MOU</td>
+                    <td align="right"><img id="imgMOU" src=@(Model.MOU.HasValue ? ( Model.MOU.Value ? "../images/icon_check.png":"../images/icon_x.png" ) : "images/icon_x.png") /></td>
+                </tr>
+            </table>
+        </a>
+    </div><!--end of navboxes-->
+    <div id="navboxes">
+        <a href='@Url.Action("Payee", "Physician")' class="transparentLink">
+            <table width="100%" border="0">
+                <tr>
+                    <td align="left">@Resources.Resource.PayeeForm</td>
+                    <td align="right"><img src=@(Model.Payee.ID == -1 ? "../images/icon_x.png" : "../images/icon_check.png") /></td>
+                </tr>
+            </table>
+        </a>
+    </div><!--end of navboxes-->
+</div><!--end of navmainsmall-->

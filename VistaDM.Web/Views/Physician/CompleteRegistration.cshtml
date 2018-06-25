@@ -1,0 +1,575 @@
+﻿@using VistaDM.Web.Models
+@model InviteeModel
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+<style type="text/css">
+    html {
+        font-family: 'Open Sans', sans-serif;
+        background: url(../images/gray_background.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #centerbox {
+        width: 1100px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #header {
+        background-color: #FFF;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    #redbar {
+        background-image: url(../images/redbar_sides.png);
+        background-repeat: repeat-x;
+        width: 100%;
+        text-align: center;
+    }
+
+    #maincontent {
+        width: 1100px;
+        margin-right: auto;
+        margin-left: auto;
+        border-right-width: thin;
+        border-left-width: thin;
+        border-right-style: solid;
+        border-left-style: solid;
+        border-right-color: #CCC;
+        border-left-color: #CCC;
+        box-shadow: 0px 5px 10px #CCC;
+        text-align: center;
+        background-color: #FFF;
+    }
+
+    #leftbox {
+        margin: 10px;
+        float: left;
+        width: 350px;
+    }
+
+    #navcontainer {
+        background-image: url(../images/nav_background.png);
+        padding-top: 80px;
+        background-repeat: no-repeat;
+        padding-bottom: 30px;
+    }
+
+    #navcontainer2 {
+        background-image: url(../images/nav_background2.png);
+        padding-top: 80px;
+        background-repeat: no-repeat;
+        padding-bottom: 30px;
+    }
+
+    #navcontainer3 {
+        background-image: url(../images/nav_background3.png);
+        padding-top: 80px;
+        background-repeat: no-repeat;
+        padding-bottom: 30px;
+    }
+
+    #navboxes {
+        border-bottom-width: thin;
+        border-bottom-style: dashed;
+        border-bottom-color: #999;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-weight: 700;
+    }
+
+    #rightbox {
+        float: right;
+        width: 660px;
+        margin-top: 10px;
+        margin-right: 20px;
+    }
+
+    #footer {
+        background-color: #9B2346;
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    .welcometext {
+        color: #9B2346;
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .smallgrey {
+        color: #666;
+        font-size: 12px;
+        font-style: italic;
+        vertical-align: top;
+    }
+
+        .smallgrey a:link {
+            color: #666;
+            font-size: 12px;
+            font-style: italic;
+            vertical-align: top;
+        }
+
+        .smallgrey a:visited {
+            color: #666;
+            font-size: 12px;
+            font-style: italic;
+            vertical-align: top;
+        }
+
+        .smallgrey a:hover {
+            text-decoration: underline;
+            color: #333;
+            vertical-align: top;
+        }
+
+        .smallgrey a:active {
+            color: #666;
+            font-size: 12px;
+            font-style: italic;
+            vertical-align: top;
+        }
+
+    .smallwhite {
+        color: #FFF;
+        font-size: 10px;
+        vertical-align: top;
+        text-decoration: none;
+    }
+
+        .smallwhite a:link {
+            color: #FFF;
+            font-size: 10px;
+            vertical-align: top;
+            text-decoration: none;
+        }
+
+        .smallwhite a:visited {
+            color: #FFF;
+            font-size: 10px;
+            vertical-align: top;
+            text-decoration: none;
+        }
+
+        .smallwhite a:hover {
+            text-decoration: underline;
+            color: #FFF;
+            vertical-align: top;
+        }
+
+        .smallwhite a:active {
+            color: #FFF;
+            font-size: 10px;
+            vertical-align: top;
+            text-decoration: none;
+        }
+
+    .white {
+        color: #FFF;
+    }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    #registerheader {
+        background-image: url(../images/form_header.png);
+        background-repeat: no-repeat;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-weight: 700;
+        color: #FFF;
+        font-size: 30px;
+        padding-top: 25px;
+        padding-bottom: 55px;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        width: 602px;
+    }
+
+    #registermain {
+        background-color: #DEDFE0;
+        width: 602px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #registerfooter {
+        background-image: url(../images/form_footer.png);
+        background-repeat: no-repeat;
+        height: 50px;
+        width: 602px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .pwdBox {
+        width: 96%;
+        height: 32px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    input[type=text] {
+        width: 96%;
+        height: 32px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    select {
+        width: 96%;
+        height: 32px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    input[type=text]:focus {
+        border-color: #333;
+    }
+
+    input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .italic {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 19px;
+        font-style: italic;
+        color: #666;
+    }
+
+    .italicred {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 19px;
+        font-style: italic;
+        color: #861B3B;
+    }
+
+    .normal {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #414042;
+    }
+
+    .redsmallitalic {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 18px;
+        color: #9B2346;
+        font-style: italic;
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* SQUARED THREE */
+    .squaredThree {
+        width: 30px;
+        height: 30px;
+        position: relative;
+    }
+
+        .squaredThree label {
+            cursor: pointer;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 0;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+            background: linear-gradient(top, #222 0%, #45484d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+        }
+
+            .squaredThree label:after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 9px;
+                height: 5px;
+                background: transparent;
+                top: 4px;
+                left: 4px;
+                border: 3px solid #fcfff4;
+                border-top: none;
+                border-right: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            .squaredThree label:hover::after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                opacity: 0.3;
+            }
+
+
+        .squaredThree input[type=checkbox]:checked + input[type=hidden] + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+        .squaredThree input[type=checkbox]:checked + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+    .smallbold {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        color: #2E4C58;
+    }
+
+    .validation-summary-errors li {
+        list-style: none;
+    }
+</style>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+@using (Html.BeginForm("CompleteRegistration", "Physician", FormMethod.Post, new { inv = @Model }))
+{
+    <div id="maincontent">
+        <br /><br /><br /><br />
+        <div id="registerheader">
+            @Resources.Resource.REGISTRATION
+        </div><!--end of registerheader-->
+        <div id="registermain">
+            <span style="font-family: 'Open Sans Condensed', sans-serif; font-weight:700; font-size:18px; color:#333">@Resources.Resource.REGISTER2_PLS_REVIEW</span>
+            <br /><br />
+            <span style="font-family: 'Open Sans Condensed', sans-serif; font-size:18px; font-style:italic; color:#9B2346">* @Resources.Resource.REQUIRED_FIELDS</span>
+            <br /><br /><br />
+            <table width="70%" border="0" cellspacing="0" cellpadding="0" style="margin-left:auto; margin-right:auto; text-align:left">
+                <tr>
+                    <td class="italic">@Resources.Resource.REGISTER_FIRSTNAME <span style="color:#9B2346">*</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(x => x.FirstName, new { @readonly = true })
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.ValidationMessage("FirstName")</td>
+                </tr>
+                <tr>
+                    <td class="italic">@Resources.Resource.LASTNAME <span style="color:#9B2346">*</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(x => x.LastName, new { @readonly = true })
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.ValidationMessage("LastName")</td>
+                </tr>
+                <tr>
+                    <td class="italic">@Resources.Resource.REGISTER2_PLS_CLINIC</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(x => x.ClinicName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.ValidationMessage("ClinicName")</td>
+                </tr>
+                <tr>
+                    <td class="italic">@Resources.Resource.REGISTER2_PLS_ADDRESS <span style="color:#9B2346">*</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(x => x.Address)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.ValidationMessage("Address")</td>
+                </tr>
+                <tr>
+                    <td class="italic">@Resources.Resource.REGISTER2_PLS_CITY <span style="color:#9B2346">*</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(x => x.City)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.ValidationMessage("City")</td>
+                </tr>
+                <tr>
+                    <td class="italic">@Resources.Resource.PAYEE_PROVINCE <span style="color:#9B2346">*</span></td>
+                </tr>
+                <tr>
+                    <td>@Html.DropDownListFor(model => model.Province.ID, Model.Provinces, "--Select--")</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.ValidationMessage("Province.ID")
+                    </td>
+                </tr>
+                <tr>
+                    <td class="italic">@Resources.Resource.PAYEE_POSTAL <span style="color:#9B2346">*</span></td>
+                </tr>
+                <tr>
+                    <td>@Html.TextBoxFor(x => x.PostalCode)</td>
+                </tr>
+                <tr>
+                    <td>@Html.ValidationMessage("PostalCode")</td>
+                </tr>
+                <tr>
+                    <td class="italic">@Resources.Resource.REGISTER2_PLS_PHONE <span style="color:#9B2346">*</span></td>
+                </tr>
+                <tr>
+                    <td>@Html.TextBoxFor(x => x.PhoneNumber)</td>
+                </tr>
+                <tr>
+                    <td>@Html.ValidationMessage("PhoneNumber")</td>
+                <tr>
+                    <td class="italic">@Resources.Resource.REGISTER2_PLS_FAX <span style="color:#9B2346">*</span></td>
+                </tr>
+                <tr>
+                    <td>@Html.TextBoxFor(x => x.FaxNumber)</td>
+                </tr>
+                <tr>
+                    <td>@Html.ValidationMessage("FaxNumber")</td>
+                </tr>
+            </table>
+            <br /><br />
+            <div style="background-color: rgba(134, 27, 59, 0.2); width:80%; margin-left:auto; margin-right:auto; padding-bottom:20px; padding-top:20px">
+                <table width="88%" border="0" cellspacing="0" cellpadding="0" style="margin-left:auto; margin-right:auto; text-align:left">
+                    <tr>
+                        <td class="italicred">@Resources.Resource.REGISTER2_PLS_USERNAME <span style="color:#9B2346">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.TextBoxFor(x => x.UserName) </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.ValidationMessage("UserName")</td>
+                    </tr>
+                    <tr>
+                        <td class="italicred">@Resources.Resource.REGISTER2_PLS_PASSWORD <span style="color:#9B2346">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.PasswordFor(x => x.Password, new { @class = "pwdBox" })</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.ValidationMessage("Password")</td>
+                    </tr>
+                    <tr>
+                        <td class="italicred">@Resources.Resource.REGISTER2_PLS_CONPASSWORD <span style="color:#9B2346">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.PasswordFor(x => x.ConfirmPassword, new { @class = "pwdBox" })</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.ValidationMessage("ConfirmPassword")</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <br /><br />
+            <table width="75%" border="0" style="text-align:left; margin-left:auto; margin-right:auto;" cellpadding="5">
+                <tr>
+                    <td width="10%">
+                        <div class="squaredThree">
+
+                            @Html.CheckBox("check", new { id = "squaredThree10" })
+                            <label for="squaredThree10"></label>
+                        </div>
+                    </td>
+                    <td width="90%" class="smallbold">@Resources.Resource.REGISTER2_PLS_WOULD</td>
+                </tr>
+
+                <tr>
+                    <td width="10%" colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="10%" style="vertical-align:top;">
+                        <div class="squaredThree">
+
+                            @Html.CheckBox("check2", new { id = "squaredThree10_2" })
+                            <label for="squaredThree10_2"></label>
+                        </div>
+                    </td>
+                    <td width="90%" class="smallbold">
+                        <p>
+                            <strong>@Resources.Resource.COMPLETE_REGISTARTION_HEADER</strong>
+                             
+                        </p>
+                        <p>
+                            
+                            @Resources.Resource.COMPLETE_REGISTARTION_P1
+                        </p>
+                        <p>   
+                            @Resources.Resource.COMPLETE_REGISTARTION_P2
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+            <br /><br />
+            <div style="font-size:11px; color:#9B2346; text-align:left; width:70%; font-style:italic; margin-left:auto; margin-right:auto">
+                <strong>@Resources.Resource.REGISTER2_PRIVACY:</strong><br />
+                @Resources.Resource.REGISTER2_PRIVACY_P
+            </div>
+            <br /><br />
+            <span style="color:#9B2346">
+                @ViewBag.Error
+                @Html.ValidationSummary(true)
+            </span>
+            <div class="grow"><input type="image" value="submit" src="@Resources.Resource.BTN_COMPLETE_URL" /></div><br /><br />
+        </div><!--end of registermain-->
+        <div id="registerfooter">
+        </div><!--end of registerfooter-->
+        <br /><br /><br /><br />
+    </div>
+}

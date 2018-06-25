@@ -1,0 +1,695 @@
+﻿﻿@using VistaDM.Web.Models;
+@model  PracticeAssessment_P5
+@{
+    Layout = "~/Views/Shared/_Vista_Layout.cshtml";
+}
+
+<style type="text/css">
+    #container {
+        width: 660px;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #grayheader {
+        background-image: url(../images/graybar.png);
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 620px;
+        font-size: 26px;
+        color: #FFF;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px #000;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+
+    #boxborder {
+        padding: 20px;
+        font-size: 13px;
+        background-color: #F9F9F9;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border: 1px solid #CCC;
+    }
+
+    ul {
+        margin-left: 5px;
+        margin-right: 0px;
+        padding-left: 20px;
+        padding-right: 0px;
+    }
+
+    a.red:link {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:visited {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:hover {
+        color: #9B2346;
+        text-decoration: underline;
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* SQUARED THREE */
+    .squaredThree {
+        
+        position: relative;
+    }
+
+        .squaredThree label {
+            cursor: pointer;
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            top: 3px;
+            left: 3px;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+            background: linear-gradient(top, #222 0%, #45484d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+        }
+
+            .squaredThree label:after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 3px;
+                background: transparent;
+                top: 3px;
+                left: 3px;
+                border: 3px solid #fcfff4;
+                border-top: none;
+                border-right: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            .squaredThree label:hover::after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                opacity: 0.3;
+            }
+
+        .squaredThree input[type=checkbox]:checked + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    input[type=text] {
+        width: 200px;
+        height: 22px;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    .smallinput[type=text] {
+        width: 60px;
+        height: 22px;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    input[type=text]:focus {
+        border-color: #333;
+    }
+
+    input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    select {
+        width: 100%;
+        height: 24px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    textarea {
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        width: 91%;
+        height: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+    /* radio button*/
+    .radio label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        font-size: 13px;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+
+    .radio label:before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 0px;
+        left: 0;
+        bottom: 0px;
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+    }
+
+    .radio label:before {
+        border-radius: 8px;
+    }
+
+    /*input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 30px;
+        text-align: center;
+        line-height: 18px;
+    }*/
+
+     input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 35px;
+        text-align: center;
+        line-height: 15px;
+    }
+
+
+    .tableborder td, th {
+        border: 1px solid black;
+    }
+
+    #successbox {
+        margin-right: auto;
+        margin-left: auto;
+        font-family: 'Open Sans', sans-serif;
+        width: 620px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: left;
+        background-image: url(../images/PlainBackground.png);
+        height: 320px;
+        padding: 0px;
+        font-size: 14px;
+        background-repeat: no-repeat;
+    }
+
+    
+</style>
+
+
+@Html.Hidden("IsReadOnlyMode", Model.IsReadOnly)
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var UnCheckAll = function (uncheck) {
+
+                if (uncheck) {
+                    $('#squaredThree80').prop('checked', false);
+                    $('#squaredThree81').prop('checked', false);
+                    $('#squaredThree82').prop('checked', false);
+                    $('#squaredThree83').prop('checked', false);
+                    $('#squaredThree84').prop('checked', false);
+                    $('#squaredThree85').prop('checked', false);
+
+                }
+                else {
+
+                    $('#squaredThree86').prop('checked', false);
+
+                }
+            }
+
+
+            $('#squaredThree86').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    UnCheckAll(true);
+                }
+            });
+
+            $('#squaredThree80').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    UnCheckAll(false);
+                }
+            });
+
+            $('#squaredThree81').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    UnCheckAll(false);
+                }
+            });
+
+            $('#squaredThree82').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    UnCheckAll(false);
+                }
+            });
+
+            $('#squaredThree83').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    UnCheckAll(false);
+                }
+            });
+
+            $('#squaredThree84').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    UnCheckAll(false);
+                }
+            });
+
+            $('#squaredThree85').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    UnCheckAll(false);
+                }
+            });
+
+
+            if ($("#IsReadOnlyMode").val() == "True") {
+
+                //alert($("#IsReadOnlyMode").val());
+                //$('*', 'form').attr('disabled', 'disabled').attr('readonly', 'readonly');
+                $('input[type = radio], input[type = checkbox], input[type = text], select').attr('disabled', 'disabled').attr('readonly', 'readonly');
+            }
+
+            function CalculateNONHDLC() {
+
+                var cholestoral = parseFloat($('#TotalCholesterol').val()).toFixed(2);
+                var hdlc = parseFloat($('#HDLC').val()).toFixed(2);
+
+                var nonhdlc = 0;
+
+                if (!isNaN(cholestoral) && !isNaN(hdlc)) {
+
+                    nonhdlc = (cholestoral - hdlc).toFixed(2);
+
+                    $('#NonHDLC').val(nonhdlc);
+                }
+                else {
+
+                    $('#NonHDLC').val('');
+
+                }
+
+            }
+
+
+            $('#TotalCholesterol').blur(function () {
+                CalculateNONHDLC();
+            });
+            $('#LDLC').blur(function () {
+                CalculateNONHDLC();
+            });
+
+            $('#HDLC').blur(function () {
+                CalculateNONHDLC();
+            });
+
+
+
+        });
+
+    </script>
+}
+
+
+
+@using (Html.BeginForm("PracticeAssessment_Screen5", "Physician", FormMethod.Post, new { model = @Model }))
+{
+    @Html.HiddenFor(x => x.IsReadOnly)
+    @Html.HiddenFor(x => x.PatientID)
+    @Html.HiddenFor(x => x.PatientNum)
+
+
+    <div id="rightbox">
+
+        <div style="background-color:#333; color:#FFF; text-align:left; padding:7px; font-size:20px">
+
+            <table width="100%" border="0">
+                <tr>
+                    <td width="89%"><strong> @Resources.Resource.PAP5_heading</strong></td>
+                    <td width="11%">ID: @Model.PatientNum</td>
+                </tr>
+            </table>
+        </div>
+
+        <table width="80%" border="0" align="center" style="margin-top:10px">
+            <tr>
+                <td width="37%">
+                    <strong> @Resources.Resource.PAP5_targetLDLC  </strong>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.LDLC_Target)
+                    </span>
+                </td>
+                <td width="63%">
+                    @*<select name="LDL-C Target">
+                            <option value="Select one from the drop down menu">Select one from the drop down menu</option>
+                            <option value="≤1.5 mmol/L">≤1.5 mmol/L</option>
+                            <option value="≤1.8 mmol/L">≤1.8 mmol/L</option>
+                            <option value="≤2.0 mmol/L">≤2.0 mmol/L</option>
+                            <option value="≤2.5 mmol/L">≤2.5 mmol/L</option>
+                            <option value="≤3.0 mmol/L">≤3.0 mmol/L</option>
+                            <option value="≤3.5 mmol/L">≤3.5 mmol/L</option>
+                            <option value="≤4.0 mmol/L">≤4.0 mmol/L</option>
+                            <option value="≤5.0 mmol/L">≤5.0 mmol/L</option>
+                        </select>*@
+
+                    @Html.DropDownListFor(
+                x => x.LDLC_Target,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text ="≤1.5 mmol/L" , Value = "1.5 mmol/L"},
+                    new SelectListItem {Text ="≤1.8 mmol/L" , Value = "1.8 mmol/L"},
+                    new SelectListItem {Text ="≤2.0 mmol/L" , Value = "2.0 mmol/L"},
+                    new SelectListItem {Text ="≤2.5 mmol/L" , Value = "2.5 mmol/L"},
+                    new SelectListItem {Text ="≤3.0 mmol/L" , Value = "3.0 mmol/L"},
+                    new SelectListItem {Text ="≤3.5 mmol/L" , Value = "3.5 mmol/L"},
+                    new SelectListItem {Text ="≤4.0 mmol/L" , Value = "4.0 mmol/L"},
+                    new SelectListItem {Text ="≤5.0 mmol/L" , Value = "5.0 mmol/L"}
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+
+
+                </td>
+            </tr>
+        </table>
+
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td colspan="4">
+                    <strong>@Resources.Resource.PAP5_Lipidlevels</strong>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.LipidLevelsChecked)
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td width="4%">
+                    <div class="radio">
+                        @Html.RadioButtonFor(x => x.LipidLevelsChecked, true,
+                        @Model.LipidLevelsChecked.HasValue ?
+(@Model.LipidLevelsChecked.Value == true ? (object)new { id = "Q2Yes", @checked = "checked" } : (object)new { id = "Q2Yes" })
+: (object)new { id = "Q2Yes" })
+                        <label for="Q2Yes"></label>
+                    </div>
+                </td>
+                <td width="16%">Yes</td>
+                <td width="4%">
+                    <div class="radio">
+                        @Html.RadioButtonFor(x => x.LipidLevelsChecked, false,
+                        @Model.LipidLevelsChecked.HasValue ?
+(@Model.LipidLevelsChecked.Value == false ? (object)new { id = "Q2No", @checked = "checked" } : (object)new { id = "Q2No" })
+         : (object)new { id = "Q2No" })
+                        <label for="Q2No"></label>
+                    </div>
+                </td>
+                <td width="76%">No</td>
+            </tr>
+        </table>
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td colspan="8"><span style=" color:#9B2346; font-size:18px"><strong> @Resources.Resource.PAP5_RecordValues </strong></span></td>
+            </tr>
+            <tr>
+                <td width="30%"><strong>@Resources.Resource.PAP5_TotalCholesterol</strong></td>
+                <td width="13%">
+
+                    @Html.TextBoxFor(x => x.TotalCholesterol, new { @class = "smallinput" })
+
+                </td>
+                <td width="57%">
+                    <span style="font-size:12px"><strong>mmol/L</strong></span>
+                    <span class="error">
+                        @Html.ValidationMessage("CHOLES_RANGE")
+                        @Html.ValidationMessageFor(x => x.TotalCholesterol)
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><strong> @Resources.Resource.PAP5_LDLC</strong></td>
+                <td>
+
+                    @Html.TextBoxFor(x => x.LDLC, new { @class = "smallinput" })
+
+                </td>
+                <td>
+                    <span style="font-size:12px"><strong>mmol/L</strong></span>
+                    <span class="error">
+                        
+                        @Html.ValidationMessage("LDLC_RANGE")
+                        @Html.ValidationMessageFor(x => x.LDLC)
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>@Resources.Resource.PAP5_HDLC</strong></td>
+                <td>
+
+                    @Html.TextBoxFor(x => x.HDLC, new { @class = "smallinput" })
+
+                </td>
+                <td>
+                    <span style="font-size:12px"><strong>mmol/L</strong></span>
+                    <span class="error">
+                        @Html.ValidationMessage("HDLC_RANGE")
+                        @Html.ValidationMessageFor(x => x.HDLC)
+                    </span>
+
+                </td>
+            </tr>
+            <tr>
+                <td><strong> @Resources.Resource.PAP5_NonHDC</strong></td>
+                <td>
+
+                    @Html.TextBoxFor(x => x.NonHDLC, new { @class = "smallinput readOnly", @readonly = "true" })
+
+                </td>
+                <td>
+                    <span style="font-size:12px"><strong>mmol/L</strong></span>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.NonHDLC)
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>@Resources.Resource.PAP5_Triglycerides</strong></td>
+                <td>
+
+                    @Html.TextBoxFor(x => x.Triglycerides, new { @class = "smallinput" })
+
+                </td>
+                <td>
+                    <span style="font-size:12px"><strong>mmol/L</strong></span>
+                    <span class="error">
+                        @Html.ValidationMessage("TRI_RANGE")
+                        @Html.ValidationMessageFor(x => x.Triglycerides)
+                    </span>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td>
+                    <span style=" color:#9B2346; font-size:20px"><strong> @Resources.Resource.PAP5_ModifyingTherapy</strong></span> <span class="error">
+                        @Html.ValidationMessage("SECTION_1")
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellpadding="4" cellspacing="0" class="tableborder spacedTable" style="border-collapse:collapse">
+                        <tr>
+                            <td width="93%" bgcolor="#9B2346" style="color:#FFF; font-size:12px">
+                                <strong> @Resources.Resource.PA_NoneOFAbove</strong>
+
+
+                            </td>
+                            <td align="center" width="7%" bgcolor="#9B2346" style="color:#FFF; font-size:12px">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP5_ModifyingTherapy1</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree80" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.Statin,
+                        @Model.Statin ? (object)new { id = "squaredThree80", @checked = "checked" } : (object)new { id = "squaredThree80" })
+                                    <label for="squaredThree80"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP5_ModifyingTherapy2</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree81" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.BileAcid,
+                             @Model.BileAcid ? (object)new { id = "squaredThree81", @checked = "checked" } : (object)new { id = "squaredThree81" })
+                                    <label for="squaredThree81"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP5_ModifyingTherapy3</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Ezetimibe,
+                             @Model.Ezetimibe ? (object)new { id = "squaredThree82", @checked = "checked" } : (object)new { id = "squaredThree82" })
+                                    @*<input type="checkbox" value="None" id="squaredThree82" name="check" />*@
+                                    <label for="squaredThree82"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP5_ModifyingTherapy4</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree83" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.Fibrate,
+                             @Model.Fibrate ? (object)new { id = "squaredThree83", @checked = "checked" } : (object)new { id = "squaredThree83" })
+
+                                    <label for="squaredThree83"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP5_ModifyingTherapy5</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree84" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.Niacin,
+                                     @Model.Niacin ? (object)new { id = "squaredThree84", @checked = "checked" } : (object)new { id = "squaredThree84" })
+                                    <label for="squaredThree84"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong> @Resources.Resource.PAP5_ModifyingTherapy6</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree85" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.PCSK9Inhibitor,
+                                  @Model.PCSK9Inhibitor ? (object)new { id = "squaredThree85", @checked = "checked" } : (object)new { id = "squaredThree85" })
+                                    <label for="squaredThree85"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #999"><strong>@Resources.Resource.PAP2_NoneOfAbove</strong></td>
+                            <td style="background-color: #999" align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree86" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.NoneofAbove,
+                                          @Model.NoneofAbove ? (object)new { id = "squaredThree86", @checked = "checked" } : (object)new { id = "squaredThree86" })
+                                    <label for="squaredThree86"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <span style="font-size:12px; color:#999; font-style:italic"></span>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <div>
+            <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                @Html.ValidationSummary(true)
+            </span>
+        </div>
+        <table width="100%" border="0">
+            <tr>
+                <td width="33%" align="center">
+                    <div class="grow">
+                        <a href='@Url.Action("PracticeAssessment_Screen4", new { PatientID = Model.PatientID, PatientNum = Model.PatientNum, IsReadOnly = Model.IsReadOnly })'><img src="@Resources.Resource.BTN_BACK_URL" border="0" width="180" /></a>
+                    </div>
+                </td>
+                <td width="33%" align="center">
+                    <div class="grow">
+                    </div>
+                </td>
+                <td width="33%" align="center">
+                    <div class="grow">
+                        <input type="image" value="submit" src="@Resources.Resource.BTN_NEXT_URL" width="180">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+}

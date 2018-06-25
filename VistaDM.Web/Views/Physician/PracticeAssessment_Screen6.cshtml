@@ -1,0 +1,1814 @@
+﻿@using VistaDM.Web.Models
+
+@model PracticeAssessment_P6
+
+@{
+
+    Layout = "~/Views/Shared/_Vista_Layout.cshtml";
+}
+
+<style type="text/css">
+    #container {
+        width: 660px;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #grayheader {
+        background-image: url(../images/graybar.png);
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 620px;
+        font-size: 26px;
+        color: #FFF;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px #000;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+
+    #boxborder {
+        padding: 20px;
+        font-size: 13px;
+        background-color: #F9F9F9;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border: 1px solid #CCC;
+    }
+
+    ul {
+        margin-left: 5px;
+        margin-right: 0px;
+        padding-left: 20px;
+        padding-right: 0px;
+    }
+
+    a.red:link {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:visited {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:hover {
+        color: #9B2346;
+        text-decoration: underline;
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* SQUARED THREE */
+    .squaredThree {
+        
+        position: relative;
+    }
+
+        .squaredThree label {
+            cursor: pointer;
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            top: 3px;
+            left: 3px;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+            background: linear-gradient(top, #222 0%, #45484d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+        }
+
+            .squaredThree label:after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 3px;
+                background: transparent;
+                top: 3px;
+                left: 3px;
+                border: 3px solid #fcfff4;
+                border-top: none;
+                border-right: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            .squaredThree label:hover::after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                opacity: 0.3;
+            }
+
+        .squaredThree input[type=checkbox]:checked + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    input[type=text] {
+        width: 200px;
+        height: 22px;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    .smallinput[type=text] {
+        width: 60px;
+        height: 22px;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    input[type=text]:focus {
+        border-color: #333;
+    }
+
+    input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    select {
+        width: 100%;
+        height: 24px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    textarea {
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        width: 91%;
+        height: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+    /* radio button*/
+    .radio label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        font-size: 13px;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+
+    .radio label:before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 0px;
+        left: 0;
+        bottom: 0px;
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+    }
+
+    .radio label:before {
+        border-radius: 8px;
+    }
+
+    /*input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 30px;
+        text-align: center;
+        line-height: 18px;
+    }*/
+
+     input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 35px;
+        text-align: center;
+        line-height: 15px;
+    }
+
+
+    .tableborder td, th {
+        border: 1px solid black;
+    }
+
+    #successbox {
+        margin-right: auto;
+        margin-left: auto;
+        font-family: 'Open Sans', sans-serif;
+        width: 620px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: left;
+        background-image: url(../images/PlainBackground.png);
+        height: 320px;
+        padding: 0px;
+        font-size: 14px;
+        background-repeat: no-repeat;
+    }
+</style>
+
+
+@Html.Hidden("IsReadOnlyMode", Model.IsReadOnly)
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        var HideHypoDiv = function (hide) {
+
+            if (hide) {
+
+                $('#divhypoglycemia').hide();
+            }
+            else {
+
+                $('#divhypoglycemia').show();
+
+            }
+        }
+
+
+        var CheckHypo = function () {
+
+            if (
+                    !$('#squaredThree111').is(':checked') &&
+                    !$('#squaredThree112').is(':checked') &&
+                    !$('#squaredThree113').is(':checked')
+
+                ) {
+                HideHypoDiv(true);
+            }
+
+        }
+
+
+
+        $(document).ready(function () {
+
+
+
+            var ToggleGroup1 = function (uncheck) {
+
+                if (uncheck) {
+
+                    $('#squaredThree96').prop('checked', false);
+                    $('#squaredThree87').prop('checked', false);
+                    $('#squaredThree88').prop('checked', false);
+                    $('#squaredThree89').prop('checked', false);
+                    $('#squaredThree90').prop('checked', false);
+                    $('#squaredThree91').prop('checked', false);
+                    $('#squaredThree92').prop('checked', false);
+                    $('#squaredThree93').prop('checked', false);
+
+                }
+                else {
+
+                    $('#squaredThree94').prop('checked', false);
+
+                }
+            }
+
+            var ToggleGroup2 = function (uncheck) {
+
+                if (uncheck) {
+
+                    $('#squaredThree100').prop('checked', false);
+                    $('#squaredThree101').prop('checked', false);
+                    $('#squaredThree102').prop('checked', false);
+                    $('#squaredThree103').prop('checked', false);
+                    $('#squaredThree104').prop('checked', false);
+                    $('#squaredThree105').prop('checked', false);
+                    $('#squaredThree106').prop('checked', false);
+                    $('#squaredThree107').prop('checked', false);
+                    $('#squaredThree108').prop('checked', false);
+                    $('#squaredThree109').prop('checked', false);
+
+                }
+                else {
+
+                    $('#squaredThree110').prop('checked', false);
+
+                }
+            }
+
+            var ToggleGroup3 = function (uncheck) {
+
+                if (uncheck) {
+
+                    $('#squaredThree111').prop('checked', false);
+                    $('#squaredThree112').prop('checked', false);
+                    $('#squaredThree113').prop('checked', false);
+
+
+                }
+                else {
+
+                    $('#squaredThree114').prop('checked', false);
+                    $('#squaredThree1191').prop('checked', false);
+
+
+                }
+            }
+
+            var ToggleGroup4 = function (uncheck) {
+
+                if (uncheck) {
+
+                    $('#squaredThree115').prop('checked', false);
+                    $('#squaredThree116').prop('checked', false);
+                    $('#squaredThree117').prop('checked', false);
+                    $('#squaredThree118').prop('checked', false);
+
+                }
+                else {
+
+                    $('#squaredThree119').prop('checked', false);
+
+                }
+            }
+
+            //GROUP 1
+            $('#squaredThree94').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup1(true);
+                }
+            });
+
+            $('#squaredThree96').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup1(false);
+                }
+            });
+            $('#squaredThree87').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup1(false);
+                }
+            });
+            $('#squaredThree88').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup1(false);
+                }
+            });
+            $('#squaredThree89').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup1(false);
+                }
+            });
+            $('#squaredThree90').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup1(false);
+                }
+            });
+            $('#squaredThree91').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup1(false);
+                }
+            });
+            $('#squaredThree92').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup1(false);
+                }
+            });
+            $('#squaredThree93').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup1(false);
+                }
+            });
+            //GROUP 1
+
+            //GROUP 2
+            $('#squaredThree110').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(true);
+                }
+            });
+
+            $('#squaredThree100').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(false);
+                }
+            });
+            $('#squaredThree101').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(false);
+                }
+            });
+            $('#squaredThree102').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(false);
+                }
+            });
+            $('#squaredThree103').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(false);
+                }
+            });
+            $('#squaredThree104').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(false);
+                }
+            });
+            $('#squaredThree105').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(false);
+                }
+            });
+            $('#squaredThree106').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(false);
+                }
+            });
+            $('#squaredThree107').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(false);
+                }
+            });
+            $('#squaredThree108').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(false);
+                }
+            });
+            $('#squaredThree109').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup2(false);
+                }
+            });
+            //GROUP 2
+
+            //GROUP 3
+            $('#squaredThree114').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup3(true);
+                }
+            });
+
+            $('#squaredThree1191').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup3(true);
+                }
+            });
+
+            $('#squaredThree111').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup3(false);
+                }
+
+            });
+            $('#squaredThree112').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup3(false);
+                }
+            });
+            $('#squaredThree113').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup3(false);
+                }
+            });
+            //GROUP 3
+
+            //GROUP 4
+            $('#squaredThree119').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup4(true);
+                }
+            });
+
+            $('#squaredThree115').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup4(false);
+                }
+            });
+            $('#squaredThree116').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup4(false);
+                }
+            });
+            $('#squaredThree117').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup4(false);
+                }
+            });
+            $('#squaredThree118').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    ToggleGroup4(false);
+                }
+            });
+            //GROUP 4
+
+            $('#squaredThree95').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    $('#FPG').attr('disabled', 'disabled');
+                    $('#FPG').val('');
+                }
+                else {
+
+                    $('#FPG').removeAttr('disabled');
+                }
+            });
+
+            if ($('#squaredThree95').is(':checked')) {
+
+                $('#FPG').attr('disabled', 'disabled');
+                $('#FPG').val('');
+            }
+
+
+            //A1C
+            $('#A1C_Target').on('change', function () {
+
+                if (
+                        $('#A1C_Target')[0].value == '7.5%' ||
+                        $('#A1C_Target')[0].value == '8.0%' ||
+                        $('#A1C_Target')[0].value == '7.1 to 8.5 %'
+                    ) {
+                    $("#divSelectAll").show();
+                }
+                else {
+                    $("#divSelectAll").hide();
+                }
+
+            });
+            //A1C
+
+            //Eye Exam
+            $('#EyeExam').on('change', function () {
+
+                //var selectedValue = this.selectedOptions[0].value;
+                //var selectedText = this.selectedOptions[0].text;
+                if ($('#EyeExam')[0].value == 'Yes') {
+                    $("#divEyeExamFinding").show();
+                }
+                else {
+                    $("#divEyeExamFinding").hide();
+                }
+
+            });
+            //Eye Exam
+
+            //SMBG
+            $('#SMBG').on('change', function () {
+
+                //var selectedValue = this.selectedOptions[0].value;
+                //var selectedText = this.selectedOptions[0].text;
+                if ($('#SMBG')[0].value == 'Yes') {
+                    $("#divSMBG").show();
+                }
+                else {
+                    $("#divSMBG").hide();
+                }
+
+            });
+            //SMBG
+
+
+            //Insulin
+            $('#squaredThree103').on('change', function () {
+
+                if ($(this).is(':checked')) {
+
+                    $("#divInsulin").show();
+                }
+                else {
+
+                    $("#divInsulin").hide();
+                }
+
+            });
+            //Insulin
+
+            //foot exam
+            $('#ComprehensiveFootExam').on('change', function () {
+
+                //var selectedValue = this.selectedOptions[0].value;
+                //var selectedText = this.selectedOptions[0].text;
+                if ($('#ComprehensiveFootExam')[0].value == 'Yes') {
+                    $("#divFootExamFinding").show();
+                }
+                else {
+                    $("#divFootExamFinding").hide();
+                }
+
+            });
+            //foot exam
+
+
+            //HideHypoDiv
+
+            $('#squaredThree111').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    HideHypoDiv(false);
+                }
+
+                CheckHypo();
+
+            });
+            $('#squaredThree112').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    HideHypoDiv(false);
+                }
+
+                CheckHypo();
+            });
+            $('#squaredThree113').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    HideHypoDiv(false);
+                }
+
+                CheckHypo();
+            });
+
+
+            $('#squaredThree114').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    HideHypoDiv(true);
+                }
+
+                CheckHypo();
+            });
+
+            $('#squaredThree1191').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    HideHypoDiv(true);
+                }
+
+                CheckHypo();
+            });
+
+
+
+            //HideHypoDiv
+
+
+            if ($("#IsReadOnlyMode").val() == "True") {
+
+                //alert($("#IsReadOnlyMode").val());
+                //$('*', 'form').attr('disabled', 'disabled').attr('readonly', 'readonly');
+                $('input[type = radio], input[type = checkbox], input[type = text], select').attr('disabled', 'disabled').attr('readonly', 'readonly');
+            }
+
+        });
+
+
+        //A1C
+        if (
+                $('#A1C_Target')[0].value == '7.5%' ||
+                $('#A1C_Target')[0].value == '8.0%' ||
+                $('#A1C_Target')[0].value == '7.1 to 8.5 %'
+            ) {
+            $("#divSelectAll").show();
+        }
+        else {
+            $("#divSelectAll").hide();
+        }
+
+        //EYE EXAM
+        if ($('#EyeExam')[0].value == 'Yes') {
+            $("#divEyeExamFinding").show();
+        }
+        else {
+            $("#divEyeExamFinding").hide();
+        }
+
+
+        //SMBG
+        if ($('#SMBG')[0].value == 'Yes') {
+            $("#divSMBG").show();
+        }
+        else {
+            $("#divSMBG").hide();
+        }
+
+
+        //insulin
+        if ($('#squaredThree103').is(':checked')) {
+
+            $("#divInsulin").show();
+        }
+        else {
+
+            $("#divInsulin").hide();
+        }
+
+        //foot exam
+        if ($('#ComprehensiveFootExam')[0].value == 'Yes') {
+            $("#divFootExamFinding").show();
+        }
+        else {
+            $("#divFootExamFinding").hide();
+        }
+
+
+        //foot exam
+
+
+        //hypdodiv
+
+        if ($('#squaredThree111').is(':checked')) {
+
+            HideHypoDiv(false);
+        }
+
+        if ($('#squaredThree112').is(':checked')) {
+
+            HideHypoDiv(false);
+        }
+
+        if ($('#squaredThree113').is(':checked')) {
+
+            HideHypoDiv(false);
+        }
+
+        if ($('#squaredThree114').is(':checked')) {
+
+
+            HideHypoDiv(true);
+        }
+
+        if ($('#squaredThree1191').is(':checked')) {
+
+
+            HideHypoDiv(true);
+        }
+
+        CheckHypo();
+
+        //hypdodiv
+
+        //on page load
+
+    </script>
+}
+
+@using (Html.BeginForm("PracticeAssessment_Screen6", "Physician", FormMethod.Post, new { model = @Model }))
+{
+    @Html.HiddenFor(x => x.IsReadOnly)
+    @Html.HiddenFor(x => x.PatientID)
+    @Html.HiddenFor(x => x.PatientNum)
+
+    <div id="rightbox">
+
+        <div style="background-color:#333; color:#FFF; text-align:left; padding:7px; font-size:20px">
+
+            <table width="100%" border="0">
+                <tr>
+                    <td width="89%"><strong> @Resources.Resource.PAP6_GlycemicProfile</strong></td>
+                    <td width="11%">ID: @Model.PatientNum</td>
+                </tr>
+            </table>
+        </div>
+        <table width="80%" border="0" align="center" style="margin-top:10px">
+            <tr>
+                <td width="36%">
+                    <strong> @Resources.Resource.PAP6_A1CTarget</strong>
+
+                </td>
+                <td width="64%">
+
+
+                    @Html.DropDownListFor(
+                x => x.A1C_Target,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text ="≤6.0%" , Value = "6.0%"},
+                    new SelectListItem {Text ="≤6.5%" , Value = "6.5%"},
+                    new SelectListItem {Text ="≤7.0%" , Value = "7.0%"},
+                    new SelectListItem {Text ="≤7.5%" , Value = "7.5%"},
+                    new SelectListItem {Text ="≤8.0%" , Value = "8.0%"},
+                    new SelectListItem {Text ="7.1 to 8.5 %" , Value = "7.1 to 8.5 %"}
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+                </td>
+                <td>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.A1C_Target)
+                    </span>
+                </td>
+            </tr>
+        </table>
+
+        <div id="divSelectAll">
+            <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+                <tr>
+                    <td>
+                        <strong>@Resources.Resource.PAP6_SelectA1CTarget</strong>
+                        <span class="error">
+                            @Html.ValidationMessage("SECTION_1")
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellpadding="4" cellspacing="0" class="tableborder" style="border-collapse:collapse">
+                            <tr>
+                                <td width="93%" bgcolor="#9B2346" style="color:#FFF; font-size:12px"><strong>@Resources.Resource.PA_NoneOFAbove</strong></td>
+                                <td align="center" width="7%" bgcolor="#9B2346" style="color:#FFF; font-size:12px">&#10003;</td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_SelectA1CTarget1</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @*<input type="checkbox" value="None" id="squaredThree96" name="check" />*@
+                                        @Html.CheckBoxFor(x => x.A1C_Limited,
+                        @Model.A1C_Limited ? (object)new { id = "squaredThree96", @checked = "checked" } : (object)new { id = "squaredThree96" })
+
+                                        <label for="squaredThree96"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_SelectA1CTarget2</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @*<input type="checkbox" value="None" id="squaredThree87" name="check" />*@
+
+                                        @Html.CheckBoxFor(x => x.A1C_FunctionalDependancy,
+                        @Model.A1C_FunctionalDependancy ? (object)new { id = "squaredThree87", @checked = "checked" } : (object)new { id = "squaredThree87" })
+
+
+                                        <label for="squaredThree87"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_SelectA1CTarget3</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @*<input type="checkbox" value="None" id="squaredThree88" name="check" />*@
+                                        @Html.CheckBoxFor(x => x.A1C_ExtensiveCoronary,
+                        @Model.A1C_ExtensiveCoronary ? (object)new { id = "squaredThree88", @checked = "checked" } : (object)new { id = "squaredThree88" })
+                                        <label for="squaredThree88"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_SelectA1CTarget4</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @*<input type="checkbox" value="None" id="squaredThree89" name="check" />*@
+                                        @Html.CheckBoxFor(x => x.A1C_MultipleMorbidities,
+                         @Model.A1C_MultipleMorbidities ? (object)new { id = "squaredThree89", @checked = "checked" } : (object)new { id = "squaredThree89" })
+                                        <label for="squaredThree89"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_SelectA1CTarget5</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @*<input type="checkbox" value="None" id="squaredThree90" name="check" />*@
+                                        @Html.CheckBoxFor(x => x.A1C_Hypoglycemia,
+                     @Model.A1C_MultipleMorbidities ? (object)new { id = "squaredThree90", @checked = "checked" } : (object)new { id = "squaredThree90" })
+
+                                        <label for="squaredThree90"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_SelectA1CTarget6</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @*<input type="checkbox" value="None" id="squaredThree91" name="check" />*@
+                                        @Html.CheckBoxFor(x => x.A1C_HypoglycemiaUnawareness,
+                         @Model.A1C_HypoglycemiaUnawareness ? (object)new { id = "squaredThree91", @checked = "checked" } : (object)new { id = "squaredThree91" })
+                                        <label for="squaredThree91"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_SelectA1CTarget7</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+
+                                        @*<input type="checkbox" value="None" id="squaredThree92" name="check" />*@
+                                        @Html.CheckBoxFor(x => x.A1C_Diabetes,
+                     @Model.A1C_Diabetes ? (object)new { id = "squaredThree92", @checked = "checked" } : (object)new { id = "squaredThree92" })
+                                        <label for="squaredThree92"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_SelectA1CTarget8</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @*<input type="checkbox" value="None" id="squaredThree93" name="check" />*@
+                                        @Html.CheckBoxFor(x => x.A1C_ClinicalJudgement,
+                         @Model.A1C_ClinicalJudgement ? (object)new { id = "squaredThree93", @checked = "checked" } : (object)new { id = "squaredThree93" })
+
+                                        <label for="squaredThree93"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #999"><strong>@Resources.Resource.PAP2_NoneOfAbove</strong></td>
+                                <td style="background-color: #999" align="center">
+                                    <div class="squaredThree">
+                                        @Html.CheckBoxFor(x => x.A1C_NONE,
+                                          @Model.A1C_NONE ? (object)new { id = "squaredThree94", @checked = "checked" } : (object)new { id = "squaredThree94" })
+                                        <label for="squaredThree94"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px">
+            <tr>
+                <td colspan="4">
+                    <strong> @Resources.Resource.PAP6_A1CPast6Months</strong>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.A1C_Checked)
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td width="4%">
+                    <div class="radio">
+                        @Html.RadioButtonFor(x => x.A1C_Checked, true,
+                        @Model.A1C_Checked.HasValue ?
+                        (@Model.A1C_Checked.Value == true ? (object)new { id = "yes2", @checked = "checked" } : (object)new { id = "yes2" })
+                        : (object)new { id = "yes2" })
+                        <label for="yes2"></label>
+                    </div>
+                </td>
+                <td width="16%">@Resources.Resource.PAP6_A1CPast6Months1</td>
+                <td width="4%">
+                    <div class="radio">
+                        @Html.RadioButtonFor(x => x.A1C_Checked, false,
+                        @Model.A1C_Checked.HasValue ?
+                        (@Model.A1C_Checked.Value == false ? (object)new { id = "no2", @checked = "checked" } : (object)new { id = "no2" })
+                        : (object)new { id = "no2" })
+                        <label for="no2"></label>
+                    </div>
+                </td>
+                <td width="76%">@Resources.Resource.PAP6_A1CPast6Months2</td>
+            </tr>
+        </table>
+
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td colspan="5">
+                    <span style=" color:#9B2346; font-size:18px">
+                        <strong>
+                            @Resources.Resource.PAP6_RecordValues
+
+                        </strong>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td width="8%"><strong>@Resources.Resource.PAP6_A1CPercent</strong></td>
+                <td width="13%">
+                    @Html.TextBoxFor(x => x.A1C, new { @class = "smallinput" })
+
+                </td>
+                <td width="15%">
+                    <span style="font-size:12px"><strong>%</strong></span>
+                    <span class="error">
+
+                        @Html.ValidationMessage("A1C_Range")
+                        @Html.ValidationMessageFor(x => x.A1C)
+                    </span>
+                </td>
+                <td width="7%"></td>
+                <td width="57%"></td>
+            </tr>
+            <tr>
+                <td><strong>@Resources.Resource.PAP6_FPG</strong></td>
+                <td>
+                    @Html.TextBoxFor(x => x.FPG, new { @class = "smallinput" })
+                </td>
+                <td>
+                    <span style="font-size:12px"><strong>mmol/L</strong></span>
+                    <span class="error">
+                        @*@Html.ValidationMessageFor(x => x.FPG)*@
+                        @Html.ValidationMessage("FPG_Range")
+                        @Html.ValidationMessage("FPG")
+                    </span>
+                </td>
+                <td>
+                    <div class="squaredThree">
+                        @*<input type="checkbox" value="None" id="squaredThree95" name="check" />*@
+                        @Html.CheckBoxFor(X => X.FPG_NA, @Model.FPG_NA ? (object)new { id = "squaredThree95", @checked = "checked" } : (object)new { id = "squaredThree95" })
+                        <label for="squaredThree95"></label>
+                    </div>
+                </td>
+                <td><span style="font-size:12px"><strong>@Resources.Resource.PAP6_NotAvailable</strong></span></td>
+            </tr>
+        </table>
+
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td colspan="2">
+                    <strong> @Resources.Resource.PAP6_DiabetesEducator</strong>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.Patient_Counselled)
+                    </span>
+
+                </td>
+            </tr>
+            <tr>
+                <td width="67%">
+
+
+                    @Html.DropDownListFor(
+                x => x.Patient_Counselled,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text = @Resources.Resource.PAP6_DiabetesEducatorReferredDD1 , Value = "Yes, at diagnosis"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_DiabetesEducatorReferredDD2, Value = "Yes, in the past 12 months"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_DiabetesEducatorReferredDD3 , Value = "Not referred"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_DiabetesEducatorReferredDD4 , Value = "Not Known"}
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td colspan="2">
+                    <strong>@Resources.Resource.PAP6_DietPlan  </strong>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.Patient_DietPlan)
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td width="67%">
+
+                    @Html.DropDownListFor(
+                x => x.Patient_DietPlan,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text = @Resources.Resource.PAP6_DietPlan1  , Value = "Yes"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_DietPlan2  , Value = "No"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_DietPlanDD3  , Value = "Not Known"}
+
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td colspan="2">
+                    <strong> @Resources.Resource.PAP6_PhysicalActivity </strong>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.PhysicalActivity)
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td width="67%">
+
+
+                    @Html.DropDownListFor(
+                x => x.PhysicalActivity,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text = @Resources.Resource.PAP6_PhysicalActivityDD1 , Value = "Inactive"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_PhysicalActivityDD2  , Value = "Moderately Inactive"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_PhysicalActivityDD3  , Value = "Moderately Active"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_PhysicalActivityDD4  , Value = "Active"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_PhysicalActivityDD5  , Value = "Not Known"},
+
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+
+
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td colspan="2">
+                    <strong> @Resources.Resource.PAP6_ExercisePlan</strong>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.WrittenExercisePlan)
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td width="67%">
+
+                    @Html.DropDownListFor(
+                x => x.WrittenExercisePlan,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_ExercisePlan1 , Value = "Yes"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_ExercisePlan2  , Value = "No"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_ExercisePlan3 , Value = "Not Known"}
+
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td colspan="2">
+                    <strong>@Resources.Resource.PAP6_FootExam  </strong>
+
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.ComprehensiveFootExam)
+                    </span>
+
+                </td>
+            </tr>
+            <tr>
+                <td width="67%">
+
+                    @Html.DropDownListFor(
+                x => x.ComprehensiveFootExam,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_EyeExam1 , Value = "Yes"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_EyeExam2 , Value = "No"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_EyeExam3  , Value = "Not Known"}
+
+                 }
+, @Resources.Resource.PA_selectdropdown)
+
+
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+
+        <div id="divFootExamFinding">
+            <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+                <tr>
+                    <td colspan="2">
+                        <strong> @Resources.Resource.PAP6_FootExamFinding </strong>
+                        <span class="error">
+                            @*@Html.ValidationMessageFor(x => x.FootExamFinding)*@
+                            @Html.ValidationMessage("FootExamFinding")
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="67%">
+
+
+                        @Html.DropDownListFor(
+                x => x.FootExamFinding,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_FootExamFindingDD1 , Value = "Normal"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_FootExamFindingDD2, Value = "Abnormal"},
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+
+
+                    </td>
+                    <td width="33%"></td>
+                </tr>
+            </table>
+        </div>
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td colspan="2">
+                    <strong> @Resources.Resource.PAP6_EyeExam </strong>
+                    <span class="error">
+                        @*@Html.ValidationMessageFor(x => x.EyeExam)*@
+                        @Html.ValidationMessage("EyeExam")
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td width="67%">
+                    @Html.DropDownListFor(
+                x => x.EyeExam,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text = @Resources.Resource.PAP6_EyeExam1  , Value = "Yes"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_EyeExam2 , Value = "No"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_EyeExam3 , Value = "Not Known"}
+
+
+                 }
+                , @Resources.Resource.PA_selectdropdown)
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+
+        <div id="divEyeExamFinding">
+
+            <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+                <tr>
+                    <td colspan="2">
+                        <strong>
+                            @Resources.Resource.PAP6_EyeFinding
+                        </strong>
+                        <span class="error">
+                            @*@Html.ValidationMessageFor(x => x.EyeExamFinding)*@
+                            @Html.ValidationMessage("EyeExamFinding")
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="67%">
+
+
+                        @Html.DropDownListFor(
+                x => x.EyeExamFinding,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text = @Resources.Resource.PAP6_EyeFindingDD1 , Value = "Normal"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_EyeFindingDD2 , Value = "Abnormal"},
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+                    </td>
+                    <td width="33%"></td>
+                </tr>
+            </table>
+        </div>
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td colspan="2">
+                    <strong> @Resources.Resource.PAP6_RecommendSMBG  </strong>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.SMBG)
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td width="67%">
+
+
+                    @Html.DropDownListFor(
+                x => x.SMBG,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text =   @Resources.Resource.PAP6_RecommendSMBG1  , Value = "Yes"},
+                    new SelectListItem {Text =   @Resources.Resource.PAP6_RecommendSMBG2 , Value = "No"}
+
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+
+        <div id="divSMBG">
+
+            <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+                <tr>
+                    <td colspan="2">
+                        <strong>
+                            @Resources.Resource.PAP6_ReviewSMBG
+                        </strong>
+                        <span class="error">
+                            @*@Html.ValidationMessageFor(x => x.SMBGResults)*@
+                            @Html.ValidationMessage("SMBGResults")
+
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="67%">
+
+                        @Html.DropDownListFor(
+                x => x.SMBGResults,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_ReviewSMBG1 , Value = "Yes"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_ReviewSMBG2 , Value = "No"}
+
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+
+
+
+                    </td>
+                    <td width="33%"></td>
+                </tr>
+            </table>
+        </div>
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td>
+                    <span style=" color:#9B2346; font-size:20px"><strong> @Resources.Resource.PAP6_Antihyperglycemic </strong></span>
+                    <span class="error">
+                        @Html.ValidationMessage("SECTION_2")
+                    </span>
+
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellpadding="4" cellspacing="0" class="tableborder" style="border-collapse:collapse">
+                        <tr>
+                            <td width="93%" bgcolor="#9B2346" style="color:#FFF; font-size:12px"><strong>@Resources.Resource.PA_CheckALL</strong></td>
+                            <td align="center" width="7%" bgcolor="#9B2346" style="color:#FFF; font-size:12px">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td><strong> @Resources.Resource.PAP6_Antihyperglycemic1</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Antihyperglycemic_Glucosidase,
+                        @Model.Antihyperglycemic_Glucosidase ? (object)new { id = "squaredThree100", @checked = "checked" } : (object)new { id = "squaredThree100" })
+
+                                    <label for="squaredThree100"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_Antihyperglycemic2</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Antihyperglycemic_DPP4,
+                        @Model.Antihyperglycemic_DPP4 ? (object)new { id = "squaredThree101", @checked = "checked" } : (object)new { id = "squaredThree101" })
+                                    <label for="squaredThree101"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_Antihyperglycemic3</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Antihyperglycemic_GLP1,
+                        @Model.Antihyperglycemic_GLP1 ? (object)new { id = "squaredThree102", @checked = "checked" } : (object)new { id = "squaredThree102" })
+
+                                    <label for="squaredThree102"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_Antihyperglycemic4</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Antihyperglycemic_Insulin,
+                        @Model.Antihyperglycemic_Insulin ? (object)new { id = "squaredThree103", @checked = "checked" } : (object)new { id = "squaredThree103" })
+                                    <label for="squaredThree103"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_Antihyperglycemic5</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Antihyperglycemic_Meglitinide,
+                        @Model.Antihyperglycemic_Meglitinide ? (object)new { id = "squaredThree104", @checked = "checked" } : (object)new { id = "squaredThree104" })
+
+                                    <label for="squaredThree104"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_Antihyperglycemic6</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Antihyperglycemic_Metformin,
+                         @Model.Antihyperglycemic_Metformin ? (object)new { id = "squaredThree105", @checked = "checked" } : (object)new { id = "squaredThree105" })
+                                    <label for="squaredThree105"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_Antihyperglycemic7</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Antihyperglycemic_Metformin_DPP4,
+                        @Model.Antihyperglycemic_Metformin_DPP4 ? (object)new { id = "squaredThree106", @checked = "checked" } : (object)new { id = "squaredThree106" })
+                                    <label for="squaredThree106"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_Antihyperglycemic8</strong></td>
+                            <td align="center">
+
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Antihyperglycemic_SGLT2,
+                            @Model.Antihyperglycemic_SGLT2 ? (object)new { id = "squaredThree107", @checked = "checked" } : (object)new { id = "squaredThree107" })
+
+                                    <label for="squaredThree107"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_Antihyperglycemic9</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Antihyperglycemic_Sulfonylurea,
+                        @Model.Antihyperglycemic_Sulfonylurea ? (object)new { id = "squaredThree108", @checked = "checked" } : (object)new { id = "squaredThree108" })
+
+                                    <label for="squaredThree108"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_Antihyperglycemic10</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Antihyperglycemic_Thiazolidinedione,
+                                           @Model.Antihyperglycemic_Thiazolidinedione ? (object)new { id = "squaredThree109", @checked = "checked" } : (object)new { id = "squaredThree109" })
+                                    <label for="squaredThree109"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        @*<tr>
+                                <td style="background-color: #999"><strong>@Resources.Resource.PAP2_NoneOfAbove</strong></td>
+                                <td style="background-color: #999" align="center">
+                                    <div class="squaredThree">
+                                        @Html.CheckBoxFor(x => x.Antihyperglycemic_None,
+                                              @Model.Antihyperglycemic_None ? (object)new { id = "squaredThree110", @checked = "checked" } : (object)new { id = "squaredThree110" })
+
+                                        <label for="squaredThree110"></label>
+                                    </div>
+                                </td>
+                            </tr>*@
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <div id="divInsulin">
+
+            <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+                <tr>
+                    <td colspan="2">
+                        <strong>
+                            @Resources.Resource.PAP6_InsulinRegimen
+                        </strong>
+                        <span class="error">
+                            @*@Html.ValidationMessageFor(x => x.InsulinRegimen)*@
+                            @Html.ValidationMessage("InsulinRegimen")
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="48%">
+
+
+                        @Html.DropDownListFor(
+                x => x.InsulinRegimen,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_InsulinRegimenDD1 , Value = "Basal once daily"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_InsulinRegimenDD2  , Value = "Basal insulin twice daily"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_InsulinRegimenDD3 , Value = "Basal-plus (basal plus one injection of prandial insulin)"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_InsulinRegimenDD4  , Value = "Basal-bolus (basal plus ≥ 2 injection of prandial insulin)"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_InsulinRegimenDD5 , Value = "Premixed insulin"},
+                    new SelectListItem {Text =  @Resources.Resource.PAP6_InsulinRegimenDD6  , Value = "Other"}
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+
+
+                    </td>
+                    <td width="52%"></td>
+                </tr>
+            </table>
+            <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+                <tr>
+                    <td colspan="2">
+                        <strong>
+                            @Resources.Resource.PAP6_SickDay
+                        </strong>
+                        <span class="error">
+                            @*@Html.ValidationMessageFor(x => x.SickDayInstructions)*@
+                            @Html.ValidationMessage("SickDayInstructions")
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="69%">
+
+
+                        @Html.DropDownListFor(
+                x => x.SickDayInstructions,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text = @Resources.Resource.PAP6_SickDayDD1 , Value = "Yes"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_SickDayDD2 , Value = "No"},
+                    new SelectListItem {Text = @Resources.Resource.PAP6_SickDayDD3 , Value = "Don't know what sick day instructions are"},
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+
+
+                    </td>
+                    <td width="31%"></td>
+                </tr>
+            </table>
+
+        </div>
+
+
+
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td>
+                    <strong>@Resources.Resource.PAP6_HypoglycemiaEvents</strong>
+                    <span class="error">
+                        @Html.ValidationMessage("SECTION_3")
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellpadding="4" cellspacing="0" class="tableborder" style="border-collapse:collapse">
+                        <tr>
+                            <td width="93%" bgcolor="#9B2346" style="color:#FFF; font-size:12px"><strong> @Resources.Resource.PAP6_HypoglycemiaEventsCheckAll</strong></td>
+                            <td align="center" width="7%" bgcolor="#9B2346" style="color:#FFF; font-size:12px">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td><strong> @Resources.Resource.PAP6_Hypoglycemia_Inquire</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Hypoglycemia_Inquire,
+@Model.Hypoglycemia_Inquire ? (object)new { id = "squaredThree1191", @checked = "checked" } : (object)new { id = "squaredThree1191" })
+
+                                    <label for="squaredThree1191"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong> @Resources.Resource.PAP6_HypoglycemiaEvents1</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Hypoglycemia_PatientReported,
+                            @Model.Hypoglycemia_PatientReported ? (object)new { id = "squaredThree111", @checked = "checked" } : (object)new { id = "squaredThree111" })
+
+                                    <label for="squaredThree111"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_HypoglycemiaEvents2</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Hypoglycemia_Evidence,
+                                    @Model.Hypoglycemia_Evidence ? (object)new { id = "squaredThree112", @checked = "checked" } : (object)new { id = "squaredThree112" })
+                                    <label for="squaredThree112"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP6_HypoglycemiaEvents3</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Hypoglycemia_Paramedic,
+                       @Model.Hypoglycemia_Paramedic ? (object)new { id = "squaredThree113", @checked = "checked" } : (object)new { id = "squaredThree113" })
+                                    <label for="squaredThree113"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #999"><strong>@Resources.Resource.PAP6_Hypoglycemia_NoDiscussion</strong></td>
+                            <td style="background-color: #999" align="center">
+                                <div class="squaredThree">
+                                    @Html.CheckBoxFor(x => x.Hypoglycemia_NoDiscussion,
+                                         @Model.Hypoglycemia_NoDiscussion ? (object)new { id = "squaredThree114", @checked = "checked" } : (object)new { id = "squaredThree114" })
+                                    <label for="squaredThree114"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <div id="divhypoglycemia">
+            <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+                <tr>
+                    <td>
+                        <strong>@Resources.Resource.PAP6_HypoglycemiaActions</strong>
+                        <span class="error">
+
+                            @Html.ValidationMessage("Hypoglycemia")
+                            @*@Html.ValidationMessage("SECTION_4")*@
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <table width="100%" border="0" cellpadding="4" cellspacing="0" class="tableborder" style="border-collapse:collapse">
+                            <tr>
+                                <td width="93%" bgcolor="#9B2346" style="color:#FFF; font-size:12px"><strong> @Resources.Resource.PAP6_HypoglycemiaActionsSelect</strong></td>
+                                <td align="center" width="7%" bgcolor="#9B2346" style="color:#FFF; font-size:12px">&#10003;</td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_HypoglycemiaActions1</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @Html.CheckBoxFor(x => x.Hypoglycemia_Adjusted,
+                                          @Model.Hypoglycemia_Adjusted ? (object)new { id = "squaredThree115", @checked = "checked" } : (object)new { id = "squaredThree115" })
+                                        <label for="squaredThree115"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_HypoglycemiaActions2</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @Html.CheckBoxFor(x => x.Hypoglycemia_Exercise,
+                                                               @Model.Hypoglycemia_Exercise ? (object)new { id = "squaredThree116", @checked = "checked" } : (object)new { id = "squaredThree116" })
+                                        <label for="squaredThree116"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_HypoglycemiaActions3</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @Html.CheckBoxFor(x => x.Hypoglycemia_NutritionTherapy,
+                        @Model.Hypoglycemia_NutritionTherapy ? (object)new { id = "squaredThree117", @checked = "checked" } : (object)new { id = "squaredThree117" })
+                                        <label for="squaredThree117"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>@Resources.Resource.PAP6_HypoglycemiaActions4</strong></td>
+                                <td align="center">
+                                    <div class="squaredThree">
+                                        @Html.CheckBoxFor(x => x.Hypoglycemia_ManagementPlan,
+                        @Model.Hypoglycemia_ManagementPlan ? (object)new { id = "squaredThree118", @checked = "checked" } : (object)new { id = "squaredThree118" })
+                                        <label for="squaredThree118"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #999"><strong> @Resources.Resource.PAP6_HypoglycemiaActions5</strong></td>
+                                <td style="background-color: #999" align="center">
+                                    <div class="squaredThree">
+
+                                        @Html.CheckBoxFor(x => x.Hypoglycemia_NoActionTaken,
+                        @Model.Hypoglycemia_NoActionTaken ? (object)new { id = "squaredThree119", @checked = "checked" } : (object)new { id = "squaredThree119" })
+
+                                        <label for="squaredThree119"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <div>
+            <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                @Html.ValidationSummary(true)
+            </span>
+        </div>
+        <table width="100%" border="0">
+            <tr>
+                <td width="33%" align="center">
+                    <div class="grow">
+                        <a href='@Url.Action("PracticeAssessment_Screen5", new { PatientID = Model.PatientID, PatientNum = Model.PatientNum, IsReadOnly = Model.IsReadOnly })'><img src="@Resources.Resource.BTN_BACK_URL" border="0" width="180" /></a>
+                    </div>
+                </td>
+                <td width="33%" align="center">
+                    <div class="grow">
+
+                    </div>
+                </td>
+                <td width="33%" align="center">
+                    <div class="grow">
+                        <input type="image" value="submit" src="@Resources.Resource.BTN_NEXT_URL" width="180">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+}

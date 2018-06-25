@@ -1,0 +1,343 @@
+﻿@using VistaDM.Web.Models
+@model PAF_Feedback
+@{
+    Layout = "~/Views/Shared/_Vista_Layout.cshtml";
+}
+
+
+
+<style type="text/css">
+    .con {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+    }
+</style>
+
+
+<div class="con">
+
+
+    <div id="rightbox">
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+                <td colspan="11" bgcolor="#970C65" style="color: #FFF; font-weight: bold; font-size: 24px; text-align: center; ">
+                    <div style="height:50px; padding-top:20px">
+                        @Resources.Resource.SFB_Heading
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td width="7%"><strong>@Resources.Resource.SFB_Legend:</strong></td>
+                <td width="5%"><img src="../images/check.png" width="34" height="34" /></td>
+                <td width="16%">@Resources.Resource.SFB_Target</td>
+                <td width="4%"><img src="../images/x.png" width="26" height="26" /></td>
+                <td width="14%">@Resources.Resource.SFB_Target_NOTMET</td>
+                <td width="5%"><img src="../images/caution.png" width="37" height="33" /></td>
+                <td width="16%">@Resources.Resource.SFB_Target_PARMET</td>
+                <td width="6%"><img src="../images/NA.png" width="50" height="36" /></td>
+                <td width="10%">@Resources.Resource.SFB_NA</td>
+                <td width="6%"><img src="../images/NR.png" width="50" height="36" /></td>
+                <td width="11%">@Resources.Resource.SFB_NR</td>
+            </tr>
+        </table>
+        <p>&nbsp;</p>
+        <table width="100%" border="1" cellspacing="0" cellpadding="5" class="spacedTable">
+            <tr>
+                <td width="13%" bgcolor="#333333" style="color: #FFF; font-size: 16px; font-weight: bold;">@Resources.Resource.SFB_Care</td>
+                <td align="center" width="15%" bgcolor="#990066" style="color: #FFF; font-size: 16px; font-weight: bold;">@Resources.Resource.SFB_PatientID:@Model.PatientNum</td>
+                <td align="center" width="29%" bgcolor="#333333" style="color: #FFF; font-size: 16px; font-weight: bold;">@Resources.Resource.SFB_Objective </td>
+                <td align="center" width="43%" bgcolor="#333333" style="color: #FFF; font-size: 16px; font-weight: bold;">@Resources.Resource.SFB_Target_WORD</td>
+            </tr>
+            <tr>
+                <td><strong>@Resources.Resource.SFB_SELF</strong></td>
+                <td align="center">@Html.Raw(@Model.Blood_Glucose)</td>
+                <td>@Resources.Resource.SFB_ENSURE</td>
+                <td>
+                    @Html.Raw(@Resources.Resource.SFB_Premeal)
+                </td>
+            </tr>
+            <tr>
+                <td><strong>@Resources.Resource.SFB_A1C</strong></td>
+                <td align="center">@Html.Raw(@Model.A1C)</td>
+                <td>@Html.Raw(@Resources.Resource.SFB_Measure)</td>
+                <td>@Html.Raw(@Resources.Resource.SFB_Measure2)</td>
+            </tr>
+            <tr>
+                <td><strong>@Resources.Resource.SFB_Hypoglycemia</strong></td>
+                <td align="center">@Html.Raw(@Model.Hypoglycemia)</td>
+                <td>@Resources.Resource.SFB_Enquire_Hypo</td>
+                <td>@Resources.Resource.SFB_Avoidance</td>
+            </tr>
+            <tr>
+                <td><strong>@Resources.Resource.SFB_Hypertension</strong></td>
+                <td align="center">@Html.Raw(@Model.Hypertension)</td>
+                <td>@Html.Raw(@Resources.Resource.SFB_MeasureBP)</td>
+                <td>@Html.Raw(@Resources.Resource.SFB_MeasureBP2)</td>
+            </tr>
+            <tr>
+                <td><strong>@Resources.Resource.SFB_Waist</strong></td>
+                <td align="center">@Html.Raw(@Model.WaistCircumference)</td>
+                <td>@Resources.Resource.SFB_WaistMeasure</td>
+                <td>@Html.Raw(@Resources.Resource.SFB_WaistMeasure2)</td>
+            </tr>
+            <tr>
+                <td><strong>@Resources.Resource.SFB_BodyMass</strong></td>
+                <td align="center">@Html.Raw(@Model.BodyMassIndex)</td>
+                <td>@Html.Raw(@Resources.Resource.SFB_BMI)</td>
+                <td>@Html.Raw(@Resources.Resource.SFB_BMI2)</td>
+            </tr>
+        </table>
+        <br />
+        <p>
+            <i>
+                @Resources.Resource.SFB_PARA
+            </i>
+        </p>
+        <p>&nbsp;</p>
+        <table width="100%" border="1" cellspacing="0" cellpadding="5" class="spacedTable">
+            <tr>
+                <td width="18%" bgcolor="#333333" style="color: #FFF; font-size: 16px; font-weight: bold;">@Resources.Resource.SFB_Care</td>
+                <td align="center" width="12%" bgcolor="#990066" style="color: #FFF; font-size: 16px; font-weight: bold;">@Resources.Resource.SFB_PatientID:@Model.PatientNum</td>
+                <td align="center" width="37%" bgcolor="#333333" style="color: #FFF; font-size: 16px; font-weight: bold;">@Resources.Resource.SFB_Objective </td>
+                <td align="center" width="33%" bgcolor="#333333" style="color: #FFF; font-size: 16px; font-weight: bold;">@Resources.Resource.SFB_Target_WORD</td>
+            </tr>
+            <tr>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div> <strong>@Resources.Resource.SFB_Nutrition </strong>          </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td align="center">@Html.Raw(@Model.Nutrition)</td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Resources.Resource.SFB_NutritionEncourage</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Html.Raw(@Resources.Resource.SFB_NutritionTarget)</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div> <strong>@Resources.Resource.SFB_PA </strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td align="center">@Html.Raw(@Model.PhysicalActivity)</td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Resources.Resource.SFB_PA_DISCUSS</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>
+                                    @Html.Raw(@Resources.Resource.SFB_PA_DISCUSS2)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div> <strong>@Resources.Resource.SFB_Smoking </strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td align="center">@Html.Raw(@Model.Smoking)</td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Resources.Resource.SFB_Smoking_Encourage</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Html.Raw(@Resources.Resource.SFB_Smoking_Encourage2)</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div> <strong>@Resources.Resource.SFB_CKD </strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td height="76" align="center">@Html.Raw(@Model.CKD_ACR)</td>
+                <td rowspan="2">
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Html.Raw(@Resources.Resource.SFB_CKD_IDEN)</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Html.Raw(@Resources.Resource.SFB_CKD_IDEN2)</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">@Html.Raw(@Model.CKD_GFR)</td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Html.Raw(@Resources.Resource.SFB_CKD_IDEN3)</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div> <strong>@Resources.Resource.SFB_Retinopathy </strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td align="center">@Html.Raw(@Model.Retinopathy)</td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Html.Raw(@Resources.Resource.SFB_Retinopathy2)</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Resources.Resource.SFB_Retinopathy3</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div> <strong>@Resources.Resource.SFB_Exam </strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td align="center">@Html.Raw(@Model.Neuropathy)</td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Html.Raw(@Resources.Resource.SFB_Exam2) </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Resources.Resource.SFB_Exam3</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div> <strong>@Resources.Resource.SFB_Dyslipidemia</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td align="center">@Html.Raw(@Model.Dyslipidemia)</td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div>@Html.Raw(@Resources.Resource.SFB_Dyslipidemia2)</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div title="Page 2">
+                        <div>
+                            <div>
+                                <div> @Html.Raw(@Resources.Resource.SFB_Dyslipidemia3)</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <i>
+            @Html.Raw(@Resources.Resource.SFB_LastPara)
+        </i>
+        <p>
+            <br />
+        </p>
+    </div>
+
+
+</div>

@@ -1,0 +1,40 @@
+﻿@using VistaDM.Web.Models;
+@model UserModel
+<div id="navheadersmall" style="padding-top:20px; padding-bottom:36px;">@Resources.Resource.RESOURCE_CENTRE</div><!--end of navheadersmall-->
+<div id="navmainsmall">
+    <div id="navboxes">
+        <table width="100%" border="0">
+            <tr>
+                <td align="left">@Resources.Resource.TOOLS_PRACTICE</td>
+                <td align="right"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="    MM_swapImage('Image18', '', '../images/icon_enter_rollover.png', 1)"><img src="../images/icon_enter.png" name="Image18" width="31" height="31" border="0" id="Image18" /></a></td>
+            </tr>
+        </table>
+    </div>
+    @if (Model.PhysicanType == @PhysicanType.PCP)
+    {
+        <div id="navboxes">
+            <table width="100%" border="0">
+                <tr>
+                    <td align="left">@Resources.Resource.Newsletter</td>
+                    <td align="right"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="    MM_swapImage('Image15', '', '../images/icon_enter_rollover.png', 1)"><img src="../images/icon_enter.png" name="Image15" width="31" height="31" border="0" id="Image15" /></a></td>
+                </tr>
+            </table>
+        </div>
+    }
+    <div id="navboxes">
+        <table width="100%" border="0">
+            <tr>
+                <td align="left">@Resources.Resource.CREDIT_GUIDE</td>
+                <td align="right"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="    MM_swapImage('Image19', '', '../images/icon_enter_rollover.png', 1)"><img src="../images/icon_enter.png" name="Image19" width="31" height="31" border="0" id="Image19" /></a></td>
+            </tr>
+        </table>
+    </div>
+    <div id="navboxes">
+        <table width="100%" border="0">
+            <tr>
+                <td align="left">@Resources.Resource.PaymentTracker</td>
+                <td align="right"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="    MM_swapImage('Image15', '', '../images/icon_enter_rollover.png', 1)"><img src="../images/icon_enter.png" name="Image15" width="31" height="31" border="0" id="Image15" /></a></td>
+            </tr>
+        </table>
+    </div>
+</div><!--end of navmainsmall-->

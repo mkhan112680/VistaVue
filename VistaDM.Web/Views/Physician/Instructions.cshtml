@@ -1,0 +1,791 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_Vista_Layout.cshtml";
+}
+
+
+<style type="text/css">
+    #container {
+        width: 660px;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #grayheader {
+        background-image: url(../images/graybar.png);
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 620px;
+        font-size: 26px;
+        color: #FFF;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px #000;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+
+    #headerbox {
+        font-size: 26px;
+        color: #9B2346;
+        font-weight: bold;
+        border-top-width: 13px;
+        border-top-style: solid;
+        border-top-color: #333;
+        padding-right: 10px;
+        padding-left: 10px;
+        text-shadow: 1px 0px 0px #000;
+        line-height: 60px;
+    }
+
+    #instructionboxheader {
+        background-image: url(../images/bannerbar.png);
+        background-repeat: no-repeat;
+        font-size: 18px;
+        color: #FFF;
+        font-weight: bold;
+        padding-top: 25px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    #instructionboxmain {
+        text-align: left;
+        font-size: 12px;
+        background-image: url(../images/bannerbarmain.png);
+        background-repeat: repeat-y;
+        padding-top: 1px;
+        padding-right: 25px;
+        padding-bottom: 1px;
+        padding-left: 25px;
+    }
+
+    #instructionboxbottom {
+        background-image: url(../images/bannerbarbottom.png);
+        background-repeat: no-repeat;
+        height: 20px;
+    }
+
+    #boxborder {
+        padding: 20px;
+        font-size: 13px;
+        background-color: #F9F9F9;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border: 1px solid #CCC;
+    }
+
+    #boxborder2 {
+        padding: 10px;
+        border: medium solid #000;
+        margin: 10px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    ul {
+        margin-left: 5px;
+        margin-right: 0px;
+        padding-left: 20px;
+        padding-right: 0px;
+    }
+
+    a.red:link {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:visited {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:hover {
+        color: #9B2346;
+        text-decoration: underline;
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* SQUARED THREE */
+    .squaredThree {
+        width: 13px;
+        position: relative;
+    }
+
+        .squaredThree label {
+            cursor: pointer;
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            top: 3px;
+            left: 3px;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+            background: linear-gradient(top, #222 0%, #45484d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+        }
+
+            .squaredThree label:after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 3px;
+                background: transparent;
+                top: 3px;
+                left: 3px;
+                border: 3px solid #fcfff4;
+                border-top: none;
+                border-right: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            .squaredThree label:hover::after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                opacity: 0.3;
+            }
+
+        .squaredThree input[type=checkbox]:checked + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    input[type=text] {
+        width: 96%;
+        height: 32px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+        input[type=text]:focus {
+            border-color: #333;
+        }
+
+    input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    select {
+        width: 100%;
+        height: 32px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    textarea {
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        width: 91%;
+        height: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+    /* radio button*/
+    .radio label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        font-size: 13px;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+
+    .radio label:before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 0px;
+        left: 0;
+        bottom: 0px;
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+    }
+
+    .radio label:before {
+        border-radius: 8px;
+    }
+
+    input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 30px;
+        text-align: center;
+        line-height: 18px;
+    }
+</style>
+
+
+<style type="text/css">
+    body {
+        background-color: #FFF;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #content {
+        background-color: #FFF;
+        margin-right: auto;
+        margin-left: auto;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        margin-bottom: 50px;
+        text-align: left;
+        height: 920px;
+        width: 700px;
+        padding: 0px;
+        background-image: url(../images/vistaHeader.png);
+        background-repeat: no-repeat;
+    }
+
+    a:link {
+        color: #333;
+    }
+
+    a:visited {
+        color: #333;
+    }
+
+    a:hover {
+        color: #900;
+    }
+
+    a:active {
+        color: #333;
+    }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* SQUARED THREE */
+    .squaredThree {
+        width: 20px;
+        margin: auto;
+        position: relative;
+    }
+
+        .squaredThree label {
+            cursor: pointer;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 0;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+            background: linear-gradient(top, #222 0%, #45484d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+        }
+
+            .squaredThree label:after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 9px;
+                height: 5px;
+                background: transparent;
+                top: 4px;
+                left: 4px;
+                border: 3px solid #fcfff4;
+                border-top: none;
+                border-right: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            .squaredThree label:hover::after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                opacity: 0.3;
+            }
+
+        .squaredThree input[type=checkbox]:checked + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+    .smallbold {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: #2E4C58;
+    }
+
+    .email input {
+        width: 100%;
+        height: 32px;
+        background: #fcfcfc;
+        background-image: url(../images/input_username.png);
+        background-size: 30px 30px;
+        background-repeat: no-repeat;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    .email input {
+        text-indent: 15px;
+    }
+
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color: #2E4C58;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 10px;
+    }
+
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: #2E4C58;
+        opacity: 1;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: #2E4C58;
+        opacity: 1;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: #2E4C58;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    #title {
+        font-size: 24px;
+        color: #000;
+        font-weight: bold;
+    }
+
+    .para {
+        color: black;
+    }
+
+    .paraBold {
+        color: black;
+        font-weight: bold;
+    }
+</style>
+
+
+@section scripts
+{
+
+
+    <script>
+
+        $(document).ready(function () {
+
+
+            $('.tooltips').attr("title", "<div id='content'><br /><br /><div style='padding: 150px 50px 0px 50px; font-family: ' open sans', sans-serif;'><div id='title'>VISTA DM – PRACTICE ASSESSMENT #1 Eligibility and Non-Eligibility Criteria </div><br><div title='Page 1'><div><div><p class='paraBold' style='color: #093; font-weight: bold;'>Eligibility Criteria: ALL of the criteria must be present </p><ol><li><p class='para'>1. Male and female patients older than 18 years of age </p></li><li><p class='para'>2. Diagnosis of type 2 diabetes mellitus (CDAdefinition) </p></li><li><p class='para'>3. At least ONE prior diabetes related visit </p></li><li><p class='para'>4. Patient treated with at least ONE antihyperglycemic agent </p></li><li><p class='para'>5. Next diabetes related visit to occur within the next 3 – 6 weeks </p></li></ol><p class='paraBold' style='font-weight: bold; font-family:  open sans, sans-serif; color :#900;'><br>Non-eligibility criteria: None of the criteria present</p><ol><li><p class='para'>1. Clinically significant concomitant kidney (e.g., creatinine clearance &lt;30 ml/min) or liver (e.g., active hepatitis) disease </p></li><li><p class='para'>2. Contraindications or intolerance to combination therapy </p></li></ol><p style='font-weight: bold; font-size: 24px;'><u>CDA DEFINITION:</u> <img src='../images/cda definition.png' width='580' height='421' /></p></div></div></div><br /><br /></div></div>");
+
+            new $.Zebra_Tooltips($('.tooltips'), {
+
+                'position': 'left', // tooltip position. left or right
+                'max_width': 800 // the maximum width of the tooltip
+            });
+
+        });
+
+
+    </script>
+
+}
+
+
+<div id="rightbox">
+
+    <div id="instructionboxheader">Instructions</div><!--end of instructionbox-->
+    <div id="instructionboxmain">
+        <ul>
+            <li><strong>STEP 1: Practice Assessment</strong></li>
+            <ul>
+                <li>Mechanism to assess unperceived needs through completion of electronic Practice Assessment Forms (e-PAFs) on patients meeting the eligibility criteria</li>
+            </ul>
+        </ul>
+        <ul>
+            <li><strong>STEP 2: Interactive Feedback</strong></li>
+            <ul>
+                <li>Evidence-based considerations and recommendations based on the current practice assessment results in comparison to evidence-based competency measures </li>
+                <li>Feedback on each completed practice assessment form </li>
+                <li>Aggregate results from all completed practice assessment forms will be available in your resource centre once the practice assessment is completed nationally </li>
+            </ul>
+        </ul>
+        <ul>
+            <li><strong>STEP 3: Practice Re-Assessment:</strong></li>
+            <ul>
+                <li>Mechanism to assess if the Interactive Feedback and the Recommendations and Considerations were implemented in routine clinical care through completion of the electronic Measure Assessment Forms (e-MAFs) </li>
+                <li>Assess additional barriers to change and measure impact</li>
+            </ul>
+        </ul>
+    </div><!--end of instructionboxmain-->
+    <div id="instructionboxbottom">
+    </div><!--end of instructionboxbottom-->
+
+    <br /><!--end of instructionbox--><!--end of instructionboxmain--><!--end of instructionboxbottom-->
+
+    <div id="boxborder">
+        <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+                <td colspan="2" bgcolor="#992447" style="padding: 10px 10px 0px 20px"><strong style="font-size: 18px; color: #FFF;">Download:</strong></td>
+            </tr>
+            <tr>
+                <td width="9%" bgcolor="#992447" style="padding:10px 10px 0px 20px">
+                    <a href="~/pdf/e-PAF 1 Instructions.pdf" class="noLink" target="_blank">
+                        <img src="../images/button_download-SM.png" width="40" height="39" />
+                    </a>
+                </td>
+                <td width="91%" align="left" valign="middle" bgcolor="#992447">
+                    <p>
+                        <a href="~/pdf/e-PAF 1 Instructions.pdf" class="noLink" target="_blank">
+                            <strong style="color: #FFF; font-size: 14px;">
+
+                                Instructions for completing the Practice Assessment Forms
+
+                            </strong>
+                        </a>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="49" bgcolor="#992447" style="padding:10px 10px 0px 20px"><img src="../images/button_download-SM.png" alt="" width="40" height="39" /></td>
+                <td align="left" valign="middle" bgcolor="#992447"><p><strong style="font-size: 14px; color: #FFF;">Feedback Forms Logic and Rationale </strong></p></td>
+            </tr>
+            <tr>
+                <td bgcolor="#992447" style="padding:10px 10px 0px 20px"><img src="../images/button_download-SM.png" alt="" width="40" height="39" /></td>
+                <td align="left" valign="middle" bgcolor="#992447"><strong style="font-size: 14px; color: #FFF;">Instructions for completing the Measure Assessment </strong></td>
+            </tr>
+            <tr>
+                <td colspan="2" bgcolor="#972648">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p>
+                        <strong style="color: #972648; font-size: 16px;">General: </strong>
+                    </p>
+                    <ul>
+                        <li>
+                            Complete ten (10) de-identified electronic Practice Assessment Forms (e-PAF) on patients meeting the eligibility criteria
+                            <a href="#" class="tooltips">
+                                <img width="17" height="16" src="../images/e-PAF1-instructions_clip_image002.png" alt="http://cms.burlington.ca/AssetFactory.aspx?did=20728" />
+                            </a>
+                        </li>
+                        <li>Review the Feedback Form for each completed e-PAF and evaluate if&nbsp; the targets and/or care objectives are being met for each patient </li>
+                        <li>Review the Recommendations and Considerations section </li>
+                        <li>Complete ten (10) electronic Measure Assessment Forms (e-MAF) once the next scheduled visit takes place as part of routine clinical practice</li>
+                        <li>Review the Feedback Form for each completed e-MAF and re-evaluate if the targets and/or care objectives are being met for each patient </li>
+                        <li>
+                            The VISTA DM program has been reviewed and approved by Optimum Central Ethics for balance and scientific integrity. All management decisions are at the discretion of the program participant.&nbsp; No interventions are mandated as part of this program.<br />
+                        </li>
+                    </ul>
+                    <strong style="color: #972648; font-size: 16px;">Remuneration:</strong>
+                    <ul>
+                        <li><strong>$50.00 </strong>for each completed and submitted e-PAF (<strong>up to $500.00</strong> for 10 completed e-PAFs)</li>
+                        <li>
+                            <strong>$25.00</strong> for each completed and submitted e-MAF (<strong>up to $250.00</strong> for 10 completed e-MAFs)<br />
+                        </li>
+                    </ul>
+                    <strong style="font-size: 16px; color: #972648;">
+                        Resource Materials: <br />
+                        <br />
+                    </strong>
+                    <table width="95%" border="0" align="center" cellpadding="10" cellspacing="0" style="border:medium #CCC solid">
+                        <tr>
+                            <td width="14%" valign="top" bgcolor="#FFFFFF"><img src="../images/button_PA_eligibility-sm.png" width="60" height="65" /></td>
+                            <td width="86%" bgcolor="#FFFFFF"><strong>Click the &ldquo;Eligibility Criteria&rdquo; Icon to download the criteria as a pdf. file</strong></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF"><img src="../images/button_PA_patientlog-sm.png" width="60" height="65" /></td>
+                            <td valign="top" bgcolor="#FFFFFF"><strong>Click the &ldquo;Internal Patient Log&rdquo; Icon to download the modifiable pdf. file. </strong><br />              <strong>The purpose of this document is to assist you in keeping track of eligible patients.<span style="color: #972648"> Please note that the Internal Patient Log is <u>FOR YOUR RECORDS ONLY </u>and <u>should NOT be returned to the CHRC</u>.</span></strong></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF"><img src="../images/button_PA_visitreminder-SM.png" width="60" height="65" /></td>
+                            <td valign="top" bgcolor="#FFFFFF"><strong>Click the &ldquo;Scheduled Visit Reminder Log&rdquo; Icon to download a pre-populated pdf. file. </strong><br /><strong>The purpose of this document is to assist you in keeping track of the next scheduled visits. The file will be pre-populated with the Patient ID #, the internal reference number and the next appointment date as entered in the e-PAF</strong></td>
+                        </tr>
+                    </table>
+                    <p>
+                        <strong style="font-size: 16px; color: #972648;">
+                            <br />
+                            Adding a new e-PAF:
+                        </strong>
+                    </p>
+                    <table width="95%" border="0" align="center" cellpadding="5" cellspacing="0" style="border:medium #CCC solid">
+                        <tr>
+                            <td width="14%" valign="top" bgcolor="#FFFFFF"><img src="../images/button_PA_new-SM.png" width="60" height="65" /></td>
+                            <td width="86%" bgcolor="#FFFFFF">
+                                <p>
+                                    <strong>Click the &ldquo;Add New e-PAF&rdquo; Icon to create a new Practice Assessment Form. </strong><br />
+                                    <strong>You can add up to ten e-PAFs.&nbsp; </strong>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" valign="top" bgcolor="#FFFFFF">
+                                <strong>
+                                    Once you add the first e-PAF this table will become visible: <br />
+                                    Click on the &ldquo;Red File Folder Icon&rdquo; to access the e-PAF and start entering the data              <img src="../images/instruction1.gif" width="500" height="122" />
+                                </strong>
+                            </td>
+                        </tr>
+                    </table>
+                    <strong>
+                        <br />
+                        <p><strong style="font-size: 16px; color: #972648;">ID Column: &nbsp;ASSIGNS AN ID NUMBER TO EACH e-PAF</strong><br />
+                    </strong>
+                    <table width="95%" border="0" align="center" cellpadding="5" cellspacing="0" style="border:medium #CCC solid">
+                        <tr>
+                            <td width="100%" valign="top" bgcolor="#FFFFFF"><strong><img src="../images/instruction2.gif" alt="" width="500" height="122" /></strong><br /></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>Patient ID numbers are sequentially assigned (1-10) for each e-PAF</strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>
+                        <strong style="color: #972648; font-size: 16px;">
+                            <br />
+                            Practice Assessment Form Column: DATA COLLECTION FORMS
+                        </strong>
+                    </p>
+                    <table width="95%" border="0" align="center" cellpadding="5" cellspacing="0" style="border:medium #CCC solid">
+                        <tr>
+                            <td colspan="2" valign="top" bgcolor="#FFFFFF"><strong style="color: #972648"><img src="../images/instruction3.gif" alt="" width="500" height="122" /></strong></td>
+                        </tr>
+                        <tr>
+                            <td width="14%" valign="top" bgcolor="#FFFFFF"><img src="../images/Folder-icon-sm.jpg" alt="" width="60" height="56" /></td>
+                            <td width="86%" valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>A &ldquo;Red File Folder&rdquo; icon signifies that the e-PAF is in progress but is incomplete (not submitted).&nbsp; You can save your progress and make modifications to the e-PAF.</strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF"><img src="../images/Folder-icon-green-sm.jpg" alt="" width="60" height="56" /></td>
+                            <td valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>A &ldquo;Green File Folder&rdquo; icon signifies that the e-PAF has been successfully completed and submitted. You can view the e-PAF as a &ldquo;read only&rdquo; by clicking on the &ldquo;Green File Folder&rdquo;.&nbsp; No modifications can be made once the e-PAF is submitted</strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>
+                        <strong style="color: #972648; font-size: 16px;">
+                            <br />
+                            Feedback Form Columns: &nbsp;FEEDBACK SUMMARY FOR EACH COMPLETED e-PAF / e-MAF
+                        </strong><br />
+                    </p>
+                    <table width="95%" border="0" align="center" cellpadding="5" cellspacing="0" style="border:medium #CCC solid">
+                        <tr>
+                            <td colspan="2" valign="top" bgcolor="#FFFFFF"><strong style="color: #972648"><img src="../images/instruction4.gif" alt="" width="500" height="122" /></strong></td>
+                        </tr>
+                        <tr>
+                            <td width="14%" valign="top" bgcolor="#FFFFFF"><img src="../images/person-icon-gray-sm.jpg" alt="" width="60" height="56" /></td>
+                            <td width="86%" valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>A &ldquo;Grey&rdquo; icon signifies that the Feedback Form is not accessible as the e-PAF or the e-MAF is in progress but is incomplete (not submitted).&nbsp; </strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF"><img src="../images/person-icon-green-sm.jpg" alt="" width="60" height="56" /></td>
+                            <td valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>A &ldquo;Green and Grey&rdquo; icon signifies that the Feedback Form is accessible and can be viewed. </strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <p style="font-size: 16px; color: #972648;">&nbsp;<strong>Resource Materials:</strong></p>
+                    <table width="95%" border="0" align="center" cellpadding="5" cellspacing="0" style="border:medium #CCC solid">
+                        <tr>
+                            <td width="14%" valign="top" bgcolor="#FFFFFF"><img src="../images/button_rec+considerations-sm.png" width="60" height="65" /></td>
+                            <td width="86%" valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>Once you have completed the e-PAF and viewed the Feedback, please click the &ldquo;Recommendations and Considerations&rdquo; Icon to access evidence-based recommendations for each measure and care objective</strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p style="font-size: 16px; color: #972648;">
+                        <strong>
+                            <br />
+                            Status Columns:
+                        </strong>
+                    </p>
+                    <table width="95%" border="0" align="center" cellpadding="5" cellspacing="0" style="border:medium #CCC solid">
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF"><img src="../images/instruction5.gif" width="500" height="122" /></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>Status for each added Practice Assessment Form and Measure Assessment Form </strong></li>
+                                    <ul>
+                                        <li><span style="color: #972648"><strong>Incomplete:&nbsp;</strong></span><strong> In progress / Not started / Not Submitted. Data can be modified. </strong></li>
+                                        <li><span style="color: #972648"><strong>Completed:&nbsp;</strong></span><strong>&nbsp; Successfully Submitted. Data cannot be modified. Read only access.&nbsp;</strong></li>
+                                    </ul>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p style="font-size: 16px; color: #972648;">
+                        <strong>
+                            <br />
+                            Scheduled Appointment Date Column:
+                        </strong>
+                    </p>
+                    <table width="95%" border="0" align="center" cellpadding="5" cellspacing="0" style="border:medium #CCC solid">
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF"><img src="../images/instruction8.gif" width="500" height="139" /></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>You will enter the next scheduled appointment date on page 1 of each e-PAF</strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF"><img src="../images/instruction6.gif" alt="" width="500" height="122" /></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>The date will appear in the &ldquo;Scheduled Appointment Date&rdquo; column and will assist you in keeping track of when the next regularly scheduled visits. Once the visit occurs, you may complete the Measure Assessment Form.</strong></li>
+                                    <li><strong>You can download this information as a pre-populated pdf document by clicking the &ldquo;Scheduled Visit Reminder Log&rdquo; Icon.</strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p style="font-size: 16px; color: #972648;">
+                        <strong>
+                            <br />
+                            Measure Assessment Form Column: <br />
+                            PRACTICE RE-ASSESSMENT TO BE COMPLETED AFTER THE NEXT SCHEDULED APPOINTMENT DATE
+                        </strong>
+                    </p>
+                    <table width="95%" border="0" align="center" cellpadding="5" cellspacing="0" style="border:medium #CCC solid">
+                        <tr>
+                            <td colspan="2" valign="top" bgcolor="#FFFFFF"><img src="../images/instruction7.gif" alt="" width="500" height="122" /></td>
+                        </tr>
+                        <tr>
+                            <td width="13%" valign="top" bgcolor="#FFFFFF"><img src="../images/folder-icon-gray-sm.jpg" width="60" height="56" /></td>
+                            <td width="87%" valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>A &ldquo;Grey File Folder&rdquo; icon signifies that the e-MAF is NOT accessible (e-PAF status Incomplete)</strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF"><img src="../images/Folder-icon-sm.jpg" alt="" width="60" height="56" /></td>
+                            <td valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>A &ldquo;Red File Folder&rdquo; icon signifies that the e-MAF can be accessed (e-PAF status Complete).&nbsp; <u>The e-MAF should be completed after the next scheduled appointment date. </u>You can save your progress and make modifications to the e-MAF.</strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#FFFFFF"><img src="../images/Folder-icon-green-sm.jpg" alt="" width="60" height="56" /></td>
+                            <td valign="top" bgcolor="#FFFFFF">
+                                <ul>
+                                    <li><strong>A &ldquo;Green File Folder&rdquo; icon signifies that the e-MAF has been successfully </strong></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div><!--end of boxborder--><!--end of grayheader-->
+
+    <br />
+</div>
+
+
+
+
+
+
+

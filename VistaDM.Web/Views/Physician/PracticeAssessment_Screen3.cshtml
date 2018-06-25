@@ -1,0 +1,1387 @@
+﻿@using VistaDM.Web.Models
+@model PracticeAssessment_P3
+
+@{
+
+    Layout = "~/Views/Shared/_Vista_Layout.cshtml";
+}
+
+<style type="text/css">
+    #container {
+        width: 660px;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #grayheader {
+        background-image: url(../images/graybar.png);
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 620px;
+        font-size: 26px;
+        color: #FFF;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px #000;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+
+    #boxborder {
+        padding: 20px;
+        font-size: 13px;
+        background-color: #F9F9F9;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border: 1px solid #CCC;
+    }
+
+    ul {
+        margin-left: 5px;
+        margin-right: 0px;
+        padding-left: 20px;
+        padding-right: 0px;
+    }
+
+    a.red:link {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:visited {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:hover {
+        color: #9B2346;
+        text-decoration: underline;
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* SQUARED THREE */
+    .squaredThree {
+       
+        position: relative;
+    }
+
+        .squaredThree label {
+            cursor: pointer;
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            top: 3px;
+            left: 3px;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+            background: linear-gradient(top, #222 0%, #45484d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+        }
+
+            .squaredThree label:after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 3px;
+                background: transparent;
+                top: 3px;
+                left: 3px;
+                border: 3px solid #fcfff4;
+                border-top: none;
+                border-right: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            .squaredThree label:hover::after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                opacity: 0.3;
+            }
+
+        .squaredThree input[type=checkbox]:checked + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    input[type=text] {
+        width: 200px;
+        height: 22px;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    .smallinput[type=text] {
+        width: 60px;
+        height: 22px;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    input[type=text]:focus {
+        border-color: #333;
+    }
+
+    input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    select {
+        width: 100%;
+        height: 24px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    textarea {
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        width: 91%;
+        height: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+    /* radio button*/
+    .radio label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        font-size: 13px;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+
+    .radio label:before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 0px;
+        left: 0;
+        bottom: 0px;
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+    }
+
+    .radio label:before {
+        border-radius: 8px;
+    }
+
+    /*input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 30px;
+        text-align: center;
+        line-height: 18px;
+    }*/
+
+
+     input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 35px;
+        text-align: center;
+        line-height: 15px;
+    }
+
+
+
+    .tableborder td, th {
+        border: 1px solid black;
+    }
+
+    #successbox {
+        margin-right: auto;
+        margin-left: auto;
+        font-family: 'Open Sans', sans-serif;
+        width: 620px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: left;
+        background-image: url(../images/PlainBackground.png);
+        height: 320px;
+        padding: 0px;
+        font-size: 14px;
+        background-repeat: no-repeat;
+    }
+</style>
+
+
+@Html.Hidden("IsReadOnlyMode", Model.IsReadOnly)
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            var UnCheckAllInit = function (uncheck) {
+
+                if (uncheck) {
+
+                    $('#squaredThree67').prop('checked', false);
+                    $('#squaredThree66').prop('checked', false);
+
+                    $('#squaredThree67').attr('disabled', 'disabled');
+                    $('#squaredThree66').attr('disabled', 'disabled');
+
+                    $('#Waist').attr('disabled', 'disabled');
+                    //$('#Waist').val('1');
+
+                }
+                else {
+
+                    $('#squaredThree67').removeAttr('disabled');
+                    $('#squaredThree66').removeAttr('disabled');
+
+                    $('#Waist').removeAttr('disabled');
+                    //$('#Waist').val('2');
+                }
+            }
+
+
+            var UnCheckAll = function (uncheck) {
+
+                if (uncheck) {
+
+                    $('#squaredThree67').prop('checked', false);
+                    $('#squaredThree66').prop('checked', false);
+
+                    $('#squaredThree67').attr('disabled', 'disabled');
+                    $('#squaredThree66').attr('disabled', 'disabled');
+
+                    $('#Waist').attr('disabled', 'disabled');
+                    $('#Waist').val('');
+
+                }
+                else {
+
+                    $('#squaredThree67').removeAttr('disabled');
+                    $('#squaredThree66').removeAttr('disabled');
+
+                    $('#Waist').removeAttr('disabled');
+                    $('#Waist').val('');
+                }
+            }
+
+            var UnSelectAll = function (uncheck) {
+
+                if (uncheck) {
+
+                    $('#squaredThree67').prop('checked', false);
+
+                    $('#squaredThree30').prop('checked', false);
+                    $('#q3squaredThree31').prop('checked', false);
+                    $('#squaredThree32').prop('checked', false);
+                    $('#squaredThree33').prop('checked', false);
+                    $('#squaredThree34').prop('checked', false);
+                    $('#squaredThree35').prop('checked', false);
+                    $('#squaredThree36').prop('checked', false);
+                    $('#squaredThree37').prop('checked', false);
+                    $('#squaredThree38').prop('checked', false);
+                    $('#squaredThree39').prop('checked', false);
+                    $('#squaredThree40').prop('checked', false);
+                    $('#squaredThree41').prop('checked', false);
+                    $('#squaredThree42').prop('checked', false);
+                    $('#squaredThree43').prop('checked', false);
+                    $('#squaredThree44').prop('checked', false);
+                    $('#squaredThree45').prop('checked', false);
+                    $('#squaredThree46').prop('checked', false);
+                    $('#squaredThree47').prop('checked', false);
+                    $('#squaredThree48').prop('checked', false);
+                    $('#squaredThree49').prop('checked', false);
+                    $('#squaredThree50').prop('checked', false);
+                    $('#squaredThree51').prop('checked', false);
+                    $('#othersquaredThree52').prop('checked', false);
+                    $('#other_squaredThree53').prop('checked', false);
+                    $('#squaredThree54').prop('checked', false);
+                    $('#squaredThree55').prop('checked', false);
+                    $('#squaredThree56').prop('checked', false);
+                    $('#squaredThree57').prop('checked', false);
+                    $('#squaredThree58').prop('checked', false);
+                    $('#squaredThree59').prop('checked', false);
+
+
+                }
+                else {
+
+                    $('#squaredThree60').prop('checked', false);
+
+                }
+            }
+
+            $('#squaredThree61').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    $('#HeartRate').attr('disabled', 'disabled');
+                    $('#HeartRate').val('');
+                }
+                else {
+
+                    $('#HeartRate').removeAttr('disabled');
+                    $('#HeartRate').val('');
+                }
+
+            });
+
+            $('#Waist_NA').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    UnCheckAll(true);
+                }
+                else {
+
+                    UnCheckAll(false);
+                }
+
+            });
+
+            //cm and in
+            $('#squaredThree62').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    $('#squaredThree63').prop('checked', false);
+                }
+            });
+
+            $('#squaredThree63').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    $('#squaredThree62').prop('checked', false);
+                }
+            });
+            //cm and in
+
+
+            //kg and lbl
+            $('#squaredThree64').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    $('#squaredThree65').prop('checked', false);
+                }
+            });
+
+            $('#squaredThree65').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    $('#squaredThree64').prop('checked', false);
+                }
+            });
+            //kg and lbl
+
+
+            //waist cm and inch
+            $('#squaredThree66').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    $('#squaredThree67').prop('checked', false);
+                }
+            });
+
+            $('#squaredThree67').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    $('#squaredThree66').prop('checked', false);
+                }
+            });
+            //waist cm and inch
+
+            //select none of the above
+
+            $('#squaredThree60').change(function () {
+
+                if ($(this).is(':checked')) {
+
+                    UnSelectAll(true);
+                }
+
+            });
+
+
+            $('#squaredThree67').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+
+            $('#squaredThree30').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#q3squaredThree31').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree32').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree33').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree34').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree35').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree36').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree37').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree38').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree39').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree40').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree41').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree42').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree43').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree44').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree45').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree46').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree47').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree48').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree49').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree50').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree51').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#othersquaredThree52').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#other_squaredThree53').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree54').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree55').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree56').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree57').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree58').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+            $('#squaredThree59').change(function () {
+                if ($(this).is(':checked')) {
+                    UnSelectAll(false);
+                }
+            });
+
+            //select none of the above
+
+
+            $('#SmokingHistory').on('change', function () {
+
+                //var selectedValue = this.selectedOptions[0].value;
+                //var selectedText = this.selectedOptions[0].text;
+                if ($('#SmokingHistory')[0].value == 'Current Smoker') {
+                    $("#divCessationPlan").show();
+                }
+                else
+                    $("#divCessationPlan").hide();
+
+
+            });
+ 
+            //on page load
+            
+            if ($("#IsReadOnlyMode").val() == "True") {
+
+                //alert($("#IsReadOnlyMode").val());
+                //$('*', 'form').attr('disabled', 'disabled').attr('readonly', 'readonly');
+                $('input[type = radio], input[type = checkbox], input[type = text], select').attr('disabled', 'disabled').attr('readonly', 'readonly');
+            }
+
+        });
+
+
+        if ($('#squaredThree61').is(':checked')) {
+
+            $('#HeartRate').attr('disabled', 'disabled');
+            $('#HeartRate').val('');
+        }
+
+
+        if ($('#Waist_NA').is(":checked")) {
+
+            $('#squaredThree67').prop('checked', false);
+            $('#squaredThree66').prop('checked', false);
+
+            $('#squaredThree67').attr('disabled', 'disabled');
+            $('#squaredThree66').attr('disabled', 'disabled');
+
+            $('#Waist').attr('disabled', 'disabled');
+            //$('#Waist').val('1');
+
+        }
+        else {
+
+            $('#squaredThree67').removeAttr('disabled');
+            $('#squaredThree66').removeAttr('disabled');
+
+            $('#Waist').removeAttr('disabled');
+            //$('#Waist').val('2');
+        }
+
+        var selectedValue = $('#SmokingHistory')[0].value;
+        if (selectedValue == 'Current Smoker') {
+            $("#divCessationPlan").show();
+        }
+        else
+            $("#divCessationPlan").hide();
+
+    </script>
+}
+
+
+@using (Html.BeginForm("PracticeAssessment_Screen3", "Physician", FormMethod.Post, new { model = @Model }))
+{
+    @Html.HiddenFor(x => x.IsReadOnly)
+    @Html.HiddenFor(x => x.PatientID)
+    @Html.HiddenFor(x => x.PatientNum)
+    <div id="rightbox">
+
+        <div style="background-color:#333; color:#FFF; text-align:left; padding:7px; font-size:20px">
+
+            <table width="100%" border="0">
+                <tr>
+                    <td width="89%"><strong>@Resources.Resource.PAP3_heading</strong></td>
+                    <td width="11%">ID: @Model.PatientNum</td>
+                </tr>
+            </table>
+        </div>
+
+        <table width="80%" border="0" align="center" style="margin-top:10px">
+            <tr>
+                <td width="37%"><strong>@Resources.Resource.PAP3_SmokingHistory</strong></td>
+                <td width="63%" colspan="3">
+                    @*<select name="Smoking History">
+                            <option value="Select one from the drop down menu">Select one from the drop down menu</option>
+                            <option value="Never Smoked">Never Smoked</option>
+                            <option value="Past Smoker">Past Smoker</option>
+                            <option value="Current Smoker">Current Smoker</option>
+                        </select>*@
+
+                    @Html.DropDownListFor(
+                x => x.SmokingHistory,
+                new List<SelectListItem>
+                { 
+                    
+                    new SelectListItem {Text = @Resources.Resource.PAP3_SmokingHistory1 , Value = "Never Smoked"},
+                    new SelectListItem {Text = @Resources.Resource.PAP3_SmokingHistory2 , Value = "Past Smoker"},
+                    new SelectListItem {Text = @Resources.Resource.PAP3_SmokingHistory3 , Value = "Current Smoker"}
+
+                 }
+, @Resources.Resource.PA_selectdropdown)
+
+                </td>
+                <td>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.SmokingHistory)
+                    </span>
+                </td>
+            </tr>
+        </table>
+
+        
+        <div id="divCessationPlan" >
+
+            <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px">
+                <tr>
+                    <td height="32" colspan="3">
+                        <span style="font-weight:bold; font-size:17px"> @Resources.Resource.PAP3_cessationplan</span>
+                        <span class="error">
+                            @*@Html.ValidationMessageFor(x => x.CessationPlan)*@
+                            @Html.ValidationMessage("CessationPlanError")
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%">
+                        <div class="radio">
+                            @*<input id="Yes2" type="radio" name="currentsmoker" value="Yes2">*@
+                            @Html.RadioButtonFor(x => x.CessationPlan, "Yes",
+@Model.CessationPlan == "Yes" ? (object)new { id = "q2Yes2", @checked = "checked" } : (object)new { id = "q2Yes2" })
+                            <label for="q2Yes2"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.PAP3_YES</td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%">
+                        <div class="radio">
+                            <input id="No2" type="radio" name="currentsmoker" value="No2">
+                            @*<input id="Yes2" type="radio" name="currentsmoker" value="Yes2">*@
+                            @Html.RadioButtonFor(x => x.CessationPlan, "No",
+@Model.CessationPlan == "q2No2" ? (object)new { id = "No2", @checked = "checked" } : (object)new { id = "q2No2" })
+                            <label for="q2No2"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.PAP3_NO</td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%">
+                        <div class="radio">
+                            <input id="Not Known" type="radio" name="currentsmoker" value="Not Known">
+
+                            @Html.RadioButtonFor(x => x.CessationPlan, "Not Known",
+@Model.CessationPlan == "q2Not Known" ? (object)new { id = "q2Not Known", @checked = "checked" } : (object)new { id = "q2Not Known" })
+                            <label for="q2Not Known"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.PAP3_NotKnow</td>
+                </tr>
+            </table>
+
+                </div>
+
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px">
+            <tr>
+                <td width="37%"><strong>Alcohol Intake: </strong></td>
+                <td width="63%" colspan="3">
+                    @*<select name="Alcohol Intake">
+                            <option value="Select one from the drop down menu">Select one from the drop down menu</option>
+                            <option value="None">None</option>
+                            <option value="Light (≤5 drinks/wk)">Light (≤5 drinks/wk)</option>
+                            <option value="Moderate (6-10 drinks/wk)">Moderate (6-10 drinks/wk)</option>
+                            <option value="Heavy (>10 drinks/wk)">Heavy (>10 drinks/wk)</option>
+                            <option value="Not Known">Not Known</option>
+                        </select>*@
+
+                    @Html.DropDownListFor(
+                x => x.AlcoholIntake,
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text = @Resources.Resource.PAP3_AlcoholIntake1 , Value = "None"},
+                    new SelectListItem {Text = @Resources.Resource.PAP3_AlcoholIntake2 , Value = "Light (5 drinks/wk)"},
+                    new SelectListItem {Text = @Resources.Resource.PAP3_AlcoholIntake3, Value = "Moderate (6-10 drinks/wk)"},
+                    new SelectListItem {Text = @Resources.Resource.PAP3_AlcoholIntake4 , Value = "Heavy"},
+                    new SelectListItem {Text = @Resources.Resource.PAP3_AlcoholIntake5, Value = "Not Known"}
+
+                 }
+     , @Resources.Resource.PA_selectdropdown)
+                </td>
+                <td>
+                    <span class="error">
+                        @Html.ValidationMessageFor(x => x.AlcoholIntake)
+                    </span>
+                </td>
+            </tr>
+        </table>
+
+
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td>
+                    <span style=" color:#9B2346; font-size:24px">
+                        <strong>@Resources.Resource.PAP3_CoMorbidcond </strong>
+                        <span class="error">
+                            @Html.ValidationMessage("COMORBID")
+                    </span>
+                </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellpadding="4" cellspacing="0" class="tableborder spacedTable" style="border-collapse:collapse">
+                        <tr>
+                            <td width="93%" bgcolor="#9B2346" style="color:#FFF; font-size:12px"><strong>@Resources.Resource.PAP2_checkallApply</strong></td>
+                            <td align="center" width="7%" bgcolor="#9B2346" style="color:#FFF; font-size:12px">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" bgcolor="#666666" style="color:#FFF; font-size:18px">
+                                <strong>@Resources.Resource.PAP3_Microvascular</strong>
+                                <span class="error">
+                                    @*@Html.ValidationMessage("COMORBID_1")*@
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" bgcolor="#CCCCCC" style="color:#000; font-size:12px"><strong>@Resources.Resource.PAP3_Microvascular1</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;&nbsp;@Resources.Resource.PAP3_Microvascular2</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree30" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_eGFR4559,
+                                 @Model.CoMorbid_eGFR4559 ? (object)new { id = "squaredThree30", @checked = "checked" } : (object)new { id = "squaredThree30" })
+                                    <label for="squaredThree30"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong> &nbsp;&nbsp;@Resources.Resource.PAP3_Microvascular3</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree30" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_eGFR3044,
+                           @Model.CoMorbid_eGFR3044 ? (object)new { id = "q3squaredThree31", @checked = "checked" } : (object)new { id = "q3squaredThree31" })
+                                    <label for="q3squaredThree31"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;&nbsp;@Resources.Resource.PAP3_Microvascular4</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree32" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_eGFRlessthan30,
+                            @Model.CoMorbid_eGFRlessthan30 ? (object)new { id = "squaredThree32", @checked = "checked" } : (object)new { id = "squaredThree32" })
+                                    <label for="squaredThree32"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_Microvascular5</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree33" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Microalbuminuria,
+                                 @Model.CoMorbid_Microalbuminuria ? (object)new { id = "squaredThree33", @checked = "checked" } : (object)new { id = "squaredThree33" })
+                                    <label for="squaredThree33"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_Microvascular6</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree34" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Macroalbuminuria,
+                                 @Model.CoMorbid_Macroalbuminuria ? (object)new { id = "squaredThree34", @checked = "checked" } : (object)new { id = "squaredThree34" })
+                                    <label for="squaredThree34"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_Microvascular7</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree35" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Retinopathy,
+                             @Model.CoMorbid_Retinopathy ? (object)new { id = "squaredThree35", @checked = "checked" } : (object)new { id = "squaredThree35" })
+                                    <label for="squaredThree35"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_Microvascular8</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree36" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Neuropathy,
+                                  @Model.CoMorbid_Neuropathy ? (object)new { id = "squaredThree36", @checked = "checked" } : (object)new { id = "squaredThree36" })
+
+                                    <label for="squaredThree36"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" bgcolor="#666666" style="color:#FFF; font-size:18px">
+                                <strong>@Resources.Resource.PAP3_MACROVASCULAR</strong>
+                                <span class="error">
+                                    @Html.ValidationMessage("COMORBID_2")
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_Macrovascular1</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree37" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_CoronaryArtery,
+                                 @Model.CoMorbid_CoronaryArtery ? (object)new { id = "squaredThree37", @checked = "checked" } : (object)new { id = "squaredThree37" })
+
+                                    <label for="squaredThree37"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_Macrovascular2</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree38" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Cerebrovascular,
+                                 @Model.CoMorbid_Cerebrovascular ? (object)new { id = "squaredThree38", @checked = "checked" } : (object)new { id = "squaredThree38" })
+
+                                    <label for="squaredThree38"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_Macrovascular3</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree39" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_AbdominalAortic,
+                              @Model.CoMorbid_AbdominalAortic ? (object)new { id = "squaredThree39", @checked = "checked" } : (object)new { id = "squaredThree39" })
+
+                                    <label for="squaredThree39"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_Macrovascular4</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree40" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_PeripheralArterial,
+          @Model.CoMorbid_PeripheralArterial ? (object)new { id = "squaredThree40", @checked = "checked" } : (object)new { id = "squaredThree40" })
+                                    <label for="squaredThree40"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" bgcolor="#666666" style="color:#FFF; font-size:18px">
+                                <strong>  @Resources.Resource.PAP3_LIVERDISEASE</strong>
+                                <span class="error">
+                                    @Html.ValidationMessage("COMORBID_3")
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_LIVERDISEASE1</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree41" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_NonAlcoholicfattyliver,
+                                 @Model.CoMorbid_NonAlcoholicfattyliver ? (object)new { id = "squaredThree41", @checked = "checked" } : (object)new { id = "squaredThree41" })
+                                    <label for="squaredThree41"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_LIVERDISEASE2</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree42" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_NonAlcoholicSteatohepatitis,
+                                 @Model.CoMorbid_NonAlcoholicSteatohepatitis ? (object)new { id = "squaredThree42", @checked = "checked" } : (object)new { id = "squaredThree42" })
+                                    <label for="squaredThree42"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_LIVERDISEASE3</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree43" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Cirrhosis,
+                                 @Model.CoMorbid_Cirrhosis ? (object)new { id = "squaredThree43", @checked = "checked" } : (object)new { id = "squaredThree43" })
+
+
+                                    <label for="squaredThree43"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_LIVERDISEASE4</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree44" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Other,
+                                 @Model.CoMorbid_Other ? (object)new { id = "squaredThree44", @checked = "checked" } : (object)new { id = "squaredThree44" })
+                                    <label for="squaredThree44"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" bgcolor="#666666" style="color:#FFF; font-size:18px">
+                                <strong>@Resources.Resource.PAP3_OTHERCOMORBID </strong>
+
+                                <span class="error">
+                                    @Html.ValidationMessage("COMORBID_4")
+                                </span>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> @Html.Raw(@Resources.Resource.PAP3_OTHERCOMORBID1)</td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree45" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_CVdisease,
+          @Model.CoMorbid_CVdisease ? (object)new { id = "squaredThree45", @checked = "checked" } : (object)new { id = "squaredThree45" })
+
+                                    <label for="squaredThree45"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            
+                            <td><strong>@Html.Raw(@Resources.Resource.PAP3_OTHERCOMORBID2)</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree46" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_ModifiedFramingham,
+          @Model.CoMorbid_ModifiedFramingham ? (object)new { id = "squaredThree46", @checked = "checked" } : (object)new { id = "squaredThree46" })
+                                    <label for="squaredThree46"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            
+                            <td><strong> @Resources.Resource.PAP3_OTHERCOMORBID3  </strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree47" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Overweight,
+          @Model.CoMorbid_Overweight ? (object)new { id = "squaredThree47", @checked = "checked" } : (object)new { id = "squaredThree47" })
+                                    <label for="squaredThree47"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong> @Resources.Resource.PAP3_OTHERCOMORBID4 </strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree48" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_HighriskHypertension,
+          @Model.CoMorbid_HighriskHypertension ? (object)new { id = "squaredThree48", @checked = "checked" } : (object)new { id = "squaredThree48" })
+
+                                    <label for="squaredThree48"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong> @Resources.Resource.PAP3_OTHERCOMORBID5 </strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree49" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Dyslipidemia,
+                                 @Model.CoMorbid_Dyslipidemia ? (object)new { id = "squaredThree49", @checked = "checked" } : (object)new { id = "squaredThree49" })
+                                    <label for="squaredThree49"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_OTHERCOMORBID6</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree50" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_AtrialFibrillation,
+                                 @Model.CoMorbid_AtrialFibrillation ? (object)new { id = "squaredThree50", @checked = "checked" } : (object)new { id = "squaredThree50" })
+                                    <label for="squaredThree50"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong> @Resources.Resource.PAP3_OTHERCOMORBID7</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree51" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_CongestiveHeartFailure,
+          @Model.CoMorbid_CongestiveHeartFailure ? (object)new { id = "squaredThree51", @checked = "checked" } : (object)new { id = "squaredThree51" })
+                                    <label for="squaredThree51"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong> @Resources.Resource.PAP3_OTHERCOMORBID8 </strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree52" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Depression,
+@Model.CoMorbid_Depression ? (object)new { id = "othersquaredThree52", @checked = "checked" } : (object)new { id = "othersquaredThree52" })
+
+                                    <label for="othersquaredThree52"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_OTHERCOMORBID9</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree53" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_CognitiveImpairment,
+    @Model.CoMorbid_CognitiveImpairment ? (object)new { id = "other_squaredThree53", @checked = "checked" } : (object)new { id = "other_squaredThree53" })
+                                    <label for="other_squaredThree53"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_OTHERCOMORBID10</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree54" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_ErectileDysfunction,
+          @Model.CoMorbid_ErectileDysfunction ? (object)new { id = "squaredThree54", @checked = "checked" } : (object)new { id = "squaredThree54" })
+                                    <label for="squaredThree54"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_OTHERCOMORBID11</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree55" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_PolycysticOvary,
+          @Model.CoMorbid_PolycysticOvary ? (object)new { id = "squaredThree55", @checked = "checked" } : (object)new { id = "squaredThree55" })
+                                    <label for="squaredThree55"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_OTHERCOMORBID12</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree56" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Infertility,
+          @Model.CoMorbid_Infertility ? (object)new { id = "squaredThree56", @checked = "checked" } : (object)new { id = "squaredThree56" })
+                                    <label for="squaredThree56"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_OTHERCOMORBID13</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree57" name="check" />*@
+
+                                    @Html.CheckBoxFor(x => x.CoMorbid_SleepApnea,
+          @Model.CoMorbid_SleepApnea ? (object)new { id = "squaredThree57", @checked = "checked" } : (object)new { id = "squaredThree57" })
+                                    <label for="squaredThree57"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_OTHERCOMORBID14</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree58" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_ThyroidDisease,
+          @Model.CoMorbid_ThyroidDisease ? (object)new { id = "squaredThree58", @checked = "checked" } : (object)new { id = "squaredThree58" })
+                                    <label for="squaredThree58"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>@Resources.Resource.PAP3_OTHERCOMORBID15</strong></td>
+                            <td align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree59" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_Malignancy,
+          @Model.CoMorbid_Malignancy ? (object)new { id = "squaredThree59", @checked = "checked" } : (object)new { id = "squaredThree59" })
+                                    <label for="squaredThree59"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #999"><strong>@Resources.Resource.PAP2_NoneOfAbove</strong></td>
+                            <td style="background-color: #999" align="center">
+                                <div class="squaredThree">
+                                    @*<input type="checkbox" value="None" id="squaredThree60" name="check" />*@
+                                    @Html.CheckBoxFor(x => x.CoMorbid_None,
+          @Model.CoMorbid_None ? (object)new { id = "squaredThree60", @checked = "checked" } : (object)new { id = "squaredThree60" })
+                                    <label for="squaredThree60"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+
+
+        <table width="80%" border="0" align="center" style=" border-top:#666 dashed thin; margin-top:5px; padding-top:7px; padding-bottom:3px" class="spacedTable">
+            <tr>
+                <td height="47" colspan="8"><span style=" color:#9B2346; font-size:24px"><strong> @Resources.Resource.PAP3_PHYSICALASSESSMENT  </strong></span></td>
+            </tr>
+            <tr>
+                <td width="35%" align="right">
+                    <strong> @Resources.Resource.PAP3_HeartRate </strong>
+
+                    <span class="error">
+                        @Html.ValidationMessage("HEART_RATE_RANGE")
+                        @Html.ValidationMessage("HEART_RATE")
+                    </span>
+
+                </td>
+                <td width="13%">
+                    @Html.TextBoxFor(x => x.HeartRate, new { @class = "smallinput" })
+                </td>
+
+                <td width="6%"><span style="font-size:12px"><strong>BPM</strong></span></td>
+                <td width="8%">&nbsp;</td>
+                <td width="5%"></td>
+                <td></td>
+                <td>
+                    <div class="squaredThree">
+                        @*<input type="checkbox" value="None" id="squaredThree61" name="check" />*@
+                        @Html.CheckBoxFor(x => x.NA_HearRate,
+                     @Model.NA_HearRate ? (object)new { id = "squaredThree61", @checked = "checked" } : (object)new { id = "squaredThree61" })
+                        <label for="squaredThree61"></label>
+                    </div>
+                </td>
+                <td><span style="font-size:12px"><strong> @Resources.Resource.PAP3_ckhNA</strong></span></td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <strong> @Resources.Resource.PAP3_Height</strong>
+                    <span class="error">
+                        @Html.ValidationMessage("HEIGHT_CM")
+                        @Html.ValidationMessage("HEIGHT_IN")
+                        @Html.ValidationMessage("HEIGHT")
+                    </span>
+
+                </td>
+                <td>@Html.TextBoxFor(x => x.Height, new { @class = "smallinput" })</td>
+                <td>
+                    <div class="squaredThree">
+                        @Html.CheckBoxFor(x => x.HeightCM,
+@Model.HeightCM ? (object)new { id = "squaredThree62", @checked = "checked" } : (object)new { id = "squaredThree62" })
+                        <label for="squaredThree62"></label>
+                    </div>
+                </td>
+                <td><span style="font-size:12px"><strong>cm</strong></span></td>
+                <td>
+                    <div class="squaredThree">
+                        @*<input type="checkbox" value="None" id="squaredThree63" name="check" />*@
+                        @Html.CheckBoxFor(x => x.HeightIn,
+@Model.HeightIn ? (object)new { id = "squaredThree63", @checked = "checked" } : (object)new { id = "squaredThree63" })
+                        <label for="squaredThree63"></label>
+                    </div>
+                </td>
+                <td width="8%"><span style="font-size:12px"><strong> @Resources.Resource.PAP3_ckhInches</strong></span></td>
+                <td width="5%">&nbsp;</td>
+                <td width="20%">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <strong> @Resources.Resource.PAP3_Weight</strong>
+                    <span class="error">
+                        @Html.ValidationMessage("WEIGHT_KG")
+                        @Html.ValidationMessage("WEIGHT_LB")
+                        @Html.ValidationMessage("WEIGHT")
+                    </span>
+                </td>
+                <td>@Html.TextBoxFor(x => x.Weight, new { @class = "smallinput" })</td>
+                <td>
+                    <div class="squaredThree">
+                        @Html.CheckBoxFor(x => x.WeightKg, new { @class = "smallinput", @id = "squaredThree64" })
+                        <label for="squaredThree64"></label>
+                    </div>
+                </td>
+                <td><span style="font-size:12px"><strong>kg</strong></span></td>
+                <td>
+                    <div class="squaredThree">
+                        @*<input type="checkbox" value="None" id="squaredThree65" name="check" />*@
+                        @Html.CheckBoxFor(x => x.WeightLB, new { @class = "smallinput", @id = "squaredThree65" })
+                        <label for="squaredThree65"></label>
+                    </div>
+                </td>
+                <td><span style="font-size:12px"><strong>lbs</strong></span></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <strong>@Resources.Resource.PAP3_WaistCircumference</strong>
+                    <span class="error">
+                        @Html.ValidationMessage("WAIST_RANGE")
+                        @Html.ValidationMessage("WAIST")
+                    </span>
+                </td>
+                <td>
+                    @Html.TextBoxFor(x => x.Waist, new { @class = "smallinput" })
+
+                </td>
+                <td>
+                    <div class="squaredThree">
+                        @Html.CheckBoxFor(x => x.WaistCM, new { @class = "smallinput", @id = "squaredThree66" })
+                        <label for="squaredThree66"></label>
+                    </div>
+                </td>
+                <td><span style="font-size:12px"><strong>cm</strong></span></td>
+                <td>
+                    <div class="squaredThree">
+                        @Html.CheckBoxFor(x => x.WaistIn, new { @class = "smallinput", @id = "squaredThree67" })
+                        <label for="squaredThree67"></label>
+                    </div>
+                </td>
+                <td><span style="font-size:12px"><strong>@Resources.Resource.PAP3_ckhInches</strong></span></td>
+                <td>
+                    <div class="squaredThree">
+                        @Html.CheckBoxFor(x => x.NA_Waist, new { @class = "smallinput", @id = "Waist_NA" })
+                        <label for="Waist_NA"></label>
+                    </div>
+                </td>
+                <td><span style="font-size:12px"><strong>@Resources.Resource.PAP3_ckhNA</strong></span></td>
+            </tr>
+        </table>
+
+        <br />
+        <div>
+            <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                @Html.ValidationSummary(true)
+            </span>
+        </div>
+        <table width="100%" border="0">
+            <tr>
+                <td width="33%" align="center">
+                    <div class="grow">
+                        <a href='@Url.Action("PracticeAssessment_Screen2", new { PatientID = Model.PatientID, PatientNum = Model.PatientNum, IsReadOnly = Model.IsReadOnly })'><img src="@Resources.Resource.BTN_BACK_URL" border="0" width="180" /></a>
+                    </div>
+                </td>
+                <td width="33%" align="center">
+                    <div class="grow">
+                        @*<a href="#"><img src="../images/button_save.png" border="0" width="180" /></a>*@
+                    </div>
+                </td>
+                <td width="33%" align="center">
+                    <div class="grow"><input type="image" value="submit" src="@Resources.Resource.BTN_NEXT_URL" width="180"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+}

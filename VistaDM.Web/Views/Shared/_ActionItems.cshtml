@@ -1,0 +1,92 @@
+﻿@using VistaDM.Web.Models;
+@model UserModel
+<div id="navheadersmall" style="padding-top:10px; padding-bottom:26px; line-height:20px">@Resources.Resource.ACTION_ITEMS</div><!--end of navheadersmall-->
+<div id="navmainsmall">
+    <div id="navboxes">
+        <a href='@Url.Action("Assesment", "Physician")' class="transparentLink">
+            <table width="100%" border="0">
+                <tr>
+                    <td align="left">@Resources.Resource.NeedsAssessment</td>
+                    <td align="right">
+                        <img src=@(Model.AssesmentSurvey.HasValue ?  (Model.AssesmentSurvey.Value ?  "../images/icon_check.png"   : "../images/icon_x.png" )
+                        :  "../images/icon_x.png") />
+                    </td>
+                </tr>
+            </table>
+        </a>
+    </div><!--end of navboxes-->
+
+    <div id="navboxes">
+        <a href='@Url.Action("PracticeAssessment", "Physician")' class="transparentLink">
+            <table width="100%" border="0">
+                <tr>
+                    <td align="left">@Resources.Resource.PracticeAssessment_1</td>
+                    <td align="right">
+                        <img src=@(Model.PAF1_Complete ? "../images/icon_check.png" : "../images/icon_x.png") />
+                    </td>
+                </tr>
+            </table>
+        </a>
+    </div><!--end of navboxes-->
+
+    <div id="navboxes">
+        <table width="100%" border="0">
+            <tr>
+                <td align="left">@Resources.Resource.MOU18</td>
+                <td align="right"><img src="../images/icon_x.png" /></td>
+            </tr>
+        </table>
+    </div><!--end of navboxes-->
+    @if (Model.PhysicanType == @PhysicanType.PCP)
+    {
+        <div id="navboxes">
+            <table width="100%" border="0">
+                <tr>
+                    <td align="left">@Resources.Resource.Focus_Group_Meeting</td>
+                    <td align="right"><img src="../images/icon_x.png" /></td>
+                </tr>
+            </table>
+        </div><!--end of navboxes-->
+        <div id="navboxes">
+            <table width="100%" border="0">
+                <tr>
+                    <td align="left">@Resources.Resource.Newsletter</td>
+                    <td align="right"><img src="../images/icon_x.png" /></td>
+                </tr>
+            </table>
+        </div><!--end of navboxes-->
+    }
+    <div id="navboxes">
+        <table width="100%" border="0">
+            <tr>
+                <td align="left">@Resources.Resource.PracticeAssessment_2</td>
+                <td align="right"><img src="../images/icon_x.png" /></td>
+            </tr>
+        </table>
+    </div><!--end of navboxes-->
+    <div id="navboxes">
+        <table width="100%" border="0">
+            <tr>
+                <td align="left">@Resources.Resource.TownhallMeetings</td>
+                <td align="right"><img src="../images/icon_x.png" /></td>
+            </tr>
+        </table>
+    </div><!--end of navboxes-->
+    <div id="navboxes">
+        <table width="100%" border="0">
+            <tr>
+                <td align="left">@Resources.Resource.OnDemandWebinars </td>
+                <td align="right"><img src="../images/icon_x.png" /></td>
+            </tr>
+        </table>
+    </div><!--end of navboxes-->
+    <div id="navboxes">
+        <table width="100%" border="0">
+            <tr>
+                <td align="left">@Resources.Resource.Evaluation</td>
+                <td align="right"><img src="../images/icon_x.png" /></td>
+            </tr>
+        </table>
+    </div><!--end of navboxes-->
+
+</div><!--end of navmainsmall-->

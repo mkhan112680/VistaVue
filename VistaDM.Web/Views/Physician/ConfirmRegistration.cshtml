@@ -1,0 +1,326 @@
+﻿@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<style type="text/css">
+    html {
+        font-family: 'Open Sans', sans-serif;
+        background: url(../images/gray_background.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #centerbox {
+        width: 1100px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #header {
+        background-color: #FFF;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    #redbar {
+        background-image: url(../images/redbar_sides.png);
+        background-repeat: repeat-x;
+        width: 100%;
+        text-align: center;
+    }
+
+    #maincontent {
+        width: 1100px;
+        margin-right: auto;
+        margin-left: auto;
+        border-right-width: thin;
+        border-left-width: thin;
+        border-right-style: solid;
+        border-left-style: solid;
+        border-right-color: #CCC;
+        border-left-color: #CCC;
+        box-shadow: 0px 5px 10px #CCC;
+        text-align: center;
+        background-color: #FFF;
+    }
+
+    #leftbox {
+        margin: 10px;
+        float: left;
+        width: 350px;
+    }
+
+    #navcontainer {
+        background-image: url(../images/nav_background.png);
+        padding-top: 80px;
+        background-repeat: no-repeat;
+        padding-bottom: 30px;
+    }
+
+    #navcontainer2 {
+        background-image: url(../images/nav_background2.png);
+        padding-top: 80px;
+        background-repeat: no-repeat;
+        padding-bottom: 30px;
+    }
+
+    #navcontainer3 {
+        background-image: url(../images/nav_background3.png);
+        padding-top: 80px;
+        background-repeat: no-repeat;
+        padding-bottom: 30px;
+    }
+
+    #navboxes {
+        border-bottom-width: thin;
+        border-bottom-style: dashed;
+        border-bottom-color: #999;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-weight: 700;
+    }
+
+    #rightbox {
+        float: right;
+        width: 660px;
+        margin-top: 10px;
+        margin-right: 20px;
+    }
+
+    #footer {
+        background-color: #9B2346;
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    .welcometext {
+        color: #9B2346;
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .smallgrey {
+        color: #666;
+        font-size: 12px;
+        font-style: italic;
+        vertical-align: top;
+    }
+
+        .smallgrey a:link {
+            color: #666;
+            font-size: 12px;
+            font-style: italic;
+            vertical-align: top;
+        }
+
+        .smallgrey a:visited {
+            color: #666;
+            font-size: 12px;
+            font-style: italic;
+            vertical-align: top;
+        }
+
+        .smallgrey a:hover {
+            text-decoration: underline;
+            color: #333;
+            vertical-align: top;
+        }
+
+        .smallgrey a:active {
+            color: #666;
+            font-size: 12px;
+            font-style: italic;
+            vertical-align: top;
+        }
+
+    .smallwhite {
+        color: #FFF;
+        font-size: 10px;
+        vertical-align: top;
+        text-decoration: none;
+    }
+
+        .smallwhite a:link {
+            color: #FFF;
+            font-size: 10px;
+            vertical-align: top;
+            text-decoration: none;
+        }
+
+        .smallwhite a:visited {
+            color: #FFF;
+            font-size: 10px;
+            vertical-align: top;
+            text-decoration: none;
+        }
+
+        .smallwhite a:hover {
+            text-decoration: underline;
+            color: #FFF;
+            vertical-align: top;
+        }
+
+        .smallwhite a:active {
+            color: #FFF;
+            font-size: 10px;
+            vertical-align: top;
+            text-decoration: none;
+        }
+
+    .white {
+        color: #FFF;
+    }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    #registerheader {
+        background-image: url(../images/form_header.png);
+        background-repeat: no-repeat;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-weight: 700;
+        color: #FFF;
+        font-size: 30px;
+        padding-top: 25px;
+        padding-bottom: 55px;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        width: 602px;
+    }
+
+    #registermain {
+        background-color: #DEDFE0;
+        width: 602px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #registerfooter {
+        background-image: url(../images/form_footer.png);
+        background-repeat: no-repeat;
+        height: 50px;
+        width: 602px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    input[type=text] {
+        width: 96%;
+        height: 32px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+        input[type=text]:focus {
+            border-color: #333;
+        }
+
+    input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .italic {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 19px;
+        font-style: italic;
+        color: #666;
+    }
+
+    .italicred {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 19px;
+        font-style: italic;
+        color: #861B3B;
+    }
+
+    .normal {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #414042;
+    }
+
+    .redsmallitalic {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 18px;
+        color: #9B2346;
+        font-style: italic;
+    }
+</style>
+
+<div id="maincontent">
+    <br /><br /><br /><br />
+    <div id="registerheader">
+        REGISTRATION
+    </div><!--end of registerheader-->
+    <div id="registermain">
+        <span style="font-family: 'Open Sans Condensed', sans-serif; font-weight:700; font-size:18px; color:#333">PLEASE REVIEW THE INFORMATION BELOW FOR ACCURACY<br /> AND CLICK THE 'CONFIRM' BUTTON TO PROCEED</span>
+        <br /><br /><br />
+        <table width="70%" border="0" cellspacing="0" cellpadding="0" style="margin-left:auto; margin-right:auto; text-align:left">
+            <tr>
+                <td class="italic">FIRST NAME</td>
+            </tr>
+            <tr>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="italic">LAST NAME</td>
+            </tr>
+            <tr>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="italic">CITY</td>
+            </tr>
+            <tr>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="italic">PROVINCE</td>
+            </tr>
+            <tr>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <div class="grow"><a href="#"><img src="../images/button_confirm2.png" border="0" /></a></div>
+        <div class="grow"><a href="not_me.html" target="_new"><img src="../images/button_thisisnotme.png" border="0" /></a></div>
+    </div><!--end of registermain-->
+    <div id="registerfooter">
+    </div><!--end of registerfooter-->
+</div>

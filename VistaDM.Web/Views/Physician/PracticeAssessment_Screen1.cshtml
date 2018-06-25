@@ -1,0 +1,463 @@
+﻿@using VistaDM.Web.Models
+@model PracticeAssessment_P1
+@{
+    Layout = "~/Views/Shared/_Vista_Layout.cshtml";
+}
+
+<style type="text/css">
+    #container {
+        width: 660px;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #grayheader {
+        background-image: url(images/graybar.png);
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 620px;
+        font-size: 26px;
+        color: #FFF;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px #000;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+
+    #boxborder {
+        padding: 20px;
+        font-size: 13px;
+        background-color: #F9F9F9;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border: 1px solid #CCC;
+    }
+
+    ul {
+        margin-left: 5px;
+        margin-right: 0px;
+        padding-left: 20px;
+        padding-right: 0px;
+    }
+
+    a.red:link {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:visited {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:hover {
+        color: #9B2346;
+        text-decoration: underline;
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* SQUARED THREE */
+    .squaredThree {
+        width: 13px;
+        position: relative;
+    }
+
+        .squaredThree label {
+            cursor: pointer;
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            top: 3px;
+            left: 3px;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+            background: linear-gradient(top, #222 0%, #45484d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+        }
+
+            .squaredThree label:after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 3px;
+                background: transparent;
+                top: 3px;
+                left: 3px;
+                border: 3px solid #fcfff4;
+                border-top: none;
+                border-right: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            .squaredThree label:hover::after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                opacity: 0.3;
+            }
+
+        .squaredThree input[type=checkbox]:checked + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    input[type=text] {
+        width: 200px;
+        height: 22px;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    .smallinput[type=text] {
+        width: 60px;
+        height: 22px;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    input[type=text]:focus {
+        border-color: #333;
+    }
+
+    input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    select {
+        width: 100%;
+        height: 24px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    textarea {
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        width: 91%;
+        height: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+    /* radio button*/
+    .radio label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        font-size: 13px;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+
+    .radio label:before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 0px;
+        left: 0;
+        bottom: 0px;
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+    }
+
+    .radio label:before {
+        border-radius: 8px;
+    }
+
+    /*input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 30px;
+        text-align: center;
+        line-height: 18px;
+    }*/
+
+        input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 35px;
+        text-align: center;
+        line-height: 15px;
+    }
+
+
+
+    .tableborder td, th {
+        border: 1px solid black;
+    }
+
+    #successbox {
+        margin-right: auto;
+        margin-left: auto;
+        font-family: 'Open Sans', sans-serif;
+        width: 620px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: left;
+        background-image: url(images/PlainBackground.png);
+        height: 320px;
+        padding: 0px;
+        font-size: 14px;
+        background-repeat: no-repeat;
+    }
+
+
+
+</style>
+
+
+@Html.Hidden("IsReadOnlyMode", Model.IsReadOnly)
+
+
+@*@Html.Hidden("IsEnglish", @HttpContext.Current.Session[VistaDM.Web.Helpers.Constants.CULTURE] == "en-CA")*@
+
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        $(document).ready(function () {
+
+
+            $('#ScheduledAppointment').datepicker({
+
+                altField: $('#ScheduledAppointment'),
+
+                numberOfMonths: 1,
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd",
+                yearRange: "2000:2016"
+
+            });
+
+
+            $('#imgCal').datepicker({
+
+                altField: $('#ScheduledAppointment'),
+                numberOfMonths: 1,
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd",
+                yearRange: "2000:2016"
+
+            });
+
+
+            if ($("#IsReadOnlyMode").val() == "True") {
+
+                //alert($("#IsReadOnlyMode").val());
+                //$('*', 'form').attr('disabled', 'disabled').attr('readonly', 'readonly');
+                $('input[type = radio], input[type = checkbox], input[type = text], select').attr('disabled', 'disabled').attr('readonly', 'readonly');
+            }
+
+
+
+            //if ($("#IsEnglish").val() == "True")
+            //{
+            //    $('.tooltips').attr("title", "<div style='background-color:#F3F3F3;color:black; padding:20px; text-align:center'><img src='../images/CDA-Logo.png' border='0' /><br /><br /><strong>FPG ≥7.0 mmol/L</strong><br />Fasting = no caloric intake for at least 8 hours<br /><span style=' color:#9B2346;'><strong>or</strong></span><br /><strong>A1C ≥6.5% (in adults)</strong><br />Using a standardized, validated assay, in the absence of factors that affect the accuracy of the A1C and not for suspected type 1 diabetes<br /><span style=' color:#9B2346;'><strong>or</strong></span><br /><strong>2hPG in a 75-g OGTT ≥11.1 mmol/L</strong><br /><span style=' color:#9B2346;'><strong>or</strong></span><br /><strong>Random PG ≥11.1 mmol/L</strong><br />Random= any time of the day, without regard to the interval since the last meal<br /><br /><span style='font-size:11px; color:#666'>2hPG = 2-hour plasma glucose; FPG = fasting plasma glucose; OGTT = oral glucose tolerance test; PG = plasma glucose</span><br /><br /><span style='font-size:12px'><strong>Goldenberg, R. et al Definition, Classification and Diagnosis of Diabetes, Prediabetes and Metabolic Syndrome . Can J Diabetes 2013;37(suppl 1): S8 - S11</strong></span></div>");
+            // }
+            //else
+            // {
+            //    $('.tooltips').attr("title", "Hi");
+            //}
+
+
+            $('.tooltips').attr("title", "<div style='background-color:#F3F3F3;color:black; padding:20px; text-align:center'><img src='../images/CDA-Logo.png' border='0' /><br /><br /><strong>FPG ≥7.0 mmol/L</strong><br />Fasting = no caloric intake for at least 8 hours<br /><span style=' color:#9B2346;'><strong>or</strong></span><br /><strong>A1C ≥6.5% (in adults)</strong><br />Using a standardized, validated assay, in the absence of factors that affect the accuracy of the A1C and not for suspected type 1 diabetes<br /><span style=' color:#9B2346;'><strong>or</strong></span><br /><strong>2hPG in a 75-g OGTT ≥11.1 mmol/L</strong><br /><span style=' color:#9B2346;'><strong>or</strong></span><br /><strong>Random PG ≥11.1 mmol/L</strong><br />Random= any time of the day, without regard to the interval since the last meal<br /><br /><span style='font-size:11px; color:#666'>2hPG = 2-hour plasma glucose; FPG = fasting plasma glucose; OGTT = oral glucose tolerance test; PG = plasma glucose</span><br /><br /><span style='font-size:12px'><strong>Goldenberg, R. et al Definition, Classification and Diagnosis of Diabetes, Prediabetes and Metabolic Syndrome . Can J Diabetes 2013;37(suppl 1): S8 - S11</strong></span></div>");
+
+            new $.Zebra_Tooltips($('.tooltips'), {
+
+                'position': 'left', // tooltip position. left or right
+                'max_width': 600 // the maximum width of the tooltip
+            });
+
+        });
+
+
+    </script>
+
+}
+
+
+@using (Html.BeginForm("PracticeAssessment_Screen1", "Physician", FormMethod.Post, new { model = @Model }))
+{
+
+
+
+
+    @Html.HiddenFor(x => x.IsReadOnly)
+    @Html.HiddenFor(x => x.PatientID)
+    @Html.HiddenFor(x => x.PatientNum)
+
+    <div id="rightbox">
+        <div style="background-color:#333; color:#FFF; text-align:left; padding:7px; font-size:20px">
+
+            <table width="100%" border="0">
+                <tr>
+                    <td width="89%"><strong>@Resources.Resource.PAP1_Eligibility</strong></td>
+                    <td width="11%">ID: @Model.PatientNum</td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <table width="97%" border="0" align="center">
+            <tr>
+                <td width="45%" height="36"><strong>@Resources.Resource.PAP1_ReferenceNum</strong> </td>
+                <td width="36%">@Html.TextBoxFor(x => x.InternalRefNum)</td>
+                <td width="25%"><span class="error">@Html.ValidationMessageFor(x => x.InternalRefNum)</span></td>
+            </tr>
+            <tr>
+                <td height="36"><strong>@Resources.Resource.PAP1_ScheduledAppt</strong></td>
+                <td> @Html.TextBoxFor(x => x.ScheduledAppointment, "{0:yyyy/MM/dd}", new { @readonly = true }) </td>
+                <td>
+                    <input id="imgCal" type="image" onclick="return false;" src="../images/calendar_icon.png" width="25">
+                    <span class="error">@Html.ValidationMessageFor(x => x.ScheduledAppointment)</span>
+                </td>
+            </tr>
+        </table>
+        <br />
+
+
+        @Html.Raw(@Resources.Resource.PAP1_EligibilityCriteria)
+
+
+        <div style="background-color:#093; padding:10px; color:#FFF; border:#333 thin solid">
+
+            <table width="100%" border="0">
+                <tr>
+                    <td>
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="chk1" name="check" />*@
+                            @Html.CheckBox("chk1", Model.ID != 0)
+                            <label for="chk1"></label>
+                        </div>
+                    </td>
+                    <td>
+                        @Html.Raw(@Resources.Resource.PAP1_satisfiesCriteria)
+                        <span class="error">
+                            @Html.ValidationMessage("CHECK1")
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <br /><br />
+
+        <div style="background-color:#F1F1F1; margin-left:10px; margin-right:10px">
+            <div style="background-color:#666; padding:10px; color:#FFF">
+                @Html.Raw(@Resources.Resource.PAP1_Non_eligibility)
+
+            </div>
+
+            @Html.Raw(@Resources.Resource.PAP1_Non_eligibilitylist)
+
+
+            <div style="background-color:#666; padding:10px; color:#FFF; border:#333 thin solid">
+
+                <table width="100%" border="0">
+                    <tr>
+                        <td>
+                            <div class="squaredThree">
+
+                                @Html.CheckBox("chk2", Model.ID != 0)
+                                <label for="chk2"></label>
+
+                            </div>
+                        </td>
+                        <td>
+
+                            @Html.Raw(@Resources.Resource.PAP1_doesMeetEligibility)
+
+                            <span class="error">
+                                @Html.ValidationMessage("CHECK2")
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br /><br />
+        <div>
+            <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                @Html.ValidationSummary(true)
+            </span>
+        </div>
+        <table width="100%" border="0">
+            <tr>
+                <td width="33%" align="center">&nbsp;</td>
+                <td width="33%" align="center">
+                    <div class="grow">
+                        @*<input type="image" value="submit" src="@Resources.Resource.BTN_SAVE_URL" width="180">*@
+                    </div>
+                </td>
+                <td width="33%" align="center">
+                    <div class="grow">
+                        <input type="image" value="submit" src="@Resources.Resource.BTN_NEXT_URL" width="180">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaDM.Data", "VistaDM.Data\VistaDM.Data.csproj", "{65717AAF-E0A8-44DA-B155-EF29AFD55C36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaDM.Admin", "VistaDM.Admin\VistaDM.Admin.csproj", "{B17799BE-9463-4FD0-BEE2-980B6AC7C6A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaDM.Repository", "VistaDM.Repository\VistaDM.Repository.csproj", "{215E0D98-ED6C-4305-BB43-111F05A330D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaDM.Domain", "VistaDM.Domain\VistaDM.Domain.csproj", "{092E075A-00D6-49B4-A8AB-9CD037A8BD38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaDM.Web", "VistaDM.Web\VistaDM.Web.csproj", "{E3A64DEC-809E-4A5C-97BE-9402BC3B5786}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaVue", "VistaVue\VistaVue.csproj", "{B2BB76C7-1F0E-4CA1-95F1-216D244B2B03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65717AAF-E0A8-44DA-B155-EF29AFD55C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65717AAF-E0A8-44DA-B155-EF29AFD55C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65717AAF-E0A8-44DA-B155-EF29AFD55C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65717AAF-E0A8-44DA-B155-EF29AFD55C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17799BE-9463-4FD0-BEE2-980B6AC7C6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17799BE-9463-4FD0-BEE2-980B6AC7C6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17799BE-9463-4FD0-BEE2-980B6AC7C6A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17799BE-9463-4FD0-BEE2-980B6AC7C6A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{215E0D98-ED6C-4305-BB43-111F05A330D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{215E0D98-ED6C-4305-BB43-111F05A330D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{215E0D98-ED6C-4305-BB43-111F05A330D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{215E0D98-ED6C-4305-BB43-111F05A330D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{092E075A-00D6-49B4-A8AB-9CD037A8BD38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{092E075A-00D6-49B4-A8AB-9CD037A8BD38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{092E075A-00D6-49B4-A8AB-9CD037A8BD38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{092E075A-00D6-49B4-A8AB-9CD037A8BD38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A64DEC-809E-4A5C-97BE-9402BC3B5786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A64DEC-809E-4A5C-97BE-9402BC3B5786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A64DEC-809E-4A5C-97BE-9402BC3B5786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A64DEC-809E-4A5C-97BE-9402BC3B5786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2BB76C7-1F0E-4CA1-95F1-216D244B2B03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2BB76C7-1F0E-4CA1-95F1-216D244B2B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2BB76C7-1F0E-4CA1-95F1-216D244B2B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2BB76C7-1F0E-4CA1-95F1-216D244B2B03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C13DEB5-B264-4502-8D1A-02A8F7394D88}
+	EndGlobalSection
+EndGlobal

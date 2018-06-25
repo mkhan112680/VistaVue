@@ -1,0 +1,3448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACTION_ITEMS" xml:space="preserve">
+    <value>VISTA DM ACTION ITEMS</value>
+  </data>
+  <data name="AdditionalInstructions" xml:space="preserve">
+    <value>Additional Instructions</value>
+  </data>
+  <data name="ADDRESS" xml:space="preserve">
+    <value>ADDRESS</value>
+  </data>
+  <data name="AGREETOTERMS" xml:space="preserve">
+    <value>AGREE TO TERMS</value>
+  </data>
+  <data name="Attention_To" xml:space="preserve">
+    <value>Attention To:</value>
+  </data>
+  <data name="CHECKPAYABLETO" xml:space="preserve">
+    <value>Cheque Payable to:</value>
+  </data>
+  <data name="CHECK_INBOX" xml:space="preserve">
+    <value>Please check your inbox.</value>
+  </data>
+  <data name="CHECK_REQUEST" xml:space="preserve">
+    <value>I request the cheque(s) to be issued as following:</value>
+  </data>
+  <data name="CHRC_Responsibility" xml:space="preserve">
+    <value>The Canadian Heart Research Centre respects its responsibility to uphold the privacy of its collaborators and clients. We store contact information in our secure, internal database. Contact information is never sold or shared with external parties and only utilized for the purposes of making stakeholders aware of future initiatives and events. You will always have the option to unsubscribe.</value>
+  </data>
+  <data name="CITY" xml:space="preserve">
+    <value>CITY</value>
+  </data>
+  <data name="CLICK_HERETO_VIEW" xml:space="preserve">
+    <value>To view/print this document, please click here.</value>
+  </data>
+  <data name="CLICK_SUBMIT" xml:space="preserve">
+    <value>Click the "Submit" button once you have completed the Payee Form</value>
+  </data>
+  <data name="CLINIC_NAME" xml:space="preserve">
+    <value>CLINIC NAME</value>
+  </data>
+  <data name="COMPANYNAME" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="COMPLETE_REGISTRATION" xml:space="preserve">
+    <value>COMPLETE REGISTRATION</value>
+  </data>
+  <data name="CONFIRM" xml:space="preserve">
+    <value>CONFIRM</value>
+  </data>
+  <data name="CONFIRM_PASSWORD" xml:space="preserve">
+    <value>CONFIRM PASSWORD</value>
+  </data>
+  <data name="CONTACT" xml:space="preserve">
+    <value>CONTACT</value>
+  </data>
+  <data name="CREDIT_GUIDE" xml:space="preserve">
+    <value>Self-Claim Credit Guide</value>
+  </data>
+  <data name="Dept_CME" xml:space="preserve">
+    <value>Department of Continuing Medical Education</value>
+  </data>
+  <data name="DONT_HAVE_REG" xml:space="preserve">
+    <value>If you don’t have a unique registration ID, &lt;a onclick="window.open('../Physician/Not_Me', 'Not_Me', 'width=650, height=350'); return false;" href="#" class="noLink"&gt;click here&lt;/a&gt;</value>
+  </data>
+  <data name="EDUCATIONALTOOLS" xml:space="preserve">
+    <value>EDUCATIONAL TOOLS AND MODULES</value>
+  </data>
+  <data name="EMAIL_VISTA" xml:space="preserve">
+    <value>Please email us at info@vistadm.ca to obtain your Unique Registration ID</value>
+  </data>
+  <data name="English_Change" xml:space="preserve">
+    <value>English (change)</value>
+  </data>
+  <data name="ETHICS_LETTER" xml:space="preserve">
+    <value>Central Ethics Approval Letter</value>
+  </data>
+  <data name="Evaluation" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
+  <data name="ExecutiveDirector" xml:space="preserve">
+    <value>Executive Director</value>
+  </data>
+  <data name="ExecutiveDirector_Num" xml:space="preserve">
+    <value>416.977.8010 ext 229</value>
+  </data>
+  <data name="FAX_NUMBER" xml:space="preserve">
+    <value>FAX NUMBER</value>
+  </data>
+  <data name="FIRSTNAME" xml:space="preserve">
+    <value>FIRST NAME</value>
+  </data>
+  <data name="Focus_Group_Meeting" xml:space="preserve">
+    <value>Focus Group Meeting</value>
+  </data>
+  <data name="FORGOTPASSWORD" xml:space="preserve">
+    <value>FORGOT PASSWORD</value>
+  </data>
+  <data name="Forgot_Password" xml:space="preserve">
+    <value>Forgot your Password?</value>
+  </data>
+  <data name="HOME" xml:space="preserve">
+    <value>HOME</value>
+  </data>
+  <data name="IfApplicable" xml:space="preserve">
+    <value>If Applicable</value>
+  </data>
+  <data name="INCLUDE_NAME" xml:space="preserve">
+    <value>Please include your First Name, Last Name City and Province</value>
+  </data>
+  <data name="INSTRUCTIONS" xml:space="preserve">
+    <value>INSTRUCTIONS &amp; DOCUMENTS</value>
+  </data>
+  <data name="IRN" xml:space="preserve">
+    <value>Internal Reference Number:</value>
+  </data>
+  <data name="LASTNAME" xml:space="preserve">
+    <value>LAST NAME</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LOGOUT" xml:space="preserve">
+    <value>LOG OUT</value>
+  </data>
+  <data name="MAIL_ADDR_1" xml:space="preserve">
+    <value>Mailing Address 1:</value>
+  </data>
+  <data name="MAIL_ADDR_2" xml:space="preserve">
+    <value>Mailing Address 2:</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="MOU" xml:space="preserve">
+    <value>Memorandum of Understanding (MOU)</value>
+  </data>
+  <data name="MOU_AGREEMENT" xml:space="preserve">
+    <value>I have read and agree to the terms of the &lt;span style="text-decoration:underline; color:#9B2346; font-weight:bold"&gt;Memorandum of Understanding&lt;/span&gt;&lt;br /&gt;
+                        and certify that I hold a valid license to practice medicine in Canada.</value>
+  </data>
+  <data name="MOU_Instruction_1" xml:space="preserve">
+    <value>Acknowledging that you have reviewed and agree to the terms of this MOU is a mandatory requirement</value>
+  </data>
+  <data name="MOU_Instruction_2" xml:space="preserve">
+    <value>Please review this MOU in its entirety by scrolling to the end of the form</value>
+  </data>
+  <data name="MOU_Instruction_3" xml:space="preserve">
+    <value>Once you have reviewed the MOU, check the "&lt;strong&gt;Agree to Terms&lt;/strong&gt;" box and click the "&lt;strong&gt;Submit&lt;/strong&gt;" button</value>
+  </data>
+  <data name="MOU_Instruction_4" xml:space="preserve">
+    <value>Once the MOU is completed, the status in your dashboard will change to a checkmark</value>
+  </data>
+  <data name="MY_TOOLBOX" xml:space="preserve">
+    <value>MY TOOLBOX</value>
+  </data>
+  <data name="NeedsAssessment" xml:space="preserve">
+    <value>Needs Assessment</value>
+  </data>
+  <data name="Newsletter" xml:space="preserve">
+    <value>Newsletter</value>
+  </data>
+  <data name="NEWS_UPDATES" xml:space="preserve">
+    <value>NEWS &amp; UPDATES</value>
+  </data>
+  <data name="NEW_REGISTRATION" xml:space="preserve">
+    <value>NEW REGISTRATION</value>
+  </data>
+  <data name="NO" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="NOT_INTERESTED" xml:space="preserve">
+    <value>NOT INTERESTED</value>
+  </data>
+  <data name="OnDemandWebinars" xml:space="preserve">
+    <value>On-Demand Webinars</value>
+  </data>
+  <data name="OURAPPOLOGIES" xml:space="preserve">
+    <value>OUR APPOLOGIES</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PASSWORD_EMAILED" xml:space="preserve">
+    <value>Your password has been emailed.</value>
+  </data>
+  <data name="PatientSurvey" xml:space="preserve">
+    <value>Patient Survey</value>
+  </data>
+  <data name="PayeeForm" xml:space="preserve">
+    <value>Payee Form</value>
+  </data>
+  <data name="PAYEE_OPTIONS" xml:space="preserve">
+    <value>Please select one of the following two options:</value>
+  </data>
+  <data name="PAYEE_SHOULD_COMPLETED" xml:space="preserve">
+    <value>Completion of the Payee Form is a mandatory requirement</value>
+  </data>
+  <data name="PAYEE_STATUS" xml:space="preserve">
+    <value>Once the Payee Form is completed, the status in your dashboard will change to a checkmark</value>
+  </data>
+  <data name="PaymentTracker" xml:space="preserve">
+    <value>Payment Tracker</value>
+  </data>
+  <data name="PHONE_NUMBER" xml:space="preserve">
+    <value>PHONE NUMBER</value>
+  </data>
+  <data name="PHYSISICAN_REQUIREMENTS" xml:space="preserve">
+    <value>PHYSICIAN SPECIFIC REQUIREMENTS</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>Postal Code:</value>
+  </data>
+  <data name="POSTAL_CODE" xml:space="preserve">
+    <value>POSTAL CODE</value>
+  </data>
+  <data name="PracticeAssessment_1" xml:space="preserve">
+    <value>Practice Assessment #1</value>
+  </data>
+  <data name="PracticeAssessment_2" xml:space="preserve">
+    <value>Practice Assessment #2</value>
+  </data>
+  <data name="PRIVACY" xml:space="preserve">
+    <value>PRIVACY</value>
+  </data>
+  <data name="Project Coordinator_Num" xml:space="preserve">
+    <value>416.977.8010 ext 271</value>
+  </data>
+  <data name="Project_Coordinator" xml:space="preserve">
+    <value>Project Coordinator</value>
+  </data>
+  <data name="Project_Leader" xml:space="preserve">
+    <value>Project Leader</value>
+  </data>
+  <data name="Project_Leader_Num" xml:space="preserve">
+    <value>416.977.8010 ext 347</value>
+  </data>
+  <data name="PROVINCE" xml:space="preserve">
+    <value>PROVINCE</value>
+  </data>
+  <data name="RECEIVE_EMAIL" xml:space="preserve">
+    <value>Would you like to receive email correspondence (opt-in) from the Canadian Heart Research Centre for future initiatives and events?</value>
+  </data>
+  <data name="REGISTER_NOW" xml:space="preserve">
+    <value>REGISTER NOW</value>
+  </data>
+  <data name="REGISTRATION" xml:space="preserve">
+    <value>REGISTRATION</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="RequiredField" xml:space="preserve">
+    <value>*Required Field</value>
+  </data>
+  <data name="REQUIRED_FIELDS" xml:space="preserve">
+    <value>REQUIRED FIELDS</value>
+  </data>
+  <data name="RESOURCE_CENTRE" xml:space="preserve">
+    <value>VISTA DM RESOURCE CENTRE</value>
+  </data>
+  <data name="Review_Info" xml:space="preserve">
+    <value>PLEASE REVIEW THE INFORMATION BELOW FOR ACCURACY AND CLICK THE “CONFIRM” BUTTON TO PROCEED</value>
+  </data>
+  <data name="SalutationFirstLastName" xml:space="preserve">
+    <value>Salutation First Name Last Name</value>
+  </data>
+  <data name="STEERING_COMMITTEE" xml:space="preserve">
+    <value>STEERING COMMITTEE</value>
+  </data>
+  <data name="SUBMIT" xml:space="preserve">
+    <value>SUBMIT</value>
+  </data>
+  <data name="TAXNUMBER" xml:space="preserve">
+    <value>Tax Number (HST / Other):</value>
+  </data>
+  <data name="Team_Leader" xml:space="preserve">
+    <value>Team Leader</value>
+  </data>
+  <data name="Team_Leader_Num" xml:space="preserve">
+    <value>416.977.8010 ext 400</value>
+  </data>
+  <data name="THANKYOU" xml:space="preserve">
+    <value>THANK YOU</value>
+  </data>
+  <data name="THISISNOTME" xml:space="preserve">
+    <value>THIS IS NOT ME</value>
+  </data>
+  <data name="TOCOMPANYNAME" xml:space="preserve">
+    <value>To a Company Name</value>
+  </data>
+  <data name="TOMEPERSONALLY" xml:space="preserve">
+    <value>To me personally</value>
+  </data>
+  <data name="TOOLS_PRACTICE" xml:space="preserve">
+    <value>Tools for Practice</value>
+  </data>
+  <data name="TownhallMeetings" xml:space="preserve">
+    <value>Townhall Meetings</value>
+  </data>
+  <data name="Unique_Reg_ID" xml:space="preserve">
+    <value>Unique Registration ID</value>
+  </data>
+  <data name="UPDATE_COMPLETE" xml:space="preserve">
+    <value>UPDATE AND COMPLETE BLANK FIELDS WHERE APPLICABLE</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="USERNAME_EMAIL" xml:space="preserve">
+    <value>USERNAME (YOUR EMAIL ADDRESS)</value>
+  </data>
+  <data name="USER_GUIDE" xml:space="preserve">
+    <value>User Guide and Instructions</value>
+  </data>
+  <data name="VirtualPatientCases" xml:space="preserve">
+    <value>Virtual Patient Cases</value>
+  </data>
+  <data name="VistaDMSynopsis" xml:space="preserve">
+    <value>Vista DM Synopsis</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome Dr.</value>
+  </data>
+  <data name="YES" xml:space="preserve">
+    <value>YES</value>
+  </data>
+  <data name="YOUREMAIL" xml:space="preserve">
+    <value>YOUR EMAIL</value>
+  </data>
+  <data name="MOU10" xml:space="preserve">
+    <value>Complete the electronic Practice Assessment Forms (e-PAFs) for Phase I and Phase II  and feedback forms on patients that meet the program eligibility criteria in adherence with the program timelines;</value>
+  </data>
+  <data name="MOU11" xml:space="preserve">
+    <value>Provide a copy of your medical license and a current Curriculum Vitae if requested by the CHRC;</value>
+  </data>
+  <data name="MOU12" xml:space="preserve">
+    <value>Be available to answer any data queries;</value>
+  </data>
+  <data name="MOU13" xml:space="preserve">
+    <value>Exercise reasonable and diligent efforts and professional expertise in the conduct and completion of the program documents in an efficient and timely manner and in compliance with the program instructions.</value>
+  </data>
+  <data name="MOU14" xml:space="preserve">
+    <value>Program Components:</value>
+  </data>
+  <data name="MOU15" xml:space="preserve">
+    <value>Needs Assessment Survey</value>
+  </data>
+  <data name="MOU16" xml:space="preserve">
+    <value>Phase I: Practice Assessment</value>
+  </data>
+  <data name="MOU17" xml:space="preserve">
+    <value>Phase I: Practice Re-Assessment</value>
+  </data>
+  <data name="MOU18" xml:space="preserve">
+    <value>Patient Survey</value>
+  </data>
+  <data name="MOU19" xml:space="preserve">
+    <value>Phase II: Practice Assessment</value>
+  </data>
+  <data name="MOU20" xml:space="preserve">
+    <value>Phase II: Practice Re-Assessment A</value>
+  </data>
+  <data name="MOU21" xml:space="preserve">
+    <value>Phase II: Practice Re-Assessment B</value>
+  </data>
+  <data name="MOU22" xml:space="preserve">
+    <value>Virtual Patient Cases</value>
+  </data>
+  <data name="MOU23" xml:space="preserve">
+    <value>Program Evaluation</value>
+  </data>
+  <data name="MOU24" xml:space="preserve">
+    <value>Participating physician will have the following responsibilities with respect to Confidential Information:</value>
+  </data>
+  <data name="MOU25" xml:space="preserve">
+    <value>&lt;strong&gt;Confidential Information:&lt;/strong&gt; defined as confidential or proprietary information of the CHRC and/or the Sponsor either disclosed orally or in writing to or otherwise learned by the participating physician through participation in the VISTA DM program that should reasonably be known to be confidential or proprietary to the CHRC and/or the Sponsor, including but not limited to: research, development and clinical programs, data and results, educational products, inventions, works of authorship, trade secrets, processes, conceptions, formulas, patents, patent applications, and licenses, business, product, marketing, sales, scientific and technical strategies, programs and results, including costs and prices, suppliers, manufacturers, customers, market data, personnel, and consultants and other confidential matters related to the CHRC and/or the Sponsor.</value>
+  </data>
+  <data name="MOU26" xml:space="preserve">
+    <value>Participating Physician</value>
+  </data>
+  <data name="MOU27" xml:space="preserve">
+    <value>Shall not use Confidential Information except for the purpose of evaluating, negotiating and/or participating in the VISTA DM program</value>
+  </data>
+  <data name="MOU28" xml:space="preserve">
+    <value>Will hold Confidential Information in strictest confidence and shall not disclose Confidential Information to others, except for its employees or agents who require Confidential Information for the purpose of evaluating or negotiating the business relationship in relation to the VISTA DM program and who are subject to binding obligations of confidentiality and restricted use, participating physician shall be solely responsible for compliance with the terms of Confidential Information by such employees or agents;</value>
+  </data>
+  <data name="MOU29" xml:space="preserve">
+    <value>Will protect the confidentiality of Confidential Information using at least the same level of efforts and measures used to protect its own confidential information, and at least commercially reasonable efforts and measures, including without limitation limiting access to Confidential Information commensurate with the purposes of this MOU and keeping adequate records of those with access to Confidential Information and of all uses or dispositions of Confidential Information;</value>
+  </data>
+  <data name="MOU30" xml:space="preserve">
+    <value>Will notify the CHRC as promptly as practicable of any unauthorized use or disclosure of Confidential Information</value>
+  </data>
+  <data name="MOU31" xml:space="preserve">
+    <value>Acknowledges and agrees that there are no known circumstances which would place the participating physician in a conflict of interest as a result of the performance of the VISTA DM program.</value>
+  </data>
+  <data name="MOU32" xml:space="preserve">
+    <value>The CHRC will have the following responsibilities</value>
+  </data>
+  <data name="MOU33" xml:space="preserve">
+    <value>Provide all the necessary program materials to the participating physician;</value>
+  </data>
+  <data name="MOU34" xml:space="preserve">
+    <value>Be available to answer questions in relation to the VISTA DM program documents, instructions and/or the completion of the practice assessment forms / practice re-assessment forms</value>
+  </data>
+  <data name="MOU35" xml:space="preserve">
+    <value>Provide physicians with remuneration for properly completed program components as following:</value>
+  </data>
+  <data name="MOU36" xml:space="preserve">
+    <value>&lt;b&gt;Needs Assessment: $100.00 &lt;/b&gt;for the completion of the needs assessment survey</value>
+  </data>
+  <data name="MOU37" xml:space="preserve">
+    <value>&lt;b&gt;Phase I: Practice Assessment: $50.00 per electronic practice assessment form (up to $500.00 &lt;/b&gt; for the completion of ten (10) interactive electronic practice assessment forms)</value>
+  </data>
+  <data name="MOU38" xml:space="preserve">
+    <value>&lt;b&gt;Phase I: Practice Re-Assessment: $25.00 per electronic measure assessment form (up to $250.00&lt;/b&gt; for the completion of ten (10) interactive electronic measure assessment forms)</value>
+  </data>
+  <data name="MOU39" xml:space="preserve">
+    <value>&lt;b&gt;Phase II: Practice Assessment: $75.00 per electronic practice assessment form (up to $750.00 &lt;/b&gt;for the completion of ten (10) interactive electronic practice assessment forms)</value>
+  </data>
+  <data name="MOU40" xml:space="preserve">
+    <value>&lt;strong&gt;Phase II: Practice Re-Assessment A: $30.00 per electronic per electronic measure assessment form (up to $300.00&lt;/strong&gt; for the completion of ten (10) interactive electronic measure assessment forms)</value>
+  </data>
+  <data name="MOU41" xml:space="preserve">
+    <value>&lt;strong&gt;Phase II: Practice Re-Assessment B: $30.00 per electronic per electronic measure assessment form (up to $300.00 &lt;/strong&gt;for the completion of ten (10) interactive electronic measure assessment forms)</value>
+  </data>
+  <data name="MOU42" xml:space="preserve">
+    <value>&lt;strong&gt;Program Evaluation: $100.00&lt;/strong&gt; for the completion of the program evaluation</value>
+  </data>
+  <data name="MOU43" xml:space="preserve">
+    <value>&lt;strong&gt;Participants who complete all the required program components will be compensated &lt;/strong&gt;&lt;span style="color:#9B2346; font-weight:bold"&gt;$2,300.00&lt;/span&gt;</value>
+  </data>
+  <data name="MOU44" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="MOU45" xml:space="preserve">
+    <value>By participating in the VISTA DM Program the relationship of the participating physician to the CHRC is that of an independent contractor. Physician shall have no authority to make agreements with third parties that are binding on the CHRC.</value>
+  </data>
+  <data name="MOU46" xml:space="preserve">
+    <value>To view/print this document, please click &lt;a href="documents/VISTA DM_MOU.pdf" target="_blank" class="red"&gt;here&lt;/a&gt;.</value>
+  </data>
+  <data name="MOU47" xml:space="preserve">
+    <value>AGREE TO TERMS</value>
+  </data>
+  <data name="MOU48" xml:space="preserve">
+    <value>have read and agree to the terms of the Memorandum of Understanding
+and certify that I hold a valid license to practice medicine in Canada.</value>
+  </data>
+  <data name="MOU5" xml:space="preserve">
+    <value>Thank you for agreeing to participate in the VISTA DM (e&lt;span style="color:#9B2346; font-weight:bold"&gt;VI&lt;/span&gt;dence ba&lt;span style="color:#9B2346; font-weight:bold"&gt;S&lt;/span&gt;ed prac&lt;span style="color:#9B2346; font-weight:bold"&gt;T&lt;/span&gt;ice progr&lt;span style="color:#9B2346; font-weight:bold"&gt;A&lt;/span&gt;m in &lt;span style="color:#9B2346; font-weight:bold"&gt;D&lt;/span&gt;iabetes &lt;span style="color:#9B2346; font-weight:bold"&gt;M&lt;/span&gt;ellitus) initiative. VISTA DM is coordinated by the Canadian Heart Research Centre ("CHRC") and is supported by the Boehringer-Ingelheim and Eli Lilly Alliance ("Sponsor").</value>
+  </data>
+  <data name="MOU6" xml:space="preserve">
+    <value>Please review the following information and make yourself familiar with the VISTA DM program components, as well as your expected role as a program participant, and the CHRC's role, as the coordinating centre.</value>
+  </data>
+  <data name="MOU7" xml:space="preserve">
+    <value>The participating physician will have the following responsibilities:</value>
+  </data>
+  <data name="MOU8" xml:space="preserve">
+    <value>Read and understand this Memorandum of Understanding (MOU) and the VISTA DM materials and timelines and ensure that all person(s) in your practice who may be associated with this initiative also review and understand these materials;</value>
+  </data>
+  <data name="MOU9" xml:space="preserve">
+    <value>Partake in the VISTA DM initiative in its entirety or promptly advise the CHRC if you are unable to complete the project;</value>
+  </data>
+  <data name="MOU_INSTRUCTIONS" xml:space="preserve">
+    <value>Instructions</value>
+  </data>
+  <data name="INSTRUCTIONS_DOCUMENTS" xml:space="preserve">
+    <value>INSTRUCTIONS &amp; DOCUMENTS</value>
+  </data>
+  <data name="LOGIN_URL" xml:space="preserve">
+    <value>../images/button_login.png</value>
+  </data>
+  <data name="NOTINTERESTED_IMG_URL" xml:space="preserve">
+    <value>../images/button_notinterested.png</value>
+  </data>
+  <data name="REGISTERNOW_IMG_URL" xml:space="preserve">
+    <value>../images/button_registernow.png</value>
+  </data>
+  <data name="BTN_BACK_URL" xml:space="preserve">
+    <value>../images/button_back.png</value>
+  </data>
+  <data name="BTN_NEXT_URL" xml:space="preserve">
+    <value>../images/button_next.png</value>
+  </data>
+  <data name="BTN_REVIEW_URL" xml:space="preserve">
+    <value>../images/button_review2.png</value>
+  </data>
+  <data name="BTN_SAVE_URL" xml:space="preserve">
+    <value>../images/button_save.png</value>
+  </data>
+  <data name="BTN_SUBMIT_URL" xml:space="preserve">
+    <value>../images/button_submit2.png</value>
+  </data>
+  <data name="NEEDS_ASSES_AAGENT" xml:space="preserve">
+    <value>Antihyperglycemic Agent</value>
+  </data>
+  <data name="NEEDS_ASSES_ALL_NONE" xml:space="preserve">
+    <value>Check ALL that Apply or Select "None of the Above</value>
+  </data>
+  <data name="NEEDS_ASSES_CHECK_ALL" xml:space="preserve">
+    <value>Check ALL that Apply</value>
+  </data>
+  <data name="NEEDS_ASSES_CLINIC" xml:space="preserve">
+    <value>CLINICAL INFORMATION SYSTEMS</value>
+  </data>
+  <data name="NEEDS_ASSES_CLINIC_MGMT" xml:space="preserve">
+    <value>CLINICAL MANAGEMENT</value>
+  </data>
+  <data name="NEEDS_ASSES_COMFORT_1" xml:space="preserve">
+    <value>Not Comfortable at ALL</value>
+  </data>
+  <data name="NEEDS_ASSES_COMFORT_2" xml:space="preserve">
+    <value>Not Comfortable</value>
+  </data>
+  <data name="NEEDS_ASSES_COMFORT_3" xml:space="preserve">
+    <value>Somewhat Comfortable</value>
+  </data>
+  <data name="NEEDS_ASSES_COMFORT_4" xml:space="preserve">
+    <value>Comfortable</value>
+  </data>
+  <data name="NEEDS_ASSES_COMFORT_5" xml:space="preserve">
+    <value>Very Comfortable</value>
+  </data>
+  <data name="NEEDS_ASSES_DECISIONSUPPORT" xml:space="preserve">
+    <value>DECISION SUPPORT</value>
+  </data>
+  <data name="NEEDS_ASSES_DELIVERY" xml:space="preserve">
+    <value>DELIVERY SYSTEM DESIGN</value>
+  </data>
+  <data name="NEEDS_ASSES_DIABETESHEALTH" xml:space="preserve">
+    <value>ACCESS TO DIABETES HEALTH CARE TEAM</value>
+  </data>
+  <data name="NEEDS_ASSES_FOOTER1" xml:space="preserve">
+    <value>If you click the "SUBMIT" button, the responses will be considered final and no modifications can be made.</value>
+  </data>
+  <data name="NEEDS_ASSES_FOOTER2" xml:space="preserve">
+    <value>If you click the "REVIEW" button, you will be able to review all previous pages of e-PAF and make any applicable modifications if warranted. Once you have reviewed / modified the e-PAF to your satisfaction, you will be able to submit the final version.</value>
+  </data>
+  <data name="NEEDS_ASSES_HEADER" xml:space="preserve">
+    <value>Needs Assessment Survey</value>
+  </data>
+  <data name="NEEDS_ASSES_INSTR_1" xml:space="preserve">
+    <value>Please complete the Needs Assessment survey in its entirety. Your survey responses can only be viewed by you and individual survey results will never be shared</value>
+  </data>
+  <data name="NEEDS_ASSES_INSTR_10" xml:space="preserve">
+    <value>The CHRC will remunerate you &lt;strong&gt;$100.00&lt;/strong&gt; for completing the Needs Assessment Survey</value>
+  </data>
+  <data name="NEEDS_ASSES_INSTR_2" xml:space="preserve">
+    <value>The survey consists of &lt;strong&gt;five (5) pages&lt;/strong&gt; and should take between &lt;strong&gt;15 – 20 minutes&lt;/strong&gt; to complete</value>
+  </data>
+  <data name="NEEDS_ASSES_INSTR_3" xml:space="preserve">
+    <value>Click the &lt;strong&gt;"Save"&lt;/strong&gt; button, to save the progress of the current page</value>
+  </data>
+  <data name="NEEDS_ASSES_INSTR_4" xml:space="preserve">
+    <value>Once you have completed the entire page, click the &lt;strong&gt;"Next"&lt;/strong&gt; button to proceed to the next page of the survey.  Clicking the &lt;strong&gt;"Next"&lt;/strong&gt; button will automatically save the entries of the previous page (if entirely completed)</value>
+  </data>
+  <data name="NEEDS_ASSES_INSTR_5" xml:space="preserve">
+    <value>To return to the previous page of the survey, click the &lt;strong&gt;"Back"&lt;/strong&gt; button. Please note that if you click the &lt;b&gt;“Back”&lt;/b&gt; button before completing the page in its entirety, you will lose the progress for the current page.</value>
+  </data>
+  <data name="NEEDS_ASSES_INSTR_6" xml:space="preserve">
+    <value>&lt;strong&gt;Once you have completed the survey and click "Next" on Page 5, you can either:&lt;/strong&gt;</value>
+  </data>
+  <data name="NEEDS_ASSES_INSTR_7" xml:space="preserve">
+    <value>Click the &lt;strong&gt;"Review"&lt;/strong&gt; button to return to Page 1 of the survey to review your entries and/or make changes to your responses</value>
+  </data>
+  <data name="NEEDS_ASSES_INSTR_8" xml:space="preserve">
+    <value>Click the &lt;strong&gt;"Submit"&lt;/strong&gt; button once you are satisfied with your responses and consider the survey as final.  Once the survey is submitted, you will not be able to make changes to your responses but will be able to return and view your responses.</value>
+  </data>
+  <data name="NEEDS_ASSES_INSTR_9" xml:space="preserve">
+    <value>Once the Needs Assessment Survey is submitted, the status in your dashboard will change to a checkmark</value>
+  </data>
+  <data name="NEEDS_ASSES_I_DONOTEVALUATE" xml:space="preserve">
+    <value>Check ALL that apply or Select "I do not evaluate adherence")</value>
+  </data>
+  <data name="NEEDS_ASSES_ONEFOREACH" xml:space="preserve">
+    <value>Select ONE for each</value>
+  </data>
+  <data name="NEEDS_ASSES_PAGE_1_5" xml:space="preserve">
+    <value>Page 1 of 5</value>
+  </data>
+  <data name="NEEDS_ASSES_PAGE_2_5" xml:space="preserve">
+    <value>Page 2 of 5</value>
+  </data>
+  <data name="NEEDS_ASSES_PAGE_3_5" xml:space="preserve">
+    <value>Page 3 of 5</value>
+  </data>
+  <data name="NEEDS_ASSES_PAGE_4_5" xml:space="preserve">
+    <value>Page 4 of 5</value>
+  </data>
+  <data name="NEEDS_ASSES_PAGE_5_5" xml:space="preserve">
+    <value>Page 5 of 5</value>
+  </data>
+  <data name="NEEDS_ASSES_PATIENT_TARGETS" xml:space="preserve">
+    <value>PATIENT TARGETS AND MANAGEMENT PRIORITIES</value>
+  </data>
+  <data name="NEEDS_ASSES_PRACTICE_MANAGEMENT" xml:space="preserve">
+    <value>PRACTICE MANAGEMENT</value>
+  </data>
+  <data name="NEEDS_ASSES_PRIORITY" xml:space="preserve">
+    <value>Check 1st – 3rd Priority</value>
+  </data>
+  <data name="NEEDS_ASSES_PRIOR_1" xml:space="preserve">
+    <value>1st Priority</value>
+  </data>
+  <data name="NEEDS_ASSES_PRIOR_2" xml:space="preserve">
+    <value>2nd Priority</value>
+  </data>
+  <data name="NEEDS_ASSES_PRIOR_3" xml:space="preserve">
+    <value>3rd Priority</value>
+  </data>
+  <data name="NEEDS_ASSES_PRIOR_EQUAL" xml:space="preserve">
+    <value>All Equal Priority</value>
+  </data>
+  <data name="NEEDS_ASSES_Q1" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10" xml:space="preserve">
+    <value>Select ONE response for each row:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_ACCESSTO" xml:space="preserve">
+    <value>Access to</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_DB_D" xml:space="preserve">
+    <value>Dietitian</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_DB_EYE" xml:space="preserve">
+    <value>Eye Specialist</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_DB_N" xml:space="preserve">
+    <value>Diabetes Nurse</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_DB_PED" xml:space="preserve">
+    <value>Podiatrist</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_DB_PHY" xml:space="preserve">
+    <value>Psychologist / Psychiatrist</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_DB_SOC" xml:space="preserve">
+    <value>Social Worker</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_DB_SP" xml:space="preserve">
+    <value>Diabetes Specialist</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_Limited" xml:space="preserve">
+    <value>Limited availability in my practice location</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_Limited2" xml:space="preserve">
+    <value>Limited availability elsewhere in the community</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_NoAvialability" xml:space="preserve">
+    <value>No availability in my practice location and elsewhere in the community</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_ReadilyAvailable" xml:space="preserve">
+    <value>Readily available in my practice location</value>
+  </data>
+  <data name="NEEDS_ASSES_Q10_ReadilyElsewhere" xml:space="preserve">
+    <value>Readily available elsewhere in the community</value>
+  </data>
+  <data name="NEEDS_ASSES_Q11" xml:space="preserve">
+    <value>In the community where I practice, partnerships with community organizations focusing on improving diabetes care:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q11_A1" xml:space="preserve">
+    <value>Do not exist</value>
+  </data>
+  <data name="NEEDS_ASSES_Q11_A2" xml:space="preserve">
+    <value>Are being considered but have not yet been implemented</value>
+  </data>
+  <data name="NEEDS_ASSES_Q11_A3" xml:space="preserve">
+    <value>Are formed to develop supportive programs and policies</value>
+  </data>
+  <data name="NEEDS_ASSES_Q11_A4" xml:space="preserve">
+    <value>Are actively sought to develop formal supportive programs and policies across the entire system</value>
+  </data>
+  <data name="NEEDS_ASSES_Q12" xml:space="preserve">
+    <value>In my practice:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q12_A1" xml:space="preserve">
+    <value>I do not link patients who have diabetes to community resources as consistently as I would like</value>
+  </data>
+  <data name="NEEDS_ASSES_Q12_A2" xml:space="preserve">
+    <value>I give my patients who have diabetes the name and phone number of a community resource, and it is up to the patient to make the contact</value>
+  </data>
+  <data name="NEEDS_ASSES_Q12_A3" xml:space="preserve">
+    <value>I have allied health staff in my office who act as a community resource to my patients</value>
+  </data>
+  <data name="NEEDS_ASSES_Q12_A4" xml:space="preserve">
+    <value>I have a staff member who is responsible for ensuring that the doctors, practice staff, and my patients who have diabetes make maximum use of community resources</value>
+  </data>
+  <data name="NEEDS_ASSES_Q12_A5" xml:space="preserve">
+    <value>I have excellent community-wide coordination between my office and community agencies in caring for patients who have diabetes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q13" xml:space="preserve">
+    <value>In my practice, self-management support for patients who have diabetes:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q13_A1" xml:space="preserve">
+    <value>Is not available</value>
+  </data>
+  <data name="NEEDS_ASSES_Q13_A2" xml:space="preserve">
+    <value>Consists only of distribution of information (e.g., pamphlets, booklets)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q13_A3" xml:space="preserve">
+    <value>Involves referral to self-management classes or educators</value>
+  </data>
+  <data name="NEEDS_ASSES_Q13_A4" xml:space="preserve">
+    <value>Is provided by trained personnel in my practice who are designated to do self-management support</value>
+  </data>
+  <data name="NEEDS_ASSES_Q14" xml:space="preserve">
+    <value>In my practice:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q14_A1" xml:space="preserve">
+    <value>I do not consistently address self-management concerns with patients who have diabetes and their families</value>
+  </data>
+  <data name="NEEDS_ASSES_Q14_A2" xml:space="preserve">
+    <value>I address self-management concerns of specific patients who have diabetes who seem to need it</value>
+  </data>
+  <data name="NEEDS_ASSES_Q14_A3" xml:space="preserve">
+    <value>I address self-management issues during each diabetes patient's visit as part of the philosophy of the practice</value>
+  </data>
+  <data name="NEEDS_ASSES_Q14_A4" xml:space="preserve">
+    <value>I address self-management issues by routinely referring to well-established programs</value>
+  </data>
+  <data name="NEEDS_ASSES_Q14_A5" xml:space="preserve">
+    <value>I systematically assess the self-management needs of patients who have diabetes and use peer support groups routinely</value>
+  </data>
+  <data name="NEEDS_ASSES_Q15" xml:space="preserve">
+    <value>In my practice, support for behavior change interventions:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q15_A1" xml:space="preserve">
+    <value>Is not available</value>
+  </data>
+  <data name="NEEDS_ASSES_Q15_A2" xml:space="preserve">
+    <value>Is limited to the distribution of pamphlets, booklets, or other written information</value>
+  </data>
+  <data name="NEEDS_ASSES_Q15_A3" xml:space="preserve">
+    <value>Is available by referral to others who are skilled in this area</value>
+  </data>
+  <data name="NEEDS_ASSES_Q15_A4" xml:space="preserve">
+    <value>Is available from the physicians and staff of my practice, who use proven techniques to effect behavior change</value>
+  </data>
+  <data name="NEEDS_ASSES_Q16" xml:space="preserve">
+    <value>In my practice, evidence-based guidelines for diabetes care:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q16_A1" xml:space="preserve">
+    <value>Are not readily available at the time of patient visits</value>
+  </data>
+  <data name="NEEDS_ASSES_Q16_A2" xml:space="preserve">
+    <value>Are available in my practice, but not easy to access rapidly</value>
+  </data>
+  <data name="NEEDS_ASSES_Q16_A3" xml:space="preserve">
+    <value>Are available and integrated into my charting system (e.g., flow sheets with embedded guidelines, personal digital assistants [PDAs])</value>
+  </data>
+  <data name="NEEDS_ASSES_Q16_A4" xml:space="preserve">
+    <value>Are available, supported by physician education, and integrated into care through reminders and other proven behavior change methods</value>
+  </data>
+  <data name="NEEDS_ASSES_Q17" xml:space="preserve">
+    <value>My practice follows the following protocol for informing patients about guidelines:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q17_A1" xml:space="preserve">
+    <value>I do not regularly inform patients about guidelines</value>
+  </data>
+  <data name="NEEDS_ASSES_Q17_A2" xml:space="preserve">
+    <value>I give patients guideline handouts if they ask for them</value>
+  </data>
+  <data name="NEEDS_ASSES_Q17_A3" xml:space="preserve">
+    <value>I routinely give patients a copy of guidelines or refer them to the appropriate website pertinent to their care</value>
+  </data>
+  <data name="NEEDS_ASSES_Q17_A4" xml:space="preserve">
+    <value>I routinely give patients guidelines with personalized targets for them to achieve and with recommendations about how to achieve the targets</value>
+  </data>
+  <data name="NEEDS_ASSES_Q18" xml:space="preserve">
+    <value>In my practice:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q18_A1" xml:space="preserve">
+    <value>I have to do almost everything if I want to be sure my patients who have diabetes receive the care they need</value>
+  </data>
+  <data name="NEEDS_ASSES_Q18_A2" xml:space="preserve">
+    <value>Although we don't talk about "teams," I do have competent staff to assist me in providing excellent care for my patients who have diabetes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q18_A3" xml:space="preserve">
+    <value>I have regular staff meetings in which we discuss specific issues to improve care of our patients who have diabetes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q18_A4" xml:space="preserve">
+    <value>I am part of an interdisciplinary diabetes team and everyone understands their role in caring for patients who have diabetes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q19" xml:space="preserve">
+    <value>in my practice, diabetes-specific follow-up: </value>
+  </data>
+  <data name="NEEDS_ASSES_Q19_A1" xml:space="preserve">
+    <value>Is scheduled as needed</value>
+  </data>
+  <data name="NEEDS_ASSES_Q19_A2" xml:space="preserve">
+    <value>Is scheduled by the patient at the end of each visit</value>
+  </data>
+  <data name="NEEDS_ASSES_Q19_A3" xml:space="preserve">
+    <value>Is scheduled by the practice in accordance with guidelines</value>
+  </data>
+  <data name="NEEDS_ASSES_Q19_A4" xml:space="preserve">
+    <value>Is scheduled by the practice in accordance with guidelines with routine appointment reminders to the patient</value>
+  </data>
+  <data name="NEEDS_ASSES_Q19_A5" xml:space="preserve">
+    <value>Is proactive with patient recall system and routine appointment reminders</value>
+  </data>
+  <data name="NEEDS_ASSES_Q1_A1" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="NEEDS_ASSES_Q1_A2" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="NEEDS_ASSES_Q2" xml:space="preserve">
+    <value>Number of years in practice</value>
+  </data>
+  <data name="NEEDS_ASSES_Q20" xml:space="preserve">
+    <value>In my practice, planned visits for patients who have diabetes:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q20_A1" xml:space="preserve">
+    <value>Are not used</value>
+  </data>
+  <data name="NEEDS_ASSES_Q20_A2" xml:space="preserve">
+    <value>Are used if patients are not doing well or need refills</value>
+  </data>
+  <data name="NEEDS_ASSES_Q20_A3" xml:space="preserve">
+    <value>Are used if patients are not doing well. Reminder cards are used, but there is no long-term planning for regular visits</value>
+  </data>
+  <data name="NEEDS_ASSES_Q20_A4" xml:space="preserve">
+    <value>Checklists and flow sheets are used, in addition to other tools, to ensure key elements of care are provided</value>
+  </data>
+  <data name="NEEDS_ASSES_Q20_A5" xml:space="preserve">
+    <value>Are used for all patients and include regular assessment, preventive interventions, and attention to self-management support</value>
+  </data>
+  <data name="NEEDS_ASSES_Q20_A6" xml:space="preserve">
+    <value>Are used systematically to optimize patient follow-up; in addition, missed elements of planned care are easily spotted through an alert system</value>
+  </data>
+  <data name="NEEDS_ASSES_Q21" xml:space="preserve">
+    <value>In my practice, coordination of care between my office and subspecialists:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q21_A1" xml:space="preserve">
+    <value>Is not done well</value>
+  </data>
+  <data name="NEEDS_ASSES_Q21_A2" xml:space="preserve">
+    <value>Is done reasonably well, but depends mostly on written communication between my office, subspecialists and other relevant providers</value>
+  </data>
+  <data name="NEEDS_ASSES_Q21_A3" xml:space="preserve">
+    <value>Is done quite well, with adequate oral and written communication between my office, subspecialists, and other relevant providers</value>
+  </data>
+  <data name="NEEDS_ASSES_Q21_A4" xml:space="preserve">
+    <value>Is a high priority and includes active coordination between my office, subspecialists, and other relevant groups</value>
+  </data>
+  <data name="NEEDS_ASSES_Q22" xml:space="preserve">
+    <value>In my practice, a diabetes registry:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q22_A1" xml:space="preserve">
+    <value>Is not available</value>
+  </data>
+  <data name="NEEDS_ASSES_Q22_A2" xml:space="preserve">
+    <value>Is used to maintain patient information, such as name, diagnosis, contact information, and date of last contact, either on paper or in a computer database</value>
+  </data>
+  <data name="NEEDS_ASSES_Q22_A3" xml:space="preserve">
+    <value>Is used to identify patients regarding specific clinical information (e.g., data collection for measuring/tracking, identifying patients for planned visits or group visits)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q22_A4" xml:space="preserve">
+    <value>Is tied to guidelines and provides prompts and reminders about needed services (e.g., lab and other testing), and/or is an integral function of our electronic health record</value>
+  </data>
+  <data name="NEEDS_ASSES_Q23" xml:space="preserve">
+    <value>Reminders to physicians and other team members:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q23_A1" xml:space="preserve">
+    <value>Are not available</value>
+  </data>
+  <data name="NEEDS_ASSES_Q23_A2" xml:space="preserve">
+    <value>Include general notifications of the existence of a diagnosis of diabetes, but do not describe needed services at the time of encounter</value>
+  </data>
+  <data name="NEEDS_ASSES_Q23_A3" xml:space="preserve">
+    <value>Include indications of needed services for populations of patients through periodic reporting</value>
+  </data>
+  <data name="NEEDS_ASSES_Q23_A4" xml:space="preserve">
+    <value>Include specific information for the team about guideline adherence at the time of individual patient encounters</value>
+  </data>
+  <data name="NEEDS_ASSES_Q24" xml:space="preserve">
+    <value>In my practice, performance feedback regarding diabetes care:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q24_A1" xml:space="preserve">
+    <value>Is not available</value>
+  </data>
+  <data name="NEEDS_ASSES_Q24_A2" xml:space="preserve">
+    <value>Is provided at infrequent intervals and/or about a limited number of patients</value>
+  </data>
+  <data name="NEEDS_ASSES_Q24_A3" xml:space="preserve">
+    <value>Occurs at frequent enough intervals to monitor performance and is specific to each physician</value>
+  </data>
+  <data name="NEEDS_ASSES_Q24_A4" xml:space="preserve">
+    <value>Is timely and specific to each physician, and we routinely review the reports and strive to remedy any deficiencies as rapidly as possible</value>
+  </data>
+  <data name="NEEDS_ASSES_Q25" xml:space="preserve">
+    <value>Specific treatment targets and goals:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q25_A1" xml:space="preserve">
+    <value>Are not part of the chart in most cases</value>
+  </data>
+  <data name="NEEDS_ASSES_Q25_A2" xml:space="preserve">
+    <value>Are noted in each patient's chart</value>
+  </data>
+  <data name="NEEDS_ASSES_Q25_A3" xml:space="preserve">
+    <value>Are established collaboratively and include self-management as well as clinical goals</value>
+  </data>
+  <data name="NEEDS_ASSES_Q25_A4" xml:space="preserve">
+    <value>Are established collaboratively and include self-management as well as clinical goals. Individual treatment goals and targets are discussed and adjusted frequently, with input from patients</value>
+  </data>
+  <data name="NEEDS_ASSES_Q26" xml:space="preserve">
+    <value>Approximately what percentage of your patients with type 2 diabetes receive diet and exercise plans with measurable goals from you?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q26_A1" xml:space="preserve">
+    <value>&lt; 10%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q26_A2" xml:space="preserve">
+    <value>10% to 25%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q26_A3" xml:space="preserve">
+    <value>25% to 50%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q26_A4" xml:space="preserve">
+    <value>50% to 75%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q26_A5" xml:space="preserve">
+    <value>75% to 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q26_A6" xml:space="preserve">
+    <value>&gt; 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q27" xml:space="preserve">
+    <value>How often do you document discussions about diet and exercise in the patient's chart?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q27_A1" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="NEEDS_ASSES_Q27_A2" xml:space="preserve">
+    <value>Sometimes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q27_A3" xml:space="preserve">
+    <value>Frequently</value>
+  </data>
+  <data name="NEEDS_ASSES_Q27_A4" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="NEEDS_ASSES_Q28" xml:space="preserve">
+    <value>Approximately what percentage of your patients with type 2 diabetes are referred by you to a Certified Diabetes Educator or recognized disease-state-management education program?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q28_A1" xml:space="preserve">
+    <value>&lt; 10%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q28_A2" xml:space="preserve">
+    <value>10% to 25%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q28_A3" xml:space="preserve">
+    <value>25% to 50%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q28_A4" xml:space="preserve">
+    <value>50% to 75%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q28_A5" xml:space="preserve">
+    <value>75% to 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q28_A6" xml:space="preserve">
+    <value>&gt; 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q29" xml:space="preserve">
+    <value>How often do you document these referrals in the patient's chart?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q29_A1" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="NEEDS_ASSES_Q29_A2" xml:space="preserve">
+    <value>Sometimes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q29_A3" xml:space="preserve">
+    <value>Frequently</value>
+  </data>
+  <data name="NEEDS_ASSES_Q29_A4" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="NEEDS_ASSES_Q2_A1" xml:space="preserve">
+    <value>&lt; 5 years</value>
+  </data>
+  <data name="NEEDS_ASSES_Q2_A2" xml:space="preserve">
+    <value>5 – 10 years</value>
+  </data>
+  <data name="NEEDS_ASSES_Q2_A3" xml:space="preserve">
+    <value>11 – 15 years
+</value>
+  </data>
+  <data name="NEEDS_ASSES_Q2_A4" xml:space="preserve">
+    <value>16 – 20 years</value>
+  </data>
+  <data name="NEEDS_ASSES_Q2_A5" xml:space="preserve">
+    <value>&gt; 20 years</value>
+  </data>
+  <data name="NEEDS_ASSES_Q3" xml:space="preserve">
+    <value>Main patient care setting:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q30" xml:space="preserve">
+    <value>Approximately what percentage of your patients with type 2 diabetes receive a comprehensive foot exam, including neurologic and vascular testing, at least once every 12 months?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q30_A1" xml:space="preserve">
+    <value>&lt; 10%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q30_A2" xml:space="preserve">
+    <value>10% to 25%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q30_A3" xml:space="preserve">
+    <value>25% to 50%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q30_A4" xml:space="preserve">
+    <value>50% to 75%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q30_A5" xml:space="preserve">
+    <value>75% to 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q30_A6" xml:space="preserve">
+    <value>&gt; 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q31" xml:space="preserve">
+    <value>How often are the results of these foot exams documented in the patient's chart?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q31_A1" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="NEEDS_ASSES_Q31_A2" xml:space="preserve">
+    <value>Sometimes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q31_A3" xml:space="preserve">
+    <value>Frequently</value>
+  </data>
+  <data name="NEEDS_ASSES_Q31_A4" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="NEEDS_ASSES_Q32" xml:space="preserve">
+    <value>Approximately what percentage of your patients with type 2 diabetes AT GLYCEMIC TARGET have A1C measurements at least once every 3 months?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q32_A1" xml:space="preserve">
+    <value>&lt; 10%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q32_A2" xml:space="preserve">
+    <value>10% to 25%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q32_A3" xml:space="preserve">
+    <value>25% to 50%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q32_A4" xml:space="preserve">
+    <value>50% to 75%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q32_A5" xml:space="preserve">
+    <value>75% to 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q32_A6" xml:space="preserve">
+    <value>&gt; 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q33" xml:space="preserve">
+    <value>Approximately what percentage of your patients with type 2 diabetes AT GLYCEMIC TARGET have A1C measurements at least once every 6 months?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q33_A1" xml:space="preserve">
+    <value>&lt; 10%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q33_A2" xml:space="preserve">
+    <value>10% to 25%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q33_A3" xml:space="preserve">
+    <value>25% to 50%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q33_A4" xml:space="preserve">
+    <value>50% to 75%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q33_A5" xml:space="preserve">
+    <value>75% to 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q33_A6" xml:space="preserve">
+    <value>&gt; 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q34" xml:space="preserve">
+    <value>Approximately what percentage of your patients with type 2 diabetes NOT AT TARGET have A1C measurements at least once every 3 months?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q34_A1" xml:space="preserve">
+    <value>&lt; 10%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q34_A2" xml:space="preserve">
+    <value>10% to 25%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q34_A3" xml:space="preserve">
+    <value>25% to 50%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q34_A4" xml:space="preserve">
+    <value>50% to 75%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q34_A5" xml:space="preserve">
+    <value>75% to 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q34_A6" xml:space="preserve">
+    <value>&gt; 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q35" xml:space="preserve">
+    <value>Approximately what percentage of your patients with type 2 diabetes NOT AT TARGET have A1C measurements at least once every 6 months?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q35_A1" xml:space="preserve">
+    <value>&lt; 10%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q35_A2" xml:space="preserve">
+    <value>10% to 25%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q35_A3" xml:space="preserve">
+    <value>25% to 50%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q35_A4" xml:space="preserve">
+    <value>50% to 75%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q35_A5" xml:space="preserve">
+    <value>75% to 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q35_A6" xml:space="preserve">
+    <value>&gt; 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q36" xml:space="preserve">
+    <value>Approximately what percentage of your patients with type 2 diabetes are recommended by you to perform self-monitoring of blood glucose?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q36_A1" xml:space="preserve">
+    <value>&lt; 10%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q36_A2" xml:space="preserve">
+    <value>10% to 25%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q36_A3" xml:space="preserve">
+    <value>25% to 50%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q36_A4" xml:space="preserve">
+    <value>50% to 75%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q36_A5" xml:space="preserve">
+    <value>75% to 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q36_A6" xml:space="preserve">
+    <value>&gt; 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q37" xml:space="preserve">
+    <value>In approximately what percentage of your patients with type 2 diabetes do you inquire about hypoglycemic episodes at every visit?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q37_A1" xml:space="preserve">
+    <value>&lt; 10%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q37_A2" xml:space="preserve">
+    <value>10% to 25%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q37_A3" xml:space="preserve">
+    <value>25% to 50%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q37_A4" xml:space="preserve">
+    <value>50% to 75%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q37_A5" xml:space="preserve">
+    <value>75% to 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q37_A6" xml:space="preserve">
+    <value>&gt; 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q38" xml:space="preserve">
+    <value>How often/when do you discuss specific strategies for hypoglycemia prevention with your patients with type 2 diabetes?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q38_A1" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="NEEDS_ASSES_Q38_A2" xml:space="preserve">
+    <value>Sometimes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q38_A3" xml:space="preserve">
+    <value>Frequently</value>
+  </data>
+  <data name="NEEDS_ASSES_Q38_A4" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="NEEDS_ASSES_Q38_A5" xml:space="preserve">
+    <value>When patient has a history of hypoglycemic episodes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q39" xml:space="preserve">
+    <value>How often /when do you take specific action (e.g. modify oral or injectable therapy) when your patients with type 2 diabetes are not meeting their A1C goals?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q39_A1" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="NEEDS_ASSES_Q39_A2" xml:space="preserve">
+    <value>Sometimes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q39_A3" xml:space="preserve">
+    <value>Frequently</value>
+  </data>
+  <data name="NEEDS_ASSES_Q39_A4" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="NEEDS_ASSES_Q39_A5" xml:space="preserve">
+    <value>Actions based on individual patient needs</value>
+  </data>
+  <data name="NEEDS_ASSES_Q3_A1" xml:space="preserve">
+    <value>Solo Practice</value>
+  </data>
+  <data name="NEEDS_ASSES_Q3_A2" xml:space="preserve">
+    <value>Group Practice</value>
+  </data>
+  <data name="NEEDS_ASSES_Q3_A3" xml:space="preserve">
+    <value>Family Health Team (or similar)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q3_A4" xml:space="preserve">
+    <value>Hospital Based (Inpatient)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q3_A5" xml:space="preserve">
+    <value>Hospital Based (Outpatient)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q3_A6" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="NEEDS_ASSES_Q4" xml:space="preserve">
+    <value>Population primarily served by your practice:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q40" xml:space="preserve">
+    <value>How often /when do you take specific action (e.g. modify lifestyle recommendations or pharmacologic therapy) when your patients type 2 diabetes are not at blood pressure or lipid goals?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q40_A1" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="NEEDS_ASSES_Q40_A2" xml:space="preserve">
+    <value>Sometimes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q40_A3" xml:space="preserve">
+    <value>Frequently</value>
+  </data>
+  <data name="NEEDS_ASSES_Q40_A4" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="NEEDS_ASSES_Q40_A5" xml:space="preserve">
+    <value>Actions based on individual patient needs</value>
+  </data>
+  <data name="NEEDS_ASSES_Q41" xml:space="preserve">
+    <value>In your opinion, on average how adherent are your patients with their current medications?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q41_A1" xml:space="preserve">
+    <value>&lt; 50% of time</value>
+  </data>
+  <data name="NEEDS_ASSES_Q41_A2" xml:space="preserve">
+    <value>50-70 % of the time</value>
+  </data>
+  <data name="NEEDS_ASSES_Q41_A3" xml:space="preserve">
+    <value>&gt;70% of the time</value>
+  </data>
+  <data name="NEEDS_ASSES_Q41_A4" xml:space="preserve">
+    <value>Do not know</value>
+  </data>
+  <data name="NEEDS_ASSES_Q42" xml:space="preserve">
+    <value>How do you evaluate adherence in your patients?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q42_A1" xml:space="preserve">
+    <value>I ask the patient / caregiver</value>
+  </data>
+  <data name="NEEDS_ASSES_Q42_A2" xml:space="preserve">
+    <value>I obtain pharmacy renewal records</value>
+  </data>
+  <data name="NEEDS_ASSES_Q42_A3" xml:space="preserve">
+    <value>I use an adherence questionnaire</value>
+  </data>
+  <data name="NEEDS_ASSES_Q42_A4" xml:space="preserve">
+    <value>I do a medication count</value>
+  </data>
+  <data name="NEEDS_ASSES_Q42_A5" xml:space="preserve">
+    <value>Lab results</value>
+  </data>
+  <data name="NEEDS_ASSES_Q42_A6" xml:space="preserve">
+    <value>I do not evaluate adherence</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43" xml:space="preserve">
+    <value>What are your targets for the majority of your patients with type 2 diabetes?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_A" xml:space="preserve">
+    <value>Systolic Blood Pressure:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_A_A1" xml:space="preserve">
+    <value>≤ 130 mmHg</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_A_A2" xml:space="preserve">
+    <value>131 - 140 mmHg</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_A_A3" xml:space="preserve">
+    <value>&gt; 140 mmHg</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_B" xml:space="preserve">
+    <value>Diastolic Blood Pressure:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_B_A1" xml:space="preserve">
+    <value>≤ 80 mmHg</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_B_A2" xml:space="preserve">
+    <value>81 – 90 mmHg</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_B_A3" xml:space="preserve">
+    <value>&gt; 90 mmHg</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_C" xml:space="preserve">
+    <value>LDL - C</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_C_A1" xml:space="preserve">
+    <value>≤ 1.5 mmol/L</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_C_A2" xml:space="preserve">
+    <value>≤ 2.0 mmol/L</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_C_A3" xml:space="preserve">
+    <value>≤ 2.5 mmol/L</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_C_A4" xml:space="preserve">
+    <value>≤ 3.0 mmol/L</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_D" xml:space="preserve">
+    <value>A1C</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_D_A1" xml:space="preserve">
+    <value>≤ 6.5%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_D_A2" xml:space="preserve">
+    <value>≤ 7.0%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_D_A3" xml:space="preserve">
+    <value>≤ 7.5%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_D_A4" xml:space="preserve">
+    <value>≤ 8.0%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_D_A5" xml:space="preserve">
+    <value>≤ 8.5%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q43_D_A6" xml:space="preserve">
+    <value>7.1 to 8.5%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q44" xml:space="preserve">
+    <value>Of the following, what priority do you give to getting your patients with type 2 diabetes to target?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q44_BP" xml:space="preserve">
+    <value>Blood Pressure Control</value>
+  </data>
+  <data name="NEEDS_ASSES_Q44_GC" xml:space="preserve">
+    <value>Glycemic Control</value>
+  </data>
+  <data name="NEEDS_ASSES_Q44_LDLC" xml:space="preserve">
+    <value>LDL-C Control</value>
+  </data>
+  <data name="NEEDS_ASSES_Q45" xml:space="preserve">
+    <value>In your opinion, what is the MOST COMMON reason for not reaching guideline recommended targets?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q45_A1" xml:space="preserve">
+    <value>Too many targets to track</value>
+  </data>
+  <data name="NEEDS_ASSES_Q45_A2" xml:space="preserve">
+    <value>Too many medications</value>
+  </data>
+  <data name="NEEDS_ASSES_Q45_A3" xml:space="preserve">
+    <value>Patient adherence</value>
+  </data>
+  <data name="NEEDS_ASSES_Q45_A4" xml:space="preserve">
+    <value>Insufficient evidence for target</value>
+  </data>
+  <data name="NEEDS_ASSES_Q45_A5" xml:space="preserve">
+    <value>Medication access / cost</value>
+  </data>
+  <data name="NEEDS_ASSES_Q46" xml:space="preserve">
+    <value>What are the barriers you face in optimizing the management of your high-risk patients?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q46_A1" xml:space="preserve">
+    <value>Lack of evidence-based guidelines</value>
+  </data>
+  <data name="NEEDS_ASSES_Q46_A2" xml:space="preserve">
+    <value>Lack of applicability of guidelines to my current practice / patients</value>
+  </data>
+  <data name="NEEDS_ASSES_Q46_A3" xml:space="preserve">
+    <value>Lack of time</value>
+  </data>
+  <data name="NEEDS_ASSES_Q46_A4" xml:space="preserve">
+    <value>Organizational / Institutional</value>
+  </data>
+  <data name="NEEDS_ASSES_Q46_A5" xml:space="preserve">
+    <value>Reimbursement / Financial</value>
+  </data>
+  <data name="NEEDS_ASSES_Q46_A6" xml:space="preserve">
+    <value>Patient adherence</value>
+  </data>
+  <data name="NEEDS_ASSES_Q46_A7" xml:space="preserve">
+    <value>Treatment related adverse events</value>
+  </data>
+  <data name="NEEDS_ASSES_Q47" xml:space="preserve">
+    <value>In your experience, which of the following has been the most significant barrier for patients?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q47_A1" xml:space="preserve">
+    <value>Patient non-adherence with / inability to achieve lifestyle changes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q47_A2" xml:space="preserve">
+    <value>Food choices limited by finances</value>
+  </data>
+  <data name="NEEDS_ASSES_Q47_A3" xml:space="preserve">
+    <value>Patient non-adherence with medications</value>
+  </data>
+  <data name="NEEDS_ASSES_Q47_A4" xml:space="preserve">
+    <value>Side-effects associated with the medications</value>
+  </data>
+  <data name="NEEDS_ASSES_Q47_A5" xml:space="preserve">
+    <value>Cost of medications</value>
+  </data>
+  <data name="NEEDS_ASSES_Q47_A6" xml:space="preserve">
+    <value>Lack of effective drugs</value>
+  </data>
+  <data name="NEEDS_ASSES_Q47_A7" xml:space="preserve">
+    <value>Lack of resources for patients</value>
+  </data>
+  <data name="NEEDS_ASSES_Q47_A8" xml:space="preserve">
+    <value>Perceived lack of benefit through media (e.g. statins)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q47_A9" xml:space="preserve">
+    <value>Other chronic disease takes precedent</value>
+  </data>
+  <data name="NEEDS_ASSES_Q48" xml:space="preserve">
+    <value>For patients requiring pharmacological treatment, what influences your choice of therapy?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q48_A1" xml:space="preserve">
+    <value>Data/Studies</value>
+  </data>
+  <data name="NEEDS_ASSES_Q48_A2" xml:space="preserve">
+    <value>Guidelines</value>
+  </data>
+  <data name="NEEDS_ASSES_Q48_A3" xml:space="preserve">
+    <value>What is reimbursed</value>
+  </data>
+  <data name="NEEDS_ASSES_Q48_A4" xml:space="preserve">
+    <value>What I am most familiar with</value>
+  </data>
+  <data name="NEEDS_ASSES_Q48_A5" xml:space="preserve">
+    <value>Efficacy</value>
+  </data>
+  <data name="NEEDS_ASSES_Q48_A6" xml:space="preserve">
+    <value>Safety</value>
+  </data>
+  <data name="NEEDS_ASSES_Q48_A7" xml:space="preserve">
+    <value>Mortality reductions</value>
+  </data>
+  <data name="NEEDS_ASSES_Q48_A8" xml:space="preserve">
+    <value>What local specialists use</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49" xml:space="preserve">
+    <value>How comfortable are you with the following medication classes for glycemic control in your patients with diabetes?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_20" xml:space="preserve">
+    <value>Basal Insulin</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_21" xml:space="preserve">
+    <value>Mealtime Insulin</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_22" xml:space="preserve">
+    <value>Premixed Insulin</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_T1" xml:space="preserve">
+    <value>Antihyperglycemic Agent</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_T2" xml:space="preserve">
+    <value>α-Glucosidase Inhibitor</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_T3" xml:space="preserve">
+    <value>DPP-4 Inhibitor</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_T4" xml:space="preserve">
+    <value>GLP-1 Receptor Agonist</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_T5" xml:space="preserve">
+    <value>Meglitinide</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_T6" xml:space="preserve">
+    <value>Metformin</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_T7" xml:space="preserve">
+    <value>SGLT2 Inhibitors</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_T8" xml:space="preserve">
+    <value>Sulfonylurea</value>
+  </data>
+  <data name="NEEDS_ASSES_Q49_T9" xml:space="preserve">
+    <value>Thiazolidinedione</value>
+  </data>
+  <data name="NEEDS_ASSES_Q4_A1" xml:space="preserve">
+    <value>Inner City</value>
+  </data>
+  <data name="NEEDS_ASSES_Q4_A2" xml:space="preserve">
+    <value>Urban / Suburban</value>
+  </data>
+  <data name="NEEDS_ASSES_Q4_A3" xml:space="preserve">
+    <value>Small Town</value>
+  </data>
+  <data name="NEEDS_ASSES_Q4_A4" xml:space="preserve">
+    <value>Rural</value>
+  </data>
+  <data name="NEEDS_ASSES_Q4_A5" xml:space="preserve">
+    <value>Geographically Isolated / Remote</value>
+  </data>
+  <data name="NEEDS_ASSES_Q5" xml:space="preserve">
+    <value>Approximate population size of the community where you practice:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q50" xml:space="preserve">
+    <value>Which of the following statements best describes how you would approach a newly diagnosed patient with an A1C of ≥9.0%?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q50_A1" xml:space="preserve">
+    <value>I refer these patients to a diabetes specialist</value>
+  </data>
+  <data name="NEEDS_ASSES_Q50_A2" xml:space="preserve">
+    <value>I refer these patients to a diabetes educator</value>
+  </data>
+  <data name="NEEDS_ASSES_Q50_A3" xml:space="preserve">
+    <value>I recommend a 2 or 3 month trial of lifestyle (diet, exercise and weight loss)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q50_A4" xml:space="preserve">
+    <value>I initiate monotherapy with metformin</value>
+  </data>
+  <data name="NEEDS_ASSES_Q50_A5" xml:space="preserve">
+    <value>I initiate combination therapy (metformin plus another non-insulin agent or metformin plus insulin)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q50_A6" xml:space="preserve">
+    <value>I initiate insulin</value>
+  </data>
+  <data name="NEEDS_ASSES_Q51" xml:space="preserve">
+    <value>What is the most common reason for you to refer your patients with type 2 diabetes to a specialist?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q51_A1" xml:space="preserve">
+    <value>A1C levels too high</value>
+  </data>
+  <data name="NEEDS_ASSES_Q51_A2" xml:space="preserve">
+    <value>Side effects of antihyperglycemic agents</value>
+  </data>
+  <data name="NEEDS_ASSES_Q51_A3" xml:space="preserve">
+    <value>Hypoglycemia</value>
+  </data>
+  <data name="NEEDS_ASSES_Q51_A4" xml:space="preserve">
+    <value>Diabetes related complication(s)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q51_A5" xml:space="preserve">
+    <value>Lack of comfort with newer agents</value>
+  </data>
+  <data name="NEEDS_ASSES_Q51_A6" xml:space="preserve">
+    <value>I do not refer patients with diabetes to a specialist</value>
+  </data>
+  <data name="NEEDS_ASSES_Q52" xml:space="preserve">
+    <value>What is the 2nd most common reason for you to refer your patients with type 2 diabetes to a specialist?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q52_A1" xml:space="preserve">
+    <value>A1C levels too high</value>
+  </data>
+  <data name="NEEDS_ASSES_Q52_A2" xml:space="preserve">
+    <value>Side effects of antihyperglycemic agents</value>
+  </data>
+  <data name="NEEDS_ASSES_Q52_A3" xml:space="preserve">
+    <value>Hypoglycemia</value>
+  </data>
+  <data name="NEEDS_ASSES_Q52_A4" xml:space="preserve">
+    <value>Diabetes related complication(s)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q52_A5" xml:space="preserve">
+    <value>Lack of comfort with newer agents</value>
+  </data>
+  <data name="NEEDS_ASSES_Q5_A1" xml:space="preserve">
+    <value>&lt; 10,000</value>
+  </data>
+  <data name="NEEDS_ASSES_Q5_A2" xml:space="preserve">
+    <value>10,000 - 50,000</value>
+  </data>
+  <data name="NEEDS_ASSES_Q5_A3" xml:space="preserve">
+    <value>50,000 - 100,000</value>
+  </data>
+  <data name="NEEDS_ASSES_Q5_A4" xml:space="preserve">
+    <value>100,000 - 250,000</value>
+  </data>
+  <data name="NEEDS_ASSES_Q5_A5" xml:space="preserve">
+    <value>&gt; 250,000</value>
+  </data>
+  <data name="NEEDS_ASSES_Q6" xml:space="preserve">
+    <value>On average, how many patients do you see in a week?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q6_A1" xml:space="preserve">
+    <value>&lt; 50</value>
+  </data>
+  <data name="NEEDS_ASSES_Q6_A2" xml:space="preserve">
+    <value>50 – 150</value>
+  </data>
+  <data name="NEEDS_ASSES_Q6_A3" xml:space="preserve">
+    <value>150 – 250</value>
+  </data>
+  <data name="NEEDS_ASSES_Q6_A4" xml:space="preserve">
+    <value>250 – 350</value>
+  </data>
+  <data name="NEEDS_ASSES_Q6_A5" xml:space="preserve">
+    <value>&gt; 350</value>
+  </data>
+  <data name="NEEDS_ASSES_Q7" xml:space="preserve">
+    <value>On average, how many patients with diabetes do you see in a week?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q7_A1" xml:space="preserve">
+    <value>&lt; 5</value>
+  </data>
+  <data name="NEEDS_ASSES_Q7_A2" xml:space="preserve">
+    <value>5 – 10</value>
+  </data>
+  <data name="NEEDS_ASSES_Q7_A3" xml:space="preserve">
+    <value>10 – 20</value>
+  </data>
+  <data name="NEEDS_ASSES_Q7_A4" xml:space="preserve">
+    <value>20 – 30</value>
+  </data>
+  <data name="NEEDS_ASSES_Q7_A5" xml:space="preserve">
+    <value>30 – 50</value>
+  </data>
+  <data name="NEEDS_ASSES_Q7_A6" xml:space="preserve">
+    <value>&gt; 50</value>
+  </data>
+  <data name="NEEDS_ASSES_Q8" xml:space="preserve">
+    <value>Of those patients you see with diabetes, approximately what percent have type 2 diabetes?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q8_A1" xml:space="preserve">
+    <value>&lt; 25%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q8_A2" xml:space="preserve">
+    <value>25 – 50%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q8_A3" xml:space="preserve">
+    <value>50 – 75%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q8_A4" xml:space="preserve">
+    <value>75 – 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q8_A5" xml:space="preserve">
+    <value>&gt; 90%</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9" xml:space="preserve">
+    <value>Do you currently utilize an Electronic Medical Records System in your practice?</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A" xml:space="preserve">
+    <value>Please specify if you utilize the Electronic Medical Records System for any the following:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A_A1" xml:space="preserve">
+    <value>Practice schedule and appointments</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A_A2" xml:space="preserve">
+    <value>Tracking care (e.g. patient encounters, prescriptions)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A_A3" xml:space="preserve">
+    <value>Tracking outcomes (e.g. blood pressure)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A_A4" xml:space="preserve">
+    <value>Trigger alerts and reminders</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A_A5" xml:space="preserve">
+    <value>Send / receive orders, reports and results</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A_A6" xml:space="preserve">
+    <value>Generate registries</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A_A7" xml:space="preserve">
+    <value>Generate recall lists / track no-shows</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A_A8" xml:space="preserve">
+    <value>Generate flow sheets for chronic disease managements (e.g. diabetes flowsheets)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_A_A9" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_B" xml:space="preserve">
+    <value>Do you currently have the ability to:</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_B_A1" xml:space="preserve">
+    <value>Generate patient registries</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_B_A2" xml:space="preserve">
+    <value>Generate recall lists / track no-shows</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_B_A3" xml:space="preserve">
+    <value>Generate flow sheets for chronic disease managements (e.g. diabetes flowsheets)</value>
+  </data>
+  <data name="NEEDS_ASSES_Q9_B_A4" xml:space="preserve">
+    <value>None of the above</value>
+  </data>
+  <data name="NEEDS_ASSES_RES_REQ" xml:space="preserve">
+    <value>Response Required</value>
+  </data>
+  <data name="NEEDS_ASSES_REVIEW" xml:space="preserve">
+    <value>You can either Submit or Review / Modify the Survey</value>
+  </data>
+  <data name="NEEDS_ASSES_SECTION_HEADER" xml:space="preserve">
+    <value>DEMOGRAPHICS AND GENERAL PRACTICE SETTING</value>
+  </data>
+  <data name="NEEDS_ASSES_SELF" xml:space="preserve">
+    <value>SELF-MANAGEMENT SUPPORT</value>
+  </data>
+  <data name="NEEDS_ASSES_SEL_ONE" xml:space="preserve">
+    <value>Select One</value>
+  </data>
+  <data name="NEEDS_ASSES_SUCCESS" xml:space="preserve">
+    <value>You have successfully completed the Needs Assessment Survey.</value>
+  </data>
+  <data name="BTN_COMPLETE_URL" xml:space="preserve">
+    <value>../images/button_completeRegistration.png</value>
+  </data>
+  <data name="BTN_CONFIRM_URL" xml:space="preserve">
+    <value>../images/button_confirm.png</value>
+  </data>
+  <data name="BTN_NOTME_URL" xml:space="preserve">
+    <value>../images/button_thisisnotme.png</value>
+  </data>
+  <data name="BTN_REG_URL" xml:space="preserve">
+    <value>../images/reg_form.png</value>
+  </data>
+  <data name="PASS_REQ" xml:space="preserve">
+    <value>Password Required</value>
+  </data>
+  <data name="PAYEE_ADDR1" xml:space="preserve">
+    <value>Mailing Address 1:</value>
+  </data>
+  <data name="PAYEE_ADDR2" xml:space="preserve">
+    <value>Mailing Address 2:</value>
+  </data>
+  <data name="PAYEE_ATTN_TO" xml:space="preserve">
+    <value>Attention To:</value>
+    <comment>:</comment>
+  </data>
+  <data name="PAYEE_CHECKPAYABLETO" xml:space="preserve">
+    <value>Cheque Payable to:</value>
+  </data>
+  <data name="PAYEE_CITY" xml:space="preserve">
+    <value>City:</value>
+  </data>
+  <data name="PAYEE_COMPANY" xml:space="preserve">
+    <value>To a Company Name</value>
+  </data>
+  <data name="PAYEE_FORM_INSTRUCTIONS" xml:space="preserve">
+    <value>Instructions</value>
+  </data>
+  <data name="PAYEE_HEADER" xml:space="preserve">
+    <value>PAYEE FORM</value>
+  </data>
+  <data name="PAYEE_IF_APLICABLE" xml:space="preserve">
+    <value>If Applicable</value>
+  </data>
+  <data name="PAYEE_INS" xml:space="preserve">
+    <value>Additional Instructions:</value>
+  </data>
+  <data name="PAYEE_INS_1" xml:space="preserve">
+    <value>Completion of the Payee Form is a mandatory requirement</value>
+  </data>
+  <data name="PAYEE_INS_2" xml:space="preserve">
+    <value>Click the &lt;B&gt; "Submit" &lt;/B&gt;button once you have completed the Payee Form</value>
+  </data>
+  <data name="PAYEE_INS_3" xml:space="preserve">
+    <value>Once the Payee Form is completed, the status in your dashboard will change to a checkmark</value>
+  </data>
+  <data name="PAYEE_PERSONALLY" xml:space="preserve">
+    <value>To me Personally</value>
+  </data>
+  <data name="PAYEE_PLS_SELECT" xml:space="preserve">
+    <value>Please select one of the following two options:</value>
+  </data>
+  <data name="PAYEE_POSTAL" xml:space="preserve">
+    <value>Postal Code:</value>
+  </data>
+  <data name="PAYEE_PROVINCE" xml:space="preserve">
+    <value>Province:</value>
+  </data>
+  <data name="PAYEE_REF_NUM" xml:space="preserve">
+    <value>Internal Reference Number:</value>
+  </data>
+  <data name="PAYEE_REQ" xml:space="preserve">
+    <value>Required Field</value>
+  </data>
+  <data name="PAYEE_REQUEST" xml:space="preserve">
+    <value>I request the cheque(s) to be issued as following:</value>
+  </data>
+  <data name="PAYEE_TAX" xml:space="preserve">
+    <value>Tax Number (HST / Other):</value>
+  </data>
+  <data name="REGCOMPL_PWDS_MATCH" xml:space="preserve">
+    <value>Passwords must match</value>
+  </data>
+  <data name="REGCOMPL_SEL_CHECKBOX" xml:space="preserve">
+    <value>Please select checkbox to continue</value>
+  </data>
+  <data name="REGISTER2_PLS_ADDRESS" xml:space="preserve">
+    <value>ADDRESS</value>
+  </data>
+  <data name="REGISTER2_PLS_CITY" xml:space="preserve">
+    <value>CITY</value>
+  </data>
+  <data name="REGISTER2_PLS_CLINIC" xml:space="preserve">
+    <value>CLINIC NAME</value>
+  </data>
+  <data name="REGISTER2_PLS_CONPASSWORD" xml:space="preserve">
+    <value>CONFIRM PASSWORD</value>
+  </data>
+  <data name="REGISTER2_PLS_FAX" xml:space="preserve">
+    <value>FAX NUMBER</value>
+  </data>
+  <data name="REGISTER2_PLS_PASSWORD" xml:space="preserve">
+    <value>PASSWORD</value>
+  </data>
+  <data name="REGISTER2_PLS_PHONE" xml:space="preserve">
+    <value>PHONE NUMBER</value>
+  </data>
+  <data name="REGISTER2_PLS_REVIEW" xml:space="preserve">
+    <value>PLEASE REVIEW FOR ACCURACY
+UPDATE AND COMPLETE BLANK FIELDS WHERE APPLICABLE</value>
+  </data>
+  <data name="REGISTER2_PLS_USERNAME" xml:space="preserve">
+    <value>USERNAME (YOUR EMAIL ADDRESS)</value>
+  </data>
+  <data name="REGISTER2_PLS_WOULD" xml:space="preserve">
+    <value>Would you like to recieve email correspondence (opt-in) from the Canadian Heart Research Centre for future initiatives and event?</value>
+  </data>
+  <data name="REGISTER2_PRIVACY" xml:space="preserve">
+    <value>PRIVACY</value>
+  </data>
+  <data name="REGISTER2_PRIVACY_P" xml:space="preserve">
+    <value>The Canadian Heart Research Centre respects its reponsibility to uphold the privacy of its collaborators and clients. We store contact information in our secure, internal database. Contact information is never sold or shared with external parties and only utilized for the purposes of making stakeholders aware of future initiatives and events. You will always have the option to unsubscribe.</value>
+  </data>
+  <data name="REGISTER_CITY" xml:space="preserve">
+    <value>CITY</value>
+  </data>
+  <data name="REGISTER_FIRSTNAME" xml:space="preserve">
+    <value>FIRST NAME</value>
+  </data>
+  <data name="REGISTER_INCLUDE" xml:space="preserve">
+    <value>Please include your First Name, Last Name City and Province</value>
+  </data>
+  <data name="REGISTER_LASTNAME" xml:space="preserve">
+    <value>LAST NAME</value>
+  </data>
+  <data name="REGISTER_PLSREVIEW" xml:space="preserve">
+    <value>PLEASE REVIEW THE INFORMATION BELOW FOR ACCURACY
+AND &lt;br&gt;CLICK THE 'CONFIRM' BUTTON TO PROCEED</value>
+  </data>
+  <data name="REGISTER_PLS_EMAIL" xml:space="preserve">
+    <value>Please email us at &lt;a href="mailto: info@vistadm.ca"&gt;info@vistadm.ca&lt;/a&gt; to obtain your Unique Registration ID</value>
+  </data>
+  <data name="REGISTER_PROVINCE" xml:space="preserve">
+    <value>PROVINCE</value>
+  </data>
+  <data name="REGSIETER_OUR APPOLOGIES" xml:space="preserve">
+    <value>OUR APPOLOGIES</value>
+  </data>
+  <data name="USERNAME_REQ" xml:space="preserve">
+    <value>Username Required</value>
+  </data>
+  <data name="PCPHOME_1" xml:space="preserve">
+    <value>NEWS &amp; UPDATES</value>
+  </data>
+  <data name="PCPHOME_10" xml:space="preserve">
+    <value>VISTA DM is designed as an Evidence Based Practice Program which allows primary care physicians a conscientious, explicit and judicious application of current best evidence (e.g. Clinical Practice Guidelines) in making decisions about the care of individual patients.</value>
+  </data>
+  <data name="PCPHOME_11" xml:space="preserve">
+    <value>VISTA DM:</value>
+  </data>
+  <data name="PCPHOME_12" xml:space="preserve">
+    <value>Integrates best available external clinical evidence from existing systematic research and clinical guideline recommendations……&lt;strong&gt;with&lt;/strong&gt;</value>
+  </data>
+  <data name="PCPHOME_13" xml:space="preserve">
+    <value>Practice Based Evidence/ Individual clinical expertise …..&lt;strong&gt;while &lt;/strong&gt;</value>
+  </data>
+  <data name="PCPHOME_14" xml:space="preserve">
+    <value>Taking into account patient preferences/values</value>
+  </data>
+  <data name="PCPHOME_15" xml:space="preserve">
+    <value>Additionally, this program incorporates knowledge translation through clinical decision making support but the decision to follow the recommendations is left to the participating physician's discretion. VISTA DM has been reviewed and approved by OPTIMUM Clinical Research Inc., an independent, central Ethics Review Board.</value>
+  </data>
+  <data name="PCPHOME_16" xml:space="preserve">
+    <value>The online portal has been created to provide you with timely access to the program materials and educational tools as well as provide you with a convenient way to manage the program documents and complete the Electronic Practice Assessment (e-PAFs) and Measure Assessment Forms (e-MAFs). Please keep your username and password confidential.</value>
+  </data>
+  <data name="PCPHOME_17" xml:space="preserve">
+    <value>In order to download documents, you will need to enable cookies in your browser. Please follow the link for additional information:&amp;nbsp;&lt;span style="color: #9B2346"&gt;&lt;strong&gt;&lt;u&gt;Enabling Cookies&lt;/u&gt;&lt;/strong&gt;&lt;/span&gt;</value>
+  </data>
+  <data name="PCPHOME_18" xml:space="preserve">
+    <value>Please take a few minutes to familiarize yourself with the program requirements and the site functionalities. Download:&amp;nbsp;&lt;span style="color: #9B2346"&gt;&lt;strong&gt;&lt;u&gt;VISTA DM Program Overview&lt;/u&gt;&amp;nbsp;&lt;/strong&gt;&lt;/span&gt;</value>
+  </data>
+  <data name="PCPHOME_19" xml:space="preserve">
+    <value>The VISTA DM team is happy to assist you with any questions. Please do not hesitate to contact us at any time:&amp;nbsp;&lt;strong&gt;&lt;u style="color: #9B2346"&gt;Contact Us&lt;/u&gt;&lt;/strong&gt;</value>
+  </data>
+  <data name="PCPHOME_2" xml:space="preserve">
+    <value>Welcome to your Personal VISTA DM Portal</value>
+  </data>
+  <data name="PCPHOME_20" xml:space="preserve">
+    <value>We look forward to collaborating with you.</value>
+  </data>
+  <data name="PCPHOME_21" xml:space="preserve">
+    <value>With best regards</value>
+  </data>
+  <data name="PCPHOME_22" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PCPHOME_23" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PCPHOME_24" xml:space="preserve">
+    <value>&lt;strong&gt;Lawrence A. Leiter, MD&lt;/strong&gt;&lt;br /&gt;
+        &lt;strong style="color: #9B2346"&gt;VISTA DM Chair&lt;/strong&gt; &lt;br /&gt;
+        Division of Endocrinology and Metabolism &lt;br /&gt;
+        St. Michael’s Hospital &lt;br /&gt;
+        Professor of Medicine and Nutritional Sciences&lt;br /&gt;
+        University of Toronto</value>
+  </data>
+  <data name="PCPHOME_25" xml:space="preserve">
+    <value>&lt;strong&gt;Alice Y. Y. Cheng, MD&lt;/strong&gt;&lt;br /&gt;
+        &lt;strong style="color: #9B2346"&gt;VISTA DM Co-Chair&lt;/strong&gt; &lt;br /&gt;
+        Endocrinologist&lt;br /&gt;
+        &lt;p&gt;
+            Trillium Health Partners and St. Michael’s Hospital&lt;br /&gt;
+            Associate Professor of Medicine
+        &lt;/p&gt;
+        University of Toronto&lt;br /&gt;</value>
+  </data>
+  <data name="PCPHOME_3" xml:space="preserve">
+    <value>Next Steps:&amp;nbsp; &amp;ldquo;Physician Specific Requirements&amp;rdquo; Section</value>
+  </data>
+  <data name="PCPHOME_4" xml:space="preserve">
+    <value>Review and Complete the Memorandum of Understanding (MOU)</value>
+  </data>
+  <data name="PCPHOME_5" xml:space="preserve">
+    <value>Complete the Payee Form</value>
+  </data>
+  <data name="PCPHOME_6" xml:space="preserve">
+    <value>Once you have completed the MOU and the Payee Form, you will gain access to the &lt;span style="color: #9B2346"&gt;&amp;ldquo;VISTA DM Action Items&amp;rdquo;&lt;/span&gt; Section. Please get familiarized with the VISTA DM program components and get started by completing the &lt;span style="color: #9B2346"&gt;Needs Assessment&lt;/span&gt; survey and identifying &lt;u style="color: #9B2346"&gt;eligible patients&lt;/u&gt; for &lt;span style="color: #9B2346"&gt;Practice Assessment #1&lt;/span&gt;</value>
+  </data>
+  <data name="PCPHOME_7" xml:space="preserve">
+    <value>WELCOME!</value>
+  </data>
+  <data name="PCPHOME_8" xml:space="preserve">
+    <value>Dear Colleague</value>
+  </data>
+  <data name="PCPHOME_9" xml:space="preserve">
+    <value>On behalf of the Canadian Heart Research Centre and the VISTA DM Planning Committee, we welcome you to your personal online portal and thank you for taking part in this initiative.</value>
+  </data>
+  <data name="FORGOT_PWD_1" xml:space="preserve">
+    <value>Your password has been emailed.</value>
+  </data>
+  <data name="FORGOT_PWD_2" xml:space="preserve">
+    <value>Please check your inbox</value>
+  </data>
+  <data name="FORGOT_PWD_ENTER" xml:space="preserve">
+    <value>PLEASE ENTER USERNAME (YOUR EMAIL)</value>
+  </data>
+  <data name="FORGOT_PWD_HEADER" xml:space="preserve">
+    <value>FORGOT PASSWORD</value>
+  </data>
+  <data name="FORGOT_PWD_IMG" xml:space="preserve">
+    <value>../images/forgotpassword.png</value>
+  </data>
+  <data name="FORGOT_PWD_NOTFOUND" xml:space="preserve">
+    <value>Username not found</value>
+  </data>
+  <data name="REGCOMPL_SEL_CHECKBOX2" xml:space="preserve">
+    <value>Please select checkbox 2 to continue</value>
+  </data>
+  <data name="COMPLETE_REGISTARTION_HEADER" xml:space="preserve">
+    <value>CHRC Physician Membership:</value>
+  </data>
+  <data name="COMPLETE_REGISTARTION_P1" xml:space="preserve">
+    <value>By participating in the VISTA DM Program you are eligible to become a Canadian Heart Research Centre physician member. Due to your contribution to quality enhancement and professional development activities with our organization, the annual membership fee of $125.00 will be waived.  Please check the box below if you wish to take advantage of this opportunity. Upon your acceptance, our Membership Coordinator will forward the full membership benefits package.</value>
+  </data>
+  <data name="COMPLETE_REGISTARTION_P2" xml:space="preserve">
+    <value>I accept the opportunity and agree to join the Canadian Heart Research Centre as a physician member</value>
+  </data>
+  <data name="FUTUREEMAIL_1" xml:space="preserve">
+    <value>Would you like to receive email correspondence (opt-in) from the Canadian Heart Research Centre for future initiatives and events?</value>
+  </data>
+  <data name="FUTUREEMAIL_2" xml:space="preserve">
+    <value>Privacy:</value>
+  </data>
+  <data name="FUTUREEMAIL_3" xml:space="preserve">
+    <value>The Canadian Heart Research Centre respects its responsibility to uphold the privacy of its collaborators and clients. We store contact information in our secure, internal database. Contact information is never sold or shared with external parties and only utilized for the purposes of making stakeholders aware of future initiatives and events. You will always have the option to unsubscribe.</value>
+  </data>
+  <data name="FUTUREEMAIL_NO" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="FUTUREEMAIL_THANKYOU" xml:space="preserve">
+    <value>Thank You</value>
+  </data>
+  <data name="FUTUREEMAIL_THANK_URL" xml:space="preserve">
+    <value>../images/Thank_You_Background.png</value>
+  </data>
+  <data name="FUTUREEMAIL_YES" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="FUTUREEMAIL_YOUREMAIL" xml:space="preserve">
+    <value>YOUR EMAIL</value>
+  </data>
+  <data name="OUR_APPOL_URL" xml:space="preserve">
+    <value>../images/notmeBackground.png</value>
+  </data>
+  <data name="REGISTEREMAIL_ATTACHMENT" xml:space="preserve">
+    <value>~/Email_Templates/Guide to Enabling Cookies in Your Browser.pdf</value>
+  </data>
+  <data name="REGISTEREMAIL_BEHALF" xml:space="preserve">
+    <value>On behalf of The CHRC VISTA DM Team</value>
+  </data>
+  <data name="REGISTEREMAIL_PAGE" xml:space="preserve">
+    <value>~/Email_Templates/UserRegistered.html</value>
+  </data>
+  <data name="REGISTEREMAIL_REGARDS" xml:space="preserve">
+    <value>With best regards,</value>
+  </data>
+  <data name="PAP1_doesMeetEligibility" xml:space="preserve">
+    <value>&lt;strong&gt;This patient does &lt;span style=" text-decoration:underline"&gt;NOT&lt;/span&gt; meet any of the Non-Eligibility &lt;/strong&gt;</value>
+  </data>
+  <data name="PAP1_Eligibility" xml:space="preserve">
+    <value>1:   Eligibility</value>
+  </data>
+  <data name="PAP1_EligibilityCriteria" xml:space="preserve">
+    <value> &lt;div style="background-color:#F1F1F1; margin-left:10px; margin-right:10px"&gt;
+            &lt;div style="background-color:#093; padding:10px; color:#FFF"&gt;
+                &lt;span style="font-size:24px; font-weight:bold"&gt;Eligibility Criteria:&lt;/span&gt;&lt;span style="font-size:16px"&gt;  ALL of the criteria must be present&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div style="padding:30px; font-weight:bold"&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;Male and female patients older than 18 years of age&lt;/li&gt;
+                    &lt;li&gt;Diagnosis of type 2 diabetes mellitus (CDA definition) &lt;a href="#" class="tooltips"&gt;&lt;img src="../images/button_i.png" width="20" border="0" /&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;At least ONE prior diabetes related visit &lt;/li&gt;
+                    &lt;li&gt;Patient treated with at least ONE antihyperglycemic agent&lt;/li&gt;
+                    &lt;li&gt;Next diabetes related visit to occur within the next 3 – 6 weeks&lt;/li&gt;
+                &lt;/ol&gt;
+            &lt;/div&gt;&lt;/div&gt;</value>
+  </data>
+  <data name="PAP1_Non_eligibility" xml:space="preserve">
+    <value>&lt;span style="font-size:24px; font-weight:bold"&gt;Non-eligibility criteria:&lt;/span&gt;&lt;span style="font-size:16px"&gt;  None of the criteria present&lt;/span&gt;</value>
+  </data>
+  <data name="PAP1_Non_eligibilitylist" xml:space="preserve">
+    <value>&lt;div style="padding:30px; font-weight:bold"&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;Clinically significant concomitant kidney (e.g., creatinine clearance &lt; 30 ml / min ) or liver (e.g., active hepatitis) disease&lt;/li&gt;
+                    &lt;li&gt;Contraindications or intolerance to combination therapy&lt;/li&gt;
+                    &lt;li&gt;Clinically significant concomitant illness or co-morbid condition &lt;/li&gt;
+                &lt;/ol&gt;
+            &lt;/div&gt;</value>
+  </data>
+  <data name="PAP1_ReferenceNum" xml:space="preserve">
+    <value>Internal Reference Number:</value>
+  </data>
+  <data name="PAP1_satisfiesCriteria" xml:space="preserve">
+    <value>&lt;strong&gt;This patient &lt;span style="text-decoration:underline"&gt;satisfies all&lt;/span&gt; of the Eligibility Criteria&lt;/strong&gt;</value>
+  </data>
+  <data name="PAP1_ScheduledAppt" xml:space="preserve">
+    <value>Next Scheduled Appointment:</value>
+  </data>
+  <data name="PAP2_Cardiologist" xml:space="preserve">
+    <value>Cardiologist</value>
+  </data>
+  <data name="PAP2_checkallApply" xml:space="preserve">
+    <value>Check ALL that APPLY or Select  None of the Above</value>
+  </data>
+  <data name="PAP2_CoManaged" xml:space="preserve">
+    <value>Is this patient co-managed by any of the following?</value>
+  </data>
+  <data name="PAP2_DiabetesEducator" xml:space="preserve">
+    <value>Diabetes Educator / Dietitian</value>
+  </data>
+  <data name="PAP2_DurationofDiabetes" xml:space="preserve">
+    <value>Duration of Diabetes:</value>
+  </data>
+  <data name="PAP2_EmpStatus" xml:space="preserve">
+    <value>Employment Status</value>
+  </data>
+  <data name="PAP2_EmpStatus1" xml:space="preserve">
+    <value>Employed – Full Time</value>
+  </data>
+  <data name="PAP2_EmpStatus2" xml:space="preserve">
+    <value>Employed – Part Time</value>
+  </data>
+  <data name="PAP2_EmpStatus3" xml:space="preserve">
+    <value>Unemployed</value>
+  </data>
+  <data name="PAP2_EmpStatus4" xml:space="preserve">
+    <value>Retired</value>
+  </data>
+  <data name="PAP2_EmpStatus5" xml:space="preserve">
+    <value>Not Known</value>
+  </data>
+  <data name="PAP2_Endocrinologist" xml:space="preserve">
+    <value>Endocrinologist</value>
+  </data>
+  <data name="PAP2_Ethnicity" xml:space="preserve">
+    <value>Ethnicity</value>
+  </data>
+  <data name="PAP2_Ethnicitydd1" xml:space="preserve">
+    <value>Aboriginal Canadian (First Nations / Métis / Inuit)</value>
+  </data>
+  <data name="PAP2_Ethnicitydd2" xml:space="preserve">
+    <value>Arabic / North African</value>
+  </data>
+  <data name="PAP2_Ethnicitydd3" xml:space="preserve">
+    <value>Asian</value>
+  </data>
+  <data name="PAP2_Ethnicitydd4" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="PAP2_Ethnicitydd5" xml:space="preserve">
+    <value>Caucasian/White</value>
+  </data>
+  <data name="PAP2_Ethnicitydd6" xml:space="preserve">
+    <value>Hispanic</value>
+  </data>
+  <data name="PAP2_Ethnicitydd7" xml:space="preserve">
+    <value>East / South-East Asian</value>
+  </data>
+  <data name="PAP2_Ethnicitydd8" xml:space="preserve">
+    <value>Multi-Racial</value>
+  </data>
+  <data name="PAP2_Ethnicitydd9" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="PAP2_Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="PAP2_Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="PAP2_GeneralInternist" xml:space="preserve">
+    <value>General Internist</value>
+  </data>
+  <data name="PAP2_heading" xml:space="preserve">
+    <value>2: Demographics and General Information</value>
+  </data>
+  <data name="PAP2_howadherent" xml:space="preserve">
+    <value>In your opinion, on average how adherent is this patient with his/her current medications?</value>
+  </data>
+  <data name="PAP2_howadherentdd1" xml:space="preserve">
+    <value>50% of the time</value>
+  </data>
+  <data name="PAP2_howadherentdd2" xml:space="preserve">
+    <value>50-70% of the time</value>
+  </data>
+  <data name="PAP2_howadherentdd3" xml:space="preserve">
+    <value>70% of the time</value>
+  </data>
+  <data name="PAP2_languagebarrier" xml:space="preserve">
+    <value>Have language barriers affected your ability to care for this patient?</value>
+  </data>
+  <data name="PAP2_languagebarrierchk1" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP2_languagebarrierchk2" xml:space="preserve">
+    <value>Somewhat</value>
+  </data>
+  <data name="PAP2_languagebarrierchk3" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP2_Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="PAP2_medadherence" xml:space="preserve">
+    <value>How did you estimate medication adherence for this patient?</value>
+  </data>
+  <data name="PAP2_medadherenceApply" xml:space="preserve">
+    <value>Check ALL that APPLY or Select "I did not evaluate adherence in this patient"</value>
+  </data>
+  <data name="PAP2_medadherencechk1" xml:space="preserve">
+    <value>I asked the patient / caregiver</value>
+  </data>
+  <data name="PAP2_medadherencechk2" xml:space="preserve">
+    <value>I obtained pharmacy renewal records</value>
+  </data>
+  <data name="PAP2_medadherencechk3" xml:space="preserve">
+    <value>I did a medication count</value>
+  </data>
+  <data name="PAP2_medadherencechk4" xml:space="preserve">
+    <value>I estimated / guessed</value>
+  </data>
+  <data name="PAP2_medadherencechk5" xml:space="preserve">
+    <value>I did not evaluate adherence in this patient</value>
+  </data>
+  <data name="PAP2_MedicationCoverage" xml:space="preserve">
+    <value>Medication Coverage</value>
+  </data>
+  <data name="PAP2_MedicationCoverage1" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="PAP2_MedicationCoverage2" xml:space="preserve">
+    <value>Provincial / Federal</value>
+  </data>
+  <data name="PAP2_MedicationCoverage3" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="PAP2_MedicationCoverage4" xml:space="preserve">
+    <value>Both Provincial/Federal and Private</value>
+  </data>
+  <data name="PAP2_Nephrologist" xml:space="preserve">
+    <value>Nephrologist</value>
+  </data>
+  <data name="PAP2_NoneOfAbove" xml:space="preserve">
+    <value>None of the Above</value>
+  </data>
+  <data name="PAP2_NotSure" xml:space="preserve">
+    <value>Not Sure</value>
+  </data>
+  <data name="PAP2_Ophthalmologist" xml:space="preserve">
+    <value>Ophthalmologist</value>
+  </data>
+  <data name="PAP2_PatientAge" xml:space="preserve">
+    <value>Patient's Age:</value>
+  </data>
+  <data name="PAP2_selectdropdown" xml:space="preserve">
+    <value>Select one from the drop down menu</value>
+  </data>
+  <data name="PAP2_typesofantihyperglycemic" xml:space="preserve">
+    <value>On average how many different types of antihyperglycemic agents does this patient take each day specifically for diabetes? &lt;span style="color:#666; font-size:13px"&gt;(Fixed dose combination agents are considered 2 antihyperglycemic agents)&lt;/span&gt;</value>
+  </data>
+  <data name="PAP2_TypesofMeds" xml:space="preserve">
+    <value>On average how many different types of medications (prescription and/or over the counter) does this patient take each day?</value>
+  </data>
+  <data name="PAP2_Year1" xml:space="preserve">
+    <value>1 Year </value>
+  </data>
+  <data name="PAP2_Year10" xml:space="preserve">
+    <value>10 Years</value>
+  </data>
+  <data name="PAP2_Year11" xml:space="preserve">
+    <value>11 Years</value>
+  </data>
+  <data name="PAP2_Year12" xml:space="preserve">
+    <value>12 Years</value>
+  </data>
+  <data name="PAP2_Year13" xml:space="preserve">
+    <value>13 Years</value>
+  </data>
+  <data name="PAP2_Year14" xml:space="preserve">
+    <value>14 Years</value>
+  </data>
+  <data name="PAP2_Year15" xml:space="preserve">
+    <value>15 Years</value>
+  </data>
+  <data name="PAP2_Year16" xml:space="preserve">
+    <value>16 Years</value>
+  </data>
+  <data name="PAP2_Year17" xml:space="preserve">
+    <value>17 Years</value>
+  </data>
+  <data name="PAP2_Year18" xml:space="preserve">
+    <value>18 Years</value>
+  </data>
+  <data name="PAP2_Year19" xml:space="preserve">
+    <value>19 Years</value>
+  </data>
+  <data name="PAP2_Year2" xml:space="preserve">
+    <value>2 Years</value>
+  </data>
+  <data name="PAP2_Year20" xml:space="preserve">
+    <value>20 Years</value>
+  </data>
+  <data name="PAP2_Year21" xml:space="preserve">
+    <value>21 Years</value>
+  </data>
+  <data name="PAP2_Year22" xml:space="preserve">
+    <value>22 Years</value>
+  </data>
+  <data name="PAP2_Year23" xml:space="preserve">
+    <value>23 Years</value>
+  </data>
+  <data name="PAP2_Year24" xml:space="preserve">
+    <value>24 Years</value>
+  </data>
+  <data name="PAP2_Year25" xml:space="preserve">
+    <value>25 Years</value>
+  </data>
+  <data name="PAP2_Year26" xml:space="preserve">
+    <value>26 Years</value>
+  </data>
+  <data name="PAP2_Year27" xml:space="preserve">
+    <value>27 Years</value>
+  </data>
+  <data name="PAP2_Year28" xml:space="preserve">
+    <value>28 Years</value>
+  </data>
+  <data name="PAP2_Year29" xml:space="preserve">
+    <value>29 Years</value>
+  </data>
+  <data name="PAP2_Year3" xml:space="preserve">
+    <value>3 Years</value>
+  </data>
+  <data name="PAP2_Year30" xml:space="preserve">
+    <value>30 Years</value>
+  </data>
+  <data name="PAP2_Year4" xml:space="preserve">
+    <value>4 Years</value>
+  </data>
+  <data name="PAP2_Year5" xml:space="preserve">
+    <value>5 Years</value>
+  </data>
+  <data name="PAP2_Year6" xml:space="preserve">
+    <value>6 Years</value>
+  </data>
+  <data name="PAP2_Year7" xml:space="preserve">
+    <value>7 Years</value>
+  </data>
+  <data name="PAP2_Year8" xml:space="preserve">
+    <value>8 Years</value>
+  </data>
+  <data name="PAP2_Year9" xml:space="preserve">
+    <value>9 Years</value>
+  </data>
+  <data name="PAP2_Yeargreater30" xml:space="preserve">
+    <value>&gt; 30 Years</value>
+  </data>
+  <data name="PAP2_years" xml:space="preserve">
+    <value>years</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PAP3_AlcoholIntake" xml:space="preserve">
+    <value>Alcohol Intake:</value>
+  </data>
+  <data name="PAP3_AlcoholIntake1" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="PAP3_AlcoholIntake2" xml:space="preserve">
+    <value>Light (≤5 drinks/wk)</value>
+  </data>
+  <data name="PAP3_AlcoholIntake3" xml:space="preserve">
+    <value>Moderate (6-10 drinks/wk)</value>
+  </data>
+  <data name="PAP3_AlcoholIntake4" xml:space="preserve">
+    <value>Heavy</value>
+  </data>
+  <data name="PAP3_AlcoholIntake5" xml:space="preserve">
+    <value>Not Known</value>
+  </data>
+  <data name="PAP3_cessationplan" xml:space="preserve">
+    <value>Was a cessation plan discussed in the past 12 months?</value>
+  </data>
+  <data name="PAP3_ckhInches" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="PAP3_ckhNA" xml:space="preserve">
+    <value>Not Available</value>
+  </data>
+  <data name="PAP3_CoMorbidcond" xml:space="preserve">
+    <value>CO-MORBID CONDITIONS:</value>
+  </data>
+  <data name="PAP3_heading" xml:space="preserve">
+    <value>3: History, Co-Morbidities and Physical Assessment</value>
+  </data>
+  <data name="PAP3_HeartRate" xml:space="preserve">
+    <value>Heart Rate:</value>
+  </data>
+  <data name="PAP3_Height" xml:space="preserve">
+    <value>Height:</value>
+  </data>
+  <data name="PAP3_LIVERDISEASE" xml:space="preserve">
+    <value>LIVER DISEASE:</value>
+  </data>
+  <data name="PAP3_LIVERDISEASE1" xml:space="preserve">
+    <value>Non-alcoholic fatty liver disease</value>
+  </data>
+  <data name="PAP3_LIVERDISEASE2" xml:space="preserve">
+    <value>Non-alcoholic steatohepatitis</value>
+  </data>
+  <data name="PAP3_LIVERDISEASE3" xml:space="preserve">
+    <value>Cirrhosis</value>
+  </data>
+  <data name="PAP3_LIVERDISEASE4" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="PAP3_MACROVASCULAR" xml:space="preserve">
+    <value>MACROVASCULAR</value>
+  </data>
+  <data name="PAP3_Macrovascular1" xml:space="preserve">
+    <value>Coronary Artery Disease</value>
+  </data>
+  <data name="PAP3_Macrovascular2" xml:space="preserve">
+    <value>Cerebrovascular Disease</value>
+  </data>
+  <data name="PAP3_Macrovascular3" xml:space="preserve">
+    <value>Abdominal Aortic Aneurysm</value>
+  </data>
+  <data name="PAP3_Macrovascular4" xml:space="preserve">
+    <value>Peripheral Arterial Disease</value>
+  </data>
+  <data name="PAP3_Microvascular" xml:space="preserve">
+    <value>MICROVASCULAR</value>
+  </data>
+  <data name="PAP3_Microvascular1" xml:space="preserve">
+    <value>Chronic Kidney Disease</value>
+  </data>
+  <data name="PAP3_Microvascular2" xml:space="preserve">
+    <value>eGFR 45-59</value>
+  </data>
+  <data name="PAP3_Microvascular3" xml:space="preserve">
+    <value>eGFR 30-44</value>
+  </data>
+  <data name="PAP3_Microvascular4" xml:space="preserve">
+    <value>eGFR &lt; 30</value>
+  </data>
+  <data name="PAP3_Microvascular5" xml:space="preserve">
+    <value>Microalbuminuria</value>
+  </data>
+  <data name="PAP3_Microvascular6" xml:space="preserve">
+    <value>Macroalbuminuria</value>
+  </data>
+  <data name="PAP3_Microvascular7" xml:space="preserve">
+    <value>Retinopathy</value>
+  </data>
+  <data name="PAP3_Microvascular8" xml:space="preserve">
+    <value>Neuropathy</value>
+  </data>
+  <data name="PAP3_NO" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP3_NotKnow" xml:space="preserve">
+    <value>Not Known</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID" xml:space="preserve">
+    <value>OTHER CO-MORBID</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID1" xml:space="preserve">
+    <value>&lt;strong&gt;Premature Family History of CV disease&lt;/strong&gt; &lt;span style="font-size:8px"&gt;(1&lt;sup&gt;◦&lt;/sup&gt; relative - 55 yo/male, 65 yo/female)&lt;/span&gt;</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID10" xml:space="preserve">
+    <value>Erectile Dysfunction</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID11" xml:space="preserve">
+    <value>Polycystic Ovary Syndrome</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID12" xml:space="preserve">
+    <value>Infertility</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID13" xml:space="preserve">
+    <value>Sleep Apnea</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID14" xml:space="preserve">
+    <value>Thyroid Disease</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID15" xml:space="preserve">
+    <value>Malignancy</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID16" xml:space="preserve">
+    <value>None of the Above</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID2" xml:space="preserve">
+    <value>Modified Framingham Risk Score &gt;20%</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID3" xml:space="preserve">
+    <value>Overweight / Obesity</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID4" xml:space="preserve">
+    <value>High-risk Hypertension</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID5" xml:space="preserve">
+    <value>Dyslipidemia</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID6" xml:space="preserve">
+    <value>Atrial Fibrillation</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID7" xml:space="preserve">
+    <value>Congestive Heart Failure</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID8" xml:space="preserve">
+    <value>Depression</value>
+  </data>
+  <data name="PAP3_OTHERCOMORBID9" xml:space="preserve">
+    <value>Cognitive Impairment</value>
+  </data>
+  <data name="PAP3_PHYSICALASSESSMENT" xml:space="preserve">
+    <value>PHYSICAL ASSESSMENT:</value>
+  </data>
+  <data name="PAP3_SmokingHistory" xml:space="preserve">
+    <value>Smoking History:</value>
+  </data>
+  <data name="PAP3_SmokingHistory1" xml:space="preserve">
+    <value> Never Smoked</value>
+  </data>
+  <data name="PAP3_SmokingHistory2" xml:space="preserve">
+    <value>Past Smoker</value>
+  </data>
+  <data name="PAP3_SmokingHistory3" xml:space="preserve">
+    <value>Current Smoker</value>
+  </data>
+  <data name="PAP3_WaistCircumference" xml:space="preserve">
+    <value>Waist Circumference:</value>
+  </data>
+  <data name="PAP3_Weight" xml:space="preserve">
+    <value>Weight:</value>
+  </data>
+  <data name="PAP3_YES" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP4_Bplastvisit" xml:space="preserve">
+    <value>Blood Pressure at last visit:</value>
+  </data>
+  <data name="PAP4_BPTherapy" xml:space="preserve">
+    <value>Combination Therapy:</value>
+  </data>
+  <data name="PAP4_BPTherapy1" xml:space="preserve">
+    <value>α-blocker</value>
+  </data>
+  <data name="PAP4_BPTherapy2" xml:space="preserve">
+    <value>ACE Inhibitor</value>
+  </data>
+  <data name="PAP4_BPTherapy3" xml:space="preserve">
+    <value>ARB</value>
+  </data>
+  <data name="PAP4_BPTherapy4" xml:space="preserve">
+    <value>Beta Blocker</value>
+  </data>
+  <data name="PAP4_BPTherapy5" xml:space="preserve">
+    <value>Calcium Channel Blocker</value>
+  </data>
+  <data name="PAP4_BPTherapy6" xml:space="preserve">
+    <value>Diuretic</value>
+  </data>
+  <data name="PAP4_CombinationTherapy" xml:space="preserve">
+    <value>Combination Therapy</value>
+  </data>
+  <data name="PAP4_CombinationTherapy1" xml:space="preserve">
+    <value>ACE Inhibitor + Diuretic</value>
+  </data>
+  <data name="PAP4_CombinationTherapy2" xml:space="preserve">
+    <value>ARB + Diuretic</value>
+  </data>
+  <data name="PAP4_CombinationTherapy3" xml:space="preserve">
+    <value>Beta Blocker + Diuretic</value>
+  </data>
+  <data name="PAP4_CombinationTherapy4" xml:space="preserve">
+    <value>Calcium Channel Blocker + ARB</value>
+  </data>
+  <data name="PAP4_Diastolic" xml:space="preserve">
+    <value>Diastolic</value>
+  </data>
+  <data name="PAP4_heading" xml:space="preserve">
+    <value>4: Blood Pressure Profile and Management</value>
+  </data>
+  <data name="PAP4_Systolic" xml:space="preserve">
+    <value>Systolic</value>
+  </data>
+  <data name="PAP4_targetDiastolic" xml:space="preserve">
+    <value>What is your Diastolic Blood Pressure target for this patient:</value>
+  </data>
+  <data name="PAP4_targetSystolic" xml:space="preserve">
+    <value>What is your Systolic Blood Pressure target for this patient:</value>
+  </data>
+  <data name="PA_NoneOFAbove" xml:space="preserve">
+    <value>Check ALL that APPLY or Select "None of the Above"</value>
+  </data>
+  <data name="PA_selectdropdown" xml:space="preserve">
+    <value>Select one from the drop down menu</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PAF_AGE_ERROR" xml:space="preserve">
+    <value>Must be older than 18</value>
+  </data>
+  <data name="PAF_INFO" xml:space="preserve">
+    <value>&lt;div style='background-color:#F3F3F3;color:black; padding:20px; text-align:center'&gt;&lt;img src='../images/CDA-Logo.png' border='0' /&gt;&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;FPG ≥7.0 mmol/L&lt;/strong&gt;&lt;br /&gt;Fasting = no caloric intake for at least 8 hours&lt;br /&gt;&lt;span style=' color:#9B2346;'&gt;&lt;strong&gt;or&lt;/strong&gt;&lt;/span&gt;&lt;br /&gt;&lt;strong&gt;A1C ≥6.5% (in adults)&lt;/strong&gt;&lt;br /&gt;Using a standardized, validated assay, in the absence of factors that affect the accuracy of the A1C and not for suspected type 1 diabetes&lt;br /&gt;&lt;span style=' color:#9B2346;'&gt;&lt;strong&gt;or&lt;/strong&gt;&lt;/span&gt;&lt;br /&gt;&lt;strong&gt;2hPG in a 75-g OGTT ≥11.1 mmol/L&lt;/strong&gt;&lt;br /&gt;&lt;span style=' color:#9B2346;'&gt;&lt;strong&gt;or&lt;/strong&gt;&lt;/span&gt;&lt;br /&gt;&lt;strong&gt;Random PG ≥11.1 mmol/L&lt;/strong&gt;&lt;br /&gt;Random= any time of the day, without regard to the interval since the last meal&lt;br /&gt;&lt;br /&gt;&lt;span style='font-size:11px; color:#666'&gt;2hPG = 2-hour plasma glucose; FPG = fasting plasma glucose; OGTT = oral glucose tolerance test; PG = plasma glucose&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span style='font-size:12px'&gt;&lt;strong&gt;Goldenberg, R. et al Definition, Classification and Diagnosis of Diabetes, Prediabetes and Metabolic Syndrome . Can J Diabetes 2013;37(suppl 1): S8 - S11&lt;/strong&gt;&lt;/span&gt;&lt;/div&gt;</value>
+  </data>
+  <data name="Range_100_230_CM" xml:space="preserve">
+    <value>Range (100-230) cm</value>
+  </data>
+  <data name="Range_30_300_KG" xml:space="preserve">
+    <value>Range (30-300) kg</value>
+  </data>
+  <data name="Range_39_90_IN" xml:space="preserve">
+    <value>Range (39-90) in</value>
+  </data>
+  <data name="Range_66_660_LB" xml:space="preserve">
+    <value>Range (66-660) lb</value>
+  </data>
+  <data name="PAP5_HDLC" xml:space="preserve">
+    <value>HDL-C:</value>
+  </data>
+  <data name="PAP5_heading" xml:space="preserve">
+    <value>5: Lipid Profile and Management</value>
+  </data>
+  <data name="PAP5_LDLC" xml:space="preserve">
+    <value>LDL-C:</value>
+  </data>
+  <data name="PAP5_Lipidlevels" xml:space="preserve">
+    <value>Has this patient had his/her lipid levels checked within the past 12 months?</value>
+  </data>
+  <data name="PAP5_Lipidlevels1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP5_Lipidlevels2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP5_ModifyingTherapy" xml:space="preserve">
+    <value>
+Lipid Modifying Therapy:</value>
+  </data>
+  <data name="PAP5_ModifyingTherapy1" xml:space="preserve">
+    <value>Statin</value>
+  </data>
+  <data name="PAP5_ModifyingTherapy2" xml:space="preserve">
+    <value>Bile Acid Sequestrant</value>
+  </data>
+  <data name="PAP5_ModifyingTherapy3" xml:space="preserve">
+    <value>Ezetimibe</value>
+  </data>
+  <data name="PAP5_ModifyingTherapy4" xml:space="preserve">
+    <value>Fibrate</value>
+  </data>
+  <data name="PAP5_ModifyingTherapy5" xml:space="preserve">
+    <value>Niacin</value>
+  </data>
+  <data name="PAP5_ModifyingTherapy6" xml:space="preserve">
+    <value>PCSK9 Inhibitor</value>
+  </data>
+  <data name="PAP5_NonHDC" xml:space="preserve">
+    <value>Non HDL-C:</value>
+  </data>
+  <data name="PAP5_RecordValues" xml:space="preserve">
+    <value>Record values exactly as they appear in the lab report. Include decimal places where applicable</value>
+  </data>
+  <data name="PAP5_targetLDLC" xml:space="preserve">
+    <value>What is your LDL-C target for this patient:</value>
+  </data>
+  <data name="PAP5_TotalCholesterol" xml:space="preserve">
+    <value>Total Cholesterol:</value>
+  </data>
+  <data name="PAP5_Triglycerides" xml:space="preserve">
+    <value>Triglycerides:</value>
+  </data>
+  <data name="PAP6_A1CPast6Months" xml:space="preserve">
+    <value>Has this patient had his/her A1C checked within the past 6 months?</value>
+  </data>
+  <data name="PAP6_A1CPast6Months1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP6_A1CPast6Months2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP6_A1CPercent" xml:space="preserve">
+    <value>A1C:</value>
+  </data>
+  <data name="PAP6_A1CTarget" xml:space="preserve">
+    <value>What is your A1C target for this patient:</value>
+  </data>
+  <data name="PAP6_Antihyperglycemic" xml:space="preserve">
+    <value>Antihyperglycemic Therapy: </value>
+  </data>
+  <data name="PAP6_Antihyperglycemic1" xml:space="preserve">
+    <value>α-Glucosidase Inhibitor</value>
+  </data>
+  <data name="PAP6_Antihyperglycemic10" xml:space="preserve">
+    <value>Thiazolidinedione</value>
+  </data>
+  <data name="PAP6_Antihyperglycemic2" xml:space="preserve">
+    <value>DPP-4 Inhibitor</value>
+  </data>
+  <data name="PAP6_Antihyperglycemic3" xml:space="preserve">
+    <value>GLP-1 Receptor Agonist</value>
+  </data>
+  <data name="PAP6_Antihyperglycemic4" xml:space="preserve">
+    <value>Insulin</value>
+  </data>
+  <data name="PAP6_Antihyperglycemic5" xml:space="preserve">
+    <value>Meglitinide</value>
+  </data>
+  <data name="PAP6_Antihyperglycemic6" xml:space="preserve">
+    <value>Metformin</value>
+  </data>
+  <data name="PAP6_Antihyperglycemic7" xml:space="preserve">
+    <value>Metformin + DPP4 Inhibitor Fixed Dose Combination</value>
+  </data>
+  <data name="PAP6_Antihyperglycemic8" xml:space="preserve">
+    <value>SGLT2 Inhibitor</value>
+  </data>
+  <data name="PAP6_Antihyperglycemic9" xml:space="preserve">
+    <value>Sulfonylurea</value>
+  </data>
+  <data name="PAP6_CheckallApply" xml:space="preserve">
+    <value>Check ALL that APPLY or Select "None of the Above"</value>
+  </data>
+  <data name="PAP6_DiabetesEducator" xml:space="preserve">
+    <value>Was this patient referred to or counselled by a certified diabetes educator / recognized diabetes program for disease state management education?</value>
+  </data>
+  <data name="PAP6_DiabetesEducatorReferredDD1" xml:space="preserve">
+    <value>Yes, at diagnosis</value>
+  </data>
+  <data name="PAP6_DiabetesEducatorReferredDD2" xml:space="preserve">
+    <value>Yes, in the past 12 months</value>
+  </data>
+  <data name="PAP6_DiabetesEducatorReferredDD3" xml:space="preserve">
+    <value>Not referred</value>
+  </data>
+  <data name="PAP6_DiabetesEducatorReferredDD4" xml:space="preserve">
+    <value>Not known</value>
+  </data>
+  <data name="PAP6_DietPlan" xml:space="preserve">
+    <value>Has this patient followed a diet plan in the last 12 months?</value>
+  </data>
+  <data name="PAP6_DietPlan1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP6_DietPlan2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP6_DietPlanDD3" xml:space="preserve">
+    <value>Not known</value>
+  </data>
+  <data name="PAP6_ExercisePlan" xml:space="preserve">
+    <value>Was this patient given a written exercise plan with measurable goals in the last 12 months?</value>
+  </data>
+  <data name="PAP6_ExercisePlan1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP6_ExercisePlan2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP6_ExercisePlan3" xml:space="preserve">
+    <value>Not known</value>
+  </data>
+  <data name="PAP6_EyeExam" xml:space="preserve">
+    <value>Has this patient been referred for an eye exam within the past 12 months?</value>
+  </data>
+  <data name="PAP6_EyeExam1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP6_EyeExam2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP6_EyeExam3" xml:space="preserve">
+    <value>Not known</value>
+  </data>
+  <data name="PAP6_EyeFinding" xml:space="preserve">
+    <value>Eye Exam Finding:</value>
+  </data>
+  <data name="PAP6_EyeFindingDD1" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="PAP6_EyeFindingDD2" xml:space="preserve">
+    <value>Abnormal</value>
+  </data>
+  <data name="PAP6_FootExam" xml:space="preserve">
+    <value>Was a comprehensive foot exam performed within the past 12 months?</value>
+  </data>
+  <data name="PAP6_FootExam1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP6_FootExam2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP6_FootExam3" xml:space="preserve">
+    <value>Not known</value>
+  </data>
+  <data name="PAP6_FootExamFinding" xml:space="preserve">
+    <value>Foot Exam Finding:</value>
+  </data>
+  <data name="PAP6_FootExamFindingDD1" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="PAP6_FootExamFindingDD2" xml:space="preserve">
+    <value>Abnormal</value>
+  </data>
+  <data name="PAP6_FPG" xml:space="preserve">
+    <value>FPG:</value>
+  </data>
+  <data name="PAP6_GlycemicProfile" xml:space="preserve">
+    <value>6: Glycemic Profile and Management</value>
+  </data>
+  <data name="PAP6_HypoglycemiaActions" xml:space="preserve">
+    <value>Hypoglycemia: What action(s) did you take?</value>
+  </data>
+  <data name="PAP6_HypoglycemiaActions1" xml:space="preserve">
+    <value>Adjusted current therapy</value>
+  </data>
+  <data name="PAP6_HypoglycemiaActions2" xml:space="preserve">
+    <value>Discussed role of exercise on hypoglycemia</value>
+  </data>
+  <data name="PAP6_HypoglycemiaActions3" xml:space="preserve">
+    <value>Discussed nutrition therapy to manage and/or prevent hypoglycemia</value>
+  </data>
+  <data name="PAP6_HypoglycemiaActions4" xml:space="preserve">
+    <value>Provided written hypoglycemia management plan</value>
+  </data>
+  <data name="PAP6_HypoglycemiaActions5" xml:space="preserve">
+    <value>No action taken</value>
+  </data>
+  <data name="PAP6_HypoglycemiaActionsSelect" xml:space="preserve">
+    <value>Check ALL that APPLY or Select "No Action Taken"</value>
+  </data>
+  <data name="PAP6_HypoglycemiaEvents" xml:space="preserve">
+    <value>Have any of the following hypoglycemia related events occurred in the past 12 months:</value>
+  </data>
+  <data name="PAP6_HypoglycemiaEvents1" xml:space="preserve">
+    <value>Patient reported hypoglycemia episodes</value>
+  </data>
+  <data name="PAP6_HypoglycemiaEvents2" xml:space="preserve">
+    <value>Evidence of hypoglycemia in patient's blood glucose log</value>
+  </data>
+  <data name="PAP6_HypoglycemiaEvents3" xml:space="preserve">
+    <value>Patient required paramedic or emergency room visit</value>
+  </data>
+  <data name="PAP6_HypoglycemiaEvents4" xml:space="preserve">
+    <value>No discussion or evidence of hypoglycemia</value>
+  </data>
+  <data name="PAP6_HypoglycemiaEventsCheckAll" xml:space="preserve">
+    <value>Check ALL that APPLY or Select "No discussion of Hypoglycemia"</value>
+  </data>
+  <data name="PAP6_InsulinRegimen" xml:space="preserve">
+    <value>Insulin Regimen:</value>
+  </data>
+  <data name="PAP6_InsulinRegimenDD1" xml:space="preserve">
+    <value>Basal once daily</value>
+  </data>
+  <data name="PAP6_InsulinRegimenDD2" xml:space="preserve">
+    <value>Basal insulin twice daily</value>
+  </data>
+  <data name="PAP6_InsulinRegimenDD3" xml:space="preserve">
+    <value>Basal-plus (Basal plus one injection of prandial insulin)</value>
+  </data>
+  <data name="PAP6_InsulinRegimenDD4" xml:space="preserve">
+    <value>Basal-bolus (Basal plus ≥ 2 injection of prandial insulin)</value>
+  </data>
+  <data name="PAP6_InsulinRegimenDD5" xml:space="preserve">
+    <value>Premixed insulin</value>
+  </data>
+  <data name="PAP6_InsulinRegimenDD6" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="PAP6_mmol" xml:space="preserve">
+    <value>mmol/L</value>
+  </data>
+  <data name="PAP6_NoneofAbove" xml:space="preserve">
+    <value>None of the Above</value>
+  </data>
+  <data name="PAP6_NotAvailable" xml:space="preserve">
+    <value>Not Available</value>
+  </data>
+  <data name="PAP6_PhysicalActivity" xml:space="preserve">
+    <value>Physical Activity:</value>
+  </data>
+  <data name="PAP6_PhysicalActivityDD1" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="PAP6_PhysicalActivityDD2" xml:space="preserve">
+    <value>Moderately inactive</value>
+  </data>
+  <data name="PAP6_PhysicalActivityDD3" xml:space="preserve">
+    <value>Moderately active</value>
+  </data>
+  <data name="PAP6_PhysicalActivityDD4" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="PAP6_PhysicalActivityDD5" xml:space="preserve">
+    <value>Not known</value>
+  </data>
+  <data name="PAP6_RecommendSMBG" xml:space="preserve">
+    <value>Have you recommended Self Monitoring of Blood Glucose (SMBG) to this patient?</value>
+  </data>
+  <data name="PAP6_RecommendSMBG1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP6_RecommendSMBG2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP6_RecordValues" xml:space="preserve">
+    <value>Record values exactly as they appear in the lab report. Include decimal places where applicable</value>
+  </data>
+  <data name="PAP6_ReviewSMBG" xml:space="preserve">
+    <value>Did you review the SMBG results with the patient at the last diabetes related visit?</value>
+  </data>
+  <data name="PAP6_ReviewSMBG1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP6_ReviewSMBG2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP6_SelectA1CTarget" xml:space="preserve">
+    <value>Please select ALL applicable reason(s) for selecting an A1C target of &gt;7.0% for this patient?</value>
+  </data>
+  <data name="PAP6_SelectA1CTarget1" xml:space="preserve">
+    <value>Limited life expectancy</value>
+  </data>
+  <data name="PAP6_SelectA1CTarget2" xml:space="preserve">
+    <value>High level of functional dependancy</value>
+  </data>
+  <data name="PAP6_SelectA1CTarget3" xml:space="preserve">
+    <value>Extensive coronary artery disease / at high risk of ischemic events</value>
+  </data>
+  <data name="PAP6_SelectA1CTarget4" xml:space="preserve">
+    <value>Multiple co-morbidities</value>
+  </data>
+  <data name="PAP6_SelectA1CTarget5" xml:space="preserve">
+    <value>History of recurrent severe hypoglycemia</value>
+  </data>
+  <data name="PAP6_SelectA1CTarget6" xml:space="preserve">
+    <value>Hypoglycemia unawareness</value>
+  </data>
+  <data name="PAP6_SelectA1CTarget7" xml:space="preserve">
+    <value>Longstanding diabetes: Difficult to achieve A1C ≤ 7.0%, despite effective doses of multiple antihyperglycemic agents, including intensified basal-bolus insulin therapy</value>
+  </data>
+  <data name="PAP6_SelectA1CTarget8" xml:space="preserve">
+    <value>Target is based on my clinical judgement</value>
+  </data>
+  <data name="PAP6_SickDay" xml:space="preserve">
+    <value>Did you provide this patient with "Sick Day Instructions":</value>
+  </data>
+  <data name="PAP6_SickDayDD1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PAP6_SickDayDD2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PAP6_SickDayDD3" xml:space="preserve">
+    <value>Don't know what sick day instructions are</value>
+  </data>
+  <data name="PAP7_ACR" xml:space="preserve">
+    <value>ACR:</value>
+  </data>
+  <data name="PAP7_Creatinine" xml:space="preserve">
+    <value>Creatinine:</value>
+  </data>
+  <data name="PAP7_eGFR" xml:space="preserve">
+    <value>e-GFR:</value>
+  </data>
+  <data name="PAP7_heading" xml:space="preserve">
+    <value>7: Additional Lab Values and Medications</value>
+  </data>
+  <data name="PAP7_OtherMedications" xml:space="preserve">
+    <value>Other Medications:</value>
+  </data>
+  <data name="PAP7_OtherMedications1" xml:space="preserve">
+    <value>Antidepressant</value>
+  </data>
+  <data name="PAP7_OtherMedications10" xml:space="preserve">
+    <value>New Oral Anticoagulant</value>
+  </data>
+  <data name="PAP7_OtherMedications2" xml:space="preserve">
+    <value>ASA</value>
+  </data>
+  <data name="PAP7_OtherMedications3" xml:space="preserve">
+    <value>Other Antiplatelet Agent</value>
+  </data>
+  <data name="PAP7_OtherMedications4" xml:space="preserve">
+    <value>Erectile Dysfunction Treatment</value>
+  </data>
+  <data name="PAP7_OtherMedications5" xml:space="preserve">
+    <value>NSAID / Cox Inhibitor</value>
+  </data>
+  <data name="PAP7_OtherMedications6" xml:space="preserve">
+    <value>&lt;strong&gt;PPI / H&lt;sub&gt;2&lt;/sub&gt; Blocker&lt;/strong&gt;</value>
+  </data>
+  <data name="PAP7_OtherMedications7" xml:space="preserve">
+    <value>Smoking Cessation Agent</value>
+  </data>
+  <data name="PAP7_OtherMedications8" xml:space="preserve">
+    <value>Vitamins / Supplements</value>
+  </data>
+  <data name="PAP7_OtherMedications9" xml:space="preserve">
+    <value>Warfarin</value>
+  </data>
+  <data name="PAP7_recordValues" xml:space="preserve">
+    <value>Record values exactly as they appear in the lab report. Include decimal places where applicable</value>
+  </data>
+  <data name="CHECK1" xml:space="preserve">
+    <value>Please check Check1</value>
+  </data>
+  <data name="CHECK2" xml:space="preserve">
+    <value>Please check Check2</value>
+  </data>
+  <data name="Range_30_150" xml:space="preserve">
+    <value>Range(30-150)</value>
+  </data>
+  <data name="Range_60_250" xml:space="preserve">
+    <value>Range (60-250)</value>
+  </data>
+  <data name="PAF_ADD_URL" xml:space="preserve">
+    <value>../images/button_PA_new.png</value>
+  </data>
+  <data name="PAF_COMPLETE" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="PAF_ELG_URL" xml:space="preserve">
+    <value>../images/button_PA_eligibility.png</value>
+  </data>
+  <data name="PAF_FeedbackForm" xml:space="preserve">
+    <value>Feedback Form</value>
+  </data>
+  <data name="PAF_FF" xml:space="preserve">
+    <value>Feedback Form</value>
+  </data>
+  <data name="PAF_HEADING_2" xml:space="preserve">
+    <value>Practice Assessment Form</value>
+  </data>
+  <data name="PAF_HOME_HEADER" xml:space="preserve">
+    <value>Practice Assessment # 1</value>
+  </data>
+  <data name="PAF_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="PAF_INCOMPLETE" xml:space="preserve">
+    <value>Incomplete</value>
+  </data>
+  <data name="PAF_INSTR_URL" xml:space="preserve">
+    <value>../images/button_PA_Instructions.png</value>
+  </data>
+  <data name="PAF_LOGO_URL" xml:space="preserve">
+    <value>../images/button_PA_patientlog.png</value>
+  </data>
+  <data name="PAF_MAF" xml:space="preserve">
+    <value>Measure Assessment
+Form</value>
+  </data>
+  <data name="PAF_REM_URL" xml:space="preserve">
+    <value>../images/button_PA_visitreminder.png</value>
+  </data>
+  <data name="PAF_REVIEW" xml:space="preserve">
+    <value>You can either Submit or Review / Modify the (e-PAF).</value>
+  </data>
+  <data name="PAF_SCHEDULED_DATE" xml:space="preserve">
+    <value>Scheduled Appointment
+Date</value>
+  </data>
+  <data name="PAF_STATUS" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="PAF_SUCCESS" xml:space="preserve">
+    <value>Practice Assessment Form (e-PAF) successfully Completed</value>
+  </data>
+  <data name="DISTOLIC_SYSTOLIC" xml:space="preserve">
+    <value>Diastolic cannot be greater than Systolic</value>
+  </data>
+  <data name="Range_1_10_CL" xml:space="preserve">
+    <value>Range (1-10) </value>
+  </data>
+  <data name="Range_1_10_LDLC" xml:space="preserve">
+    <value>Range (1-10)</value>
+  </data>
+  <data name="Range_1_10_TRY" xml:space="preserve">
+    <value>Range (0.1-10)</value>
+  </data>
+  <data name="Range_1_50_ACR" xml:space="preserve">
+    <value>Range (1-50)</value>
+  </data>
+  <data name="Range_1_5_HDLC" xml:space="preserve">
+    <value>Range (0.1-5) </value>
+  </data>
+  <data name="Range_22_55_IN" xml:space="preserve">
+    <value>Range (22-55) in</value>
+  </data>
+  <data name="Range_29_150_GFR" xml:space="preserve">
+    <value>Range (29-150)</value>
+  </data>
+  <data name="Range_3_12_GLU" xml:space="preserve">
+    <value>Range (3-12)</value>
+  </data>
+  <data name="Range_50_200_HR" xml:space="preserve">
+    <value>Range (50-200) hr</value>
+  </data>
+  <data name="Range_5_12_A1C" xml:space="preserve">
+    <value>Range (5-12)</value>
+  </data>
+  <data name="Range_5_1500_Cret" xml:space="preserve">
+    <value>Range (5-1500)</value>
+  </data>
+  <data name="Range_60_150_CM" xml:space="preserve">
+    <value>Range (60-150) cm</value>
+  </data>
+  <data name="SFB_A1C" xml:space="preserve">
+    <value>Blood Glucose Control (A1C)</value>
+  </data>
+  <data name="SFB_Avoidance" xml:space="preserve">
+    <value>Avoidance of hypoglycemia especially in the elderly, those with hypoglycemia unawareness, and those with criteria for less stringent control.</value>
+  </data>
+  <data name="SFB_BMI" xml:space="preserve">
+    <value>Calculate BMI (mass in kilograms/height in metres&lt;sup&gt;2&lt;/sup&gt;)</value>
+  </data>
+  <data name="SFB_BMI2" xml:space="preserve">
+    <value>Healthy body weight target: &lt;strong&gt;BMI: 18.5-24.9&lt;/strong&gt;</value>
+  </data>
+  <data name="SFB_BodyMass" xml:space="preserve">
+    <value>Body Mass Index</value>
+  </data>
+  <data name="SFB_Care" xml:space="preserve">
+    <value>Care</value>
+  </data>
+  <data name="SFB_CKD" xml:space="preserve">
+    <value>Chronic Kidney Disease (CKD)</value>
+  </data>
+  <data name="SFB_CKD_IDEN" xml:space="preserve">
+    <value>Identification of CKD requires screening for &lt;strong&gt;proteinuria&lt;/strong&gt; using random urine&lt;strong&gt; ACR&lt;/strong&gt; (2 out of 3 samples over 3 mths) and &lt;strong&gt;assessment of renal function&lt;/strong&gt; using a serum creatinine converted to &lt;strong&gt;eGFR &lt;br&gt;Type 2 diabetes:&lt;/strong&gt; Screen at diagnosis and then yearly if no CKD.</value>
+  </data>
+  <data name="SFB_CKD_IDEN2" xml:space="preserve">
+    <value>&lt;strong&gt;Normal ACR &amp;lt;2.0 mg/mmol&lt;/strong&gt;</value>
+  </data>
+  <data name="SFB_CKD_IDEN3" xml:space="preserve">
+    <value>&lt;strong&gt;Normal eGFR &amp;gt;60 mL/min&lt;/strong&gt;</value>
+  </data>
+  <data name="SFB_Dyslipidemia" xml:space="preserve">
+    <value>Dyslipidemia</value>
+  </data>
+  <data name="SFB_Dyslipidemia2" xml:space="preserve">
+    <value>Fasting lipid levels (TC, HDL, TG and calculated LDL) at diagnosis, then yearly if treatment not initiated. More frequent testing if treatment initiated
+&lt;b&gt;Statin therapy&lt;/b&gt; should be used to &lt;b&gt;reduce cardiovascular risk in adults&lt;/b&gt; type 2 diabetes with any of the following features:
+&lt;ul style=" list-style:none;"&gt;
+    &lt;li&gt;1.	Clinical macrovascular disease&lt;/li&gt;
+    &lt;li&gt;2.	Age &amp;gt;=40 years&lt;/li&gt;
+    &lt;li&gt;
+        3.	Age &amp;lt;40 years and 1 of the following
+        &lt;ul&gt;
+            &lt;li&gt;diabetes duration&amp;gt;15 years and age &amp;gt;30 years&lt;/li&gt;
+            &lt;li&gt;Microvascular complications&lt;/li&gt;
+            &lt;li&gt;Warrants therapy based on the presence of other risk factors according to the 2012 Canadian Cardiovascular Society Guidelines for the Diagnosis and Treatment of Dyslipidemia&lt;/li&gt;
+        &lt;/ul&gt;
+
+    &lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="SFB_Dyslipidemia3" xml:space="preserve">
+    <value>Lipid targets for those who need therapy:&lt;strong&gt;Primary target: LDL ≤2.0 mmol/L or ≥50% reduction Alternate Primary target: apo B ≤0.8 g/L or non-HDL-C ≤2.6 mmol/L&lt;/strong&gt;</value>
+  </data>
+  <data name="SFB_Enquire_Hypo" xml:space="preserve">
+    <value>Enquire about hypoglycemia at each visit. Discuss recognition and treatment of hypoglycemia and risk/ benefit of hypoglycemia and pharmacologic management.</value>
+  </data>
+  <data name="SFB_ENSURE" xml:space="preserve">
+    <value>Ensure patient can use glucose meter, interpret results and modify treatment as needed. 
+Develop an individualized blood glucose monitoring schedule with patient and review records.</value>
+  </data>
+  <data name="SFB_Exam" xml:space="preserve">
+    <value>Neuropathy/Foot Examination</value>
+  </data>
+  <data name="SFB_Exam2" xml:space="preserve">
+    <value>&lt;strong&gt;Type 2 diabetes:&lt;/strong&gt; Screen at diagnosis, then annually. Screen for neuropathy with 10-g monofilament or 128 Hz tuning fork at dorsum of great toe. In foot exam look for: structural abnormalities, neuropathy, vascular disease, ulceration, infection</value>
+  </data>
+  <data name="SFB_Exam3" xml:space="preserve">
+    <value>Early detection and treatment. If neuropathy present: require foot care education, specialized footwear, smoking cessation. If ulcer present: manage by multidisciplinary team with expertise</value>
+  </data>
+  <data name="SFB_Heading" xml:space="preserve">
+    <value>Summary Feedback</value>
+  </data>
+  <data name="SFB_Hypertension" xml:space="preserve">
+    <value>Hypertension</value>
+  </data>
+  <data name="SFB_Hypoglycemia" xml:space="preserve">
+    <value>Hypoglycemia</value>
+  </data>
+  <data name="SFB_LastPara" xml:space="preserve">
+    <value>Adopted from Canadian Diabetes Association’s Sample Diabetes Care Flow Sheet for Adults</value>
+  </data>
+  <data name="SFB_Legend" xml:space="preserve">
+    <value>Legend</value>
+  </data>
+  <data name="SFB_Measure" xml:space="preserve">
+    <value>Measure &lt;strong&gt;A1C every three months&lt;/strong&gt; for most adults. Consider testing at least every 6 months in adults during periods of treatment and lifestyle stability when glycemic targets have been consistently achieved</value>
+  </data>
+  <data name="SFB_Measure2" xml:space="preserve">
+    <value>&lt;ul&gt;
+    &lt;li&gt;&lt;b&gt;A1C ≤7.0% for most patients&lt;/b&gt; with type 2 diabetes.&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;A1C ≤6.5% may be considered&lt;/b&gt; in &lt;b&gt;some patients&lt;/b&gt; with type 2 diabetes to &lt;b&gt;further lower the risk of nephropathy&lt;/b&gt; and &lt;b&gt;retinopathy&lt;/b&gt; which &lt;b&gt;must be balanced against the risk of hypoglycemia.&lt;/b&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;A1C of 7.1 – 8.5% may be considered&lt;/b&gt; for patients with type 2 diabetes based on limited life expectancy, functional dependency, extensive coronary artery disease at high risk of ischemia, multiple comorbidities, recurrent severe hypoglycemia, hypoglycemia unawareness, longstanding diabetes unable to achieve A1C ≤7% despite best efforts (including intensified insulin).&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="SFB_MeasureBP" xml:space="preserve">
+    <value>Measure BP &lt;strong&gt;at diagnosis and at every diabetes clinic visit&lt;/strong&gt;</value>
+  </data>
+  <data name="SFB_MeasureBP2" xml:space="preserve">
+    <value>&lt;b&gt;&lt;130/80&lt;/b&gt;</value>
+  </data>
+  <data name="SFB_NA" xml:space="preserve">
+    <value>Not Applicable</value>
+  </data>
+  <data name="SFB_NR" xml:space="preserve">
+    <value>Not Recorded</value>
+  </data>
+  <data name="SFB_Nutrition" xml:space="preserve">
+    <value>Nutrition</value>
+  </data>
+  <data name="SFB_NutritionEncourage" xml:space="preserve">
+    <value>Encourage nutritional therapy (by a registered dietitian) as an integral part of treatment and self-management.</value>
+  </data>
+  <data name="SFB_NutritionTarget" xml:space="preserve">
+    <value>Meet nutritional needs by following &lt;strong&gt;Eating Well with Canada’s Food Guide &lt;/strong&gt;</value>
+  </data>
+  <data name="SFB_Objective" xml:space="preserve">
+    <value>Objective</value>
+  </data>
+  <data name="SFB_PA" xml:space="preserve">
+    <value>Physical Activity</value>
+  </data>
+  <data name="SFB_PARA" xml:space="preserve">
+    <value>Adopted from Canadian Diabetes Association’s Sample Diabetes Care Flow Sheet for Adults</value>
+  </data>
+  <data name="SFB_PatientID" xml:space="preserve">
+    <value>PatientID</value>
+  </data>
+  <data name="SFB_PA_DISCUSS" xml:space="preserve">
+    <value>Discuss and encourage aerobic and resistance exercise. Evaluate those with possible CAD or microvascular complications undertaking exercise substantially more vigorous than brisk walking.</value>
+  </data>
+  <data name="SFB_PA_DISCUSS2" xml:space="preserve">
+    <value>Aerobic:&lt;strong&gt; ≥150 minutes&lt;/strong&gt; /week &lt;br /&gt;
+                                Resistance: &lt;strong&gt;3 sessions/week &lt;/strong&gt;</value>
+  </data>
+  <data name="SFB_Premeal" xml:space="preserve">
+    <value>Premeal (mmol/L) =&lt;strong&gt; 4.0-7.0 mmol/L for most patients &lt;/strong&gt;&lt;br /&gt;
+                2hr Postmeal (mmol/L) = &lt;strong&gt;5.0-10.0 mmol/L for most patients&lt;/strong&gt;&lt;br /&gt;
+                &lt;strong&gt;5.0-8.0 mmol/L&lt;/strong&gt; if not achieving A1C target</value>
+  </data>
+  <data name="SFB_Retinopathy" xml:space="preserve">
+    <value>Retinopathy</value>
+  </data>
+  <data name="SFB_Retinopathy2" xml:space="preserve">
+    <value>&lt;strong&gt;Type 2 diabetes:&lt;/strong&gt; Screen at diagnosis and 1-2 years after initial screening if no retinopathy is present. The interval for follow-up assessment should be tailored to the severity of the retinopathy. Screening should be conducted by an experienced eye care professional</value>
+  </data>
+  <data name="SFB_Retinopathy3" xml:space="preserve">
+    <value>Early detection and treatment</value>
+  </data>
+  <data name="SFB_SELF" xml:space="preserve">
+    <value>Self-monitoring of Blood Glucose</value>
+  </data>
+  <data name="SFB_Smoking" xml:space="preserve">
+    <value>Smoking</value>
+  </data>
+  <data name="SFB_Smoking_Encourage" xml:space="preserve">
+    <value>Encourage patient to stop at each visit; provide support as needed</value>
+  </data>
+  <data name="SFB_Smoking_Encourage2" xml:space="preserve">
+    <value>&lt;strong&gt;Smoking cessation&lt;/strong&gt;</value>
+  </data>
+  <data name="SFB_Target" xml:space="preserve">
+    <value>Target/Care Objective Met</value>
+  </data>
+  <data name="SFB_Target_NOTMET" xml:space="preserve">
+    <value>Target/Care Objective NOT Met</value>
+  </data>
+  <data name="SFB_Target_PARMET" xml:space="preserve">
+    <value>Target/Care Objective Partially Met</value>
+  </data>
+  <data name="SFB_Target_WORD" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="SFB_Waist" xml:space="preserve">
+    <value>Waist Circumference</value>
+  </data>
+  <data name="SFB_WaistMeasure" xml:space="preserve">
+    <value>Measure as an indicator of abdominal fat</value>
+  </data>
+  <data name="SFB_WaistMeasure2" xml:space="preserve">
+    <value>&lt;strong&gt;MEN: &lt;/strong&gt;&lt;br /&gt;
+                Caucasian, African:&lt;strong&gt; ≥94 cm&lt;/strong&gt;&lt;br /&gt;
+                Asian, South or Central American:&lt;strong&gt; ≥90 cm&lt;/strong&gt;&lt;br /&gt;
+                &lt;strong&gt;WOMEN:&lt;/strong&gt;&lt;br /&gt;
+                All women: &lt;strong&gt;≥80 cm&lt;/strong&gt;</value>
+  </data>
+  <data name="PAF_REVIEW_1" xml:space="preserve">
+    <value>Please complete the Measure Assessment Form for this patient once the next scheduled visit on</value>
+  </data>
+  <data name="PAF_REVIEW_2" xml:space="preserve">
+    <value>takes place.</value>
+  </data>
+  <data name="PAF_REVIEW_SUBMIT" xml:space="preserve">
+    <value>You have successfully submitted this Practice Assessment Form!</value>
+  </data>
+  <data name="PAF_REVIEW_SUCCESS" xml:space="preserve">
+    <value>SUCCESS!</value>
+  </data>
+  <data name="PAF_REVIEW_VIEW" xml:space="preserve">
+    <value>You may now view the Feedback Form:</value>
+  </data>
+  <data name="PAF_REVIEW_VIEW_URL" xml:space="preserve">
+    <value>../images/button_view.png</value>
+  </data>
+  <data name="BLOOD_PRESSURE_THERAPY" xml:space="preserve">
+    <value>Blood Pressure Therapy</value>
+  </data>
+  <data name="PA_CheckALL" xml:space="preserve">
+    <value>ALL that APPLY (At least ONE must be selected)</value>
+  </data>
+  <data name="ACR_Caption" xml:space="preserve">
+    <value>Enter the ACR value if available OR check the box if your lab does not report the ACR value if it is in the normal (&lt;2.0 mg/mmol) range</value>
+  </data>
+  <data name="Normal_ACR" xml:space="preserve">
+    <value>Normal ACR &lt;2.0 mg/mmol</value>
+  </data>
+  <data name="PAP6_Hypoglycemia_Inquire" xml:space="preserve">
+    <value>Inquired about hypoglycemia with the patient. No evidence of hypoglycemia</value>
+  </data>
+  <data name="PAP6_Hypoglycemia_NoDiscussion" xml:space="preserve">
+    <value>No discussion of hypoglycemia</value>
+  </data>
+  <data name="PA_Evi_Hypo" xml:space="preserve">
+    <value>Check ALL that APPLY or Select "No Discussion or Evidence of Hypoglycemia"</value>
+  </data>
+  <data name="Emailrequired" xml:space="preserve">
+    <value>Email required</value>
+  </data>
+  <data name="WaitlistCall" xml:space="preserve">
+    <value>Should you have any questions, please do not hesitate to contact us at &lt;a href="mailto:info@vistadm.ca"&gt;info@vistadm.ca&lt;/a&gt;</value>
+  </data>
+  <data name="WaitlistCaption" xml:space="preserve">
+    <value>&lt;span style="color: #9A2548; font-weight: bold"&gt;Thank you for your interest in the VISTA DM Program.&amp;nbsp; &lt;/span&gt;&lt;br /&gt;
+The registration for this program is now closed.&amp;nbsp; Please enter your Unique Registration ID below and click the &amp;ldquo;Waitlist&amp;rdquo; button to be placed on the waitlist.</value>
+  </data>
+  <data name="WaitlistHeader" xml:space="preserve">
+    <value>PLEASE COMPLETE THE FORM BELOW AND CLICK &lt;br /&gt;
+                THE "JOIN THE WAITLIST" BUTTON</value>
+  </data>
+  <data name="WAITLISTREGISTRATION" xml:space="preserve">
+    <value>WAITLIST REGISTRATION</value>
+  </data>
+  <data name="WaitlistSuccessful" xml:space="preserve">
+    <value>You have successfully joined the VISTA DM waitlist. A member of our team will be in touch should the registration become available.</value>
+  </data>
+  <data name="JOINWAITLIST_IMG" xml:space="preserve">
+    <value>../images/button_join-waitlist.png</value>
+  </data>
+  <data name="WAITLIST_EMAIL" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="WAITLIST_IMG" xml:space="preserve">
+    <value>../images/waitlist_header.png</value>
+  </data>
+  <data name="WAITLIST_NOT_URL" xml:space="preserve">
+    <value>../images/button_notinterested.png</value>
+  </data>
+  <data name="WAITLIST_REG_URL" xml:space="preserve">
+    <value>../images/button_waitlist-sm.png</value>
+  </data>
+  <data name="WAITLIST_THANKYOU" xml:space="preserve">
+    <value>../images/Thank_You_Background2.png</value>
+  </data>
+</root>

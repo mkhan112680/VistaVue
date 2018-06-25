@@ -1,0 +1,119 @@
+﻿@using VistaDM.Web.Models;
+@model  List<PracticeAssesmentEntry>
+@{
+    Layout = "~/Views/Shared/_Vista_Layout.cshtml";
+}
+<div id="rightbox">
+    <div id="grayheader">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="71%" align="left">@Resources.Resource.PAF_HOME_HEADER</td>
+                <td width="19%" align="right"><span style="font-size:12px"><em> </em></span></td>
+                <td width="10%" valign="top" align="right"><a href='@Url.Action("PracticeAssessment", "Physician")' onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','../images/homegraybutton2.png',1)"><img src="../images/homegraybutton.png" name="Image6" width="44" height="43" border="0" id="Image6" /></a></td>
+            </tr>
+        </table>
+    </div><!--end of grayheader-->
+
+    <div style="text-align:center; margin-top:10px; margin-bottom:10px">
+        <table width="100%" border="0">
+            <tr>
+
+                <td width="20%" align="center">
+                    <div class="grow">
+                        <a href='@Url.Action("Instructions", "Physician")'>
+                            <img src="@Resources.Resource.PAF_INSTR_URL" border="0" width="100" />
+                        </a>
+                    </div>
+                </td>
+                <td width="20%" align="center">
+                    <div class="grow">
+                        <a href='@Url.Action("Add_PA_Patient", "Physician")'>
+                            <img src="@Resources.Resource.PAF_ADD_URL" border="0" width="100" />
+                        </a>
+                    </div>
+                </td>
+                <td width="20%" align="center">
+                    <div class="grow">
+                        <a href="~/pdf/Eligibility and Non-Eligibility Criteria.pdf" target="_blank">
+                            <img src="@Resources.Resource.PAF_ELG_URL" border="0" width="100" />
+                        </a>
+                    </div>
+                </td>
+                <td width="20%" align="center">
+
+                    <div class="grow">
+                        <a href="~/pdf/INTERNAL PATIENT LOG.pdf" target="_blank">
+                            <img src="@Resources.Resource.PAF_LOGO_URL" border="0" width="100" />
+                        </a>
+                    </div>
+                </td>
+
+                <td width="20%" align="center">
+                    <div class="grow">
+                        <a href='@Url.Action("Get_SVR_Log", "Physician" )'>
+                            <img src="@Resources.Resource.PAF_REM_URL" border="0" width="100" />
+                        </a>
+                    </div>
+                <td width="20%" align="center">
+                    <div class="grow">
+                        <a href='@Url.Action("FeedbackSummary", "Physician" )'>
+                            <img src="../images/button_rec_considerations.png" border="0" width="100" />
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <table class="tableborder" width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse:collapse">
+        <tr>
+            <td align="center" bgcolor="#9B2346" style="color:#FFF;font-size:12px;padding:20px;">@Resources.Resource.PAF_ID</td>
+            <td align="center" bgcolor="#9B2346" style="color:#FFF; font-size:12px">@Resources.Resource.PAF_HEADING_2</td>
+            <td align="center" bgcolor="#9B2346" style="color:#FFF; font-size:12px">@Resources.Resource.PAF_FeedbackForm</td>
+            <td align="center" bgcolor="#9B2346" style="color:#FFF; font-size:12px">@Resources.Resource.PAF_STATUS</td>
+            <td align="center" bgcolor="#9B2346" style="color:#FFF; font-size:12px">@Resources.Resource.PAF_SCHEDULED_DATE</td>
+            <td align="center" bgcolor="#9B2346" style="color:#FFF; font-size:12px">@Resources.Resource.PAF_MAF</td>
+            <td align="center" bgcolor="#9B2346" style="color:#FFF; font-size:12px">@Resources.Resource.PAF_FF</td>
+            <td align="center" bgcolor="#9B2346" style="color:#FFF; font-size:12px">@Resources.Resource.PAF_STATUS</td>
+        </tr>
+        <tr>
+            <td colspan="8">&nbsp;</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="center"><strong>@item.PatientNum</strong></td>
+                <td align="center">
+                    <div class="grow">
+                        <a href='@Url.Action("Start_PAF", "Physician", new { PatientID = item.PatientID, PatientNum = item.PatientNum, IsReadOnly = (item.PAF_Status == VistaDM.Web.Models.PracticeAssesmentStatus.Complete) })'>
+                            <img src='@(item.PAF_Status == VistaDM.Web.Models.PracticeAssesmentStatus.Incomplete ? "../images/Folder-icon.jpg" : "../images/Folder-icon-green.jpg")' border="0" width="60" />
+                        </a>
+                    </div>
+                </td>
+                <td align="center">
+                    <div class="grow">
+                        @if (item.FF_Status == VistaDM.Web.Models.PracticeAssesmentStatus.Closed)
+                        {
+
+                            <img src='../images/person-icon-gray.jpg' border="0" width="60" />
+
+                        }
+                        else
+                        {
+                            <a href='@Url.Action("PAF_Feedback", "Physician", new { PatientID = item.PatientID, PatientNum = item.PatientNum })'>
+                                <img src='@(item.FF_Status == VistaDM.Web.Models.PracticeAssesmentStatus.Closed ? "../images/person-icon.jpg" : "../images/person-icon-green.png")' border="0" width="60" />
+                            </a>
+                        }
+                    </div>
+                </td>
+                <td align="center" style="font-size:12px; font-weight:bold">@(item.Status == VistaDM.Web.Models.PracticeAssesmentStatus.Incomplete ? @Resources.Resource.PAF_INCOMPLETE : @Resources.Resource.PAF_COMPLETE)</td>
+                <td align="center" style="font-size:12px; font-weight:bold">@(item.ScheduledAppDate.HasValue ? @item.ScheduledAppDate.Value.ToString("dd/MM/yyyy") : "") </td>
+                <td align="center"><div class="grow"><img src='@(item.Status == VistaDM.Web.Models.PracticeAssesmentStatus.Complete ? "../images/Folder-icon.jpg" : "../images/folder-icon-gray.jpg")' border="0" width="60" /></div></td>
+                <td align="center"><div class="grow"><img src="../images/person-icon-gray.jpg" border="0" width="60" /></div></td>
+                <td align="center" style="font-size:12px; font-weight:bold">Incomplete</td>
+
+
+
+            </tr>
+        }
+    </table>
+</div>

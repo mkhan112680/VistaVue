@@ -1,0 +1,25 @@
+﻿
+.missing {
+    color: red;
+}
+
+
+.noList li {
+    list-style-type: none;
+    color: red;
+}
+
+.ui-datepicker {
+    font-size: 11px;
+}
+
+
+.spacedTable td {
+    padding: 5px;
+}
+
+
+  .noLink {
+        text-decoration: none;
+        color: black;
+    }

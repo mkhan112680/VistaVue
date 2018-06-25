@@ -1,0 +1,185 @@
+﻿@using VistaDM.Web.Models
+@model UserModel
+@section scripts
+{
+    <script type="text/javascript">
+
+
+        var DisplayResult = function (errored) {
+
+            $("#spanResult").html('');
+
+            if (errored) {
+                $("#spanResult").html('Not Saved');
+                //$("#spanResult").toggleClass('errorMssg');
+                $("#spanResult").attr("class", "errorMssg");
+
+            }
+            else {
+                $("#spanResult").html('Saved');
+                //$("#spanResult").toggleClass('Mssg');
+                $("#spanResult").attr("class", "Mssg");
+                //update MOU tick on Layout Page
+
+                if ( $("#chkMOU")[0].checked )
+                    $("#imgMOU").prop("src", "../images/icon_check.png");
+                else
+                    $("#imgMOU").prop("src", "../images/icon_x.png");
+            }
+
+        };
+
+        $(document).ready(function () {
+
+            var SubmitForm = function () {
+
+                $.ajax({
+
+                    url: '/Physician/SetMOU',
+                    type: 'POST',
+                    data: { isChecked: $("#chkMOU")[0].checked },
+                    dataType: 'json',
+                    success: function (data) {
+
+                        //alert('Data: ' + data);
+                        DisplayResult(data.Result);
+                    },
+                    error: function (request, error) {
+
+                        //alert("Request: " + JSON.stringify(request));
+                        DisplayResult(data.Result);
+                    }
+                });
+
+            }
+
+            $("#hlSubmit").click(SubmitForm);
+
+        });
+
+    </script>
+}
+
+<div id="rightbox">
+    <div id="container">
+        <div id="grayheader">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="93%">@Resources.Resource.MOU</td>
+                    <td width="7%" valign="top"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="    MM_swapImage('Image4', '', '../images/homegraybutton2.png', 1)"><img src="../images/homegraybutton.png" name="Image4" width="44" height="43" border="0" id="Image4" /></a></td>
+                </tr>
+            </table>
+        </div><!--end of grayheader-->
+        <br />
+        <div id="instructionboxheader">@Resources.Resource.MOU_INSTRUCTIONS</div><!--end of instructionbox-->
+        <div id="instructionboxmain">
+            <ul>
+                <li>@Html.Raw(@Resources.Resource.MOU_Instruction_1) </li>
+                <li>@Html.Raw(@Resources.Resource.MOU_Instruction_2) </li>
+                <li>@Html.Raw(@Resources.Resource.MOU_Instruction_3)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU_Instruction_4)  (<img src="../images/icon_check.png" width="13" />)</li>
+            </ul>
+        </div><!--end of instructionboxmain-->
+        <div id="instructionboxbottom">
+        </div><!--end of instructionboxbottom-->
+
+        <div id="boxborder">
+            @Html.Raw(@Resources.Resource.MOU5)
+            <br /><br />
+            @Html.Raw(@Resources.Resource.MOU6)
+            <br /><br />
+            <span style="text-decoration:underline; color:#9B2346; font-weight:bold">VISTA DM:</span><br />
+            <strong> @Html.Raw(@Resources.Resource.MOU7)</strong>
+            <ul style="list-style-image:url(../images/icon_bullet_check.png)">
+                <li>@Html.Raw(@Resources.Resource.MOU8)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU9)   </li>
+                <li>@Html.Raw(@Resources.Resource.MOU10) </li>
+                <li>@Html.Raw(@Resources.Resource.MOU11) </li>
+                <li>@Html.Raw(@Resources.Resource.MOU12) </li>
+                <li>@Html.Raw(@Resources.Resource.MOU13)</li>
+            </ul>
+
+            <span style="text-decoration:underline; font-weight:bold">@Resources.Resource.MOU14</span><br />
+            <ul style="list-style-image:url(../images/icon_bullet_dot.png)">
+                <li>@Html.Raw(@Resources.Resource.MOU15)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU16) </li>
+                <li>@Html.Raw(@Resources.Resource.MOU17) </li>
+                <li>@Html.Raw(@Resources.Resource.MOU18)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU19)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU20)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU21)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU22)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU23)</li>
+            </ul>
+
+            <span style="font-weight:bold">@Html.Raw(@Resources.Resource.MOU24)</span><br />
+            <ul>
+                <li>@Html.Raw(@Resources.Resource.MOU25)</li>
+            </ul>
+
+
+            <span style="font-weight:bold">@Html.Raw(@Resources.Resource.MOU26): </span><br />
+            <ul style="list-style-image:url(../images/icon_bullet_check.png)">
+                <li>@Html.Raw(@Resources.Resource.MOU27)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU28)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU29)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU30)</li>
+                <li>@Html.Raw(@Resources.Resource.MOU31)</li>
+            </ul>
+
+            <span style="font-weight:bold">@Html.Raw(@Resources.Resource.MOU32)  </span><br />
+            <ul style="list-style-image:url(../images/icon_bullet_check.png)">
+                <li>@Html.Raw(@Resources.Resource.MOU33);</li>
+                <li>@Html.Raw(@Resources.Resource.MOU34) </li>
+                <li>
+                    <strong>@Html.Raw(@Resources.Resource.MOU35)</strong>
+                    <ul style="list-style-image:url(../images/icon_bullet_dot.png)">
+                        <li>@Html.Raw(@Resources.Resource.MOU36)</li>
+                        <li>@Html.Raw(@Resources.Resource.MOU37)</li>
+                        <li>@Html.Raw(@Resources.Resource.MOU38)</li>
+                        <li>@Html.Raw(@Resources.Resource.MOU39)</li>
+                        <li>
+                            @Html.Raw(@Resources.Resource.MOU40)
+                        </li>
+                        <li>@Html.Raw(@Resources.Resource.MOU41)</li>
+                        <li> @Html.Raw(@Resources.Resource.MOU42)</li>
+                        <li>@Html.Raw(@Resources.Resource.MOU43)</li>
+                    </ul>
+
+                </li>
+            </ul>
+            <br />
+            <span style="font-weight:bold">@Html.Raw(@Resources.Resource.MOU44):</span><br />
+            @Html.Raw(@Resources.Resource.MOU45)
+        </div><!--end of boxborder-->
+        <br />
+        <div style="text-align:center; font-size:13px; font-weight:bold">
+            @Html.Raw(@Resources.Resource.MOU46)
+        </div>
+        <br />
+        <div id="boxborder2">
+            <span style="color:#9B2346; font-weight:bold; font-size:16px">@Resources.Resource.MOU47</span><br /><br />
+            <table width="100%" border="0">
+                <tr>
+                    <td width="8%" valign="top">
+                        <div class="squaredThree">
+                            <input type="checkbox" id="chkMOU" name="chkMOU" @(Model.MOU.HasValue ? (Model.MOU.Value ? "checked" : "false") : "false") />
+                            <label for="chkMOU"></label>
+                        </div>
+                    </td>
+                    <td width="92%">
+                        @Html.Raw(@Resources.Resource.MOU_AGREEMENT)
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div><!--end of boxborder2-->
+        <div id="scrollPosition"></div>
+        <div class="grow" style="text-align:center">
+            <span id="spanResult"></span>
+        </div>
+        <div class="grow" style="text-align:center">
+            <a href='#scrollPosition' id="hlSubmit"><img src="@Resources.Resource.BTN_SUBMIT_URL" border="0" /></a>
+        </div>
+    </div><!--end of container-->
+</div> 

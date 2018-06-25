@@ -1,0 +1,2063 @@
+﻿@using VistaDM.Web.Models;
+@model AssesmentScreen5_Model
+@{
+    Layout = "~/Views/Shared/_Vista_Layout.cshtml";
+}
+
+<style type="text/css">
+    #container {
+        width: 660px;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #grayheader {
+        background-image: url(../images/graybar.png);
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 620px;
+        font-size: 26px;
+        color: #FFF;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px #000;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+
+    #headerbox {
+        font-size: 26px;
+        color: #9B2346;
+        font-weight: bold;
+        border-top-width: 13px;
+        border-top-style: solid;
+        border-top-color: #333;
+        padding-right: 10px;
+        padding-left: 10px;
+        text-shadow: 1px 0px 0px #000;
+        line-height: 60px;
+    }
+
+    #instructionboxheader {
+        background-image: url(../images/bannerbar.png);
+        background-repeat: no-repeat;
+        font-size: 18px;
+        color: #FFF;
+        font-weight: bold;
+        padding-top: 25px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    #instructionboxmain {
+        text-align: left;
+        font-size: 12px;
+        background-image: url(../images/bannerbarmain.png);
+        background-repeat: repeat-y;
+        padding-top: 1px;
+        padding-right: 25px;
+        padding-bottom: 1px;
+        padding-left: 25px;
+    }
+
+    #instructionboxbottom {
+        background-image: url(../images/bannerbarbottom.png);
+        background-repeat: no-repeat;
+        height: 20px;
+    }
+
+    #boxborder {
+        padding: 20px;
+        font-size: 13px;
+        background-color: #F9F9F9;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border: 1px solid #CCC;
+    }
+
+    #boxborder2 {
+        padding: 10px;
+        border: medium solid #000;
+        margin: 10px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    ul {
+        margin-left: 5px;
+        margin-right: 0px;
+        padding-left: 20px;
+        padding-right: 0px;
+    }
+
+    a.red:link {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:visited {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:hover {
+        color: #9B2346;
+        text-decoration: underline;
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* SQUARED THREE */
+    .squaredThree {
+        width: 13px;
+        position: relative;
+    }
+
+        .squaredThree label {
+            cursor: pointer;
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            top: 3px;
+            left: 3px;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+            background: linear-gradient(top, #222 0%, #45484d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+        }
+
+            .squaredThree label:after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 3px;
+                background: transparent;
+                top: 3px;
+                left: 3px;
+                border: 3px solid #fcfff4;
+                border-top: none;
+                border-right: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            .squaredThree label:hover::after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                opacity: 0.3;
+            }
+
+        .squaredThree input[type=checkbox]:checked + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    input[type=text] {
+        width: 96%;
+        height: 32px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+        input[type=text]:focus {
+            border-color: #333;
+        }
+
+    input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    select {
+        width: 100%;
+        height: 32px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    textarea {
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        width: 91%;
+        height: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+    /* radio button*/
+    .radio label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        font-size: 13px;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+
+    .radio label:before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 0px;
+        left: 0;
+        bottom: 0px;
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+    }
+
+    .radio label:before {
+        border-radius: 8px;
+    }
+
+    /*input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 30px;
+        text-align: center;
+        line-height: 18px;
+    }*/
+
+        input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 35px;
+        text-align: center;
+        line-height: 15px;
+    }
+
+
+</style>
+
+
+@Html.Hidden("IsReadOnlyMode", Model.ReadOnly)
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            if ($("#IsReadOnlyMode").val() == "True") {
+
+                //$('*', 'form').attr('disabled', 'disabled').attr('readonly', 'readonly');
+                $('input[type = radio], input[type = checkbox]').attr('disabled', 'disabled').attr('readonly', 'readonly');
+            }
+
+            
+        });
+
+
+        //    var UnCheckAll = function (uncheck) {
+
+        //        if (uncheck) {
+
+        //            $('#q51st Priority').prop('checked', false);
+        //            $('#q61st Priority2').prop('checked', false);
+        //            $('#q71stPriority3').prop('checked', false);
+
+        //            $('#q52nd Priority').prop('checked', false);
+        //            $('#q62nd Priority2').prop('checked', false);
+        //            $('#q72ndPriority3').prop('checked', false);
+
+        //            $('#q53rd Priority').prop('checked', false);
+        //            $('#q63rd Priority2').prop('checked', false);
+        //            $('#q73rdPriority3').prop('checked', false);
+
+        //        }
+        //        else {
+
+        //            $('#q8equal').prop('checked', false);
+
+        //        }
+        //    }
+
+        //    $('#q8equal').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(true);
+
+        //        }
+
+        //    });
+
+        //    $('#q8equal').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(true);
+
+        //        }
+
+        //    });
+
+        //    $('#q51st Priority').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(false);
+
+        //        }
+
+        //    });
+
+        //    $('#q61st Priority2').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(false);
+
+        //        }
+
+        //    });
+
+        //    $('#q71stPriority3').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(false);
+
+        //        }
+
+        //    });
+
+        //    $('#q52nd Priority').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(false);
+
+        //        }
+
+        //    });
+
+        //    $('#q62nd Priority2').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(false);
+
+        //        }
+
+        //    });
+
+        //    $('#q72ndPriority3').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(false);
+
+        //        }
+
+        //    });
+
+        //    $('#q53rd Priority').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(false);
+
+        //        }
+
+        //    });
+
+        //    $('#q63rd Priority2').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(false);
+
+        //        }
+
+        //    });
+
+        //    $('#q73rdPriority3').change(function () {
+
+        //        if ($(this).is(':checked')) {
+
+        //            UnCheckAll(false);
+
+        //        }
+
+        //    });
+
+    </script>
+}
+
+
+<div id="rightbox">
+    <div id="grayheader">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="71%" align="left"><span style="font-size:20px">@Html.Raw(@Resources.Resource.NEEDS_ASSES_HEADER)</span> </td>
+                <td width="19%" align="right"><span style="font-size:12px"><em>@Resources.Resource.NEEDS_ASSES_PAGE_5_5</em></span></td>
+                <td width="10%" valign="top" align="right"><a href='@Url.Action("Assesment", "Physician")' onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','../images/homegraybutton2.png',1)"><img src="../images/homegraybutton.png" name="Image8" width="44" height="43" border="0" id="Image8" /></a></td>
+            </tr>
+        </table>
+    </div><!--end of grayheader-->
+    <br />
+
+    @using (Html.BeginForm("AssesmentSurvey_Screen5", "Physician", FormMethod.Post, new { model = @Model }))
+    {
+
+        <div id="boxborder">
+            <div style="background-color:#333; color:#FFF; text-align:left; padding:7px; font-size:20px"><strong>@Resources.Resource.NEEDS_ASSES_PATIENT_TARGETS</strong> <br /></div>
+            <table width="100%" border="0">
+                <tr>
+                    <td height="67">
+                        <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                            Q43.<br /><br />
+                        </span>
+                    </td>
+                    <td><span style="font-weight:bold; font-size:17px"> @Resources.Resource.NEEDS_ASSES_Q43 </span><span style="font-size:12px;font-weight:bold; font-style:italic">(@Resources.Resource.NEEDS_ASSES_ONEFOREACH)</span></td>
+                </tr>
+                <tr>
+                    <td width="6%">&nbsp;</td>
+                    <td width="94%">
+
+
+                        <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                            <tr>
+                                <td colspan="3"><span style="color:#9B2346; font-weight:bold; font-size:17px">Q43 A.</span><span style="font-weight:bold; font-size:17px"> @Resources.Resource.NEEDS_ASSES_Q43_A</span></td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%">
+                                    <div class="radio">
+                                        @*<input id="≤ 130 mmHg" type="radio" name="systolicbloodpressure" value="≤ 130 mmHg">*@
+                                        @Html.RadioButtonFor(x => x.q1.SelectedAnswer.AID, @Model.q1.Answer[0].AID,
+@Model.q1.Answer[0].Selected ? (object)new { id = "q1≤ 130 mmHg", @checked = "checked" } : (object)new { id = "q1≤ 130 mmHg" })
+                                        <label for="q1≤ 130 mmHg"></label>
+                                    </div>
+                                </td>
+                                <td width="93%">@Resources.Resource.NEEDS_ASSES_Q43_A_A1 </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="131 - 140 mmHg" type="radio" name="systolicbloodpressure" value="131 - 140 mmHg">*@
+                                        @Html.RadioButtonFor(x => x.q1.SelectedAnswer.AID, @Model.q1.Answer[1].AID,
+@Model.q1.Answer[1].Selected ? (object)new { id = "q1131 - 140 mmHg", @checked = "checked" } : (object)new { id = "q1131 - 140 mmHg" })
+                                        <label for="q1131 - 140 mmHg"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_A_A2 </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="> 140 mmHg" type="radio" name="systolicbloodpressure" value="> 140 mmHg">*@
+                                        @Html.RadioButtonFor(x => x.q1.SelectedAnswer.AID, @Model.q1.Answer[2].AID,
+@Model.q1.Answer[2].Selected ? (object)new { id = "q1> 140 mmHg", @checked = "checked" } : (object)new { id = "q1> 140 mmHg" })
+                                        <label for="q1> 140 mmHg"></label>
+                                    </div>
+                                </td>
+                                <td width="93%">@Resources.Resource.NEEDS_ASSES_Q43_A_A3  </td>
+                            </tr>
+                        </table>
+
+
+                        <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                            <tr>
+                                <td colspan="3"><span style="color:#9B2346; font-weight:bold; font-size:17px">Q43 B.</span><span style="font-weight:bold; font-size:17px"> @Resources.Resource.NEEDS_ASSES_Q43_B</span></td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%">
+                                    <div class="radio">
+                                        @*<input id="≤ 80 mmHg" type="radio" name="diastolicbloodpressure" value="≤ 80 mmHg">*@
+                                        @Html.RadioButtonFor(x => x.q2.SelectedAnswer.AID, @Model.q2.Answer[0].AID,
+@Model.q2.Answer[0].Selected ? (object)new { id = "q2≤ 80 mmHg", @checked = "checked" } : (object)new { id = "q2≤ 80 mmHg" })
+                                        <label for="q2≤ 80 mmHg"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_B_A1 </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="81 – 90 mmHg" type="radio" name="diastolicbloodpressure" value="81 – 90 mmHg">*@
+                                        @Html.RadioButtonFor(x => x.q2.SelectedAnswer.AID, @Model.q2.Answer[1].AID,
+@Model.q2.Answer[1].Selected ? (object)new { id = "q281 – 90 mmHg", @checked = "checked" } : (object)new { id = "q281 – 90 mmHg" })
+                                        <label for="q281 – 90 mmHg"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_B_A2 </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id=">  90 mmHg" type="radio" name="diastolicbloodpressure" value=">  90 mmHg">*@
+                                        @Html.RadioButtonFor(x => x.q2.SelectedAnswer.AID, @Model.q2.Answer[2].AID,
+@Model.q2.Answer[2].Selected ? (object)new { id = "q2>  90 mmHg", @checked = "checked" } : (object)new { id = "q2>  90 mmHg" })
+                                        <label for="q2>  90 mmHg"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_B_A3 </td>
+                            </tr>
+                        </table>
+
+
+                        <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                            <tr>
+                                <td colspan="3"><span style="color:#9B2346; font-weight:bold; font-size:17px">Q43 C.</span><span style="font-weight:bold; font-size:17px"> LDL - C</span></td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%">
+                                    <div class="radio">
+                                        @*<input id="≤ 1.5 mmol/L" type="radio" name="ldlc" value="≤ 1.5 mmol/L">*@
+                                        @Html.RadioButtonFor(x => x.q3.SelectedAnswer.AID, @Model.q3.Answer[0].AID,
+@Model.q3.Answer[0].Selected ? (object)new { id = "q3≤ 1.5 mmol/L", @checked = "checked" } : (object)new { id = "q3≤ 1.5 mmol/L" })
+                                        <label for="q3≤ 1.5 mmol/L"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_C_A1  </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="≤  2.0 mmol/L" type="radio" name="ldlc" value="≤  2.0 mmol/L">*@
+                                        @Html.RadioButtonFor(x => x.q3.SelectedAnswer.AID, @Model.q3.Answer[1].AID,
+@Model.q3.Answer[1].Selected ? (object)new { id = "q3≤2.0 mmol/L", @checked = "checked" } : (object)new { id = "q3≤2.0 mmol/L" })
+                                        <label for="q3≤2.0 mmol/L"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_C_A2  </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="≤ 2.5 mmol/L" type="radio" name="ldlc" value="≤ 2.5 mmol/L">*@
+                                        @Html.RadioButtonFor(x => x.q3.SelectedAnswer.AID, @Model.q3.Answer[2].AID,
+@Model.q3.Answer[2].Selected ? (object)new { id = "q3≤2.5mmol/L", @checked = "checked" } : (object)new { id = "q3≤2.5mmol/L" })
+                                        <label for="q3≤2.5mmol/L"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_C_A3  </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="≤  3.0 mmol/" type="radio" name="ldlc" value="≤  3.0 mmol/">*@
+                                        @Html.RadioButtonFor(x => x.q3.SelectedAnswer.AID, @Model.q3.Answer[3].AID,
+@Model.q3.Answer[3].Selected ? (object)new { id = "q3≤3.0 mmol", @checked = "checked" } : (object)new { id = "q3≤3.0 mmol" })
+                                        <label for="q3≤3.0 mmol"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_C_A4   </td>
+                            </tr>
+                        </table>
+
+                        <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                            <tr>
+                                <td colspan="3"><span style="color:#9B2346; font-weight:bold; font-size:17px">Q43 D.</span><span style="font-weight:bold; font-size:17px"> @Resources.Resource.NEEDS_ASSES_Q43_D</span></td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%">
+                                    <div class="radio">
+                                        @*<input id="≤ 6.5%" type="radio" name="a1c" value="≤ 6.5%">*@
+                                        @Html.RadioButtonFor(x => x.q4.SelectedAnswer.AID, @Model.q4.Answer[0].AID,
+@Model.q4.Answer[0].Selected ? (object)new { id = "q4≤6.5%", @checked = "checked" } : (object)new { id = "q4≤6.5%" })
+                                        <label for="q4≤6.5%"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_D_A1 </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="≤  7.0%" type="radio" name="a1c" value="≤  7.0%">*@
+                                        @Html.RadioButtonFor(x => x.q4.SelectedAnswer.AID, @Model.q4.Answer[1].AID,
+@Model.q4.Answer[1].Selected ? (object)new { id = "q4≤7.0%", @checked = "checked" } : (object)new { id = "q4≤7.0%" })
+                                        <label for="q4≤7.0%"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_D_A2 </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="≤  7.5% " type="radio" name="a1c" value="≤  7.5% ">*@
+                                        @Html.RadioButtonFor(x => x.q4.SelectedAnswer.AID, @Model.q4.Answer[2].AID,
+@Model.q4.Answer[2].Selected ? (object)new { id = "q4≤7.5%", @checked = "checked" } : (object)new { id = "q4≤7.5%" })
+                                        <label for="q4≤7.5%"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_D_A3 </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="≤  8.0%" type="radio" name="a1c" value="≤  8.0%">*@
+                                        @Html.RadioButtonFor(x => x.q4.SelectedAnswer.AID, @Model.q4.Answer[3].AID,
+@Model.q4.Answer[3].Selected ? (object)new { id = "q4≤8.0%", @checked = "checked" } : (object)new { id = "q4≤8.0%" })
+                                        <label for="q4≤8.0%"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_D_A4  </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="≤  8.5% " type="radio" name="a1c" value="≤  8.5% ">*@
+                                        @Html.RadioButtonFor(x => x.q4.SelectedAnswer.AID, @Model.q4.Answer[4].AID,
+@Model.q4.Answer[4].Selected ? (object)new { id = "q4≤8.5%", @checked = "checked" } : (object)new { id = "q4≤8.5%" })
+                                        <label for="q4≤8.5%"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_D_A5   </td>
+                            </tr>
+                            <tr>
+                                <td width="3%">&nbsp;</td>
+                                <td width="4%" valign="top">
+                                    <div class="radio">
+                                        @*<input id="7.1 to 8.5" type="radio" name="a1c" value="7.1 to 8.5">*@
+                                        @Html.RadioButtonFor(x => x.q4.SelectedAnswer.AID, @Model.q4.Answer[5].AID,
+@Model.q4.Answer[5].Selected ? (object)new { id = "q4-7.1 to 8.5", @checked = "checked" } : (object)new { id = "q4-7.1 to 8.5" })
+                                        <label for="q4-7.1 to 8.5"></label>
+                                    </div>
+                                </td>
+                                <td width="93%"> @Resources.Resource.NEEDS_ASSES_Q43_D_A6  </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+            </table>
+
+            <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                <tr>
+                    <td width="8%" height="89" headers="67">
+                        <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                            Q44.<br />
+                            <br />
+                            <br />
+                        </span>
+                    </td>
+                    <td width="92%">
+                        <span style="font-weight:bold; font-size:17px">  @Resources.Resource.NEEDS_ASSES_Q44 </span><br />
+                        <span style="font-size:12px;font-weight:bold; font-style:italic">( @Resources.Resource.NEEDS_ASSES_PRIORITY)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="5" style="border:#000 thin solid; border-collapse:collapse;" class=" spacedTable">
+                            <tr>
+                                <td style="background-color:#000">&nbsp;</td>
+                                <td style="background-color:#548039; color:#FFF;border:#000 thin solid; text-align:center; font-size:10px"><strong>@Resources.Resource.NEEDS_ASSES_PRIOR_1</strong></td>
+                                <td style="background-color:#EB7D3C; color:#FFF;border:#000 thin solid; text-align:center; font-size:10px"><strong>@Resources.Resource.NEEDS_ASSES_PRIOR_2</strong></td>
+                                <td style="background-color:#BE0712; color:#FFF;border:#000 thin solid; text-align:center; font-size:10px"><strong>@Resources.Resource.NEEDS_ASSES_PRIOR_3</strong></td>
+                                @*<td style="background-color:#36F; color:#FFF;border:#000 thin solid; text-align:center; font-size:10px"><strong>@Resources.Resource.NEEDS_ASSES_PRIOR_EQUAL</strong></td>*@
+                            </tr>
+                            <tr>
+                                <td align="right" style="font-size:11px; border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q44_BP</strong></td>
+                                <td style="border:#000 thin solid" align="center">
+                                    <div class="radio">
+                                        @*<input id="1st Priority" type="radio" name="bloodpressurecontrol" value="1st Priority">*@
+                                        @Html.RadioButtonFor(x => x.q5.SelectedAnswer.AID, @Model.q5.Answer[0].AID,
+@Model.q5.Answer[0].Selected ? (object)new { id = "q51st Priority", @checked = "checked" } : (object)new { id = "q51st Priority" })
+                                        <label for="q51st Priority"></label>
+                                    </div>
+                                </td>
+                                <td style="border:#000 thin solid" align="center">
+                                    <div class="radio">
+                                        @*<input id="2nd Priority" type="radio" name="bloodpressurecontrol" value="2nd Priority">*@
+                                        @Html.RadioButtonFor(x => x.q5.SelectedAnswer.AID, @Model.q5.Answer[1].AID,
+@Model.q5.Answer[1].Selected ? (object)new { id = "q52nd Priority", @checked = "checked" } : (object)new { id = "q52nd Priority" })
+                                        <label for="q52nd Priority"></label>
+                                    </div>
+                                </td>
+                                <td style="border:#000 thin solid" align="center">
+                                    <div class="radio">
+                                        @*<input id="3rd Priority" type="radio" name="bloodpressurecontrol" value="3rd Priority">*@
+                                        @Html.RadioButtonFor(x => x.q5.SelectedAnswer.AID, @Model.q5.Answer[2].AID,
+@Model.q5.Answer[2].Selected ? (object)new { id = "q53rd Priority", @checked = "checked" } : (object)new { id = "q53rd Priority" })
+                                        <label for="q53rd Priority"></label>
+                                    </div>
+                                </td>
+                                @*<td rowspan="3" align="center" style="border:#000 thin solid">
+                                    <div class="radio">
+                                         <input id="equal" type="radio" name="allequalpriority" value="equal">
+                                            @Html.RadioButtonFor(x => x.q8.SelectedAnswer.AID, @Model.q8.Answer[0].AID,
+    @Model.q8.Answer[0].Selected ? (object)new { id = "q8equal", @checked = "checked" } : (object)new { id = "q8equal" })
+                                            <label for="q8equal"></label> 
+                                        
+                                    </div>
+                                </td>*@
+                            </tr>
+                            <tr>
+                                <td align="right" style="font-size:11px; border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q44_GC</strong></td>
+                                <td style="border:#000 thin solid" align="center">
+                                    <div class="radio">
+                                        @*<input id="1st Priority2" type="radio" name="glycemiccontrol" value="1st Priority">*@
+                                        @Html.RadioButtonFor(x => x.q6.SelectedAnswer.AID, @Model.q6.Answer[0].AID,
+@Model.q6.Answer[0].Selected ? (object)new { id = "q61st Priority2", @checked = "checked" } : (object)new { id = "q61st Priority2" })
+                                        <label for="q61st Priority2"></label>
+                                    </div>
+                                </td>
+                                <td style="border:#000 thin solid" align="center">
+                                    <div class="radio">
+                                        @*<input id="2nd Priority2" type="radio" name="glycemiccontrol" value="2nd Priority">*@
+                                        @Html.RadioButtonFor(x => x.q6.SelectedAnswer.AID, @Model.q6.Answer[1].AID,
+@Model.q6.Answer[1].Selected ? (object)new { id = "q62nd Priority2", @checked = "checked" } : (object)new { id = "q62nd Priority2" })
+                                        <label for="q62nd Priority2"></label>
+                                    </div>
+                                </td>
+                                <td style="border:#000 thin solid" align="center">
+                                    <div class="radio">
+                                        @*<input id="3rd Priority2" type="radio" name="glycemiccontrol" value="3rd Priority">*@
+                                        @Html.RadioButtonFor(x => x.q6.SelectedAnswer.AID, @Model.q6.Answer[2].AID,
+@Model.q6.Answer[2].Selected ? (object)new { id = "q63rd Priority2", @checked = "checked" } : (object)new { id = "q63rd Priority2" })
+                                        <label for="q63rd Priority2"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="font-size:11px; border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q44_LDLC  </strong> </td>
+                                <td style="border:#000 thin solid" align="center">
+                                    <div class="radio">
+                                        @*<input id="1st Priority3" type="radio" name="ldlccontrol" value="1st Priority">*@
+                                        @Html.RadioButtonFor(x => x.q7.SelectedAnswer.AID, @Model.q7.Answer[0].AID,
+@Model.q7.Answer[0].Selected ? (object)new { id = "q71stPriority3", @checked = "checked" } : (object)new { id = "q71stPriority3" })
+                                        <label for="q71stPriority3"></label>
+                                    </div>
+                                </td>
+                                <td style="border:#000 thin solid" align="center">
+                                    <div class="radio">
+                                        @*<input id="2nd Priority3" type="radio" name="ldlccontrol" value="2nd Priority">*@
+                                        @Html.RadioButtonFor(x => x.q7.SelectedAnswer.AID, @Model.q7.Answer[1].AID,
+@Model.q7.Answer[1].Selected ? (object)new { id = "q72ndPriority3", @checked = "checked" } : (object)new { id = "q72ndPriority3" })
+                                        <label for="q72ndPriority3"></label>
+                                    </div>
+                                </td>
+                                <td style="border:#000 thin solid" align="center">
+                                    <div class="radio">
+                                        @*<input id="3rd Priority3" type="radio" name="ldlccontrol" value="3rd Priority">*@
+                                        @Html.RadioButtonFor(x => x.q7.SelectedAnswer.AID, @Model.q7.Answer[2].AID,
+@Model.q7.Answer[2].Selected ? (object)new { id = "q73rdPriority3", @checked = "checked" } : (object)new { id = "q73rdPriority3" })
+                                        <label for="q73rdPriority3"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+            </table>
+
+            <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                <tr>
+                    <td height="67">
+                        <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                            Q45.<br />
+                            <br />
+                        </span>
+                    </td>
+                    <td colspan="2"><span style="font-weight:bold; font-size:17px"> @Resources.Resource.NEEDS_ASSES_Q45 </span><span style="font-size:12px;font-weight:bold; font-style:italic">(@Resources.Resource.NEEDS_ASSES_SEL_ONE)</span></td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Too many targets to track" type="radio" name="reasonfornotreachingguideline" value="Too many targets to track">*@
+                            @Html.RadioButtonFor(x => x.q9.SelectedAnswer.AID, @Model.q9.Answer[0].AID,
+@Model.q9.Answer[0].Selected ? (object)new { id = "q9Toomanytargetstotrack", @checked = "checked" } : (object)new { id = "q9Toomanytargetstotrack" })
+                            <label for="q9Toomanytargetstotrack"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q45_A1</td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Too many medications" type="radio" name="reasonfornotreachingguideline" value="Too many medications">*@
+                            @Html.RadioButtonFor(x => x.q9.SelectedAnswer.AID, @Model.q9.Answer[1].AID,
+@Model.q9.Answer[1].Selected ? (object)new { id = "q9Toomanymedications", @checked = "checked" } : (object)new { id = "q9Toomanymedications" })
+                            <label for="q9Toomanymedications"></label>
+                        </div>
+                    </td>
+                    <td width="89%"> @Resources.Resource.NEEDS_ASSES_Q45_A2</td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Patient adherence" type="radio" name="reasonfornotreachingguideline" value="Patient adherence">*@
+                            @Html.RadioButtonFor(x => x.q9.SelectedAnswer.AID, @Model.q9.Answer[2].AID,
+@Model.q9.Answer[2].Selected ? (object)new { id = "q9Patientadherence", @checked = "checked" } : (object)new { id = "q9Patientadherence" })
+                            <label for="q9Patientadherence"></label>
+                        </div>
+                    </td>
+                    <td width="89%"> @Resources.Resource.NEEDS_ASSES_Q45_A3 </td>
+                </tr>
+                <tr>
+                    <td width="7%" height="20">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Insufficient evidence for target" type="radio" name="reasonfornotreachingguideline" value="mInsufficient evidence for target">*@
+                            @Html.RadioButtonFor(x => x.q9.SelectedAnswer.AID, @Model.q9.Answer[3].AID,
+@Model.q9.Answer[3].Selected ? (object)new { id = "q9Insufficientevidencefortarget", @checked = "checked" } : (object)new { id = "q9Insufficientevidencefortarget" })
+                            <label for="q9Insufficientevidencefortarget"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q45_A4  </td>
+                </tr>
+                <tr>
+                    <td width="7%" height="20">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Medication access / cost" type="radio" name="reasonfornotreachingguideline" value="Medication access / cost">*@
+                            @Html.RadioButtonFor(x => x.q9.SelectedAnswer.AID, @Model.q9.Answer[4].AID,
+@Model.q9.Answer[4].Selected ? (object)new { id = "q9Medicationaccesscost", @checked = "checked" } : (object)new { id = "q9Medicationaccesscost" })
+                            <label for="q9Medicationaccesscost"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q45_A5</td>
+                </tr>
+            </table>
+
+            <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                <tr>
+                    <td height="67">
+                        <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                            Q46.<br />
+                            <br />
+                        </span>
+                    </td>
+                    <td colspan="2"><span style="font-weight:bold; font-size:17px">  @Resources.Resource.NEEDS_ASSES_Q46 </span><span style="font-size:12px;font-weight:bold; font-style:italic">(@Resources.Resource.NEEDS_ASSES_CHECK_ALL)</span></td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree282" name="check" />*@
+                            @Html.HiddenFor(x => x.q10.SelectedAnswers[0].AID)
+                            @Html.CheckBoxFor(x => x.q10.SelectedAnswers[0].Selected,
+@Model.q10.SelectedAnswers[0].Selected ? (object)new { id = "q10squaredThree282", @checked = "checked" } : (object)new { id = "q10squaredThree282" })
+                            <label for="q10squaredThree282"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q46_A1 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree283" name="check" />*@
+                            @Html.HiddenFor(x => x.q10.SelectedAnswers[1].AID)
+                            @Html.CheckBoxFor(x => x.q10.SelectedAnswers[1].Selected,
+@Model.q10.SelectedAnswers[1].Selected ? (object)new { id = "q10squaredThree283", @checked = "checked" } : (object)new { id = "q10squaredThree283" })
+                            <label for="q10squaredThree283"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q46_A2  </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree284" name="check" />*@
+                            @Html.HiddenFor(x => x.q10.SelectedAnswers[2].AID)
+                            @Html.CheckBoxFor(x => x.q10.SelectedAnswers[2].Selected,
+@Model.q10.SelectedAnswers[2].Selected ? (object)new { id = "q10squaredThree284", @checked = "checked" } : (object)new { id = "q10squaredThree284" })
+                            <label for="q10squaredThree284"></label>
+                        </div>
+                    </td>
+                    <td width="89%"> @Resources.Resource.NEEDS_ASSES_Q46_A3      </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree285" name="check" />*@
+                            @Html.HiddenFor(x => x.q10.SelectedAnswers[3].AID)
+                            @Html.CheckBoxFor(x => x.q10.SelectedAnswers[3].Selected,
+@Model.q10.SelectedAnswers[3].Selected ? (object)new { id = "q10squaredThree285", @checked = "checked" } : (object)new { id = "q10squaredThree285" })
+                            <label for="q10squaredThree285"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q46_A4  </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree286" name="check" />*@
+                            @Html.HiddenFor(x => x.q10.SelectedAnswers[4].AID)
+                            @Html.CheckBoxFor(x => x.q10.SelectedAnswers[4].Selected,
+@Model.q10.SelectedAnswers[4].Selected ? (object)new { id = "q10squaredThree286", @checked = "checked" } : (object)new { id = "q10squaredThree286" })
+                            <label for="q10squaredThree286"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q46_A5   </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree287" name="check" />*@
+                            @Html.HiddenFor(x => x.q10.SelectedAnswers[5].AID)
+                            @Html.CheckBoxFor(x => x.q10.SelectedAnswers[5].Selected,
+@Model.q10.SelectedAnswers[5].Selected ? (object)new { id = "q10squaredThree287", @checked = "checked" } : (object)new { id = "q10squaredThree287" })
+                            <label for="q10squaredThree287"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q46_A6  </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree288" name="check" />*@
+                            @Html.HiddenFor(x => x.q10.SelectedAnswers[6].AID)
+                            @Html.CheckBoxFor(x => x.q10.SelectedAnswers[6].Selected,
+@Model.q10.SelectedAnswers[6].Selected ? (object)new { id = "q10squaredThree288", @checked = "checked" } : (object)new { id = "q10squaredThree288" })
+                            <label for="q10squaredThree288"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q46_A7 </td>
+                </tr>
+            </table>
+
+            <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                <tr>
+                    <td height="67">
+                        <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                            Q47.<br />
+                            <br />
+                        </span>
+                    </td>
+                    <td colspan="2"><span style="font-weight:bold; font-size:17px"> @Resources.Resource.NEEDS_ASSES_Q47 </span><span style="font-size:12px;font-weight:bold; font-style:italic">(@Resources.Resource.NEEDS_ASSES_CHECK_ALL)</span></td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree289" name="check" />*@
+                            @Html.HiddenFor(x => x.q11.SelectedAnswers[0].AID)
+                            @Html.CheckBoxFor(x => x.q11.SelectedAnswers[0].Selected,
+@Model.q11.SelectedAnswers[0].Selected ? (object)new { id = "q11squaredThree289", @checked = "checked" } : (object)new { id = "q11squaredThree289" })
+                            <label for="q11squaredThree289"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q47_A1 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree290" name="check" />*@
+                            @Html.HiddenFor(x => x.q11.SelectedAnswers[1].AID)
+                            @Html.CheckBoxFor(x => x.q11.SelectedAnswers[1].Selected,
+@Model.q11.SelectedAnswers[1].Selected ? (object)new { id = "q11squaredThree290", @checked = "checked" } : (object)new { id = "q11squaredThree290" })
+                            <label for="q11squaredThree290"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q47_A2  </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree291" name="check" />*@
+                            @Html.HiddenFor(x => x.q11.SelectedAnswers[2].AID)
+                            @Html.CheckBoxFor(x => x.q11.SelectedAnswers[2].Selected,
+@Model.q11.SelectedAnswers[2].Selected ? (object)new { id = "q11squaredThree291", @checked = "checked" } : (object)new { id = "q11squaredThree291" })
+                            <label for="q11squaredThree291"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q47_A3  </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree292" name="check" />*@
+                            @Html.HiddenFor(x => x.q11.SelectedAnswers[3].AID)
+                            @Html.CheckBoxFor(x => x.q11.SelectedAnswers[3].Selected,
+@Model.q11.SelectedAnswers[3].Selected ? (object)new { id = "q11squaredThree292", @checked = "checked" } : (object)new { id = "q11squaredThree292" })
+                            <label for="q11squaredThree292"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q47_A4  </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree293" name="check" />*@
+                            @Html.HiddenFor(x => x.q11.SelectedAnswers[4].AID)
+                            @Html.CheckBoxFor(x => x.q11.SelectedAnswers[4].Selected,
+@Model.q11.SelectedAnswers[4].Selected ? (object)new { id = "q11squaredThree293", @checked = "checked" } : (object)new { id = "q11squaredThree293" })
+                            <label for="q11squaredThree293"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q47_A5  </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree294" name="check" />*@
+                            @Html.HiddenFor(x => x.q11.SelectedAnswers[5].AID)
+                            @Html.CheckBoxFor(x => x.q11.SelectedAnswers[5].Selected,
+@Model.q11.SelectedAnswers[5].Selected ? (object)new { id = "q11squaredThree294", @checked = "checked" } : (object)new { id = "q11squaredThree294" })
+                            <label for="q11squaredThree294"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q47_A6 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree295" name="check" />*@
+                            @Html.HiddenFor(x => x.q11.SelectedAnswers[6].AID)
+                            @Html.CheckBoxFor(x => x.q11.SelectedAnswers[6].Selected,
+@Model.q11.SelectedAnswers[6].Selected ? (object)new { id = "q11squaredThree295", @checked = "checked" } : (object)new { id = "q11squaredThree295" })
+                            <label for="q11squaredThree295"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q47_A7 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree296" name="check" />*@
+                            @Html.HiddenFor(x => x.q11.SelectedAnswers[7].AID)
+                            @Html.CheckBoxFor(x => x.q11.SelectedAnswers[7].Selected,
+@Model.q11.SelectedAnswers[7].Selected ? (object)new { id = "q11squaredThree296", @checked = "checked" } : (object)new { id = "q11squaredThree296" })
+                            <label for="q11squaredThree296"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q47_A8 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree297" name="check" />*@
+                            @Html.HiddenFor(x => x.q11.SelectedAnswers[8].AID)
+                            @Html.CheckBoxFor(x => x.q11.SelectedAnswers[8].Selected,
+@Model.q11.SelectedAnswers[8].Selected ? (object)new { id = "q11squaredThree297", @checked = "checked" } : (object)new { id = "q11squaredThree297" })
+                            <label for="q11squaredThree297"></label>
+                        </div>
+
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q47_A8 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree298" name="check" />*@
+                            @Html.HiddenFor(x => x.q11.SelectedAnswers[9].AID)
+                            @Html.CheckBoxFor(x => x.q11.SelectedAnswers[9].Selected,
+@Model.q11.SelectedAnswers[9].Selected ? (object)new { id = "q11squaredThree298", @checked = "checked" } : (object)new { id = "q11squaredThree298" })
+                            <label for="q11squaredThree298"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q47_A9  </td>
+                </tr>
+
+            </table>
+
+            <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                <tr>
+                    <td height="67">
+                        <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                            Q48.<br />
+                            <br />
+                        </span>
+                    </td>
+                    <td colspan="2"><span style="font-weight:bold; font-size:17px">  @Resources.Resource.NEEDS_ASSES_Q48 </span><span style="font-size:12px;font-weight:bold; font-style:italic">(@Resources.Resource.NEEDS_ASSES_CHECK_ALL)</span></td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree299" name="check" />*@
+                            @Html.HiddenFor(x => x.q12.SelectedAnswers[0].AID)
+                            @Html.CheckBoxFor(x => x.q12.SelectedAnswers[0].Selected,
+@Model.q12.SelectedAnswers[0].Selected ? (object)new { id = "q12squaredThree299", @checked = "checked" } : (object)new { id = "q12squaredThree299" })
+                            <label for="q12squaredThree299"></label>
+                        </div>
+                    </td>
+                    <td width="89%"> @Resources.Resource.NEEDS_ASSES_Q48_A1 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree300" name="check" />*@
+                            @Html.HiddenFor(x => x.q12.SelectedAnswers[1].AID)
+                            @Html.CheckBoxFor(x => x.q12.SelectedAnswers[1].Selected,
+@Model.q12.SelectedAnswers[1].Selected ? (object)new { id = "q12squaredThree300", @checked = "checked" } : (object)new { id = "q12squaredThree300" })
+                            <label for="q12squaredThree300"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q48_A2 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree301" name="check" />*@
+                            @Html.HiddenFor(x => x.q12.SelectedAnswers[2].AID)
+                            @Html.CheckBoxFor(x => x.q12.SelectedAnswers[2].Selected,
+@Model.q12.SelectedAnswers[2].Selected ? (object)new { id = "q12squaredThree301", @checked = "checked" } : (object)new { id = "q12squaredThree301" })
+                            <label for="q12squaredThree301"></label>
+                        </div>
+                    </td>
+                    <td width="89%"> @Resources.Resource.NEEDS_ASSES_Q48_A3 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree302" name="check" />*@
+                            @Html.HiddenFor(x => x.q12.SelectedAnswers[3].AID)
+                            @Html.CheckBoxFor(x => x.q12.SelectedAnswers[3].Selected,
+@Model.q12.SelectedAnswers[3].Selected ? (object)new { id = "q12squaredThree302", @checked = "checked" } : (object)new { id = "q12squaredThree302" })
+                            <label for="q12squaredThree302"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q48_A4 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree303" name="check" />*@
+                            @Html.HiddenFor(x => x.q12.SelectedAnswers[4].AID)
+                            @Html.CheckBoxFor(x => x.q12.SelectedAnswers[4].Selected,
+@Model.q12.SelectedAnswers[4].Selected ? (object)new { id = "q12squaredThree303", @checked = "checked" } : (object)new { id = "q12squaredThree303" })
+                            <label for="q12squaredThree303"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q48_A5  </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree304" name="check" />*@
+                            @Html.HiddenFor(x => x.q12.SelectedAnswers[5].AID)
+                            @Html.CheckBoxFor(x => x.q12.SelectedAnswers[5].Selected,
+@Model.q12.SelectedAnswers[5].Selected ? (object)new { id = "q12squaredThree304", @checked = "checked" } : (object)new { id = "q12squaredThree304" })
+                            <label for="q12squaredThree304"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q48_A6  </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree305" name="check" />*@
+                            @Html.HiddenFor(x => x.q12.SelectedAnswers[6].AID)
+                            @Html.CheckBoxFor(x => x.q12.SelectedAnswers[6].Selected,
+@Model.q12.SelectedAnswers[6].Selected ? (object)new { id = "q12squaredThree305", @checked = "checked" } : (object)new { id = "q12squaredThree305" })
+                            <label for="q12squaredThree305"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q48_A7 </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree306" name="check" />*@
+                            @Html.HiddenFor(x => x.q12.SelectedAnswers[7].AID)
+                            @Html.CheckBoxFor(x => x.q12.SelectedAnswers[7].Selected,
+@Model.q12.SelectedAnswers[7].Selected ? (object)new { id = "q12squaredThree306", @checked = "checked" } : (object)new { id = "q12squaredThree306" })
+                            <label for="q12squaredThree306"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q48_A8                                                                                                                                     </td>
+                </tr>
+
+
+            </table>
+
+            <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                <tr>
+                    <td height="89" width="9%">
+                        <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                            Q49.<br /><br />
+                            <br />
+                        </span>
+                    </td>
+                    <td width="91%">
+                        <span style="font-weight:bold; font-size:17px"> @Resources.Resource.NEEDS_ASSES_Q49</span><br />
+                        <span style="font-size:12px;font-weight:bold; font-style:italic"> (Select ONE for each row)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+
+                        <table width="100%" border="0" cellspacing="0" cellpadding="5" class="spacedTable">
+                            <tr>
+                                <td width="30%" style="background-color:#000; color:#FFF; text-align:center">@Resources.Resource.NEEDS_ASSES_Q49_T1</td>
+                                <td width="14%" valign="top" style="background-color:#000; color:#FFF; text-align:center">1 <br /><span style="font-size:9px">@Resources.Resource.NEEDS_ASSES_COMFORT_1</span></td>
+                                <td width="14%" valign="top" style="background-color:#000; color:#FFF; text-align:center">2 <br /><span style="font-size:9px">@Resources.Resource.NEEDS_ASSES_COMFORT_2</span></td>
+                                <td width="14%" valign="top" style="background-color:#000; color:#FFF; text-align:center">3 <br /><span style="font-size:9px">@Resources.Resource.NEEDS_ASSES_COMFORT_3</span></td>
+                                <td width="14%" valign="top" style="background-color:#000; color:#FFF; text-align:center">4 <br /><span style="font-size:9px">@Resources.Resource.NEEDS_ASSES_COMFORT_4</span></td>
+                                <td width="14%" valign="top" style="background-color:#000; color:#FFF; text-align:center">5 <br /><span style="font-size:9px">@Resources.Resource.NEEDS_ASSES_COMFORT_5</span></td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_T2</strong>   </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All" type="radio" name="α-Glucosidase Inhibitor" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q13.SelectedAnswer.AID, @Model.q13.Answer[0].AID,
+@Model.q13.Answer[0].Selected ? (object)new { id = "q13Not Comfortable at All", @checked = "checked" } : (object)new { id = "q13Not Comfortable at All" })
+                                        <label for="q13Not Comfortable at All"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable" type="radio" name="α-Glucosidase Inhibitor" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q13.SelectedAnswer.AID, @Model.q13.Answer[1].AID,
+@Model.q13.Answer[1].Selected ? (object)new { id = "q13NotComfortable", @checked = "checked" } : (object)new { id = "q13NotComfortable" })
+                                        <label for="q13NotComfortable"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable" type="radio" name="α-Glucosidase Inhibitor" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q13.SelectedAnswer.AID, @Model.q13.Answer[2].AID,
+@Model.q13.Answer[2].Selected ? (object)new { id = "q13SomewhatComfortable", @checked = "checked" } : (object)new { id = "q13SomewhatComfortable" })
+                                        <label for="q13SomewhatComfortable"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable" type="radio" name="α-Glucosidase Inhibitor" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q13.SelectedAnswer.AID, @Model.q13.Answer[3].AID,
+@Model.q13.Answer[3].Selected ? (object)new { id = "q13Comfortable", @checked = "checked" } : (object)new { id = "q13Comfortable" })
+                                        <label for="q13Comfortable"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable" type="radio" name="α-Glucosidase Inhibitor" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q13.SelectedAnswer.AID, @Model.q13.Answer[4].AID,
+@Model.q13.Answer[4].Selected ? (object)new { id = "q13Very Comfortable", @checked = "checked" } : (object)new { id = "q13Very Comfortable" })
+                                        <label for="q13Very Comfortable"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_T3</strong></td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All2" type="radio" name="DPP-4 Inhibitor" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q14.SelectedAnswer.AID, @Model.q14.Answer[0].AID,
+@Model.q14.Answer[0].Selected ? (object)new { id = "q14Not Comfortable at All2", @checked = "checked" } : (object)new { id = "q14Not Comfortable at All2" })
+                                        <label for="q14Not Comfortable at All2"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable2" type="radio" name="DPP-4 Inhibitor" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q14.SelectedAnswer.AID, @Model.q14.Answer[1].AID,
+@Model.q14.Answer[1].Selected ? (object)new { id = "q14NotComfortable2", @checked = "checked" } : (object)new { id = "q14NotComfortable2" })
+                                        <label for="q14NotComfortable2"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable2" type="radio" name="DPP-4 Inhibitor" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q14.SelectedAnswer.AID, @Model.q14.Answer[2].AID,
+@Model.q14.Answer[2].Selected ? (object)new { id = "q14SomewhatComfortable2", @checked = "checked" } : (object)new { id = "q14SomewhatComfortable2" })
+                                        <label for="q14SomewhatComfortable2"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable2" type="radio" name="DPP-4 Inhibitor" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q14.SelectedAnswer.AID, @Model.q14.Answer[3].AID,
+@Model.q14.Answer[3].Selected ? (object)new { id = "q14Comfortable2", @checked = "checked" } : (object)new { id = "q14Comfortable2" })
+                                        <label for="q14Comfortable2"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable2" type="radio" name="DPP-4 Inhibitor" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q14.SelectedAnswer.AID, @Model.q14.Answer[4].AID,
+@Model.q14.Answer[4].Selected ? (object)new { id = "q14VeryComfortable2", @checked = "checked" } : (object)new { id = "q14VeryComfortable2" })
+                                        <label for="q14VeryComfortable2"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_T4</strong></td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All3" type="radio" name="GLP-1 Receptor Agonist" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q15.SelectedAnswer.AID, @Model.q15.Answer[0].AID,
+@Model.q15.Answer[0].Selected ? (object)new { id = "q15NotComfortableatAll3", @checked = "checked" } : (object)new { id = "q15NotComfortableatAll3" })
+                                        <label for="q15NotComfortableatAll3"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable3" type="radio" name="GLP-1 Receptor Agonist" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q15.SelectedAnswer.AID, @Model.q15.Answer[1].AID,
+@Model.q15.Answer[1].Selected ? (object)new { id = "q15NotComfortable3", @checked = "checked" } : (object)new { id = "q15NotComfortable3" })
+                                        <label for="q15NotComfortable3"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable3" type="radio" name="GLP-1 Receptor Agonist" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q15.SelectedAnswer.AID, @Model.q15.Answer[2].AID,
+@Model.q15.Answer[2].Selected ? (object)new { id = "q15SomewhatComfortable3", @checked = "checked" } : (object)new { id = "q15SomewhatComfortable3" })
+                                        <label for="q15SomewhatComfortable3"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable3" type="radio" name="GLP-1 Receptor Agonist" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q15.SelectedAnswer.AID, @Model.q15.Answer[3].AID,
+@Model.q15.Answer[3].Selected ? (object)new { id = "q15Comfortable3", @checked = "checked" } : (object)new { id = "q15Comfortable3" })
+                                        <label for="q15Comfortable3"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable3" type="radio" name="GLP-1 Receptor Agonist" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q15.SelectedAnswer.AID, @Model.q15.Answer[4].AID,
+@Model.q15.Answer[4].Selected ? (object)new { id = "q15VeryComfortable3", @checked = "checked" } : (object)new { id = "q15VeryComfortable3" })
+                                        <label for="q15VeryComfortable3"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_T5</strong></td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All4" type="radio" name="Meglitinide" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q16.SelectedAnswer.AID, @Model.q16.Answer[0].AID,
+@Model.q16.Answer[0].Selected ? (object)new { id = "q16NotComfortableatAll4", @checked = "checked" } : (object)new { id = "q16NotComfortableatAll4" })
+                                        <label for="q16NotComfortableatAll4"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable4" type="radio" name="Meglitinide" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q16.SelectedAnswer.AID, @Model.q16.Answer[1].AID,
+@Model.q16.Answer[1].Selected ? (object)new { id = "q16NotComfortable4", @checked = "checked" } : (object)new { id = "q16NotComfortable4" })
+                                        <label for="q16NotComfortable4"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable4" type="radio" name="Meglitinide" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q16.SelectedAnswer.AID, @Model.q16.Answer[2].AID,
+@Model.q16.Answer[2].Selected ? (object)new { id = "q16SomewhatComfortable4", @checked = "checked" } : (object)new { id = "q16SomewhatComfortable4" })
+                                        <label for="q16SomewhatComfortable4"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable4" type="radio" name="Meglitinide" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q16.SelectedAnswer.AID, @Model.q16.Answer[3].AID,
+@Model.q16.Answer[3].Selected ? (object)new { id = "q16Comfortable4", @checked = "checked" } : (object)new { id = "q16Comfortable4" })
+                                        <label for="q16Comfortable4"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable4" type="radio" name="Meglitinide" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q16.SelectedAnswer.AID, @Model.q16.Answer[4].AID,
+@Model.q16.Answer[4].Selected ? (object)new { id = "q16VeryComfortable4", @checked = "checked" } : (object)new { id = "q16VeryComfortable4" })
+                                        <label for="q16VeryComfortable4"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_T6</strong></td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All5" type="radio" name="Metformin" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q17.SelectedAnswer.AID, @Model.q17.Answer[0].AID,
+@Model.q17.Answer[0].Selected ? (object)new { id = "q17NotComfortableatAll5", @checked = "checked" } : (object)new { id = "q17NotComfortableatAll5" })
+                                        <label for="q17NotComfortableatAll5"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable5" type="radio" name="Metformin" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q17.SelectedAnswer.AID, @Model.q17.Answer[1].AID,
+@Model.q17.Answer[1].Selected ? (object)new { id = "q17NotComfortable5", @checked = "checked" } : (object)new { id = "q17NotComfortable5" })
+                                        <label for="q17NotComfortable5"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable5" type="radio" name="Metformin" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q17.SelectedAnswer.AID, @Model.q17.Answer[2].AID,
+@Model.q17.Answer[2].Selected ? (object)new { id = "q17SomewhatComfortable5", @checked = "checked" } : (object)new { id = "q17SomewhatComfortable5" })
+                                        <label for="q17SomewhatComfortable5"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable5" type="radio" name="Metformin" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q17.SelectedAnswer.AID, @Model.q17.Answer[3].AID,
+@Model.q17.Answer[3].Selected ? (object)new { id = "q17Comfortable5", @checked = "checked" } : (object)new { id = "q17Comfortable5" })
+                                        <label for="q17Comfortable5"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable5" type="radio" name="Metformin" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q17.SelectedAnswer.AID, @Model.q17.Answer[4].AID,
+@Model.q17.Answer[4].Selected ? (object)new { id = "q17VeryComfortable5", @checked = "checked" } : (object)new { id = "q17VeryComfortable5" })
+                                        <label for="q17VeryComfortable5"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_T7</strong></td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All6" type="radio" name="SGLT2 Inhibitors" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q18.SelectedAnswer.AID, @Model.q18.Answer[0].AID,
+@Model.q18.Answer[0].Selected ? (object)new { id = "q18NotComfortableatAll6", @checked = "checked" } : (object)new { id = "q18NotComfortableatAll6" })
+                                        <label for="q18NotComfortableatAll6"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable6" type="radio" name="SGLT2 Inhibitors" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q18.SelectedAnswer.AID, @Model.q18.Answer[1].AID,
+@Model.q18.Answer[1].Selected ? (object)new { id = "q18NotComfortable6", @checked = "checked" } : (object)new { id = "q18NotComfortable6" })
+                                        <label for="q18NotComfortable6"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable6" type="radio" name="SGLT2 Inhibitors" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q18.SelectedAnswer.AID, @Model.q18.Answer[2].AID,
+@Model.q18.Answer[2].Selected ? (object)new { id = "q18SomewhatComfortable6", @checked = "checked" } : (object)new { id = "q18SomewhatComfortable6" })
+                                        <label for="q18SomewhatComfortable6"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable6" type="radio" name="SGLT2 Inhibitors" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q18.SelectedAnswer.AID, @Model.q18.Answer[3].AID,
+@Model.q18.Answer[3].Selected ? (object)new { id = "q18Comfortable6", @checked = "checked" } : (object)new { id = "q18Comfortable6" })
+                                        <label for="q18Comfortable6"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable6" type="radio" name="SGLT2 Inhibitors" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q18.SelectedAnswer.AID, @Model.q18.Answer[4].AID,
+@Model.q18.Answer[4].Selected ? (object)new { id = "q18VeryComfortable6", @checked = "checked" } : (object)new { id = "q18VeryComfortable6" })
+                                        <label for="q18VeryComfortable6"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_T8</strong></td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All7" type="radio" name="Sulfonylurea" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q19.SelectedAnswer.AID, @Model.q19.Answer[0].AID,
+@Model.q19.Answer[0].Selected ? (object)new { id = "q19NotComfortableatAll7", @checked = "checked" } : (object)new { id = "q19NotComfortableatAll7" })
+                                        <label for="q19NotComfortableatAll7"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable7" type="radio" name="Sulfonylurea" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q19.SelectedAnswer.AID, @Model.q19.Answer[1].AID,
+@Model.q19.Answer[1].Selected ? (object)new { id = "q19NotComfortable7", @checked = "checked" } : (object)new { id = "q19NotComfortable7" })
+                                        <label for="q19NotComfortable7"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable7" type="radio" name="Sulfonylurea" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q19.SelectedAnswer.AID, @Model.q19.Answer[2].AID,
+@Model.q19.Answer[2].Selected ? (object)new { id = "q19SomewhatComfortable7", @checked = "checked" } : (object)new { id = "q19SomewhatComfortable7" })
+                                        <label for="q19SomewhatComfortable7"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable7" type="radio" name="Sulfonylurea" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q19.SelectedAnswer.AID, @Model.q19.Answer[3].AID,
+@Model.q19.Answer[3].Selected ? (object)new { id = "q19Comfortable7", @checked = "checked" } : (object)new { id = "q19Comfortable7" })
+                                        <label for="q19Comfortable7"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable7" type="radio" name="Sulfonylurea" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q19.SelectedAnswer.AID, @Model.q19.Answer[4].AID,
+@Model.q19.Answer[4].Selected ? (object)new { id = "q19VeryComfortable7", @checked = "checked" } : (object)new { id = "q19VeryComfortable7" })
+                                        <label for="q19VeryComfortable7"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_T9</strong></td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All8" type="radio" name="Thiazolidinedione" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q20.SelectedAnswer.AID, @Model.q20.Answer[0].AID,
+@Model.q20.Answer[0].Selected ? (object)new { id = "q20NotComfortableatAll8", @checked = "checked" } : (object)new { id = "q20NotComfortableatAll8" })
+                                        <label for="q20NotComfortableatAll8"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable8" type="radio" name="Thiazolidinedione" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q20.SelectedAnswer.AID, @Model.q20.Answer[1].AID,
+@Model.q20.Answer[1].Selected ? (object)new { id = "q20NotComfortable8", @checked = "checked" } : (object)new { id = "q20NotComfortable8" })
+                                        <label for="q20NotComfortable8"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable8" type="radio" name="Thiazolidinedione" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q20.SelectedAnswer.AID, @Model.q20.Answer[2].AID,
+@Model.q20.Answer[2].Selected ? (object)new { id = "q20SomewhatComfortable8", @checked = "checked" } : (object)new { id = "q20SomewhatComfortable8" })
+                                        <label for="q20SomewhatComfortable8"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable8" type="radio" name="Thiazolidinedione" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q20.SelectedAnswer.AID, @Model.q20.Answer[3].AID,
+@Model.q20.Answer[3].Selected ? (object)new { id = "q20Comfortable8", @checked = "checked" } : (object)new { id = "q20Comfortable8" })
+                                        <label for="q20Comfortable8"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable8" type="radio" name="Thiazolidinedione" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q20.SelectedAnswer.AID, @Model.q20.Answer[4].AID,
+@Model.q20.Answer[4].Selected ? (object)new { id = "q20VeryComfortable8", @checked = "checked" } : (object)new { id = "q20VeryComfortable8" })
+                                        <label for="q20VeryComfortable8"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_20</strong></td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All9" type="radio" name="Basal Insulin" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q21.SelectedAnswer.AID, @Model.q21.Answer[0].AID,
+@Model.q21.Answer[0].Selected ? (object)new { id = "q21Not Comfortable at All9", @checked = "checked" } : (object)new { id = "q21Not Comfortable at All9" })
+                                        <label for="q21Not Comfortable at All9"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable9" type="radio" name="Basal Insulin" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q21.SelectedAnswer.AID, @Model.q21.Answer[1].AID,
+@Model.q21.Answer[1].Selected ? (object)new { id = "q21NotComfortable9", @checked = "checked" } : (object)new { id = "q21NotComfortable9" })
+                                        <label for="q21NotComfortable9"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable9" type="radio" name="Basal Insulin" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q21.SelectedAnswer.AID, @Model.q21.Answer[2].AID,
+@Model.q21.Answer[2].Selected ? (object)new { id = "q21SomewhatComfortable9", @checked = "checked" } : (object)new { id = "q21SomewhatComfortable9" })
+                                        <label for="q21SomewhatComfortable9"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable9" type="radio" name="Basal Insulin" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q21.SelectedAnswer.AID, @Model.q21.Answer[3].AID,
+@Model.q21.Answer[3].Selected ? (object)new { id = "q21Comfortable9", @checked = "checked" } : (object)new { id = "q21Comfortable9" })
+                                        <label for="q21Comfortable9"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable9" type="radio" name="Basal Insulin" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q21.SelectedAnswer.AID, @Model.q21.Answer[4].AID,
+@Model.q21.Answer[4].Selected ? (object)new { id = "q21VeryComfortable9", @checked = "checked" } : (object)new { id = "q21VeryComfortable9" })
+                                        <label for="q21VeryComfortable9"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_21</strong></td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All10" type="radio" name="Mealtime Insulin" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q22.SelectedAnswer.AID, @Model.q22.Answer[0].AID,
+@Model.q22.Answer[0].Selected ? (object)new { id = "q22NotComfortableatAll10", @checked = "checked" } : (object)new { id = "q22NotComfortableatAll10" })
+                                        <label for="q22NotComfortableatAll10"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable10" type="radio" name="Mealtime Insulin" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q22.SelectedAnswer.AID, @Model.q22.Answer[1].AID,
+@Model.q22.Answer[1].Selected ? (object)new { id = "q22NotComfortable10", @checked = "checked" } : (object)new { id = "q22NotComfortable10" })
+                                        <label for="q22NotComfortable10"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable10" type="radio" name="Mealtime Insulin" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q22.SelectedAnswer.AID, @Model.q22.Answer[2].AID,
+@Model.q22.Answer[2].Selected ? (object)new { id = "q22SomewhatComfortable10", @checked = "checked" } : (object)new { id = "q22SomewhatComfortable10" })
+                                        <label for="q22SomewhatComfortable10"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable10" type="radio" name="Mealtime Insulin" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q22.SelectedAnswer.AID, @Model.q22.Answer[3].AID,
+@Model.q22.Answer[3].Selected ? (object)new { id = "q22Comfortable10", @checked = "checked" } : (object)new { id = "q22Comfortable10" })
+                                        <label for="q22Comfortable10"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable10" type="radio" name="Mealtime Insulin" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q22.SelectedAnswer.AID, @Model.q22.Answer[4].AID,
+@Model.q22.Answer[4].Selected ? (object)new { id = "q22VeryComfortable10", @checked = "checked" } : (object)new { id = "q22VeryComfortable10" })
+                                        <label for="q22VeryComfortable10"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:#000 thin solid;"><strong>@Resources.Resource.NEEDS_ASSES_Q49_22</strong></td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable at All11" type="radio" name="Premixed Insulin" value="Not Comfortable at All">*@
+                                        @Html.RadioButtonFor(x => x.q23.SelectedAnswer.AID, @Model.q23.Answer[0].AID,
+@Model.q23.Answer[0].Selected ? (object)new { id = "q23NotComfortableatAll11", @checked = "checked" } : (object)new { id = "q23NotComfortableatAll11" })
+                                        <label for="q23NotComfortableatAll11"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Not Comfortable11" type="radio" name="Premixed Insulin" value="Not Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q23.SelectedAnswer.AID, @Model.q23.Answer[1].AID,
+@Model.q23.Answer[1].Selected ? (object)new { id = "q23NotComfortable11", @checked = "checked" } : (object)new { id = "q23NotComfortable11" })
+                                        <label for="q23NotComfortable11"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Somewhat Comfortable11" type="radio" name="Premixed Insulin" value="Somewhat Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q23.SelectedAnswer.AID, @Model.q23.Answer[2].AID,
+@Model.q23.Answer[2].Selected ? (object)new { id = "q23SomewhatComfortable11", @checked = "checked" } : (object)new { id = "q23SomewhatComfortable11" })
+                                        <label for="q23SomewhatComfortable11"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Comfortable11" type="radio" name="Premixed Insulin" value="Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q23.SelectedAnswer.AID, @Model.q23.Answer[3].AID,
+@Model.q23.Answer[3].Selected ? (object)new { id = "q23Comfortable11", @checked = "checked" } : (object)new { id = "q23Comfortable11" })
+                                        <label for="q23Comfortable11"></label>
+                                    </div>
+                                </td>
+                                <td align="center" style="border:#000 thin solid;">
+                                    <div class="radio">
+                                        @*<input id="Very Comfortable11" type="radio" name="Premixed Insulin" value="Very Comfortable">*@
+                                        @Html.RadioButtonFor(x => x.q23.SelectedAnswer.AID, @Model.q23.Answer[4].AID,
+@Model.q23.Answer[4].Selected ? (object)new { id = "q23VeryComfortable11", @checked = "checked" } : (object)new { id = "q23VeryComfortable11" })
+                                        <label for="q23VeryComfortable11"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </td>
+                </tr>
+            </table>
+
+            <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                <tr>
+                    <td height="89">
+                        <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                            Q50.<br />
+                            <br />
+                            <br />
+                        </span>
+                    </td>
+                    <td colspan="2">
+                        <span style="font-weight:bold; font-size:17px; letter-spacing: -.5px;"> @Resources.Resource.NEEDS_ASSES_Q50 </span><br />
+                        <span style="font-size:12px;font-weight:bold; font-style:italic">(@Resources.Resource.NEEDS_ASSES_CHECK_ALL)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree406" name="check" />*@
+                            @Html.HiddenFor(x => x.q24.SelectedAnswers[0].AID)
+                            @Html.CheckBoxFor(x => x.q24.SelectedAnswers[0].Selected,
+@Model.q24.SelectedAnswers[0].Selected ? (object)new { id = "q24squaredThree406", @checked = "checked" } : (object)new { id = "q24squaredThree406" })
+                            <label for="q24squaredThree406"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q50_A1</td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree407" name="check" />*@
+                            @Html.HiddenFor(x => x.q24.SelectedAnswers[1].AID)
+                            @Html.CheckBoxFor(x => x.q24.SelectedAnswers[1].Selected,
+@Model.q24.SelectedAnswers[1].Selected ? (object)new { id = "q24squaredThree407", @checked = "checked" } : (object)new { id = "q24squaredThree407" })
+                            <label for="q24squaredThree407"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q50_A2</td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree408" name="check" />*@
+                            @Html.HiddenFor(x => x.q24.SelectedAnswers[2].AID)
+                            @Html.CheckBoxFor(x => x.q24.SelectedAnswers[2].Selected,
+@Model.q24.SelectedAnswers[2].Selected ? (object)new { id = "q24squaredThree408", @checked = "checked" } : (object)new { id = "q24squaredThree408" })
+                            <label for="q24squaredThree408"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q50_A3 </td>
+                </tr>
+                <tr>
+                    <td width="7%" height="20">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree409" name="check" />*@
+                            @Html.HiddenFor(x => x.q24.SelectedAnswers[3].AID)
+                            @Html.CheckBoxFor(x => x.q24.SelectedAnswers[3].Selected,
+@Model.q24.SelectedAnswers[3].Selected ? (object)new { id = "q24squaredThree409", @checked = "checked" } : (object)new { id = "q24squaredThree409" })
+                            <label for="q24squaredThree409"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q50_A4 </td>
+                </tr>
+                <tr>
+                    <td width="7%" height="20">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree410" name="check" />*@
+                            @Html.HiddenFor(x => x.q24.SelectedAnswers[4].AID)
+                            @Html.CheckBoxFor(x => x.q24.SelectedAnswers[4].Selected,
+@Model.q24.SelectedAnswers[4].Selected ? (object)new { id = "q24squaredThree410", @checked = "checked" } : (object)new { id = "q24squaredThree410" })
+                            <label for="q24squaredThree410"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q50_A5</td>
+                </tr>
+                <tr>
+                    <td width="7%" height="20">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="squaredThree">
+                            @*<input type="checkbox" value="None" id="squaredThree411" name="check" />*@
+                            @Html.HiddenFor(x => x.q24.SelectedAnswers[5].AID)
+                            @Html.CheckBoxFor(x => x.q24.SelectedAnswers[5].Selected,
+@Model.q24.SelectedAnswers[5].Selected ? (object)new { id = "q24squaredThree411", @checked = "checked" } : (object)new { id = "q24squaredThree411" })
+                            <label for="q24squaredThree411"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q50_A6</td>
+                </tr>
+            </table>
+
+            <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                <tr>
+                    <td height="67">
+                        <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                            Q51.<br />
+                            <br />
+                        </span>
+                    </td>
+                    <td colspan="2"><span style="font-weight:bold; font-size:17px">@Resources.Resource.NEEDS_ASSES_Q51 </span><span style="font-size:12px;font-weight:bold; font-style:italic">(@Resources.Resource.NEEDS_ASSES_SEL_ONE)</span></td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="A1C levels too high" type="radio" name="commonreasontoreferpatienttospecialist" value="A1C levels too high">*@
+                            @Html.RadioButtonFor(x => x.q25.SelectedAnswer.AID, @Model.q25.Answer[0].AID,
+@Model.q25.Answer[0].Selected ? (object)new { id = "q25A1C levels too high", @checked = "checked" } : (object)new { id = "q25A1C levels too high" })
+                            <label for="q25A1C levels too high"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A1</td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Side effects" type="radio" name="commonreasontoreferpatienttospecialist" value="Side effects">*@
+                            @Html.RadioButtonFor(x => x.q25.SelectedAnswer.AID, @Model.q25.Answer[1].AID,
+@Model.q25.Answer[1].Selected ? (object)new { id = "q25Sideeffects", @checked = "checked" } : (object)new { id = "q25Sideeffects" })
+                            <label for="q25Sideeffects"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A2</td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Hypoglycemia" type="radio" name="commonreasontoreferpatienttospecialist" value="Hypoglycemia">*@
+                            @Html.RadioButtonFor(x => x.q25.SelectedAnswer.AID, @Model.q25.Answer[2].AID,
+@Model.q25.Answer[2].Selected ? (object)new { id = "q25Hypoglycemia", @checked = "checked" } : (object)new { id = "q25Hypoglycemia" })
+                            <label for="q25Hypoglycemia"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A3</td>
+                </tr>
+                <tr>
+                    <td width="7%" height="20">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Diabetes related complication" type="radio" name="commonreasontoreferpatienttospecialist" value="Diabetes related complication">*@
+                            @Html.RadioButtonFor(x => x.q25.SelectedAnswer.AID, @Model.q25.Answer[3].AID,
+@Model.q25.Answer[3].Selected ? (object)new { id = "q25Diabetesrelatedcomplication", @checked = "checked" } : (object)new { id = "q25Diabetesrelatedcomplication" })
+                            <label for="q25Diabetesrelatedcomplication"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A4</td>
+                </tr>
+                <tr>
+                    <td width="7%" height="20">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Lack of comfort" type="radio" name="commonreasontoreferpatienttospecialist" value="Lack of comfort">*@
+                            @Html.RadioButtonFor(x => x.q25.SelectedAnswer.AID, @Model.q25.Answer[4].AID,
+@Model.q25.Answer[4].Selected ? (object)new { id = "q25Lackofcomfort", @checked = "checked" } : (object)new { id = "q25Lackofcomfort" })
+                            <label for="q25Lackofcomfort"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A5</td>
+                </tr>
+                <tr>
+                    <td width="7%" height="20">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="do not refer patients" type="radio" name="commonreasontoreferpatienttospecialist" value="do not refer patients">*@
+                            @Html.RadioButtonFor(x => x.q25.SelectedAnswer.AID, @Model.q25.Answer[5].AID,
+@Model.q25.Answer[5].Selected ? (object)new { id = "q25donotreferpatients", @checked = "checked" } : (object)new { id = "q25donotreferpatients" })
+                            <label for="q25donotreferpatients"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A6</td>
+                </tr>
+            </table>
+
+            <table width="100%" border="0" style=" border-top:#666 dashed thin; margin-top:20px">
+                <tr>
+                    <td height="67">
+                        <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                            Q52.<br />
+                            <br />
+                        </span>
+                    </td>
+                    <td colspan="2"><span style="font-weight:bold; font-size:17px">  @Resources.Resource.NEEDS_ASSES_Q52 </span><span style="font-size:12px;font-weight:bold; font-style:italic">(@Resources.Resource.NEEDS_ASSES_SEL_ONE)</span></td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="A1C levels too high2" type="radio" name="secondreasontoreferpatienttospecialist" value="A1C levels too high">*@
+                            @Html.RadioButtonFor(x => x.q26.SelectedAnswer.AID, @Model.q26.Answer[0].AID,
+@Model.q26.Answer[0].Selected ? (object)new { id = "q26A1Clevelstoohigh2", @checked = "checked" } : (object)new { id = "q26A1Clevelstoohigh2" })
+                            <label for="q26A1Clevelstoohigh2"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A1</td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Side effects2" type="radio" name="secondreasontoreferpatienttospecialist" value="Side effects">*@
+                            @Html.RadioButtonFor(x => x.q26.SelectedAnswer.AID, @Model.q26.Answer[1].AID,
+@Model.q26.Answer[1].Selected ? (object)new { id = "q26Sideeffects2", @checked = "checked" } : (object)new { id = "q26Sideeffects2" })
+                            <label for="q26Sideeffects2"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A2</td>
+                </tr>
+                <tr>
+                    <td width="7%">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Hypoglycemia2" type="radio" name="secondreasontoreferpatienttospecialist" value="Hypoglycemia">*@
+                            @Html.RadioButtonFor(x => x.q26.SelectedAnswer.AID, @Model.q26.Answer[2].AID,
+@Model.q26.Answer[2].Selected ? (object)new { id = "q26Hypoglycemia2", @checked = "checked" } : (object)new { id = "q26Hypoglycemia2" })
+                            <label for="q26Hypoglycemia2"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A3</td>
+                </tr>
+                <tr>
+                    <td width="7%" height="20">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Diabetes related complication2" type="radio" name="secondreasontoreferpatienttospecialist" value="Diabetes related complication">*@
+                            @Html.RadioButtonFor(x => x.q26.SelectedAnswer.AID, @Model.q26.Answer[3].AID,
+@Model.q26.Answer[3].Selected ? (object)new { id = "q26Diabetesrelatedcomplication2", @checked = "checked" } : (object)new { id = "q26Diabetesrelatedcomplication2" })
+                            <label for="q26Diabetesrelatedcomplication2"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A4</td>
+                </tr>
+                <tr>
+                    <td width="7%" height="20">&nbsp;</td>
+                    <td width="4%" valign="top">
+                        <div class="radio">
+                            @*<input id="Lack of comfort2" type="radio" name="secondreasontoreferpatienttospecialist" value="Lack of comfort">*@
+                            @Html.RadioButtonFor(x => x.q26.SelectedAnswer.AID, @Model.q26.Answer[4].AID,
+@Model.q26.Answer[4].Selected ? (object)new { id = "q26Lackofcomfort2", @checked = "checked" } : (object)new { id = "q26Lackofcomfort2" })
+                            <label for="q26Lackofcomfort2"></label>
+                        </div>
+                    </td>
+                    <td width="89%">@Resources.Resource.NEEDS_ASSES_Q51_A5 </td>
+                </tr>
+            </table>
+            <br />
+            <div>
+                <span style="color:#9B2346; font-weight:bold; font-size:17px">
+                    @ViewBag.Error
+                    @Html.ValidationSummary(true)
+                </span>
+            </div>
+            <table width="100%" border="0">
+                <tr>
+                    <td width="33%" align="center">
+                        <div class="grow">
+                            <a href='@Url.Action( "AssesmentSurvey_Screen4" )'><img src="@Resources.Resource.BTN_BACK_URL" border="0" width="180" /></a>
+                        </div>
+                    </td>
+                    <td width="33%" align="center">
+                        <div class="grow">
+                            
+                        </div>
+                    </td>
+                    <td width="33%" align="center">
+                        <div class="grow">
+                            <input type="image" value="submit" src="@Resources.Resource.BTN_NEXT_URL" width="180">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            @if (Model.Completed)
+            { 
+                <div style="background-color:#F3F3F3; border:#000 medium solid; margin:10px; text-align:center">
+                    <div style="background-color:#900; color:#FFF; padding:20px; text-align:center; font-size:18px"><strong>@Resources.Resource.NEEDS_ASSES_SUCCESS<br />@Resources.Resource.NEEDS_ASSES_REVIEW</strong></div>
+
+                    <table width="100%" border="0" cellpadding="20px">
+                        <tr>
+                            <td width="50%" align="center" valign="top">
+                                <div class="grow">
+                                    @*<input type="image" value="submit" src="@Resources.Resource.BTN_SUBMIT_URL" width="286" height="104">*@
+                                    <a href='@Url.Action("Submit", "Physician")'>
+                                        <img src="@Resources.Resource.BTN_SUBMIT_URL" border="0" />
+                                    </a>
+
+                                    @*<a href='@Url.Action("CloseAssesment", "Physician")'>
+                                            <img src="@Resources.Resource.BTN_SUBMIT_URL" border="0" />
+                                        </a>*@
+                                </div><br />
+                                <span style="font-size:14px; color:#333; font-style:italic">@Html.Raw(@Resources.Resource.NEEDS_ASSES_FOOTER1)</span>
+                            </td>
+                            <td width="50%" align="center" valign="top">
+                                <div class="grow">
+                                    @*<input type="image" value="Review" name="action:Review" src="@Resources.Resource.BTN_REVIEW_URL" width="286" height="104">*@
+                                    <a href='@Url.Action("Review", "Physician")'>
+                                        <img src="@Resources.Resource.BTN_REVIEW_URL" border="0" />
+                                    </a>
+                                </div><br />
+                                <span style="font-size:14px; color:#333; font-style:italic">
+                                    @Resources.Resource.NEEDS_ASSES_FOOTER2
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            }
+
+        </div>
+
+    }
+
+</div>
+

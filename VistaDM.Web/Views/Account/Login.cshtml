@@ -1,0 +1,217 @@
+﻿@using VistaDM.Web.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<style>
+    .validation-summary-errors li {
+        list-style: none;
+    }
+
+    .noLink {
+        text-decoration: none;
+        color: black;
+    }
+
+        .noLink:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<div id="maincontent">
+    <br /><br /><br /><br />
+    <div id="loginheader">
+        @Resources.Resource.Login
+    </div><!--emd of loginheader-->
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div id="loginmain">
+
+            @Html.AntiForgeryToken()
+            <br />
+            <table width="70%" border="0" style="margin-left:auto; margin-right:auto">
+                <tr>
+                    <td>
+                        <div class="username">
+                            @*<input placeholder="Username">*@
+                            @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Username" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "errorMssg" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="password">
+
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "errorMssg" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.CheckBoxFor(m => m.RememberMe, new { @checked = "checked" })
+                        @Html.ValidationSummary(true, "", new { @class = "errorMssg" })
+                    </td>
+                </tr>
+            </table>
+            <div class="grow">
+                <input type="image" value="submit" src="@Resources.Resource.LOGIN_URL" />
+            </div>
+            <br />
+            <div class="grow radialtext">
+                <a href="../Physician/EmailPassword" class="noLink" target="_new">@Resources.Resource.Forgot_Password</a>
+            </div>
+            @*<table width="100%" border="0" style="margin:0 auto;">
+                    <tr>
+                        <td >
+                            <div class="grow">
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>*@
+            <br /><br />
+        </div><!--end of loginmain-->
+    }
+    <div id="loginfooter">
+    </div><!--end of loginfooter-->
+    <br /><br /><br /><br />
+</div><!--end of maincontent-->
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            var DisplayResultNI = function (data) {
+
+                $("#spanRegResult").html('');
+
+                if (data != null && data.Errored) {
+                    $("#spanRegResult").html(data.ErrorStr);
+                }
+                else {
+
+                    window.location.href = '../Physician/FutureEmail?txtRegCode=' + $('#txtRegCode').val();
+                }
+
+            };
+
+            var DisplayResult = function (data) {
+
+                $("#spanRegResult").html('');
+
+                if (data != null && data.Errored) {
+                    $("#spanRegResult").html(data.ErrorStr);
+                }
+                else {
+
+                    window.location.href = '../Physician/Register?txtRegCode=' + $('#txtRegCode').val();
+                }
+
+            };
+
+            var DisplayResultWaitList = function (data) {
+
+                $("#spanRegResult").html('');
+
+                if (data != null && data.Errored) {
+                    $("#spanRegResult").html(data.ErrorStr);
+                }
+                else {
+
+                    window.location.href = '../Physician/WaitlistRegister?txtRegCode=' + $('#txtRegCode').val();
+                }
+
+            };
+
+            var SubmitForm = function () {
+
+                $.ajax({
+
+                    url: '../Physician/CheckRegistration?txtRegCode=' + $('#txtRegCode').val(),
+                    type: 'GET',
+
+                    dataType: 'json',
+                    success: function (data) {
+
+
+                        DisplayResult(data);
+                    },
+                    error: function (request, error) {
+
+
+                        DisplayResult(data);
+                    }
+                });
+
+            };
+
+
+            var SubmitFormWaitList = function () {
+
+                $.ajax({
+
+                    url: '../Physician/CheckRegistrationWaitlist?txtRegCode=' + $('#txtRegCode').val(),
+                    type: 'GET',
+
+                    dataType: 'json',
+                    success: function (data) {
+
+
+                        DisplayResultWaitList(data);
+                    },
+                    error: function (request, error) {
+
+
+                        DisplayResultWaitList(data);
+                    }
+                });
+
+            };
+
+
+            var SubmitNotInterested = function () {
+
+                $.ajax({
+
+                    url: '../Physician/CheckRegistration?txtRegCode=' + $('#txtRegCode').val(),
+                    type: 'GET',
+
+                    dataType: 'json',
+                    success: function (data) {
+
+                        DisplayResultNI(data);
+                    },
+                    error: function (request, error) {
+
+                        DisplayResultNI(data);
+                    }
+                });
+
+            };
+
+            $('#hlSubmit').click(SubmitForm);
+
+            $('#hlSubmitWaitList').click(SubmitFormWaitList);
+
+            $('#hlNotInterested').click(SubmitNotInterested);
+
+        });
+
+    </script>
+}
+
+

@@ -1,0 +1,508 @@
+﻿@model IEnumerable<VistaDM.Web.Models.FeedbackSummary>
+
+@{
+    Layout = "~/Views/Shared/_Vista_Layout.cshtml";
+}
+
+
+<style type="text/css">
+    #container {
+        width: 660px;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #grayheader {
+        background-image: url(../images/graybar.png);
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 620px;
+        font-size: 26px;
+        color: #FFF;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px #000;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+
+    #headerbox {
+        font-size: 26px;
+        color: #9B2346;
+        font-weight: bold;
+        border-top-width: 13px;
+        border-top-style: solid;
+        border-top-color: #333;
+        padding-right: 10px;
+        padding-left: 10px;
+        text-shadow: 1px 0px 0px #000;
+        line-height: 60px;
+    }
+
+    #instructionboxheader {
+        background-image: url(../images/bannerbar.png);
+        background-repeat: no-repeat;
+        font-size: 18px;
+        color: #FFF;
+        font-weight: bold;
+        padding-top: 25px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    #instructionboxmain {
+        text-align: left;
+        font-size: 12px;
+        background-image: url(../images/bannerbarmain.png);
+        background-repeat: repeat-y;
+        padding-top: 1px;
+        padding-right: 25px;
+        padding-bottom: 1px;
+        padding-left: 25px;
+    }
+
+    #instructionboxbottom {
+        background-image: url(../images/bannerbarbottom.png);
+        background-repeat: no-repeat;
+        height: 20px;
+    }
+
+    #boxborder {
+        padding: 20px;
+        font-size: 13px;
+        background-color: #F9F9F9;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border: 1px solid #CCC;
+    }
+
+    #boxborder2 {
+        padding: 10px;
+        border: medium solid #000;
+        margin: 10px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    ul {
+        margin-left: 5px;
+        margin-right: 0px;
+        padding-left: 20px;
+        padding-right: 0px;
+    }
+
+    a.red:link {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:visited {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:hover {
+        color: #9B2346;
+        text-decoration: underline;
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* SQUARED THREE */
+    .squaredThree {
+        width: 13px;
+        position: relative;
+    }
+
+        .squaredThree label {
+            cursor: pointer;
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            top: 3px;
+            left: 3px;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+            background: linear-gradient(top, #222 0%, #45484d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+        }
+
+            .squaredThree label:after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 3px;
+                background: transparent;
+                top: 3px;
+                left: 3px;
+                border: 3px solid #fcfff4;
+                border-top: none;
+                border-right: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            .squaredThree label:hover::after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                opacity: 0.3;
+            }
+
+        .squaredThree input[type=checkbox]:checked + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    input[type=text] {
+        width: 96%;
+        height: 32px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+        input[type=text]:focus {
+            border-color: #333;
+        }
+
+    input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    select {
+        width: 100%;
+        height: 32px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    textarea {
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        width: 91%;
+        height: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+    /* radio button*/
+    .radio label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        font-size: 13px;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+
+    .radio label:before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 0px;
+        left: 0;
+        bottom: 0px;
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+    }
+
+    .radio label:before {
+        border-radius: 8px;
+    }
+
+    input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 30px;
+        text-align: center;
+        line-height: 18px;
+    }
+
+    #feedback {
+        text-align: center;
+        display: block;
+    }
+
+    .smallText {
+        font-size: 10px;
+        font-weight: bold;
+        color: #000;
+    }
+</style>
+
+<div id="rightbox">
+
+    <div id="grayheader">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left">Feedback Summary</td>
+                <td width="10%" valign="top" align="right"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','../images/homegraybutton2.png',1)"><img src="../images/homegraybutton.png" name="Image6" width="44" height="43" border="0" id="Image6" /></a></td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <!--end of grayheader--><!--end of instructionbox--><!--end of instructionboxmain--><!--end of instructionboxbottom-->
+    <div id="feedback">
+        <br /><!--end of instructionbox--><!--end of instructionboxmain--><!--end of instructionboxbottom-->
+
+
+    </div><!--end of boxborder--><!--end of grayheader-->
+
+    <table width="100%" border="1" cellpadding="5" cellspacing="0" style="border:thin solid #666" class="spacedTable">
+        <tr>
+            <td colspan="2" rowspan="2" bgcolor="#404040" style="font-size: 14px; color: #FFF; font-weight: bold;">Care Objective</td>
+            <td colspan="2" bgcolor="#486F30" style="font-size: 10px; color: #FFF; font-weight: bold; text-align: center;">Target / Care Objective Met</td>
+            <td colspan="2" bgcolor="#ED7E3C" style="font-size: 10px; font-weight: bold; color: #FFF; text-align: center;">Target / Care Objective Partially Met</td>
+            <td colspan="2" bgcolor="#BD0712" style="font-size: 10px; color: #FFF; font-weight: bold; text-align: center;">Target / Care Objective NOT Met</td>
+            <td colspan="2" bgcolor="#595959" style="font-size: 10px; color: #FFF; font-weight: bold; text-align: center;">Not Recorded / Not Available</td>
+        </tr>
+        <tr class="smallText">
+            <td width="9%" align="center" bgcolor="#C7DEB7">
+                Your Practice<br />
+                <br />
+                N =&nbsp;&nbsp;(%)
+            </td>
+            <td width="9%" align="center" bgcolor="#D9D9D9">
+                Your Peers<br />
+                <br />
+                N =&nbsp;&nbsp;&nbsp;&nbsp;(%)
+            </td>
+            <td width="9%" align="center" bgcolor="#F7CBB0">
+                Your Practice<br />
+                <br />
+                N =&nbsp;&nbsp;(%)
+            </td>
+            <td width="10%" align="center" bgcolor="#D9D9D9">
+                Your Peers<br />
+                <br />
+                N =&nbsp;&nbsp;&nbsp;&nbsp;(%)
+            </td>
+            <td width="10%" align="center" bgcolor="#EB9FB1">
+                Your Practice<br />
+                <br />
+                N =&nbsp;&nbsp;(%)
+            </td>
+            <td width="9%" align="center" bgcolor="#D9D9D9">
+                Your Peers<br />
+                <br />
+                N =&nbsp;&nbsp;&nbsp;&nbsp;(%)
+            </td>
+            <td width="10%" align="center" bgcolor="#A6A6A6">
+                Your Practice<br />
+                <br />
+                N =&nbsp;&nbsp;(%)
+            </td>
+            <td width="9%" align="center" bgcolor="#D9D9D9">
+                Your Peers<br />
+                <br />
+                N =&nbsp;&nbsp;&nbsp;&nbsp;(%)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Self-monitoring of Blood Glucose</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "BC_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "BC_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "BC_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "BC_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "BC_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "BC_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "BC_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "BC_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Blood Glucose Control (A1C)</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "A1C_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "A1C_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "A1C_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "A1C_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "A1C_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "A1C_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "A1C_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "A1C_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Hypoglycemia</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "Hypoglycemia_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Hypoglycemia_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "Hypoglycemia_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Hypoglycemia_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "Hypoglycemia_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Hypoglycemia_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "Hypoglycemia_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Hypoglycemia_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Hypertension</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "Hypertension_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Hypertension_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "Hypertension_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Hypertension_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "Hypertension_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Hypertension_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "Hypertension_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Hypertension_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Waist Circumference</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "WaistCircumference_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "WaistCircumference_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "WaistCircumference_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "WaistCircumference_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "WaistCircumference_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "WaistCircumference_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "WaistCircumference_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "WaistCircumference_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Body Mass Index</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "BMI_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "BMI_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "BMI_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "BMI_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "BMI_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "BMI_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "BMI_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "BMI_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Nutrition </td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "Nutrition_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Nutrition_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "Nutrition_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Nutrition_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "Nutrition_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Nutrition_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "Nutrition_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Nutrition_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Physical Activity</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "PA_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "PA_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "PA_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "PA_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "PA_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "PA_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "PA_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "PA_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Smoking*</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "Smoking_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Smoking_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "Smoking_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Smoking_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "Smoking_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Smoking_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "Smoking_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Smoking_Peer").NA</td>
+        </tr>
+        <tr>
+            <td width="15%" rowspan="2" class="smallText">Chronic Kidney Disease (CKD)</td>
+            <td width="10%" class="smallText">ACR</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "CKD_ACR_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "CKD_ACR_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "CKD_ACR_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "CKD_ACR_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "CKD_ACR_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "CKD_ACR_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "CKD_ACR_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "CKD_ACR_Peer").NA</td>
+        </tr>
+        <tr>
+            <td width="10%" class="smallText">e-GFR</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "CKD_GFR_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "CKD_GFR_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "CKD_GFR_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "CKD_GFR_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "CKD_GFR_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "CKD_GFR_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "CKD_GFR_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "CKD_GFR_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Retinopathy</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "Retinopathy_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Retinopathy_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "Retinopathy_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Retinopathy_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "Retinopathy_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Retinopathy_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "Retinopathy_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Retinopathy_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Neuropathy/Foot Examination</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "Neuropathy_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Neuropathy_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "Neuropathy_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Neuropathy_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "Neuropathy_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Neuropathy_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "Neuropathy_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Neuropathy_Peer").NA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="smallText">Dyslipidemia</td>
+            <td bgcolor="#E1EEDD">@Model.Single(x => x.Measure == "Dyslipidemia_User").Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Dyslipidemia_Peer").Met</td>
+            <td bgcolor="#FBE5D7">@Model.Single(x => x.Measure == "Dyslipidemia_User").Partially_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Dyslipidemia_Peer").Partially_Met</td>
+            <td bgcolor="#FCE0E5">@Model.Single(x => x.Measure == "Dyslipidemia_User").Not_Met</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Dyslipidemia_Peer").Not_Met</td>
+            <td bgcolor="#D9D9D9">@Model.Single(x => x.Measure == "Dyslipidemia_User").NA</td>
+            <td bgcolor="#F2F2F2">@Model.Single(x => x.Measure == "Dyslipidemia_Peer").NA</td>
+        </tr>
+    </table>
+    <span class="smallText">* results based on the number of current smokers</span><br />
+    <!--end of boxborder--><!--end of grayheader--><div class="grow">
+        <a href='@Url.Action("PracticeAssessment", "Physician")'>
+            <br />
+            <img src="../images/button_back.png" align="left" border="0" width="180" />
+        </a>
+    </div><br />
+    <br />
+    <br />
+</div>

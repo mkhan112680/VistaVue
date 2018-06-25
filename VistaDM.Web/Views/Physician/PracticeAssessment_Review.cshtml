@@ -1,0 +1,375 @@
+﻿@using VistaDM.Web.Models
+@model PracticeAssessment_P1
+@{
+    Layout = "~/Views/Shared/_Vista_Layout.cshtml";
+}
+
+
+<style type="text/css">
+    #container {
+        width: 660px;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #grayheader {
+        background-image: url(../images/graybar.png);
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 620px;
+        font-size: 26px;
+        color: #FFF;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px #000;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+
+    #boxborder {
+        padding: 20px;
+        font-size: 13px;
+        background-color: #F9F9F9;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border: 1px solid #CCC;
+    }
+
+    ul {
+        margin-left: 5px;
+        margin-right: 0px;
+        padding-left: 20px;
+        padding-right: 0px;
+    }
+
+    a.red:link {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:visited {
+        color: #9B2346;
+        text-decoration: none;
+    }
+
+    a.red:hover {
+        color: #9B2346;
+        text-decoration: underline;
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* SQUARED THREE */
+    .squaredThree {
+        width: 13px;
+        position: relative;
+    }
+
+        .squaredThree label {
+            cursor: pointer;
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            top: 3px;
+            left: 3px;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+            background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+            background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+            background: linear-gradient(top, #222 0%, #45484d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+        }
+
+            .squaredThree label:after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 3px;
+                background: transparent;
+                top: 3px;
+                left: 3px;
+                border: 3px solid #fcfff4;
+                border-top: none;
+                border-right: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            .squaredThree label:hover::after {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                opacity: 0.3;
+            }
+
+        .squaredThree input[type=checkbox]:checked + label:after {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+    .grow img {
+        transition: .5s ease;
+    }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: .5s ease;
+        }
+
+    input[type=text] {
+        width: 200px;
+        height: 22px;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    .smallinput[type=text] {
+        width: 60px;
+        height: 22px;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    input[type=text]:focus {
+        border-color: #333;
+    }
+
+    input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    select {
+        width: 100%;
+        height: 24px;
+        padding-left: 20px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    }
+
+    textarea {
+        border: 1px solid #aaa;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        width: 91%;
+        height: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+    /* radio button*/
+    .radio label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        font-size: 13px;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+
+    .radio label:before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 0px;
+        left: 0;
+        bottom: 0px;
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+        background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+        background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+    }
+
+    .radio label:before {
+        border-radius: 8px;
+    }
+
+    input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: #f3f3f3;
+        font-size: 30px;
+        text-align: center;
+        line-height: 18px;
+    }
+
+    .tableborder td, th {
+        border: 1px solid black;
+    }
+
+    #successbox {
+        margin-right: auto;
+        margin-left: auto;
+        font-family: 'Open Sans', sans-serif;
+        width: 620px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: left;
+        background-image: url(../images/PlainBackground.png);
+        height: 320px;
+        padding: 0px;
+        font-size: 14px;
+        background-repeat: no-repeat;
+    }
+</style>
+
+<div id="rightbox">
+
+    <div style="background-color:#F3F3F3; border:#000 medium solid; margin:10px; text-align:center">
+        <div style="background-color:#900; color:#FFF; padding:20px; text-align:center; font-size:18px"><strong>@Resources.Resource.PAF_SUCCESS<br />@Resources.Resource.PAF_REVIEW</strong></div>
+        <table width="100%" border="0" cellpadding="20px" class="spacedTable">
+            <tr>
+                <td width="50%" align="center" valign="top">
+                    <div class="grow">
+
+                        @*href='@Url.Action("Submit_PAF", "Physician", new { PatientID = Model.PatientID })'*@
+
+                        <a id="hlSubmit">
+                            <img src="@Resources.Resource.BTN_SUBMIT_URL" border="0" />
+                        </a>
+                    </div>
+                    <br />
+                    <span style="font-size:14px; color:#333; font-style:italic">@Html.Raw(@Resources.Resource.NEEDS_ASSES_FOOTER1)</span>
+                </td>
+                <td width="50%" align="center" valign="top">
+                    <div class="grow">
+
+                        <a href='@Url.Action("Review_PAF", "Physician", new {PatientID=Model.PatientID, PatientNum=Model.PatientNum } )'>
+                            <img src="@Resources.Resource.BTN_REVIEW_URL" border="0" />
+                        </a>
+                    </div><br />
+                    <span style="font-size:14px; color:#333; font-style:italic">
+                        @Resources.Resource.NEEDS_ASSES_FOOTER2
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    @section scripts{
+
+        <script type="text/javascript">
+
+            var DisplayResult = function (errored) {
+
+                $("#spanResult").html('');
+
+                if (errored) {
+
+                    $("#spanResult").html('Error Occurred');
+                    $("#spanResult").attr("class", "errorMssg");
+
+                }
+                else {
+
+                    $('#test_modal').modal('show');
+
+                    // window.location.href = 'Physician/PracticeAssessment';
+
+                }
+            };
+
+
+
+            $(document).ready(function () {
+
+                var SubmitForm = function () {
+
+                    $.ajax({
+
+                        url: '/Physician/Submit_PAF_Ajax',
+                        type: 'POST',
+                        data: { PatientID: @Model.PatientID },
+                        dataType: 'json',
+                        success: function (data) {
+
+                            //alert('Data: ' + data);
+                            DisplayResult(data.Result);
+                        },
+                        error: function (request, error) {
+
+                            alert("Request: " + JSON.stringify(request));
+                            //DisplayResult(data.Result);
+                        }
+                    });
+
+                }
+
+                $("#hlSubmit").click(SubmitForm);
+
+            });
+
+
+        </script>
+
+
+    }
+
+
+    <div class="grow" style="text-align:center">
+        <span id="spanResult"></span>
+    </div>
+
+    <div class="modal fade" id="test_modal" style="display:none; margin-top:200px;">
+        <div class="modal-body">
+            <div id="successbox">
+                <div style="text-align:center; color:#FFF; font-size:24px; font-weight:bold; padding-top:15px">@Resources.Resource.PAF_REVIEW_SUCCESS</div>
+                <div style="text-align:right; padding:6px">
+                    <a class="close" data-dismiss="modal">
+                        <img src="../images/button_close.png" />
+                    </a>
+                </div>
+                <div style="padding: 0px 50px 0px 50px">
+                    <strong>   @Resources.Resource.PAF_REVIEW_SUBMIT </strong><br /><br />
+                    <span style=" color:#9B2346;"><strong>@Resources.Resource.PAF_REVIEW_1 @(Model.ScheduledAppointment.HasValue ? Model.ScheduledAppointment.Value.ToString("dd/MM/yyyy") : "") @Resources.Resource.PAF_REVIEW_2</strong></span>
+                    <br /><br />
+                    <table>
+                        <tr>
+                            <td valign="top">
+                                <strong>@Resources.Resource.PAF_REVIEW_VIEW</strong>
+                            </td>
+                            <td>
+                                <div class="grow">
+                                    <a href='@Url.Action("PAF_Feedback", "Physician", new { PatientID = Model.PatientID, PatientNum = Model.PatientNum })'>
+                                        <img src="@Resources.Resource.PAF_REVIEW_VIEW_URL" border="0" width="90" />
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<a type="button" class="btn2" style="width:100%;" href="#test_modal" data-toggle="modal">Add Image</a>*@
+
+</div>
