@@ -26,5 +26,7 @@ namespace VistaVue.Controllers
 
             return View();
         }
+
+      
     }
 }

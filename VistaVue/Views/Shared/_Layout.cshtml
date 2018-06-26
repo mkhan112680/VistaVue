@@ -9,12 +9,10 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/zebra_tooltips.css" rel="stylesheet" />
 </head>
-<body onload="MM_preloadImages('../images/icon_enter_rollover.png', '../images/icon_download_rollover.png', '../images/button_portal_active.png', '../images/button_contact_active.png', '../images/button_logout_active.png')">
+<body >
     <div id="header">
         <div id="centerbox">
-
             <div style="float:left"><img src="../images/VistaDM_logo.png" /></div>
-
             <table width="40%" border="0" style="float:right" cellspacing="0">
                 <tr>
                     <td class="welcometext" align="right">@*@Html.Partial("_loggedUser")*@ logged user</td>
@@ -40,7 +38,7 @@
         </div><!--end of centerbox-->
         <div id="redbar"><img src="../images/redbar.png" /></div>
     </div><!-- end of header-->
-    <div id="maincontent">
+    <div id="maincontent" class="app">
         <div id="leftbox">
             <div id="navheadersmall" style="padding-top:18px; padding-bottom:36px">@Resources.Resource.INSTRUCTIONS</div><!--end of navheadersmall-->
             @Html.Partial("_DirectivesDocuments")

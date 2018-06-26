@@ -1,0 +1,197 @@
+﻿<div id="rightbox" class="payeeform">
+    <div id="grayheader">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="93%" align="center">@Resources.Resource.PAYEE_HEADER</td>
+                <td width="7%" valign="top"><a href="#"><img src="../images/homegraybutton.png" name="Image4" width="44" height="43" border="0" id="Image4" /></a></td>
+            </tr>
+        </table>
+    </div><!--end of grayheader-->
+    <br />
+    <div id="instructionboxheader">@Resources.Resource.PAYEE_FORM_INSTRUCTIONS</div><!--end of instructionbox-->
+    <div id="instructionboxmain">
+        <ul>
+            <li>@Html.Raw(@Resources.Resource.PAYEE_INS_1)</li>
+            <li>@Html.Raw(@Resources.Resource.PAYEE_INS_2)</li>
+            <li>@Html.Raw(@Resources.Resource.PAYEE_INS_3) (<img src="../images/icon_check.png" width="13" />)</li>
+        </ul>
+    </div><!--end of instructionboxmain-->
+    <div id="instructionboxbottom">
+    </div><!--end of instructionboxbottom-->
+    <div id="boxborder">
+        <span style="text-decoration:underline; font-weight:bold; color:#9B2346">Please select one of the following two options:</span><br><table width="100%" border="0" cellpadding="0" cellspacing="4">
+            <tbody>
+                <tr>
+                    <td width="55%"><strong>I request the cheque(s) to be issued as following:</strong></td>
+                    <td width="7%">
+                        <div class="squaredThree">
+                            <input data-val="true" data-val-required="The PayeeType field is required." id="squaredThree2"
+                                   v-bind:checked="this.ToCompany" v-model="this.ToCompany" v-on:click="ToggleCompany()"
+                                   name="PayeeType" type="radio" value="Company">
+                            <label for="squaredThree2"></label>
+                        </div>
+                    </td>
+                    <td width="38%"><strong>To a Company Name</strong></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <div class="squaredThree">
+                            <input id="squaredThree3" name="PayeeType" type="radio" value="Personal" v-model="this.ToPersonal" v-bind:checked="this.ToPersonal" v-on:click="TogglePersonal()">
+                            <label for="squaredThree3"></label>
+                        </div>
+                    </td>
+                    <td><strong>To me Personally</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="companyDiv" v-show="this.ToCompany">
+        <input type="hidden" value="-1" id="hdnPayeeTypeCompany" name="hdnPayeeTypeCompany" />
+        <div id="boxborder">
+            <table width="100%" border="0">
+                <tr>
+                    <td width="35%" align="right"><strong>@Resources.Resource.PAYEE_CHECKPAYABLETO</strong></td>
+                    <td width="60%"><input type="text" class="form-control" /></td>
+                    <td width="5%" align="right"></td>
+                </tr>
+                <tr>
+                    <td height="26"></td>
+                    <td valign="top" style="text-align:center; font-size:10px; font-style:italic">PAYEE_COMPANY</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_REF_NUM</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_ADDR1</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td align="right"><span style="color:#9B2346">@Html.ValidationMessage("Address1")</span></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_ADDR2</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_ATTN_TO</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_CITY</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td align="right"><span style="color:#9B2346"></span></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_PROVINCE</strong></td>
+                    <td>
+                        <select class="form-control">
+                            <option value="value">text</option>
+                        </select>
+                    </td>
+                    <td align="right"><span style="color:#9B2346"></span></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_POSTAL</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td align="right"><span style="color:#9B2346"> </span></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_TAX</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td align="right"><span style="color:#9B2346"> </span></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_INS</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align:center; font-size:10px; font-style:italic">@Resources.Resource.PAYEE_IF_APLICABLE</td>
+                    <td></td>
+                </tr>
+            </table>
+            <br />
+            <div style=" border-top-width:thin; border-top-style:dashed; border-top-color:#666; padding-top:10px; text-align:right"><span style="color:#9B2346">*</span><strong>PAYEE_REQ</strong></div>
+        </div>
+    </div>
+    <div id="personalDiv" v-show="this.ToPersonal">
+        <input type="hidden" value="-1" id="hdnPayeeTypePersonal" name="hdnPayeeTypePersonal" />
+        <div style="display:none;">
+            <input type="text" class="form-control" />
+        </div>
+        <div id="boxborder">
+            <table width="100%" border="0">
+                <tr>
+                    <td width="35%" align="right"><strong>@Resources.Resource.PAYEE_CHECKPAYABLETO</strong></td>
+                    <td width="60%"><input type="text" class="form-control" /></td>
+                    <td width="5%" align="right"><span style="color:#9B2346"> </span></td>
+                </tr>
+                <tr>
+                    <td height="26"></td>
+                    <td valign="top" style="text-align:center; font-size:10px; font-style:italic">Salutation First Name Last Name</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_ADDR1</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td align="right"><span style="color:#9B2346"> </span></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_ADDR2</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_ATTN_TO</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_CITY</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td align="right"><span style="color:#9B2346"></span></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_PROVINCE</strong></td>
+                    <td>
+                        <select class="form-control">
+                            <option value="value">text</option>
+                        </select>
+                    </td>
+                    <td align="right"><span style="color:#9B2346"></span></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_POSTAL</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td align="right"><span style="color:#9B2346"></span></td>
+                </tr>
+                <tr>
+                    <td align="right"><strong>@Resources.Resource.PAYEE_INS</strong></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align:center; font-size:10px; font-style:italic">@Resources.Resource.PAYEE_IF_APLICABLE</td>
+                    <td></td>
+                </tr>
+            </table>
+            <br />
+            <div style=" border-top-width:thin; border-top-style:dashed; border-top-color:#666; padding-top:10px; text-align:right"><span style="color:#9B2346">*</span><strong>PAYEE_REQ</strong></div>
+        </div>
+    </div><!--end of boxborder-->
+    <div class="grow" style="text-align:right">
+        <input type="image" src="@Resources.Resource.BTN_SUBMIT_URL"  v-on:click="SavePayee()" />
+    </div>
+    <br /><br />
+</div>
+@*<style src="../Content/payee.css"></style>*@
+
+
+
+

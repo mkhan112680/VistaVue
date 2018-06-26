@@ -1,38 +1,62 @@
-﻿<script src="https://unpkg.com/vue@2.4.2"></script>
-<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-<div id="app">
-    <p>
-        <router-link to="/scooby">Scooby</router-link>
-        <router-link to="/shaggy">Shaggy</router-link>
-    </p>
+﻿<div>
+    @*<p>
+            <router-link to="/scooby">Scooby</router-link>
+            <router-link to="/shaggy">Shaggy</router-link>
+            <router-link to="/MOU">MOU</router-link>
+        </p>*@
     <router-view></router-view>
 </div>
 @section scripts{
-    <script>
-        $(document).ready(function () {
-            const Scooby = {
-                template: `
-                        <div>
-                          <h4>Scooby</h4>
-                          <p>
-                            <img src="https://www.wbkidsgo.com/Portals/4/Images/Content/Characters/Scooby/characterArt-scooby-SD.png" alt="scooby"/>
-                          </p>
-                        </div>`
-            }
-            const Shaggy = {
-                template: `
-                        <div class="character">
-                            <h4>Shaggy</h4>
-                          <p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/ShaggyRogers.png/150px-ShaggyRogers.png" alt="shaggy"/></p>
-                        </div>`
-            }
-            const router = new VueRouter({
-                routes: [
-                    { path: '/scooby', component: Scooby },
-                    { path: '/shaggy', component: Shaggy }
-                ]
-            });
-            const app = new Vue({ router: router }).$mount('#app');
-        });
-    </script>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.10/vue-resource.min.js"></script>
+    <script src="~/Scripts/router.js"></script>
 }
+
+@*@section scripts
+    {
+        <script type="text/javascript">
+            var DisplayResult = function (errored) {
+                $("#spanResult").html('');
+                if (errored) {
+                    $("#spanResult").html('Not Saved');
+                    //$("#spanResult").toggleClass('errorMssg');
+                    $("#spanResult").attr("class", "errorMssg");
+                }
+                else {
+                    $("#spanResult").html('Saved');
+                    //$("#spanResult").toggleClass('Mssg');
+                    $("#spanResult").attr("class", "Mssg");
+                    //update MOU tick on Layout Page
+
+                    if ($("#chkMOU")[0].checked)
+                        $("#imgMOU").prop("src", "../images/icon_check.png");
+                    else
+                        $("#imgMOU").prop("src", "../images/icon_x.png");
+                }
+            };
+
+            $(document).ready(function () {
+                var SubmitForm = function () {
+                    $.ajax({
+                        url: '/Physician/SetMOU',
+                        type: 'POST',
+                        data: { isChecked: $("#chkMOU")[0].checked },
+                        dataType: 'json',
+                        success: function (data) {
+
+                            //alert('Data: ' + data);
+                            DisplayResult(data.Result);
+                        },
+                        error: function (request, error) {
+
+                            //alert("Request: " + JSON.stringify(request));
+                            DisplayResult(data.Result);
+                        }
+                    });
+                }
+                $("#hlSubmit").click(SubmitForm);
+            });
+        </script>
+    }*@
+
