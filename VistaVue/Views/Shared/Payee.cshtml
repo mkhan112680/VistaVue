@@ -24,10 +24,18 @@
                 <tr>
                     <td width="55%"><strong>I request the cheque(s) to be issued as following:</strong></td>
                     <td width="7%">
+                        
                         <div class="squaredThree">
-                            <input data-val="true" data-val-required="The PayeeType field is required." id="squaredThree2"
-                                   v-bind:checked="this.ToCompany" v-model="this.ToCompany" v-on:click="ToggleCompany()"
-                                   name="PayeeType" type="radio" value="Company">
+                            <input @*data-val="true" 
+                                   data-val-required="The PayeeType field is required." 
+                                   *@
+                                   v-on:click="ToggleCompany()"
+                                   @*v-model="this.ToCompany"*@ 
+                                   v-bind:checked="this.ToCompany" 
+                                   id="squaredThree2"
+                                   name="PayeeType" 
+                                   type="radio" 
+                                   value="Company">
                             <label for="squaredThree2"></label>
                         </div>
                     </td>
@@ -37,7 +45,13 @@
                     <td>&nbsp;</td>
                     <td>
                         <div class="squaredThree">
-                            <input id="squaredThree3" name="PayeeType" type="radio" value="Personal" v-model="this.ToPersonal" v-bind:checked="this.ToPersonal" v-on:click="TogglePersonal()">
+                            <input id="squaredThree3" 
+                                   name="PayeeType" 
+                                   type="radio" 
+                                   value="Personal" 
+                                   @*v-model="this.ToCompany"*@ 
+                                   v-bind:checked="!this.ToCompany" 
+                                   v-on:click="TogglePersonal()">
                             <label for="squaredThree3"></label>
                         </div>
                     </td>
@@ -119,7 +133,7 @@
             <div style=" border-top-width:thin; border-top-style:dashed; border-top-color:#666; padding-top:10px; text-align:right"><span style="color:#9B2346">*</span><strong>PAYEE_REQ</strong></div>
         </div>
     </div>
-    <div id="personalDiv" v-show="this.ToPersonal">
+    <div id="personalDiv" v-show="!this.ToCompany">
         <input type="hidden" value="-1" id="hdnPayeeTypePersonal" name="hdnPayeeTypePersonal" />
         <div style="display:none;">
             <input type="text" class="form-control" />
@@ -186,11 +200,14 @@
         </div>
     </div><!--end of boxborder-->
     <div class="grow" style="text-align:right">
-        <input type="image" src="@Resources.Resource.BTN_SUBMIT_URL"  v-on:click="SavePayee()" />
+        <input type="image" id="btn-save-payee"
+               data-url='@Url.Action("SavePayee","Physician")'
+               src="@Resources.Resource.BTN_SUBMIT_URL"  v-on:click="SavePayee()" />
     </div>
     <br /><br />
 </div>
-@*<style src="../Content/payee.css"></style>*@
+
+
 
 
 

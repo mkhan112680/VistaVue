@@ -34,19 +34,26 @@
                 data: function () {
                     return {
                         ToCompany: true,
-                        ToPersonal: false,
                         TogglePersonal: function () {
-                            this.ToPersonal = !this.ToPersonal;
-                            this.ToCompany = !this.ToPersonal;
+                            this.ToCompany = !this.ToCompany;
                         },
                         ToggleCompany: function () {
                             this.ToCompany = !this.ToCompany;
-                            this.ToPersonal = !this.ToCompany;
                         },
                         SavePayee: function () {
 
                             //e.preventDefault();
-                            console.log('Saved');
+                            $.ajax({
+                                type: 'POST',
+                                url: $("#btn-save-payee").data("url"),
+                                data: {},
+                                success: function (data) {
+                                                                         console.log('Saved');                                 },
+                                error: function (jqXHR, textStatus, errorThrown) {
+
+                                    DisplayError(errorThrown);
+                                }
+                            });
                         }
                     }
                 },

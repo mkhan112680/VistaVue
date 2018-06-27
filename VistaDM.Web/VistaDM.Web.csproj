@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -713,6 +715,14 @@
     <ProjectReference Include="..\VistaDM.Data\VistaDM.Data.csproj">
       <Project>{65717aaf-e0a8-44da-b155-ef29afd55c36}</Project>
       <Name>VistaDM.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VistaDM.Domain\VistaDM.Domain.csproj">
+      <Project>{092e075a-00d6-49b4-a8ab-9cd037a8bd38}</Project>
+      <Name>VistaDM.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VistaDM.Repository\VistaDM.Repository.csproj">
+      <Project>{215e0d98-ed6c-4305-bb43-111f05a330d0}</Project>
+      <Name>VistaDM.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
