@@ -24,17 +24,17 @@
                 <tr>
                     <td width="55%"><strong>I request the cheque(s) to be issued as following:</strong></td>
                     <td width="7%">
-                        
+
                         <div class="squaredThree">
-                            <input @*data-val="true" 
-                                   data-val-required="The PayeeType field is required." 
+                            <input @*data-val="true"
+                                   data-val-required="The PayeeType field is required."
                                    *@
                                    v-on:click="ToggleCompany()"
-                                   @*v-model="this.ToCompany"*@ 
-                                   v-bind:checked="this.ToCompany" 
+                                   @*v-model="this.ToCompany"*@
+                                   v-bind:checked="this.ToCompany"
                                    id="squaredThree2"
-                                   name="PayeeType" 
-                                   type="radio" 
+                                   name="PayeeType"
+                                   type="radio"
                                    value="Company">
                             <label for="squaredThree2"></label>
                         </div>
@@ -45,12 +45,12 @@
                     <td>&nbsp;</td>
                     <td>
                         <div class="squaredThree">
-                            <input id="squaredThree3" 
-                                   name="PayeeType" 
-                                   type="radio" 
-                                   value="Personal" 
-                                   @*v-model="this.ToCompany"*@ 
-                                   v-bind:checked="!this.ToCompany" 
+                            <input id="squaredThree3"
+                                   name="PayeeType"
+                                   type="radio"
+                                   value="Personal"
+                                   @*v-model="this.ToCompany"*@
+                                   v-bind:checked="!this.ToCompany"
                                    v-on:click="TogglePersonal()">
                             <label for="squaredThree3"></label>
                         </div>
@@ -60,153 +60,162 @@
             </tbody>
         </table>
     </div>
-    <div id="companyDiv" v-show="this.ToCompany">
-        <input type="hidden" value="-1" id="hdnPayeeTypeCompany" name="hdnPayeeTypeCompany" />
-        <div id="boxborder">
-            <table width="100%" border="0">
-                <tr>
-                    <td width="35%" align="right"><strong>@Resources.Resource.PAYEE_CHECKPAYABLETO</strong></td>
-                    <td width="60%"><input type="text" class="form-control" /></td>
-                    <td width="5%" align="right"></td>
-                </tr>
-                <tr>
-                    <td height="26"></td>
-                    <td valign="top" style="text-align:center; font-size:10px; font-style:italic">PAYEE_COMPANY</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_REF_NUM</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_ADDR1</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td align="right"><span style="color:#9B2346">@Html.ValidationMessage("Address1")</span></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_ADDR2</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_ATTN_TO</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_CITY</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td align="right"><span style="color:#9B2346"></span></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_PROVINCE</strong></td>
-                    <td>
-                        <select class="form-control">
-                            <option value="value">text</option>
-                        </select>
-                    </td>
-                    <td align="right"><span style="color:#9B2346"></span></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_POSTAL</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td align="right"><span style="color:#9B2346"> </span></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_TAX</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td align="right"><span style="color:#9B2346"> </span></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_INS</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="text-align:center; font-size:10px; font-style:italic">@Resources.Resource.PAYEE_IF_APLICABLE</td>
-                    <td></td>
-                </tr>
-            </table>
-            <br />
-            <div style=" border-top-width:thin; border-top-style:dashed; border-top-color:#666; padding-top:10px; text-align:right"><span style="color:#9B2346">*</span><strong>PAYEE_REQ</strong></div>
+
+    <form id="form-payee-company">
+        <div id="companyDiv" v-show="this.ToCompany">
+            <input type="hidden" value="-1" id="hdnPayeeTypeCompany" name="hdnPayeeTypeCompany" />
+            <div id="boxborder">
+                <table width="100%" border="0">
+                    <tr>
+                        <td width="35%" align="right"><strong>@Resources.Resource.PAYEE_CHECKPAYABLETO</strong></td>
+                        <td width="60%"><input type="text" class="form-control" v-model="CheckPayableTo" /></td>
+                        <td width="5%" align="right"></td>
+                    </tr>
+                    <tr>
+                        <td height="26"></td>
+                        <td valign="top" style="text-align:center; font-size:10px; font-style:italic">PAYEE_COMPANY</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_REF_NUM</strong></td>
+                        <td><input type="text" class="form-control" v-model="InternalRefNumber"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_ADDR1</strong></td>
+                        <td><input type="text" class="form-control" v-model="Address1" /></td>
+                        <td align="right"><span style="color:#9B2346"></span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_ADDR2</strong></td>
+                        <td><input type="text" class="form-control" v-model="Address2" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_ATTN_TO</strong></td>
+                        <td><input type="text" class="form-control" v-model="AttentionTo" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_CITY</strong></td>
+                        <td><input type="text" class="form-control" v-model="City" /></td>
+                        <td align="right"><span style="color:#9B2346"></span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_PROVINCE</strong></td>
+                        <td>
+                            <select class="form-control">
+                                <option value="value">text</option>
+                            </select>
+                        </td>
+                        <td align="right"><span style="color:#9B2346"></span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_POSTAL</strong></td>
+                        <td><input type="text" class="form-control" v-model="PostalCode"/></td>
+                        <td align="right"><span style="color:#9B2346"> </span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_TAX</strong></td>
+                        <td><input type="text" class="form-control" v-model="TaxNumber"/></td>
+                        <td align="right"><span style="color:#9B2346"> </span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_INS</strong></td>
+                        <td><input type="text" class="form-control" v-model="Instructions"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align:center; font-size:10px; font-style:italic">@Resources.Resource.PAYEE_IF_APLICABLE</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <br />
+                <div style=" border-top-width:thin; border-top-style:dashed; border-top-color:#666; padding-top:10px; text-align:right"><span style="color:#9B2346">*</span><strong>PAYEE_REQ</strong></div>
+            </div>
+        </div>
+    </form>
+    @*<form id="form-payee-personal">
+        <div id="personalDiv" v-show="!this.ToCompany">
+            <input type="hidden" value="-1" id="hdnPayeeTypePersonal" name="hdnPayeeTypePersonal" />
+            <div style="display:none;">
+                <input type="text" class="form-control" />
+            </div>
+            <div id="boxborder">
+                <table width="100%" border="0">
+                    <tr>
+                        <td width="35%" align="right"><strong>@Resources.Resource.PAYEE_CHECKPAYABLETO</strong></td>
+                        <td width="60%"><input type="text" class="form-control" v-model="this.CheckPayableTo"/></td>
+                        <td width="5%" align="right"><span style="color:#9B2346"> </span></td>
+                    </tr>
+                    <tr>
+                        <td height="26"></td>
+                        <td valign="top" style="text-align:center; font-size:10px; font-style:italic">Salutation First Name Last Name</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_ADDR1</strong></td>
+                        <td><input type="text" class="form-control" v-model="this.Address1"/></td>
+                        <td align="right"><span style="color:#9B2346"> </span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_ADDR2</strong></td>
+                        <td><input type="text" class="form-control" v-model="this.Address2"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_ATTN_TO</strong></td>
+                        <td><input type="text" class="form-control" v-model="this.AttentionTo"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_CITY</strong></td>
+                        <td><input type="text" class="form-control" v-model="this.City"/></td>
+                        <td align="right"><span style="color:#9B2346"></span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_PROVINCE</strong></td>
+                        <td>
+                            <select class="form-control">
+                                <option value="value">text</option>
+                            </select>
+                        </td>
+                        <td align="right"><span style="color:#9B2346"></span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_POSTAL</strong></td>
+                        <td><input type="text" class="form-control" v-model="this.PostalCode"/></td>
+                        <td align="right"><span style="color:#9B2346"></span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><strong>@Resources.Resource.PAYEE_INS</strong></td>
+                        <td><input type="text" class="form-control"  v-model="this.Instructions"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align:center; font-size:10px; font-style:italic">@Resources.Resource.PAYEE_IF_APLICABLE</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <br />
+                <div style=" border-top-width:thin; border-top-style:dashed; border-top-color:#666; padding-top:10px; text-align:right"><span style="color:#9B2346">*</span><strong>PAYEE_REQ</strong></div>
+            </div>
+        </div>
+    </form>*@
+    <div class="row " style="color:green;">
+        <div style="text-align:center" v-model="Message">
+            {{this.Message}}
         </div>
     </div>
-    <div id="personalDiv" v-show="!this.ToCompany">
-        <input type="hidden" value="-1" id="hdnPayeeTypePersonal" name="hdnPayeeTypePersonal" />
-        <div style="display:none;">
-            <input type="text" class="form-control" />
-        </div>
-        <div id="boxborder">
-            <table width="100%" border="0">
-                <tr>
-                    <td width="35%" align="right"><strong>@Resources.Resource.PAYEE_CHECKPAYABLETO</strong></td>
-                    <td width="60%"><input type="text" class="form-control" /></td>
-                    <td width="5%" align="right"><span style="color:#9B2346"> </span></td>
-                </tr>
-                <tr>
-                    <td height="26"></td>
-                    <td valign="top" style="text-align:center; font-size:10px; font-style:italic">Salutation First Name Last Name</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_ADDR1</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td align="right"><span style="color:#9B2346"> </span></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_ADDR2</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_ATTN_TO</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_CITY</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td align="right"><span style="color:#9B2346"></span></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_PROVINCE</strong></td>
-                    <td>
-                        <select class="form-control">
-                            <option value="value">text</option>
-                        </select>
-                    </td>
-                    <td align="right"><span style="color:#9B2346"></span></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_POSTAL</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td align="right"><span style="color:#9B2346"></span></td>
-                </tr>
-                <tr>
-                    <td align="right"><strong>@Resources.Resource.PAYEE_INS</strong></td>
-                    <td><input type="text" class="form-control" /></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="text-align:center; font-size:10px; font-style:italic">@Resources.Resource.PAYEE_IF_APLICABLE</td>
-                    <td></td>
-                </tr>
-            </table>
-            <br />
-            <div style=" border-top-width:thin; border-top-style:dashed; border-top-color:#666; padding-top:10px; text-align:right"><span style="color:#9B2346">*</span><strong>PAYEE_REQ</strong></div>
-        </div>
-    </div><!--end of boxborder-->
     <div class="grow" style="text-align:right">
         <input type="image" id="btn-save-payee"
                data-url='@Url.Action("SavePayee","Physician")'
-               src="@Resources.Resource.BTN_SUBMIT_URL"  v-on:click="SavePayee()" />
+               src="@Resources.Resource.BTN_SUBMIT_URL" v-on:click="SavePayee()" />
     </div>
     <br /><br />
 </div>
-
 
 
 

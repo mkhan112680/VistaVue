@@ -7,7 +7,7 @@ using VistaVue.Models;
 
 namespace VistaVue.Controllers
 {
-    public class PhysicianController : Controller
+    public class PhysicianController : BaseController
     {
         public ActionResult MOU()
         {
@@ -18,41 +18,44 @@ namespace VistaVue.Controllers
         {
             return PartialView("Payee");
         }
-
+        [HttpPost]
         public ActionResult SavePayee(Payee payee)
         {
-            
-            //if (hdnPayeeTypeCompany == "1")
-            //    payee.PayeeType = PayeeType.Company;
+            bool errored = false;
+            string mssg = string.Empty;
 
-            //if (hdnPayeeTypePersonal == "1")
-            //    payee.PayeeType = PayeeType.Personal;
-
-            //payee.Provinces = VistaUser.Payee.Provinces;
-
-            //payee.UserID = VistaUser.ID;
-
-            //if (ModelState.IsValid)
-            //{
-
-            //    Entites.sp_UpdatePayee(
-            //                            payee.UserID,
-            //                            payee.CheckPayableTo,
-            //                            payee.InternalRefNumber,
-            //                            payee.Address1,
-            //                            payee.Address2,
-            //                            payee.AttentionTo,
-            //                            payee.City,
-            //                            payee.Province.ID,
-            //                            payee.PostalCode,
-            //                            payee.TaxNumber,
-            //                            payee.Instructions,
-            //                            (int)payee.PayeeType
-            //                        );
-
-            //}
-            //return Json(new { Data = null }, JsonRequestBehavior.AllowGet);
-            return Json(new { }, JsonRequestBehavior.AllowGet);
+            try
+            {
+                if (string.IsNullOrEmpty(payee.CheckPayableTo))
+                {
+                    errored = true;
+                    mssg = "Check PayableTo cannot be blank";
+                }
+                else
+                {
+                    Entites.sp_UpdatePayee(
+                                        payee.UserID,
+                                        payee.CheckPayableTo,
+                                        payee.InternalRefNumber,
+                                        payee.Address1,
+                                        payee.Address2,
+                                        payee.AttentionTo,
+                                        payee.City,
+                                        //payee.Province.ID,
+                                        1,
+                                        payee.PostalCode,
+                                        payee.TaxNumber,
+                                        payee.Instructions,
+                                        (int)payee.Payee_Type
+                                    );
+                }
+            }
+            catch (Exception exc)
+            {
+                errored = true;
+                mssg = exc.Message;
+            }
+            return Json(new {Message= mssg, Errored= errored }, JsonRequestBehavior.AllowGet);
         }
     }
 }
