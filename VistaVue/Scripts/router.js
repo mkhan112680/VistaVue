@@ -52,8 +52,17 @@
                             this.ToCompany = !this.ToCompany;
                         },
                         SavePayee: function () {
-                            var mssg = '';
-                            //e.preventDefault();
+                           // e.preventDefault();
+
+                            //Vue.http.get($("#btn-save-payee").data("url"), function (data, status, request) {
+                            //    //var parser = new DOMParser();
+                            //    //var doc = parser.parseFromString(data, "text/html");
+                            //    resolve({
+                            //        template: data
+                            //    });
+                            //});
+
+                            var vm = this;
                             $.ajax({
                                 type: 'POST',
                                 url: $("#btn-save-payee").data("url"),
@@ -73,7 +82,7 @@
                                    //Province_Company        : '',
                                 },
                                 success: function (data) {
-                                    this.Message = data.Message;                                     //this.$set('Message', data.Message);
+                                    vm.Message = data.Message;                                    // vm.$set('Message', data.Message);
                                     //alert(Message);                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {
 
