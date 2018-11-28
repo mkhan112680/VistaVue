@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaDM.Web", "VistaDM.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaVue", "VistaVue\VistaVue.csproj", "{B2BB76C7-1F0E-4CA1-95F1-216D244B2B03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaAngular", "VistaAngular\VistaAngular.csproj", "{E0CE5F4A-615D-46B2-938A-58D521DF7BD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B2BB76C7-1F0E-4CA1-95F1-216D244B2B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2BB76C7-1F0E-4CA1-95F1-216D244B2B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2BB76C7-1F0E-4CA1-95F1-216D244B2B03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0CE5F4A-615D-46B2-938A-58D521DF7BD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0CE5F4A-615D-46B2-938A-58D521DF7BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0CE5F4A-615D-46B2-938A-58D521DF7BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0CE5F4A-615D-46B2-938A-58D521DF7BD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

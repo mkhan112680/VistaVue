@@ -62,7 +62,7 @@
                             //    });
                             //});
 
-                            var vm = this;
+                            var vm = this; 
                             $.ajax({
                                 type: 'POST',
                                 url: $("#btn-save-payee").data("url"),
