@@ -17,6 +17,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaVue", "VistaVue\VistaV
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VistaAngular", "VistaAngular\VistaAngular.csproj", "{E0CE5F4A-615D-46B2-938A-58D521DF7BD4}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Ang", "Ang\", "{6B7114BC-7546-409D-8D15-148F2127BA41}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62277"
+		Debug.AspNetCompiler.PhysicalPath = "Ang\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62277\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62277"
+		Release.AspNetCompiler.PhysicalPath = "Ang\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62277\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62277"
+		SlnRelativePath = "Ang\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +72,10 @@ Global
 		{E0CE5F4A-615D-46B2-938A-58D521DF7BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0CE5F4A-615D-46B2-938A-58D521DF7BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0CE5F4A-615D-46B2-938A-58D521DF7BD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B7114BC-7546-409D-8D15-148F2127BA41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7114BC-7546-409D-8D15-148F2127BA41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B7114BC-7546-409D-8D15-148F2127BA41}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7114BC-7546-409D-8D15-148F2127BA41}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
