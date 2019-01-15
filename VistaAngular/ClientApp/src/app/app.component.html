@@ -1,17 +1,16 @@
-<div class='container-fluid'>
-  
+<div class='container-fluid  ' style="padding:0px;">
   <div class='row'>
-    <div class='col-sm-3'>
+    <div class='side-section'>
       <!--<app-nav-menu></app-nav-menu>-->
       <app-side-nav></app-side-nav>
     </div>
-    <div class='col-sm-9 body-content'>
+    <div class='body-content main-section'>
       <router-outlet></router-outlet>
     </div>
   </div>
   <div id="footer">
     <div id="centerbox">
-      <img src="../assets/images/chrc_logo.png" />
+      <img src="../assets/images/chrc_logo.png" id="footer-img" />
       <table width="70%" border="0" class="white" style="float:right">
         <tr>
           <td style="font-weight:700" valign="top">Lianne Goldin</td>
@@ -49,4 +48,42 @@
     </div>
   </div>
 </div>
+<style>
+  .side-section {
+    margin-left: 50px;
+  }
 
+  .main-section {
+    margin-left: 450px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .main-section {
+      margin-left: 0px;
+    }
+
+    #redbar {
+      /*margin-left: 15px;*/
+    }
+
+    .side-section {
+      display: none;
+    }
+
+    #leftbox {
+      display: none;
+    }
+
+    #burger-menu {
+      display: block;
+    }
+
+    .main-section {
+      padding: 30px;
+    }
+
+    #footer {
+      padding-bottom: 100px;
+    }
+  }
+</style>

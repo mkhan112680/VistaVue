@@ -10,7 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
-
+import { PayeeFormComponent } from './payee-form/payee-form.component';
+import { MouComponent } from './mou/mou.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     SideNavComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    PayeeFormComponent,
+    MouComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +32,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'payee-form', component: PayeeFormComponent },
+      { path: 'mou', component: MouComponent } 
     ])
   ],
   providers: [],

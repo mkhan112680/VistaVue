@@ -27,13 +27,21 @@
         </tr>
         <tr>
           <td align="right">
-            @Html.Partial("_Menu")
+            <div id="burger-menu" class="hide">
+              <ul>
+                <li>1</li>
+                <li>2</li>
+              </ul>
+            </div>
           </td>
         </tr>
       </table>
       <div style="clear:both"></div>
     </div><!--end of centerbox-->
-    <div id="redbar"><img src="../assets/images/redbar.png" /></div>
+    <div id="redbar">
+      <!--<div id="redbar_inner"></div>-->
+      <img src="../assets/images/redbar.png" style="width:100%;height:100px;" />
+    </div>
   </div>
   <app-root>Loading...</app-root>
 </body>
@@ -43,19 +51,16 @@
     html {
       font-family: 'Open Sans', sans-serif;
       background: url(../assets/assets/images/gray_background.jpg) no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
+      overflow-x:hidden;
     }
-
+    
     * {
       margin: 0;
       padding: 0;
     }
 
     #centerbox {
-      width: 1100px;
+      /*width: 1100px;*/
       margin-right: auto;
       margin-left: auto;
     }
@@ -66,26 +71,38 @@
       padding-top: 20px;
     }
 
-    #redbar {
-      background-image: url(../assets/images/redbar_sides.png);
+  #redbar {
+
+    /*margin-left: 15px;*/
+
+    background-image: url(../assets/images/redbar_sides.png);
+    background-repeat: repeat-x;
+    width: 100%;
+    text-align: center;
+  }
+    #burger-menu {
+      display: none;
+    }
+    #redbar_inner {
+      /*background-image: url(../assets/images/redbar.png);
       background-repeat: repeat-x;
       width: 100%;
-      text-align: center;
+      text-align: center;*/
     }
 
-    #maincontent {
-      width: 1100px;
-      margin-right: auto;
-      margin-left: auto;
-      border-right-width: thin;
-      border-left-width: thin;
-      border-right-style: solid;
-      border-left-style: solid;
-      border-right-color: #CCC;
-      border-left-color: #CCC;
-      box-shadow: 0px 5px 10px #CCC;
-      background-color: #FFF;
-    }
+  #maincontent {
+    width: 1100px;
+    margin-right: auto;
+    margin-left: auto;
+    border-right-width: thin;
+    border-left-width: thin;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-right-color: #CCC;
+    border-left-color: #CCC;
+    box-shadow: 0px 5px 10px #CCC;
+    background-color: #FFF;
+  }
 
     #leftbox {
       margin: 10px;
@@ -736,7 +753,7 @@
       }
     }
 
-
+  
     /* Modal popup */
 
 </style>
